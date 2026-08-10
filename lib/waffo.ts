@@ -17,8 +17,11 @@ function required(name: string) {
   return value;
 }
 
-function environment() {
-  return String(process.env.WAFFO_ENVIRONMENT ?? "test") === "prod" ? "prod" : "test";
+export function waffoEnvironment() {
+  const configured = String(process.env.WAFFO_ENVIRONMENT ?? "").trim().toLowerCase();
+  if (configured === "test") return "test";
+  if (configured === "prod") return "prod";
+  return process.env.NODE_ENV === "production" ? "prod" : "test";
 }
 
 function publicBaseUrl() {
@@ -70,13 +73,14 @@ export function waffoIsConfigured() {
 
 export async function createWaffoCheckout(input: { reportId: string; intentId: string; buyerEmail: string }) {
   try {
+    const productId = required("WAFFO_DEEP_GROWTH_REPORT_PRODUCT_ID");
     return await client().checkout.createSession({
-      productId: required("WAFFO_DEEP_GROWTH_REPORT_PRODUCT_ID"),
+      productId,
       currency: "USD",
       buyerEmail: input.buyerEmail,
       successUrl: `${publicBaseUrl()}/report/${encodeURIComponent(input.reportId)}?payment=success&intent=${encodeURIComponent(input.intentId)}`,
       orderMerchantExternalId: input.intentId,
-      metadata: { paymentIntentId: input.intentId, reportId: input.reportId, product: "deep-growth-report" },
+      metadata: { paymentIntentId: input.intentId, reportId: input.reportId, product: "deep-growth-report", productId },
       language: "en",
       darkMode: false,
     });
@@ -89,7 +93,7 @@ export async function createWaffoCheckout(input: { reportId: string; intentId: s
 export function verifyWaffoWebhook<T = Record<string, unknown>>(body: string, signature: string | null) {
   if (!signature) throw new WaffoError("Missing Waffo webhook signature", 400);
   try {
-    return verifyWebhook<T>(body, signature, { environment: environment() });
+    return verifyWebhook<T>(body, signature, { environment: waffoEnvironment() });
   } catch (error) {
     throw new WaffoError(error instanceof Error ? error.message : "Invalid Waffo webhook", 400);
   }
@@ -105,6 +109,13 @@ export function signWaffoResponse(body: string) {
 export type WaffoWebhookEvent = WebhookEvent<{
   orderId?: string;
   orderStatus?: string;
+  buyerEmail?: string;
+  currency?: string;
+  amount?: string;
+  subtotal?: string;
+  total?: string;
+  productName?: string;
+  productMetadata?: Record<string, string>;
   orderMerchantExternalId?: string;
   orderMetadata?: Record<string, string>;
   paymentStatus?: string;

@@ -38,6 +38,13 @@ type PublicReport = {
   issues: ReportIssue[];
 };
 
+type DeepReport = {
+  executiveSummary: string;
+  heroRewrite: { before: string; after: string };
+  ctaRewrite: { before: string; after: string };
+  actionPlan: Array<{ week: number; focus: string; action: string; evidence: string }>;
+};
+
 export default function ReportClient({ report }: { report: PublicReport }) {
   const searchParams = useSearchParams();
   const [email, setEmail] = useState("");
@@ -45,6 +52,7 @@ export default function ReportClient({ report }: { report: PublicReport }) {
   const [upgradeMessage, setUpgradeMessage] = useState("");
   const [upgradeError, setUpgradeError] = useState("");
   const [paymentStatus, setPaymentStatus] = useState<"pending" | "paid" | "failed" | null>(null);
+  const [deepReport, setDeepReport] = useState<DeepReport | null>(null);
   const intentId = searchParams.get("intent");
   const paymentReturned = searchParams.get("payment") === "success";
 
@@ -56,10 +64,11 @@ export default function ReportClient({ report }: { report: PublicReport }) {
     async function checkPayment() {
       const response = await fetch(`/api/payments/${encodeURIComponent(paymentIntentId)}`, { cache: "no-store" });
       if (!response.ok || cancelled) return;
-      const body = await response.json() as { status?: "pending" | "paid" | "failed" };
+      const body = await response.json() as { status?: "pending" | "paid" | "failed"; deepReport?: DeepReport | null };
       if (body.status) setPaymentStatus(body.status);
+      if (body.deepReport) setDeepReport(body.deepReport);
       attempts += 1;
-      if (body.status === "pending" && attempts < 5) window.setTimeout(checkPayment, 1000);
+      if ((body.status === "pending" || (body.status === "paid" && !body.deepReport)) && attempts < 10) window.setTimeout(checkPayment, 1000);
     }
     void checkPayment();
     return () => { cancelled = true; };
@@ -97,7 +106,41 @@ export default function ReportClient({ report }: { report: PublicReport }) {
         <span className="report-nav-label">GROWTH REPORT / {report.host}</span>
       </nav>
 
-      {paymentReturned ? <div className={`payment-banner shell payment-${paymentStatus ?? "pending"}`} role="status">{paymentStatus === "paid" ? "Payment confirmed. Your deep report is now in the review queue." : paymentStatus === "failed" ? "Payment was not confirmed. Please contact support before trying again." : "The payment return has been received. We are waiting for confirmation."}</div> : null}
+      {paymentReturned ? <div className={`payment-banner shell payment-${paymentStatus ?? "pending"}`} role="status">{paymentStatus === "paid" ? "Payment confirmed. Your deep report is unlocked below." : paymentStatus === "failed" ? "Payment was not confirmed. Please contact support before trying again." : "The payment return has been received. We are waiting for confirmation."}</div> : null}
+
+      {deepReport ? (
+        <section className="deep-report shell" aria-labelledby="deep-report-title">
+          <div className="deep-report-heading">
+            <p className="eyebrow">PAID DEEP REPORT</p>
+            <h2 id="deep-report-title">A clearer first move for <em>this page.</em></h2>
+            <p>{deepReport.executiveSummary}.</p>
+          </div>
+          <div className="deep-report-rewrites">
+            <article>
+              <span>Hero direction</span>
+              <p className="rewrite-before">{deepReport.heroRewrite.before}</p>
+              <strong>{deepReport.heroRewrite.after}</strong>
+            </article>
+            <article>
+              <span>CTA direction</span>
+              <p className="rewrite-before">{deepReport.ctaRewrite.before}</p>
+              <strong>{deepReport.ctaRewrite.after}</strong>
+            </article>
+          </div>
+          <ol className="deep-report-plan">
+            {deepReport.actionPlan.map((item) => (
+              <li key={`${item.week}-${item.focus}`}>
+                <span>WEEK 0{item.week}</span>
+                <div>
+                  <strong>{item.focus}</strong>
+                  <p>{item.action}</p>
+                  <small>Evidence: {item.evidence}</small>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </section>
+      ) : null}
 
       <section className="report-header shell">
         <div>
@@ -182,17 +225,17 @@ export default function ReportClient({ report }: { report: PublicReport }) {
         </div>
         <form className="upgrade-card" onSubmit={requestDeepReport}>
           <div className="upgrade-price"><span>DEEP GROWTH REPORT</span><strong>$29</strong></div>
-          <p>One homepage and one prioritized diagnosis, delivered within 24 hours after secure payment.</p>
-          <label htmlFor="email">Where should we send it?</label>
+          <p>One homepage and one prioritized diagnosis, unlocked on this page after secure payment.</p>
+          <label htmlFor="email">Email for checkout</label>
           <input id="email" type="email" placeholder="you@company.com" value={email} onChange={(event) => setEmail(event.target.value)} required disabled={isSubmitting} />
           <button type="submit" disabled={isSubmitting}>{isSubmitting ? "Opening checkout…" : "Pay $29 and continue ↗"}</button>
           {upgradeMessage ? <p className="form-success" role="status">{upgradeMessage}</p> : null}
           {upgradeError ? <p className="form-error" role="alert">{upgradeError}</p> : null}
-          <small>The report uses page-specific evidence and gives you a next move. It does not promise a conversion rate.</small>
+          <small>Your paid report opens on this page. It uses page-specific evidence and does not promise a conversion rate.</small>
         </form>
       </section>
 
-      <footer className="footer shell"><Link className="wordmark" href="/"><span className="wordmark-mark">S</span><span>SiteLens</span></Link><span>Report ID / {report.id}</span></footer>
+      <footer className="footer shell"><Link className="wordmark" href="/"><span className="wordmark-mark">S</span><span>SiteLens</span></Link><span>Report ID / {report.id} · <Link href="/privacy">Privacy</Link> · <Link href="/terms">Terms</Link></span></footer>
     </main>
   );
 }

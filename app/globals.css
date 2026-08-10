@@ -247,3 +247,33 @@ h1 em, h2 em { color: var(--accent); font-family: inherit; font-style: italic; f
   html { scroll-behavior: auto; }
   .input-row button, .nav-cta, .text-link, .upgrade-card button { transition: none; }
 }
+
+.deep-report { display: grid; grid-template-columns: 0.78fr 1.22fr; gap: 62px; margin-top: 58px; padding: 38px 0 52px; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line); }
+.deep-report-heading h2 { margin: 16px 0 18px; font-size: clamp(38px, 4.5vw, 59px); letter-spacing: -0.09em; line-height: 0.96; }
+.deep-report-heading > p:not(.eyebrow) { max-width: 390px; margin: 0; color: var(--ink-soft); font-size: 15px; line-height: 1.55; }
+.deep-report-rewrites { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.deep-report-rewrites article { padding: 18px; background: var(--panel); color: var(--panel-ink); }
+.deep-report-rewrites span, .deep-report-plan > li > span { color: var(--ink-soft); font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; }
+.deep-report-rewrites article > span { color: color-mix(in srgb, var(--panel-ink) 62%, transparent); }
+.deep-report-rewrites p { min-height: 53px; margin: 18px 0 22px; color: color-mix(in srgb, var(--panel-ink) 58%, transparent); font-size: 13px; line-height: 1.45; }
+.deep-report-rewrites .rewrite-before { text-decoration: line-through; }
+.deep-report-rewrites strong { display: block; color: var(--accent); font-size: 15px; line-height: 1.35; }
+.deep-report-plan { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 0; padding: 30px 0 0; list-style: none; border-top: 1px solid var(--line); }
+.deep-report-plan > li { display: grid; grid-template-columns: 52px 1fr; gap: 13px; padding-top: 4px; border-right: 1px solid var(--line); }
+.deep-report-plan > li:last-child { border-right: 0; }
+.deep-report-plan strong { display: block; margin-bottom: 10px; font-size: 16px; }
+.deep-report-plan p { margin: 0 16px 12px 0; color: var(--ink-soft); font-size: 13px; line-height: 1.45; }
+.deep-report-plan small { display: block; margin-right: 16px; color: var(--ink-soft); font-size: 10px; line-height: 1.45; }
+.legal-page { min-height: 100vh; }
+.legal-copy { max-width: 720px; padding: 100px 0 120px; }
+.legal-copy h1 { max-width: 720px; margin: 18px 0 22px; font-size: clamp(48px, 7vw, 82px); letter-spacing: -0.1em; line-height: 0.93; }
+.legal-copy h2 { margin: 48px 0 12px; font-size: 25px; letter-spacing: -0.05em; }
+.legal-copy p { max-width: 650px; color: var(--ink-soft); font-size: 16px; line-height: 1.65; }
+.legal-copy .legal-updated { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; }
+
+@media (max-width: 760px) {
+  .deep-report { grid-template-columns: 1fr; gap: 35px; margin-top: 42px; padding-top: 30px; }
+  .deep-report-rewrites, .deep-report-plan { grid-template-columns: 1fr; }
+  .deep-report-plan { gap: 22px; }
+  .deep-report-plan > li { border-right: 0; }
+}

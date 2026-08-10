@@ -10,11 +10,11 @@ function cleanText(value: string) {
 }
 
 function firstMatch(html: string, expression: RegExp) {
-  return cleanText(html.match(expression)?.[1] ?? "");
+  return cleanText(html.match(expression)?.[1] ?? "").slice(0, 500);
 }
 
 function allMatches(html: string, expression: RegExp) {
-  return [...html.matchAll(expression)].map((match) => cleanText(match[1] ?? "")).filter(Boolean);
+  return [...html.matchAll(expression)].map((match) => cleanText(match[1] ?? "").slice(0, 500)).filter(Boolean);
 }
 
 function collectSnapshot(html: string): WebsiteSnapshot {
@@ -210,7 +210,7 @@ export async function analyzeWebsite({ url, html, product, audience }: { url: st
   const score = Math.max(18, Math.min(96, 100 - issues.reduce((total, issue) => total + ({ high: 25, medium: 13, low: 6 }[issue.severity]), 0) - (snapshot.textLength < 160 ? 8 : 0)));
   const primary = issues[0];
   const report: FullReport = {
-    id: crypto.randomUUID().slice(0, 8),
+    id: crypto.randomUUID(),
     url,
     host: new URL(url).hostname.replace(/^www\./, ""),
     createdAt: new Date().toISOString(),

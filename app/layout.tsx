@@ -4,8 +4,10 @@ import "@fontsource-variable/geist-mono";
 import "./globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ? new URL(process.env.NEXT_PUBLIC_SITE_URL) : undefined;
-const gaMeasurementId = process.env.GA_MEASUREMENT_ID?.match(/^G-[A-Z0-9]+$/)?.[0];
-const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION?.match(/^[A-Za-z0-9_-]+$/)?.[0];
+const productionGaMeasurementId = "G-YNQ8J06W7D";
+const productionGoogleSiteVerification = "G0fGVxpzCXqA8jnCV35SO76-hjApPFKsSOXbZCdNQVc";
+const gaMeasurementId = process.env.GA_MEASUREMENT_ID?.match(/^G-[A-Z0-9]+$/)?.[0] ?? (process.env.NODE_ENV === "production" ? productionGaMeasurementId : undefined);
+const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION?.match(/^[A-Za-z0-9_-]+$/)?.[0] ?? (process.env.NODE_ENV === "production" ? productionGoogleSiteVerification : undefined);
 
 export const metadata: Metadata = {
   metadataBase: siteUrl,

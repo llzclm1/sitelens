@@ -1,13 +1,23 @@
 import { NextResponse } from "next/server";
 import { analyzeWebsite } from "@/lib/analyzer";
 import { fetchWebsite, normalizeUrl } from "@/lib/fetch-website";
+import { readJsonBody, RequestError } from "@/lib/request";
+import { enforceRateLimit } from "@/lib/rate-limit";
 import { saveReport, toPublicReport } from "@/lib/store";
 
 export const runtime = "nodejs";
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json() as { url?: unknown; product?: unknown; audience?: unknown };
+    const rate = await enforceRateLimit(request, "analyze", 5);
+    if (!rate.allowed) {
+      return NextResponse.json(
+        { error: "Too many analyses from this network. Try again shortly." },
+        { status: 429, headers: { "retry-after": String(rate.retryAfter) } },
+      );
+    }
+
+    const body = await readJsonBody<{ url?: unknown; product?: unknown; audience?: unknown }>(request);
     const url = normalizeUrl(typeof body.url === "string" ? body.url : "");
     const product = typeof body.product === "string" ? body.product.trim().slice(0, 300) : "";
     const audience = typeof body.audience === "string" ? body.audience.trim().slice(0, 200) : "";
@@ -23,6 +33,6 @@ export async function POST(request: Request) {
     return NextResponse.json(toPublicReport(report), { status: 201 });
   } catch (error) {
     const message = error instanceof Error ? error.message : "The page could not be analyzed.";
-    return NextResponse.json({ error: message }, { status: 400 });
+    return NextResponse.json({ error: message }, { status: error instanceof RequestError ? error.status : 400 });
   }
 }

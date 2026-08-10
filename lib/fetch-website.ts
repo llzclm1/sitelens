@@ -5,24 +5,59 @@ const MAX_REDIRECTS = 3;
 const MAX_HTML_BYTES = 600_000;
 const FETCH_TIMEOUT_MS = 12_000;
 
+function isPrivateIpv4(address: string) {
+  const octets = address.split(".").map(Number);
+  const [first, second] = octets;
+  return (
+    first === 0 ||
+    first === 10 ||
+    first === 127 ||
+    (first === 169 && second === 254) ||
+    (first === 172 && second >= 16 && second <= 31) ||
+    (first === 192 && (second === 0 || second === 168)) ||
+    (first === 198 && (second === 18 || second === 19 || second === 51)) ||
+    (first === 100 && second >= 64 && second <= 127) ||
+    (first === 203 && second === 0) ||
+    first >= 224
+  );
+}
+
+function parseIpv6(address: string) {
+  const clean = address.split("%")[0].toLowerCase();
+  if (clean.startsWith("::ffff:") && clean.slice(7).includes(".")) return undefined;
+  const sides = clean.split("::");
+  if (sides.length > 2) return undefined;
+  const left = sides[0] ? sides[0].split(":").map((part) => Number.parseInt(part || "0", 16)) : [];
+  const right = sides.length === 2 && sides[1] ? sides[1].split(":").map((part) => Number.parseInt(part || "0", 16)) : [];
+  if (left.some((part, index) => !/^[0-9a-f]{1,4}$/i.test(sides[0]?.split(":")[index] ?? "") || !Number.isInteger(part) || part < 0 || part > 0xffff) || right.some((part, index) => !/^[0-9a-f]{1,4}$/i.test(sides[1]?.split(":")[index] ?? "") || !Number.isInteger(part) || part < 0 || part > 0xffff)) return undefined;
+  if (sides.length === 1 && left.length !== 8) return undefined;
+  const missing = 8 - left.length - right.length;
+  if (missing < 0 || (sides.length === 2 && missing === 0)) return undefined;
+  return [...left, ...(sides.length === 2 ? Array.from({ length: missing }, () => 0) : []), ...right];
+}
+
 function isPrivateIp(address: string) {
   if (net.isIPv4(address)) {
-    const octets = address.split(".").map(Number);
-    const [first, second] = octets;
-    return (
-      first === 10 ||
-      first === 127 ||
-      (first === 169 && second === 254) ||
-      (first === 172 && second >= 16 && second <= 31) ||
-      (first === 192 && second === 168) ||
-      (first === 100 && second >= 64 && second <= 127) ||
-      address === "0.0.0.0"
-    );
+    return isPrivateIpv4(address);
   }
 
-  const normalized = address.toLowerCase();
-  if (normalized.startsWith("::ffff:")) return isPrivateIp(normalized.slice(7));
-  return normalized === "::1" || normalized === "::" || normalized.startsWith("fc") || normalized.startsWith("fd") || normalized.startsWith("fe8") || normalized.startsWith("fe9") || normalized.startsWith("fea") || normalized.startsWith("feb");
+  if (address.toLowerCase().startsWith("::ffff:") && address.slice(7).includes(".")) return isPrivateIpv4(address.slice(7));
+
+  const parts = parseIpv6(address);
+  if (!parts) return false;
+  const [first, second] = parts;
+  const isMappedIpv4 = first === 0 && parts[1] === 0 && parts[2] === 0 && parts[3] === 0 && parts[4] === 0 && parts[5] === 0xffff;
+  if (isMappedIpv4) {
+    const mapped = `${parts[6] >> 8}.${parts[6] & 0xff}.${parts[7] >> 8}.${parts[7] & 0xff}`;
+    return isPrivateIpv4(mapped);
+  }
+
+  return (
+    (first & 0xfe00) === 0xfc00 ||
+    (first & 0xffc0) === 0xfe80 ||
+    (first & 0xff00) === 0xff00 ||
+    (first === 0 && second === 0)
+  );
 }
 
 async function assertSafeUrl(value: string) {
@@ -31,7 +66,7 @@ async function assertSafeUrl(value: string) {
   if (parsed.username || parsed.password) throw new Error("URLs with usernames or passwords are not supported.");
 
   const hostname = parsed.hostname.replace(/^\[|\]$/g, '').toLowerCase();
-  if (hostname === "localhost" || hostname.endsWith(".local") || hostname.endsWith(".internal")) {
+  if (hostname === "localhost" || hostname.endsWith(".localhost") || hostname.endsWith(".local") || hostname.endsWith(".internal")) {
     throw new Error("Private or local websites are not supported.");
   }
 

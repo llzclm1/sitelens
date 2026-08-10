@@ -29,3 +29,8 @@
 - 创建 SiteLens GA4 媒体资源和网站数据流，衡量 ID 为 `G-YNQ8J06W7D`；首页加入 GA4 代码，增强型衡量在 GA4 中保持开启。
 - 创建并完成 `https://sitelens.win/` 的 Google Search Console HTML 标记验证；发布 `robots.txt` 和静态 `sitemap.xml`，并在 Search Console 提交 sitemap。
 - 修复 OpenNext 生产首页未输出 GA4/GSC 标签及 sitemap 404 的问题：改用 layout 原生 head 标签和 `public/sitemap.xml`；类型检查、OpenNext 构建通过，Cloudflare Worker 版本 `6a2d9d81-4d68-4819-bcd9-e3245e621041` 已发布。
+- 对抗式检查发现公开分析接口缺少限流、付款环境仍为 test、付款后没有深度报告交付、构建变量可能回退以及缺少安全头；本轮逐项修复。
+- 新增 `0002_hardening.sql`，远程 D1 已创建 `rate_limit_counters` 和 `deep_reports`；分析/升级请求增加 32 KB body 上限和 D1 IP 限流。
+- 加强 URL 私网/保留网段/IPv6 检查；新增 HSTS、CSP、X-Frame-Options、nosniff、Referrer-Policy 和 Permissions-Policy。
+- Waffo 配置切换为 `prod`；webhook 增加环境、订单元数据、报告归属、USD $29、买家邮箱校验，并在已付款后生成站内 Deep Report。真实商户凭证仍待用户配置。
+- 新增 `/privacy`、`/terms`，报告 ID 改为完整 UUID；线上发布并验证安全头、sitemap、GA4/GSC 标签和隐私页。

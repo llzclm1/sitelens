@@ -23,9 +23,11 @@ interface Fetcher {
 interface __BaseEnv_CloudflareEnv {
   DB: D1Database;
   ASSETS: Fetcher;
-  WAFFO_ENVIRONMENT: "test";
+  WAFFO_ENVIRONMENT: "prod";
   WAFFO_RETURN_BASE_URL: "https://sitelens.win";
   NEXT_PUBLIC_SITE_URL: "https://sitelens.win";
+  GA_MEASUREMENT_ID: "G-YNQ8J06W7D";
+  GOOGLE_SITE_VERIFICATION: "G0fGVxpzCXqA8jnCV35SO76-hjApPFKsSOXbZCdNQVc";
 }
 
 declare namespace Cloudflare {
@@ -43,5 +45,5 @@ type StringifyValues<EnvType extends Record<string, unknown>> = {
 };
 
 declare namespace NodeJS {
-  interface ProcessEnv extends StringifyValues<Pick<Cloudflare.Env, "WAFFO_ENVIRONMENT" | "WAFFO_RETURN_BASE_URL" | "NEXT_PUBLIC_SITE_URL">> {}
+interface ProcessEnv extends StringifyValues<Pick<Cloudflare.Env, "WAFFO_ENVIRONMENT" | "WAFFO_RETURN_BASE_URL" | "NEXT_PUBLIC_SITE_URL" | "GA_MEASUREMENT_ID" | "GOOGLE_SITE_VERIFICATION">> {}
 }

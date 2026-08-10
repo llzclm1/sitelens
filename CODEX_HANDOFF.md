@@ -28,7 +28,10 @@
 - 部署环境已写入非敏感变量：`WAFFO_ENVIRONMENT=test`、`WAFFO_RETURN_BASE_URL`、`NEXT_PUBLIC_SITE_URL`。
 - 已创建 SiteLens GA4 媒体资源和网站数据流，衡量 ID 为 `G-YNQ8J06W7D`，增强型衡量已开启；线上首页已输出 GA4 代码。
 - 已创建并验证 Google Search Console URL 前缀资源 `https://sitelens.win/`；`robots.txt` 和 `sitemap.xml` 已上线，sitemap 已提交。
-- Waffo 商户 ID、私钥、商品 ID、Webhook 公钥尚未配置，因此真实升级付款仍不可用。
+- 已为分析、升级和 webhook 增加请求体上限；分析和升级按 Cloudflare IP 使用 D1 计数限流，并补充保守的私网、保留地址和 IPv6 SSRF 拦截。
+- 已加入安全响应头、隐私页和条款页；报告 ID 改为完整 UUID，避免短 ID 碰撞和枚举风险。
+- 已加入 `deep_reports` 交付表：签名、环境、金额、币种、产品元数据和报告归属校验通过后，付款 webhook 会生成可在原报告页解锁的深度报告。
+- Waffo 部署环境已切换为 `prod`，但商户 ID、私钥、`$29` 商品 ID、Webhook 公钥尚未配置，因此真实升级付款仍不可用；配置前不会伪装成可付款。
 
 ## 已验证
 
@@ -44,6 +47,7 @@
 - 信任体系更新后已验证首页、`/teardowns`、`/teardowns/stripe/` 和已有报告接口返回 200；公开报告现包含问题影响、页面证据、修复建议和改写方向。
 - 文案更新后已重新完成类型检查、OpenNext 生产构建，并验证线上首页、Stripe Teardown 和已有报告接口返回 200。
 - GA4/GSC 接入后已完成类型检查、OpenNext 生产构建和 Cloudflare 发布；线上首页含 GA4 衡量代码及 GSC 验证标签，`robots.txt` 与 `sitemap.xml` 返回 200。
+- 对抗式修复后已完成远程 D1 `0002_hardening.sql` 迁移、类型检查、OpenNext 生产构建和 Cloudflare 发布；线上响应包含 HSTS、CSP、X-Frame-Options、nosniff 等安全头。
 
 ## 下一步
 
@@ -57,6 +61,7 @@
 6. 接入真实支付后再扩大流量。
 7. 为公开 Teardown 增加受控截图和页面快照存档，再扩展更多真实案例。
 8. 等待 Search Console 完成 sitemap 首次抓取，并在 GA4 数据流开始接收数据后检查实时报告。
+9. 在 Waffo 创建并配置生产 `$29` 商品、商户凭证和 webhook 公钥后，完成一次真实支付回归；当前代码只完成订单校验和站内深度报告交付。
 
 在出现真实购买、确认主 ICP 和确认视觉方案前，不开始完整产品开发。
 

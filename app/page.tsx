@@ -257,7 +257,7 @@ export default function HomePage() {
 
       <footer className="footer shell">
         <span className="wordmark"><span className="wordmark-mark">S</span><span>SiteLens</span></span>
-        <span>Reviews based on the page itself.</span>
+        <span>Reviews based on the page itself. · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
       </footer>
     </main>
   );

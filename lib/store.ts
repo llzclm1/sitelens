@@ -1,5 +1,6 @@
 import { getCloudflareContext } from "@opennextjs/cloudflare";
-import type { FullReport, PublicReport } from "@/lib/types";
+import { buildDeepReport } from "@/lib/deep-report";
+import type { DeepReport, FullReport, PublicReport } from "@/lib/types";
 
 type UpgradeRequest = { reportId: string; email: string; createdAt: string };
 export type PaymentIntent = {
@@ -34,12 +35,16 @@ type PaymentIntentRow = {
   paid_at: string | null;
   failure_reason: string | null;
 };
+type DeepReportRow = { id: string; payment_intent_id: string; report_id: string; payload: string; created_at: string };
 
-const globalStore = globalThis as typeof globalThis & { __sitelensStore?: MemoryStore };
+const globalStore = globalThis as typeof globalThis & {
+  __sitelensStore?: MemoryStore;
+  __sitelensDeepReports?: Map<string, DeepReport>;
+};
 const memoryStore: MemoryStore = globalStore.__sitelensStore ?? { reports: new Map(), upgrades: [], paymentIntents: new Map() };
 globalStore.__sitelensStore = memoryStore;
 
-async function getDatabase(): Promise<D1Database | undefined> {
+export async function getDatabase(): Promise<D1Database | undefined> {
   try {
     const database = (await getCloudflareContext({ async: true })).env.DB;
     if (database) return database;
@@ -170,6 +175,7 @@ export async function markPaymentIntentFailed(id: string, failureReason: string)
 export async function markPaymentIntentPaid(input: { intentId: string; eventId: string; orderId: string }) {
   const existing = await getPaymentIntent(input.intentId);
   if (!existing) return undefined;
+  if (existing.status === "paid") return existing;
 
   const paidAt = new Date().toISOString();
   const paid = { ...existing, status: "paid" as const, providerEventId: input.eventId, providerOrderId: input.orderId, paidAt };
@@ -184,6 +190,52 @@ export async function markPaymentIntentPaid(input: { intentId: string; eventId: 
 
   memoryStore.paymentIntents.set(input.intentId, paid);
   return paid;
+}
+
+export async function saveDeepReport(deepReport: DeepReport) {
+  const database = await getDatabase();
+  if (database) {
+    await database
+      .prepare("INSERT OR IGNORE INTO deep_reports (id, payment_intent_id, report_id, payload, created_at) VALUES (?, ?, ?, ?, ?)")
+      .bind(deepReport.id, deepReport.paymentIntentId, deepReport.reportId, JSON.stringify(deepReport), deepReport.createdAt)
+      .run();
+    return;
+  }
+
+  const memoryKey = `deep:${deepReport.paymentIntentId}`;
+  const memoryDeepReports = globalStore.__sitelensDeepReports ?? new Map<string, DeepReport>();
+  globalStore.__sitelensDeepReports = memoryDeepReports;
+  if (!memoryDeepReports.has(memoryKey)) memoryDeepReports.set(memoryKey, deepReport);
+}
+
+export async function getDeepReportForPayment(paymentIntentId: string) {
+  const database = await getDatabase();
+  if (database) {
+    const row = await database.prepare("SELECT * FROM deep_reports WHERE payment_intent_id = ?").bind(paymentIntentId).first<DeepReportRow>();
+    if (!row) return undefined;
+    try {
+      return JSON.parse(row.payload) as DeepReport;
+    } catch {
+      return undefined;
+    }
+  }
+
+  const memoryDeepReports = globalStore.__sitelensDeepReports as Map<string, DeepReport> | undefined;
+  return memoryDeepReports?.get(`deep:${paymentIntentId}`);
+}
+
+export async function createDeepReportForPayment(paymentIntentId: string) {
+  const existing = await getDeepReportForPayment(paymentIntentId);
+  if (existing) return existing;
+
+  const intent = await getPaymentIntent(paymentIntentId);
+  if (!intent || intent.status !== "paid") return undefined;
+  const report = await getReport(intent.reportId);
+  if (!report) return undefined;
+
+  const deepReport = buildDeepReport(report, paymentIntentId);
+  await saveDeepReport(deepReport);
+  return deepReport;
 }
 
 export async function getPaymentIntent(id: string) {

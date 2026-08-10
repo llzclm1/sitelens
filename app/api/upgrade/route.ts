@@ -1,13 +1,23 @@
 import { NextResponse } from "next/server";
 import crypto from "node:crypto";
 import { createWaffoCheckout, WaffoError } from "@/lib/waffo";
+import { readJsonBody, RequestError } from "@/lib/request";
+import { enforceRateLimit } from "@/lib/rate-limit";
 import { getReport, markPaymentIntentFailed, savePaymentIntent, saveUpgrade, updatePaymentIntentSession } from "@/lib/store";
 
 export const runtime = "nodejs";
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json() as { reportId?: unknown; email?: unknown };
+    const rate = await enforceRateLimit(request, "upgrade", 3);
+    if (!rate.allowed) {
+      return NextResponse.json(
+        { error: "Too many checkout attempts from this network. Try again shortly." },
+        { status: 429, headers: { "retry-after": String(rate.retryAfter) } },
+      );
+    }
+
+    const body = await readJsonBody<{ reportId?: unknown; email?: unknown }>(request);
     const reportId = typeof body.reportId === "string" ? body.reportId : "";
     const email = typeof body.email === "string" ? body.email.trim().toLowerCase() : "";
 
@@ -33,7 +43,10 @@ export async function POST(request: Request) {
       await markPaymentIntentFailed(intentId, error instanceof Error ? error.message : "Unable to create Waffo checkout");
       return NextResponse.json({ error: error instanceof Error ? error.message : "Unable to create Waffo checkout" }, { status: error instanceof WaffoError ? error.status : 502 });
     }
-  } catch {
-    return NextResponse.json({ error: "The request could not be saved." }, { status: 400 });
+  } catch (error) {
+    return NextResponse.json(
+      { error: error instanceof RequestError ? error.message : "The request could not be saved." },
+      { status: error instanceof RequestError ? error.status : 400 },
+    );
   }
 }
