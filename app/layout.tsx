@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "@fontsource-variable/geist";
 import "@fontsource-variable/geist-mono";
 import "./globals.css";
@@ -27,15 +28,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         ) : null}
         {gaMeasurementId ? (
           <>
-            <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`} />
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `window.dataLayer = window.dataLayer || [];
+            <Script async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`} strategy="afterInteractive" />
+            <Script id="site-lens-ga4" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || [];
 function gtag(){window.dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', '${gaMeasurementId}');`,
-              }}
-            />
+gtag('config', '${gaMeasurementId}');`}
+            </Script>
           </>
         ) : null}
       </head>
