@@ -34,6 +34,7 @@
 - 已加入安全响应头、隐私页和条款页；报告 ID 改为完整 UUID，避免短 ID 碰撞和枚举风险。
 - 已加入 `deep_reports` 交付表：签名、环境、金额、币种、产品元数据和报告归属校验通过后，付款 webhook 会生成可在原报告页解锁的深度报告。
 - Waffo 部署环境已切换为 `prod`；Pancake 已创建销售中的 `$29` 一次性商品，Product ID 为 `PROD_28rexkec6xEqGx2QMHEcJi`，并已写入 Worker 非敏感变量。生产商户 ID、私钥、Webhook 公钥已写入 Cloudflare Secrets，Pancake 已新增 `https://sitelens.win/api/webhooks/waffo` 生产 Webhook，未覆盖原有 Mingora Webhook；仍需完成支付回归。
+- Superdesign 项目上下文已初始化：`.superdesign/init/` 下六份源码/路由/页面上下文和 `.superdesign/design-system.md` 已完成；尚未创建设计项目、设计稿或修改业务代码，等待确定首个设计页面与视觉方向。
 
 ## 已验证
 

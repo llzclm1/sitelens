@@ -41,6 +41,7 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [x] 复核生产首页、robots.txt、sitemap.xml、GA4 和 GSC 标签
 - [x] 修复 GA4 初始化脚本并重新发布
 - [x] 完成 SiteLens product-design 流程并生成 `outputs/SiteLens-产品需求文档-V1.0.md`
+- [x] 初始化 Superdesign 上下文与 SiteLens 设计系统
 
 ## 下一步
 
@@ -58,3 +59,6 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [ ] 完成一次真实生产付款回归并确认深度报告可解锁
 - [ ] 在 Search Console/GA4 后台确认平台侧抓取和实时事件
 - [ ] 排查 `sitelens.win` 自分析偶发超时
+- [ ] 确定 Superdesign 首个目标页面（默认推荐 `/`）与是否保留当前编辑型视觉
+- [ ] 创建 Superdesign 项目并先生成现有页面的像素级复现稿
+- [ ] 用户批准复现稿后，再从复现稿分支生成设计变体
