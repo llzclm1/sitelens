@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { analyzeWebsite } from "@/lib/analyzer";
 import { fetchWebsite, normalizeUrl } from "@/lib/fetch-website";
+import { captureWebsiteScreenshot } from "@/lib/screenshot";
 import { readJsonBody, RequestError } from "@/lib/request";
 import { enforceRateLimit } from "@/lib/rate-limit";
 import { saveReport, toPublicReport } from "@/lib/store";
@@ -27,7 +28,8 @@ export async function POST(request: Request) {
     }
 
     const page = await fetchWebsite(url);
-    const report = await analyzeWebsite({ url, html: page.html, product, audience });
+    const screenshot = process.env.QWEN_API_KEY ? await captureWebsiteScreenshot(page.finalUrl) : undefined;
+    const report = await analyzeWebsite({ url: page.finalUrl, html: page.html, product, audience, screenshot });
     await saveReport(report);
 
     return NextResponse.json(toPublicReport(report), { status: 201 });

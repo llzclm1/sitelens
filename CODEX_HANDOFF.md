@@ -20,7 +20,7 @@
 - 信任体系文案已完成 humanizer 处理：改掉短句堆叠、抽象口号和过度营销表达，保留事实、数字、来源和功能结构。
 - 生产环境已接入 Cloudflare D1，持久化报告、升级请求和支付意向；本地 `next dev` 无 Cloudflare binding 时才使用内存 fallback。
 - 已加入 Waffo Pancake Checkout Session 与 webhook 验证路由，但仍需在 Pancake 后台创建产品并配置密钥。
-- DeepSeek 是可选增强；无 `DEEPSEEK_API_KEY` 时使用证据规则生成初稿。
+- Qwen `qwen3.6-flash` 已接入为视觉增强；线上有 `QWEN_API_KEY` 时，Cloudflare Browser Run 截取首屏并以 Base64 图片发送给 Qwen，失败时自动退回规则分析或 DeepSeek。
 - GitHub 仓库已建立并推送：`https://github.com/llzclm1/sitelens`。
 - 已加入 Cloudflare OpenNext/Workers 部署配置，Worker 名称为 `sitelens`，并已发布 `sitelens.win/*` Route。
 - `sitelens.win` 已通过 Cloudflare Proxied A 记录 `@ → 192.0.2.0` 接入 Worker Route，首页和 API 已验证返回正常。
@@ -57,7 +57,7 @@
 2. 用户是否愿意留下邮箱。
 3. 在 Pancake 后台创建 `$29` 一次性产品、配置密钥并完成 sandbox 付款。
 4. 用户是否愿意购买一次性 Deep Growth Report。
-5. 先人工复核报告质量，再决定是否把截图/视觉分析列为 P0。
+5. 先人工复核 Qwen 的截图分析质量、延迟和成本，再决定是否切换付费报告到 `qwen3.7-plus`。
 6. 接入真实支付后再扩大流量。
 7. 为公开 Teardown 增加受控截图和页面快照存档，再扩展更多真实案例。
 8. 等待 Search Console 完成 sitemap 首次抓取，并在 GA4 数据流开始接收数据后检查实时报告。
@@ -71,3 +71,4 @@
 - 将 Waffo 商户凭证和 webhook 公钥配置到生产环境变量。
 - 将 `https://sitelens.win/api/webhooks/waffo` 配置为 Pancake webhook。
 - 已在 Cloudflare 创建 `@ → 192.0.2.0` 的 Proxied A 记录，Route 已生效。
+- 在 Cloudflare Browser Run 页面确认截图额度和浏览器用量；当前只取 1440×1200 首屏，不保存截图到 D1。

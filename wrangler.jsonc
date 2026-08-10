@@ -4,10 +4,15 @@
   "name": "sitelens",
   "compatibility_date": "2026-08-10",
   "compatibility_flags": ["nodejs_compat"],
+  "browser": {
+    "binding": "BROWSER"
+  },
   "vars": {
     "WAFFO_ENVIRONMENT": "prod",
     "WAFFO_RETURN_BASE_URL": "https://sitelens.win",
     "NEXT_PUBLIC_SITE_URL": "https://sitelens.win",
+    "QWEN_BASE_URL": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+    "QWEN_MODEL": "qwen3.6-flash",
     "GA_MEASUREMENT_ID": "G-YNQ8J06W7D",
     "GOOGLE_SITE_VERIFICATION": "G0fGVxpzCXqA8jnCV35SO76-hjApPFKsSOXbZCdNQVc"
   },

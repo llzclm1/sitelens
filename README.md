@@ -26,7 +26,9 @@ cp .env.example .env.local
 npm run dev
 ```
 
-打开 `http://localhost:3000`。`DEEPSEEK_API_KEY` 是可选的；没有它也可以完整走通免费报告流程。
+打开 `http://localhost:3000`。`QWEN_API_KEY` 是可选的；配置后，线上 Worker 会用 Cloudflare Browser Run 截取首屏并交给 Qwen 视觉模型增强报告。没有它也可以完整走通规则分析流程。Qwen 默认使用中国大陆百炼兼容端点和 `qwen3.6-flash`；如使用其他地域或工作空间端点，覆盖 `QWEN_BASE_URL` 和 `QWEN_MODEL`。
+
+本地要测试真实截图绑定，请使用 `npx wrangler dev --remote`；普通 `next dev` 没有 Cloudflare Browser Run binding，会自动跳过截图并使用规则分析。
 
 付款配置需要在 Pancake 中创建一个 `$29` 一次性产品，然后把以下服务端变量配置到本地或 Cloudflare 部署环境：`WAFFO_ENVIRONMENT`、`WAFFO_MERCHANT_ID`、`WAFFO_PRIVATE_KEY`、`WAFFO_DEEP_GROWTH_REPORT_PRODUCT_ID`、`WAFFO_WEBHOOK_PUBLIC_KEY`。Webhook 地址为 `https://sitelens.win/api/webhooks/waffo`。
 

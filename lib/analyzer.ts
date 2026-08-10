@@ -1,4 +1,5 @@
 import crypto from "node:crypto";
+import { refineWithQwen } from "@/lib/qwen";
 import type { FullReport, ReportIssue, WebsiteSnapshot } from "@/lib/types";
 
 function decodeEntities(value: string) {
@@ -204,7 +205,7 @@ async function refineWithDeepSeek(report: FullReport) {
   }
 }
 
-export async function analyzeWebsite({ url, html, product, audience }: { url: string; html: string; product: string; audience: string }): Promise<FullReport> {
+export async function analyzeWebsite({ url, html, product, audience, screenshot }: { url: string; html: string; product: string; audience: string; screenshot?: string }): Promise<FullReport> {
   const snapshot = collectSnapshot(html);
   const issues = buildIssues(snapshot, product, audience);
   const score = Math.max(18, Math.min(96, 100 - issues.reduce((total, issue) => total + ({ high: 25, medium: 13, low: 6 }[issue.severity]), 0) - (snapshot.textLength < 160 ? 8 : 0)));
@@ -222,5 +223,7 @@ export async function analyzeWebsite({ url, html, product, audience }: { url: st
     snapshot,
     issues,
   };
+  const qwenReport = await refineWithQwen(report, screenshot);
+  if (qwenReport.mode === "ai") return qwenReport;
   return refineWithDeepSeek(report);
 }

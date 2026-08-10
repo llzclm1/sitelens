@@ -36,6 +36,7 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [x] 增加安全响应头、隐私页和条款页
 - [x] 将报告 ID 改为完整 UUID
 - [x] 增加签名订单校验和站内深度报告交付表
+- [x] 接入 Qwen 视觉模型和 Cloudflare Browser Run 首屏截图
 
 ## 下一步
 
@@ -43,7 +44,7 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [ ] 在 Pancake 创建 `$29` 一次性产品并配置商户/签名密钥
 - [ ] 将 `https://sitelens.win/api/webhooks/waffo` 配置到 Pancake
 - [ ] 将 Waffo 生产变量写入部署环境并重新发布
-- [ ] 根据真实反馈决定截图分析是否进入 P0
+- [ ] 根据真实反馈决定付费报告是否升级到 `qwen3.7-plus`
 - [ ] 为公开 Teardown 增加受控截图和页面快照存档
 - [ ] 在证据充分后再实现行业 Benchmark，不展示无来源的平均值
 - [ ] 等待 Search Console 完成 sitemap 首次抓取并复核状态
