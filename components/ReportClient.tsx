@@ -97,12 +97,12 @@ export default function ReportClient({ report }: { report: PublicReport }) {
         <span className="report-nav-label">GROWTH REPORT / {report.host}</span>
       </nav>
 
-      {paymentReturned ? <div className={`payment-banner shell payment-${paymentStatus ?? "pending"}`} role="status">{paymentStatus === "paid" ? "Payment confirmed. Your deep report is now in the review queue." : paymentStatus === "failed" ? "Payment was not confirmed. Please contact support before trying again." : "Payment return received. Waiting for secure payment confirmation…"}</div> : null}
+      {paymentReturned ? <div className={`payment-banner shell payment-${paymentStatus ?? "pending"}`} role="status">{paymentStatus === "paid" ? "Payment confirmed. Your deep report is now in the review queue." : paymentStatus === "failed" ? "Payment was not confirmed. Please contact support before trying again." : "The payment return has been received. We are waiting for confirmation."}</div> : null}
 
       <section className="report-header shell">
         <div>
-          <p className="eyebrow">PUBLIC HOMEPAGE REVIEW <span>{report.mode === "ai" ? "AI + EVIDENCE" : "EVIDENCE DRAFT"}</span></p>
-          <h1>{report.host}<br /><em>has a first move.</em></h1>
+          <p className="eyebrow">PUBLIC HOMEPAGE REVIEW <span>{report.mode === "ai" ? "AI-ASSISTED READ" : "RULE-BASED READ"}</span></p>
+          <h1>What {report.host}<br /><em>should fix first.</em></h1>
           <p className="report-summary">{report.summary}</p>
         </div>
         <div className="score-block">
@@ -123,8 +123,8 @@ export default function ReportClient({ report }: { report: PublicReport }) {
       <section className="framework-section report-framework shell" aria-labelledby="report-framework-title">
         <div className="framework-intro">
           <p className="eyebrow">SITELENS GROWTH FRAMEWORK</p>
-          <h2 id="report-framework-title">The score is a summary. The method is the <em>reason.</em></h2>
-          <p>This report moves through five questions before it recommends a change.</p>
+          <h2 id="report-framework-title">The score is only a summary. The review shows how we reached each <em>recommendation.</em></h2>
+          <p>The review uses five questions before it recommends a change.</p>
         </div>
         <ol className="framework-list">
           {frameworkItems.map((item, index) => (
@@ -138,8 +138,8 @@ export default function ReportClient({ report }: { report: PublicReport }) {
 
       <section className="issues-section shell">
         <div className="section-heading report-section-heading">
-          <p className="eyebrow">THE FREE READ</p>
-          <h2>Three things worth<br /><em>looking at first.</em></h2>
+          <p className="eyebrow">FREE REVIEW</p>
+          <h2>Three issues to<br /><em>look at first.</em></h2>
         </div>
         <div className="issues-list">
           {report.issues.map((issue, index) => (
@@ -175,20 +175,20 @@ export default function ReportClient({ report }: { report: PublicReport }) {
 
       <section className="unlock-section shell">
         <div className="unlock-copy">
-          <p className="eyebrow">THE NEXT LAYER</p>
-          <h2>Knowing the blockage<br />is only half the job.</h2>
-          <p>Get the why, the rewrite, and a homepage sequence you can actually ship. SiteLens does not promise a conversion lift.</p>
+          <p className="eyebrow">DEEP REPORT</p>
+          <h2>The next step is deciding<br />what to change.</h2>
+          <p>The deep report explains the issue, rewrites the hero and CTA, and lays out a homepage sequence. SiteLens does not promise a conversion lift.</p>
           <div className="locked-list"><span>01</span>Root-cause explanation <span>02</span>Hero + CTA rewrite <span>03</span>24-hour action plan</div>
         </div>
         <form className="upgrade-card" onSubmit={requestDeepReport}>
           <div className="upgrade-price"><span>DEEP GROWTH REPORT</span><strong>$29</strong></div>
-          <p>One homepage. One prioritized diagnosis. Delivered within 24 hours after secure payment.</p>
+          <p>One homepage and one prioritized diagnosis, delivered within 24 hours after secure payment.</p>
           <label htmlFor="email">Where should we send it?</label>
           <input id="email" type="email" placeholder="you@company.com" value={email} onChange={(event) => setEmail(event.target.value)} required disabled={isSubmitting} />
           <button type="submit" disabled={isSubmitting}>{isSubmitting ? "Opening checkout…" : "Pay $29 and continue ↗"}</button>
           {upgradeMessage ? <p className="form-success" role="status">{upgradeMessage}</p> : null}
           {upgradeError ? <p className="form-error" role="alert">{upgradeError}</p> : null}
-          <small>No automatic conversion-rate promises. Just page-specific evidence and a clear next move.</small>
+          <small>The report uses page-specific evidence and gives you a next move. It does not promise a conversion rate.</small>
         </form>
       </section>
 

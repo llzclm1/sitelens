@@ -25,6 +25,7 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [x] 加入 SiteLens Growth Framework 五步方法论
 - [x] 报告公开 Evidence Layer：影响、证据、修复和改写方向
 - [x] 加入分析过程展示和公开 Stripe Teardown 案例
+- [x] 按 humanizer 规则清理信任体系可见文案
 - [x] 自托管 Geist / Geist Mono 字体，避免生产构建依赖 Google Fonts
 
 ## 下一步

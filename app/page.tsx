@@ -153,11 +153,11 @@ export default function HomePage() {
             </div>
             {error ? <p className="form-error" role="alert">{error}</p> : null}
             <p className="form-note" id="form-note">
-              {isSubmitting ? "Reading the page structure, copy, and calls to action." : "Free review. Three issues tied to your page. We do not estimate conversion rates."}
+              {isSubmitting ? "Reading the page structure, copy, and calls to action." : "The free review returns three issues tied to your page. It does not estimate a conversion rate."}
             </p>
             {isSubmitting ? (
               <div className="analysis-process" aria-live="polite" aria-label="Analysis progress">
-                <p className="process-label">WHAT IS HAPPENING</p>
+                <p className="process-label">WHILE WE READ</p>
                 <ol>
                   {analysisSteps.map((step, index) => (
                     <li className={index < analysisStep ? "is-done" : index === analysisStep ? "is-active" : ""} key={step}>
@@ -201,8 +201,8 @@ export default function HomePage() {
       <section className="framework-section shell" aria-labelledby="framework-title">
         <div className="framework-intro">
           <p className="eyebrow">SITELENS GROWTH FRAMEWORK</p>
-          <h2 id="framework-title">A report should show <em>how</em> it got there.</h2>
-          <p>Every review follows the same five questions, so the recommendation is tied to a method instead of a black-box score.</p>
+          <h2 id="framework-title">You can see how we reached the <em>recommendation.</em></h2>
+          <p>Every review uses the same five questions. The score is only a summary of what we found.</p>
         </div>
         <ol className="framework-list">
           {frameworkItems.map((item, index) => (
@@ -221,8 +221,8 @@ export default function HomePage() {
         </div>
         <div className="method-layout">
           <div className="method-lead">
-            <p className="method-statement">Start with the page.</p>
-            <p>Each finding points to a detail on the page, explains the hesitation it may create, and suggests what to change next.</p>
+            <p className="method-statement">Read the page first.</p>
+            <p>Each finding starts with a detail on the page. It explains what that detail may make a visitor hesitate about, then suggests the next change.</p>
             <a className="text-link" href="#analyze">Review your homepage <span aria-hidden="true">↗</span></a>
           </div>
           <div className="method-list">
@@ -239,10 +239,10 @@ export default function HomePage() {
       <section className="teardown-teaser shell" aria-labelledby="teardown-title">
         <div>
           <p className="eyebrow">PUBLIC TEARDOWN LIBRARY</p>
-          <h2 id="teardown-title">See the method on a <em>real page.</em></h2>
+          <h2 id="teardown-title">Read one public <em>review.</em></h2>
         </div>
         <div>
-          <p>A qualitative read of Stripe&apos;s homepage, with the page evidence, the interpretation, and the next move kept together.</p>
+          <p>We read Stripe&apos;s homepage and keep the evidence, interpretation, and next move together.</p>
           <a className="text-link" href="/teardowns/stripe/">Read the Stripe teardown <span aria-hidden="true">↗</span></a>
         </div>
       </section>
@@ -257,7 +257,7 @@ export default function HomePage() {
 
       <footer className="footer shell">
         <span className="wordmark"><span className="wordmark-mark">S</span><span>SiteLens</span></span>
-        <span>Website reviews based on the page.</span>
+        <span>Reviews based on the page itself.</span>
       </footer>
     </main>
   );

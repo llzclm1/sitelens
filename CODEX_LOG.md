@@ -24,3 +24,5 @@
 - 文案更新通过 `npm run typecheck` 与 `NEXT_PUBLIC_SITE_URL=https://sitelens.win npm run open:build`，并发布 Worker 版本 `a44682f5-d610-4f46-9f3d-13583f877c7c`；线上首页返回 200，新文案已验证生效。
 - 落地最小信任闭环：加入五步 SiteLens Growth Framework、提交时的透明分析步骤、报告中的 Evidence Layer（为什么重要、页面证据、怎么改、改写方向），并公开一个基于 Stripe 官方首页的定性 Teardown；没有编造转化率、Benchmark 或人工复核承诺。
 - 更新通过类型检查和 OpenNext 生产构建；Cloudflare Worker 版本 `6f8cde0f-a937-49ac-8228-8e835c419745` 已发布，首页、`/teardowns`、`/teardowns/stripe/` 和已有报告接口均返回 200。
+- 按 humanizer 规则清理首页、报告页和 Teardown 的可见文案：减少口号式短句、抽象表达、尾部否定和规则化三段式句型；保留原有事实、数字、日期、来源链接和产品边界。
+- 文案更新通过 `npm run typecheck` 和 OpenNext 生产构建；Cloudflare Worker 版本 `28a137fc-0b30-4628-97ba-6f5b37ce489b` 已发布，首页、Stripe Teardown 和已有报告接口均返回 200。
