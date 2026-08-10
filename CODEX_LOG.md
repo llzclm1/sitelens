@@ -17,3 +17,6 @@
 - 创建 Cloudflare D1 数据库 `sitelens`，加入 `migrations/0001_initial.sql`，并绑定为 Worker 的 `DB`。
 - 将报告、升级请求和支付意向从运行期内存迁移到 D1；使用 `getCloudflareContext({ async: true })` 访问线上 binding。
 - 重新发布 Worker，验证 `/api/analyze` 返回 201、`/api/reports/{id}` 跨请求返回 200，升级接口能读取 D1 报告并把未配置 Waffo 的失败状态写入 D1。
+- 完成首页视觉重设计：移除 Hero 假报告卡，改为不对称图片 Hero、编辑型版式、chartreuse 单强调色和完整暗色 token。
+- 添加自托管 `@fontsource-variable/geist` 与 `@fontsource-variable/geist-mono`，修复 Google Fonts 外网构建依赖。
+- 用 Playwright 验收桌面、390px 手机、暗色模式和无横向溢出；新版 Worker `e2dee813-3381-499e-96ac-e042d2b304e9` 已发布，线上首页返回 200，已有报告 API 返回 200。

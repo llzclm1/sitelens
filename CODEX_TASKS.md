@@ -20,6 +20,8 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [x] 创建 Cloudflare D1 `sitelens` 数据库并完成初始迁移
 - [x] 报告、升级请求与支付意向改为 D1 持久化
 - [x] 验证分析写入、跨请求报告读取和升级失败状态持久化
+- [x] 首页视觉重设计并发布到 Cloudflare
+- [x] 自托管 Geist / Geist Mono 字体，避免生产构建依赖 Google Fonts
 
 ## 下一步
 

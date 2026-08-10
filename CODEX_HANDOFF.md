@@ -14,6 +14,7 @@
 - 已加入运行说明：`README.md`
 - 结论：先做小规模付费验证，不立即进入完整 SaaS 开发。
 - 当前原型已能完成：URL 提交 → 首页抓取 → 免费三问题报告 → 深度报告请求。
+- 首页已完成一轮视觉重设计：证据驱动的编辑型版式、单一 chartreuse 强调色、不对称真实图片 Hero、Geist 自托管字体和暗色系统。
 - 生产环境已接入 Cloudflare D1，持久化报告、升级请求和支付意向；本地 `next dev` 无 Cloudflare binding 时才使用内存 fallback。
 - 已加入 Waffo Pancake Checkout Session 与 webhook 验证路由，但仍需在 Pancake 后台创建产品并配置密钥。
 - DeepSeek 是可选增强；无 `DEEPSEEK_API_KEY` 时使用证据规则生成初稿。
@@ -33,6 +34,7 @@
 - `https://example.com` 能生成免费报告，报告页与升级请求接口可用。
 - `https://pancake.waffo.ai` 已确认是商户后台，不作为客户付款地址。
 - 已验证分析写入 D1、跨请求读取报告，以及升级失败状态写入 D1。
+- 已用 Playwright 验收桌面首屏、390px 手机视口、暗色模式、无横向溢出和浏览器错误。
 
 ## 下一步
 

@@ -10,6 +10,7 @@ SiteLens Phase 0 是一个面向 Indie Hacker 和小型 SaaS 创始人的网站�
 - 可选 DeepSeek JSON 分析增强；没有 API Key 时使用确定性的证据规则
 - Waffo Pancake `$29` 一次性 Deep Growth Report Checkout 创建与 webhook 验证骨架，交付承诺为 24 小时
 - Cloudflare D1 持久化报告、升级请求与支付意向；本地 `next dev` 无 Cloudflare binding 时才使用内存 fallback
+- 首页采用证据驱动的编辑型视觉系统，使用自托管 Geist 字体并支持暗色系统偏好
 
 ## 本地运行
 

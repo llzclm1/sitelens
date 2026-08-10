@@ -11,10 +11,19 @@ type AnalysisResponse = {
   mode: "heuristic" | "ai";
 };
 
-const sampleIssues = [
-  ["01", "Positioning", "Your first sentence makes the visitor decode the product"],
-  ["02", "Conversion", "The signup path is not the loudest action on the page"],
-  ["03", "Trust", "There is no proof close to the moment of decision"],
+const methodPoints = [
+  {
+    title: "Clarity",
+    copy: "Can a first-time visitor say what you do, who it is for, and why it matters?",
+  },
+  {
+    title: "Momentum",
+    copy: "Does the page make the next action obvious before attention runs out?",
+  },
+  {
+    title: "Proof",
+    copy: "Is there enough evidence for a skeptical visitor to keep going?",
+  },
 ];
 
 export default function HomePage() {
@@ -42,8 +51,7 @@ export default function HomePage() {
         throw new Error(body.error ?? "The page could not be analyzed.");
       }
 
-      const result = body as AnalysisResponse;
-      router.push(`/report/${result.id}`);
+      router.push(`/report/${body.id}`);
     } catch (submitError) {
       setError(submitError instanceof Error ? submitError.message : "The page could not be analyzed.");
       setIsSubmitting(false);
@@ -51,32 +59,27 @@ export default function HomePage() {
   }
 
   return (
-    <main>
+    <main className="landing-page">
       <nav className="topbar shell" aria-label="Primary navigation">
         <a className="wordmark" href="/" aria-label="SiteLens home">
           <span className="wordmark-mark">S</span>
           <span>SiteLens</span>
         </a>
-        <div className="nav-meta">
-          <span className="status-dot" />
-          <span>Phase 0 / evidence-led review</span>
+        <div className="nav-actions">
+          <a className="nav-link" href="#method">The method</a>
+          <a className="nav-cta" href="#analyze">Analyze a site <span aria-hidden="true">↗</span></a>
         </div>
       </nav>
 
       <section className="hero shell">
         <div className="hero-copy">
-          <p className="eyebrow">AI WEBSITE GROWTH CONSULTANT <span>FIELD NOTE 01</span></p>
-          <h1>
-            Find the first thing
-            <br />
-            costing you a <em>signup.</em>
-          </h1>
+          <p className="eyebrow">WEBSITE REVIEW / EVIDENCE FIRST</p>
+          <h1>Find what blocks <em>signups.</em></h1>
           <p className="hero-lede">
-            SiteLens reads your public SaaS homepage like a conversion consultant: what is clear, what creates hesitation,
-            and the one change worth making first.
+            Paste a URL. Get the first conversion problem worth fixing, with evidence from the page itself.
           </p>
 
-          <form className="audit-form" onSubmit={handleSubmit}>
+          <form className="audit-form" id="analyze" onSubmit={handleSubmit} aria-busy={isSubmitting}>
             <div className="input-row">
               <label className="sr-only" htmlFor="url">Website URL</label>
               <input
@@ -86,11 +89,13 @@ export default function HomePage() {
                 placeholder="https://yourproduct.com"
                 value={url}
                 onChange={(event) => setUrl(event.target.value)}
+                autoComplete="url"
+                aria-describedby="form-note"
                 required
                 disabled={isSubmitting}
               />
               <button type="submit" disabled={isSubmitting}>
-                {isSubmitting ? "Reading page…" : "Read my homepage"}
+                {isSubmitting ? "Reading the page" : "Analyze a site"}
                 <span aria-hidden="true">↗</span>
               </button>
             </div>
@@ -123,67 +128,72 @@ export default function HomePage() {
               </div>
             </div>
             {error ? <p className="form-error" role="alert">{error}</p> : null}
-            <p className="form-note">Free report · 3 evidence-backed issues · no conversion-rate promises</p>
+            <p className="form-note" id="form-note">
+              {isSubmitting ? "Reading HTML, copy, structure, and calls to action." : "Free review. Three evidence-backed issues. No rate promises."}
+            </p>
           </form>
         </div>
 
-        <div className="hero-art" aria-label="A sample SiteLens report preview">
-          <div className="orbit orbit-one" />
-          <div className="orbit orbit-two" />
-          <div className="report-card sample-card">
-            <div className="report-card-topline">
-              <span>HOMEPAGE / REVIEW</span>
-              <span>01:32</span>
-            </div>
-            <div className="sample-score-row">
-              <div className="score-number">62<span>/100</span></div>
-              <div>
-                <p className="mini-label">FIRST READ</p>
-                <p className="score-caption">A visitor sees activity.<br />They do not see the outcome.</p>
-              </div>
-            </div>
-            <div className="signal-line"><span /> <span /> <span className="muted" /></div>
-            <div className="sample-issues">
-              {sampleIssues.map(([number, category, issue]) => (
-                <div className="sample-issue" key={number}>
-                  <span className="issue-number">{number}</span>
-                  <div><span className="issue-category">{category}</span><p>{issue}</p></div>
-                  <span className="issue-arrow">↗</span>
-                </div>
-              ))}
-            </div>
-            <div className="card-footer"><span>evidence collected</span><strong>03 / 03</strong></div>
+        <figure className="hero-visual">
+          <div className="hero-image-frame">
+            <img
+              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80"
+              alt="A laptop and annotated homepage audit notes on a dark desk"
+              width="1200"
+              height="900"
+              fetchPriority="high"
+            />
           </div>
-          <div className="annotation annotation-top">page evidence<br /><strong>not vibes</strong></div>
-          <div className="annotation annotation-bottom">one clear<br /><strong>next move</strong></div>
+          <figcaption>
+            <span>WHAT SITE LENS LOOKS FOR</span>
+            <strong>The gap between what you meant and what a visitor sees.</strong>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section className="signal-band shell" aria-label="SiteLens analysis inputs">
+        <p>One page in. One clearer first move out.</p>
+        <div className="signal-list">
+          <span>Page copy</span>
+          <span>Page structure</span>
+          <span>CTA signals</span>
+          <span>Trust cues</span>
         </div>
       </section>
 
-      <section className="principle-band shell">
-        <div className="principle-copy">
-          <span className="section-label">THE OPERATING PRINCIPLE</span>
-          <p>Every observation connects three dots:</p>
-        </div>
-        <div className="principle-chain" aria-label="SiteLens analysis principle">
-          <span>Page evidence</span><b>→</b><span>Why it matters</span><b>→</b><span className="chain-highlight">What to change</span>
-        </div>
-      </section>
-
-      <section className="how-section shell" id="how-it-works">
+      <section className="method-section shell" id="method">
         <div className="section-heading">
-          <p className="eyebrow">NO SCORE WITHOUT A REASON</p>
-          <h2>A useful review should leave<br /><em>less to guess.</em></h2>
+          <p className="eyebrow">A REVIEW WITH A POINT OF VIEW</p>
+          <h2>Every recommendation starts with something your page <em>actually says.</em></h2>
         </div>
-        <div className="steps-grid">
-          <article><span>01</span><h3>We read the page</h3><p>HTML, copy, headings, metadata, links, and CTA signals form the evidence layer.</p></article>
-          <article><span>02</span><h3>We name the blockage</h3><p>Three prioritized observations, with the exact page detail that led us there.</p></article>
-          <article><span>03</span><h3>You choose the move</h3><p>Upgrade for the full rewrite and a 24-hour human-reviewed action plan.</p></article>
+        <div className="method-layout">
+          <div className="method-lead">
+            <p className="method-statement">Evidence first.</p>
+            <p>SiteLens does not hand you a checklist. It connects a visible page detail to the hesitation it can create, then gives you a practical next move.</p>
+            <a className="text-link" href="#analyze">Start with your homepage <span aria-hidden="true">↗</span></a>
+          </div>
+          <div className="method-list">
+            {methodPoints.map((point) => (
+              <article key={point.title}>
+                <h3>{point.title}</h3>
+                <p>{point.copy}</p>
+              </article>
+            ))}
+          </div>
         </div>
+      </section>
+
+      <section className="closing-section shell">
+        <div>
+          <p className="eyebrow">MAKE THE NEXT CHANGE COUNT</p>
+          <h2>Less guessing.<br /><em>More useful pages.</em></h2>
+        </div>
+        <p>Built for founders who want to know what to change before they add more traffic, more features, or more copy.</p>
       </section>
 
       <footer className="footer shell">
         <span className="wordmark"><span className="wordmark-mark">S</span><span>SiteLens</span></span>
-        <span>Built for founders who want fewer opinions and one better homepage.</span>
+        <span>Website growth, grounded in the page.</span>
       </footer>
     </main>
   );
