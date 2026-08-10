@@ -35,7 +35,7 @@
 - 已加入 `deep_reports` 交付表：签名、环境、金额、币种、产品元数据和报告归属校验通过后，付款 webhook 会生成可在原报告页解锁的深度报告。
 - Waffo 部署环境已切换为 `prod`；Pancake 已创建销售中的 `$29` 一次性商品，Product ID 为 `PROD_28rexkec6xEqGx2QMHEcJi`，并已写入 Worker 非敏感变量。生产商户 ID、私钥、Webhook 公钥已写入 Cloudflare Secrets，Pancake 已新增 `https://sitelens.win/api/webhooks/waffo` 生产 Webhook，未覆盖原有 Mingora Webhook；仍需完成支付回归。
 - Superdesign 项目上下文已初始化：`.superdesign/init/` 下六份源码/路由/页面上下文和 `.superdesign/design-system.md` 已完成；已创建 SiteLens Homepage Explorations 项目并生成首页复现稿、Audit Workspace 和 Teardown Magazine 方向，尚未将设计稿实现为业务代码，等待选定方向。
-- AI SEO 基础已实现：根布局加入 Organization/WebSite JSON-LD；新增 `/website-review` 解释页（含 FAQPage JSON-LD）和 `/pricing` 事实页（含 Product/Offer JSON-LD）；新增公开 `public/llms.txt` 与 `public/pricing.md`；robots 保持 AI 搜索爬虫可抓取并禁止 `/api/`，sitemap 已加入新页面和机器可读文件。当前改动已通过本地类型检查和 Next 生产构建，尚未发布到 Cloudflare。
+- AI SEO 基础已实现并发布：根布局加入 Organization/WebSite JSON-LD；新增 `/website-review` 解释页（含 FAQPage JSON-LD）和 `/pricing` 事实页（含 Product/Offer JSON-LD）；新增公开 `public/llms.txt` 与 `public/pricing.md`；robots 保持 AI 搜索爬虫可抓取并禁止 `/api/`，sitemap 已加入新页面和机器可读文件。Cloudflare 线上已验证新页面、静态文件、robots 和 sitemap 返回 200。
 
 ## 已验证
 
@@ -52,6 +52,7 @@
 - 文案更新后已重新完成类型检查、OpenNext 生产构建，并验证线上首页、Stripe Teardown 和已有报告接口返回 200。
 - GA4/GSC 接入后已完成类型检查、OpenNext 生产构建和 Cloudflare 发布；线上首页含 GA4 衡量代码及 GSC 验证标签，`robots.txt` 与 `sitemap.xml` 返回 200。
 - 对抗式修复后已完成远程 D1 `0002_hardening.sql` 迁移、类型检查、OpenNext 生产构建和 Cloudflare 发布；线上响应包含 HSTS、CSP、X-Frame-Options、nosniff 等安全头。
+- AI SEO 更新已通过 `npm run typecheck`、`npm run build` 和 OpenNext 生产构建；Worker 已重新发布，线上 `/website-review/`、`/pricing/`、`/llms.txt`、`/pricing.md`、`/robots.txt`、`/sitemap.xml` 均返回 200，页面 HTML 含对应 JSON-LD。
 
 ## 下一步
 
@@ -66,7 +67,7 @@
 7. 为公开 Teardown 增加受控截图和页面快照存档，再扩展更多真实案例。
 8. 等待 Search Console 完成 sitemap 首次抓取，并在 GA4 数据流开始接收数据后检查实时报告。
 9. 在 Waffo 创建并配置生产 `$29` 商品、商户凭证和 webhook 公钥后，完成一次真实支付回归；当前代码只完成订单校验和站内深度报告交付。
-10. 发布 AI SEO 更新后，重新提交 sitemap，并用 10–20 个目标查询建立 ChatGPT、Perplexity、Gemini 和 Google 的可见性基线。
+10. 在 Search Console 重新提交更新后的 sitemap，并用 10–20 个目标查询建立 ChatGPT、Perplexity、Gemini 和 Google 的可见性基线。
 
 在出现真实购买、确认主 ICP 和确认视觉方案前，不开始完整产品开发。
 
