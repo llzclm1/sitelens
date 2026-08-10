@@ -74,3 +74,5 @@
 - 已在 Cloudflare 创建 `@ → 192.0.2.0` 的 Proxied A 记录，Route 已生效。
 - 在 Cloudflare Browser Run 页面确认截图额度和浏览器用量；当前只取 1440×1200 首屏，不保存截图到 D1。
 - 生产首页、`robots.txt`、`sitemap.xml`、GA4 衡量 ID 和 GSC 验证标签已重新在线验证；Search Console/GA4 后台数据仍需等待平台处理。
+- GA4 初始化已改用 Next.js `Script` 的 `afterInteractive` 策略并重新发布；生产首页无前端错误，GA4 后台仍需等待真实事件显示。
+- Pancake 商户后台可导航到 `/merchant/dashboard`，但当前内置浏览器读取其动态控件连续超时，未进行任何商品创建或付款提交；需要后台页面稳定可交互后再继续。

@@ -39,6 +39,7 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [x] 接入 Qwen 视觉模型和 Cloudflare Browser Run 首屏截图
 - [x] 清理错误 Qwen Secret 并验证生产含图片页面返回 AI 报告
 - [x] 复核生产首页、robots.txt、sitemap.xml、GA4 和 GSC 标签
+- [x] 修复 GA4 初始化脚本并重新发布
 
 ## 下一步
 
@@ -54,3 +55,4 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [ ] 在 Waffo 配置生产凭证、商品和 webhook 公钥
 - [ ] 完成一次真实生产付款回归并确认深度报告可解锁
 - [ ] 在 Search Console/GA4 后台确认平台侧抓取和实时事件
+- [ ] 排查 `sitelens.win` 自分析偶发超时

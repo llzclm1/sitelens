@@ -4,6 +4,7 @@
 
 - 接入 Qwen `qwen3.6-flash` 视觉增强：新增 Cloudflare Browser Run 截图 binding、首屏 JPEG Base64 转换和 Qwen OpenAI-compatible JSON refinement；未配置 binding 或调用失败时保持规则分析/DeepSeek fallback。
 - 完成生产收尾验收：删除误用 API Key 作为名称的旧 Secret，确认 `QWEN_API_KEY` 有效；含图片页面返回 `mode=ai`；首页、robots.txt、sitemap.xml、GA4 和 GSC 标签在线正常。Waffo 生产凭证和商品仍待账户侧配置。
+- 发现 GA4 后台未收到数据，改用 Next.js `Script` 的 `afterInteractive` 初始化方式并重新发布；生产首页浏览器无前端错误。Pancake `/merchant/dashboard` 动态页面在内置浏览器连续超时，未盲目提交商品或付款操作。
 
 - 从文档评审进入 Phase 0 开发。
 - 实现 URL 抓取、证据规则分析、免费报告、报告页与深度报告请求。
