@@ -14,15 +14,15 @@ type AnalysisResponse = {
 const methodPoints = [
   {
     title: "Clarity",
-    copy: "Can a first-time visitor say what you do, who it is for, and why it matters?",
+    copy: "Can a first-time visitor tell what you do, who it is for, and why it matters?",
   },
   {
-    title: "Momentum",
-    copy: "Does the page make the next action obvious before attention runs out?",
+    title: "Next step",
+    copy: "Does the page make the next step clear before attention runs out?",
   },
   {
     title: "Proof",
-    copy: "Is there enough evidence for a skeptical visitor to keep going?",
+    copy: "Does the page give a skeptical visitor a reason to continue?",
   },
 ];
 
@@ -73,10 +73,10 @@ export default function HomePage() {
 
       <section className="hero shell">
         <div className="hero-copy">
-          <p className="eyebrow">WEBSITE REVIEW / EVIDENCE FIRST</p>
+          <p className="eyebrow">WEBSITE REVIEW / PAGE EVIDENCE</p>
           <h1>Find what blocks <em>signups.</em></h1>
           <p className="hero-lede">
-            Paste a URL. Get the first conversion problem worth fixing, with evidence from the page itself.
+            Paste your URL. We&apos;ll point to the first conversion problem worth fixing.
           </p>
 
           <form className="audit-form" id="analyze" onSubmit={handleSubmit} aria-busy={isSubmitting}>
@@ -129,7 +129,7 @@ export default function HomePage() {
             </div>
             {error ? <p className="form-error" role="alert">{error}</p> : null}
             <p className="form-note" id="form-note">
-              {isSubmitting ? "Reading HTML, copy, structure, and calls to action." : "Free review. Three evidence-backed issues. No rate promises."}
+              {isSubmitting ? "Reading the page structure, copy, and calls to action." : "Free review. Three issues tied to your page. We do not estimate conversion rates."}
             </p>
           </form>
         </div>
@@ -145,14 +145,14 @@ export default function HomePage() {
             />
           </div>
           <figcaption>
-            <span>WHAT SITE LENS LOOKS FOR</span>
-            <strong>The gap between what you meant and what a visitor sees.</strong>
+            <span>WHAT WE READ</span>
+            <strong>The difference between what you meant and what visitors see.</strong>
           </figcaption>
         </figure>
       </section>
 
       <section className="signal-band shell" aria-label="SiteLens analysis inputs">
-        <p>One page in. One clearer first move out.</p>
+        <p>We read the page before we suggest a change.</p>
         <div className="signal-list">
           <span>Page copy</span>
           <span>Page structure</span>
@@ -163,14 +163,14 @@ export default function HomePage() {
 
       <section className="method-section shell" id="method">
         <div className="section-heading">
-          <p className="eyebrow">A REVIEW WITH A POINT OF VIEW</p>
-          <h2>Every recommendation starts with something your page <em>actually says.</em></h2>
+          <p className="eyebrow">HOW THE REVIEW WORKS</p>
+          <h2>Start with what visitors <em>can see.</em></h2>
         </div>
         <div className="method-layout">
           <div className="method-lead">
-            <p className="method-statement">Evidence first.</p>
-            <p>SiteLens does not hand you a checklist. It connects a visible page detail to the hesitation it can create, then gives you a practical next move.</p>
-            <a className="text-link" href="#analyze">Start with your homepage <span aria-hidden="true">↗</span></a>
+            <p className="method-statement">Start with the page.</p>
+            <p>Each finding points to a detail on the page, explains the hesitation it may create, and suggests what to change next.</p>
+            <a className="text-link" href="#analyze">Review your homepage <span aria-hidden="true">↗</span></a>
           </div>
           <div className="method-list">
             {methodPoints.map((point) => (
@@ -185,15 +185,15 @@ export default function HomePage() {
 
       <section className="closing-section shell">
         <div>
-          <p className="eyebrow">MAKE THE NEXT CHANGE COUNT</p>
-          <h2>Less guessing.<br /><em>More useful pages.</em></h2>
+          <p className="eyebrow">A BETTER FIRST MOVE</p>
+          <h2>Know what to change <em>first.</em></h2>
         </div>
-        <p>Built for founders who want to know what to change before they add more traffic, more features, or more copy.</p>
+        <p>For founders who want to fix the page before adding more traffic, features, or copy.</p>
       </section>
 
       <footer className="footer shell">
         <span className="wordmark"><span className="wordmark-mark">S</span><span>SiteLens</span></span>
-        <span>Website growth, grounded in the page.</span>
+        <span>Website reviews based on the page.</span>
       </footer>
     </main>
   );

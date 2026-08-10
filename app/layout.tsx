@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   metadataBase: siteUrl,
   title: "SiteLens - Find what blocks signups",
   description:
-    "Evidence-based homepage diagnosis for indie SaaS founders. Find the clearest conversion blockage and what to change first.",
+    "A practical homepage review for indie SaaS founders. Find the first conversion problem worth fixing.",
   alternates: siteUrl ? { canonical: "/" } : undefined,
 };
 

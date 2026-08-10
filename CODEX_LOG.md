@@ -20,3 +20,5 @@
 - 完成首页视觉重设计：移除 Hero 假报告卡，改为不对称图片 Hero、编辑型版式、chartreuse 单强调色和完整暗色 token。
 - 添加自托管 `@fontsource-variable/geist` 与 `@fontsource-variable/geist-mono`，修复 Google Fonts 外网构建依赖。
 - 用 Playwright 验收桌面、390px 手机、暗色模式和无横向溢出；新版 Worker `e2dee813-3381-499e-96ac-e042d2b304e9` 已发布，线上首页返回 200，已有报告 API 返回 200。
+- 按 humanizer 规则调整首页与 metadata 文案：去掉口号式短句、抽象营销表达和模板化否定句，改为直接说明页面分析如何帮助用户；未新增事实、数字或功能承诺。
+- 文案更新通过 `npm run typecheck` 与 `NEXT_PUBLIC_SITE_URL=https://sitelens.win npm run open:build`，并发布 Worker 版本 `a44682f5-d610-4f46-9f3d-13583f877c7c`；线上首页返回 200，新文案已验证生效。
