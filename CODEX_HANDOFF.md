@@ -32,7 +32,7 @@
 - 已为分析、升级和 webhook 增加请求体上限；分析和升级按 Cloudflare IP 使用 D1 计数限流，并补充保守的私网、保留地址和 IPv6 SSRF 拦截。
 - 已加入安全响应头、隐私页和条款页；报告 ID 改为完整 UUID，避免短 ID 碰撞和枚举风险。
 - 已加入 `deep_reports` 交付表：签名、环境、金额、币种、产品元数据和报告归属校验通过后，付款 webhook 会生成可在原报告页解锁的深度报告。
-- Waffo 部署环境已切换为 `prod`；Pancake 已创建销售中的 `$29` 一次性商品，Product ID 为 `PROD_28rexkec6xEqGx2QMHEcJi`，并已写入 Worker 非敏感变量。商户 ID、私钥、Webhook 公钥仍未配置，因此真实升级付款仍不可用；配置前不会伪装成可付款。
+- Waffo 部署环境已切换为 `prod`；Pancake 已创建销售中的 `$29` 一次性商品，Product ID 为 `PROD_28rexkec6xEqGx2QMHEcJi`，并已写入 Worker 非敏感变量。生产商户 ID、私钥、Webhook 公钥已写入 Cloudflare Secrets，Pancake 已新增 `https://sitelens.win/api/webhooks/waffo` 生产 Webhook，未覆盖原有 Mingora Webhook；仍需完成支付回归。
 
 ## 已验证
 
@@ -56,7 +56,7 @@
 
 1. 报告是否具体、可信、可执行。
 2. 用户是否愿意留下邮箱。
-3. 在 Pancake 后台创建或确认 SiteLens 专用生产 API 密钥，配置商户凭证和 webhook 公钥并完成付款回归。
+3. 已创建 SiteLens 专用生产 API 密钥并配置商户凭证、Webhook 公钥和生产 Webhook；下一步完成付款回归。
 4. 用户是否愿意购买一次性 Deep Growth Report。
 5. 先人工复核 Qwen 的截图分析质量、延迟和成本，再决定是否切换付费报告到 `qwen3.7-plus`。
 6. 接入真实支付后再扩大流量。
@@ -69,10 +69,10 @@
 ## 外部配置待办
 
 - 已在 Pancake 生产模式创建 `$29` 一次性产品：`PROD_28rexkec6xEqGx2QMHEcJi`。
-- 将 Waffo 商户凭证和 webhook 公钥配置到生产环境变量。
-- 将 `https://sitelens.win/api/webhooks/waffo` 配置为 Pancake webhook。
+- 已将 Waffo 商户 ID、私钥和 webhook 公钥写入 Cloudflare Secrets。
+- 已将 `https://sitelens.win/api/webhooks/waffo` 新增为 Pancake 生产 webhook，原有 `mingora.cc` webhook 保持不变。
 - 已在 Cloudflare 创建 `@ → 192.0.2.0` 的 Proxied A 记录，Route 已生效。
 - 在 Cloudflare Browser Run 页面确认截图额度和浏览器用量；当前只取 1440×1200 首屏，不保存截图到 D1。
 - 生产首页、`robots.txt`、`sitemap.xml`、GA4 衡量 ID 和 GSC 验证标签已重新在线验证；Search Console/GA4 后台数据仍需等待平台处理。
 - GA4 初始化已改用 Next.js `Script` 的 `afterInteractive` 策略并重新发布；生产首页无前端错误，GA4 后台仍需等待真实事件显示。
-- Pancake 商户后台已在内置浏览器稳定打开并完成生产商品创建；生产 API 设置页已有其他项目的 `mingora-production` 密钥，尚未混用，待确认是否创建 SiteLens 专用密钥。
+- Pancake 商户后台已在内置浏览器稳定打开并完成生产商品、SiteLens 专用 API 密钥和生产 webhook 配置；Cloudflare Secret 名称已核对，未读取或输出密钥内容。

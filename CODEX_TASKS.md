@@ -45,15 +45,15 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 
 - [ ] 用 5–10 个真实 Indie Hacker / 小 SaaS 首页进行人工质量复核
 - [x] 在 Pancake 创建 `$29` 一次性产品并取得 Product ID `PROD_28rexkec6xEqGx2QMHEcJi`
-- [ ] 在 Pancake 创建或确认 SiteLens 专用生产 API 密钥并配置商户/签名密钥
-- [ ] 将 `https://sitelens.win/api/webhooks/waffo` 配置到 Pancake
-- [ ] 将 Waffo 生产变量写入部署环境并重新发布
+- [x] 创建 SiteLens 专用生产 API 密钥并配置商户/签名密钥
+- [x] 将 `https://sitelens.win/api/webhooks/waffo` 配置到 Pancake
+- [x] 将 Waffo 生产变量写入 Cloudflare Secrets
 - [ ] 根据真实反馈决定付费报告是否升级到 `qwen3.7-plus`
 - [ ] 为公开 Teardown 增加受控截图和页面快照存档
 - [ ] 在证据充分后再实现行业 Benchmark，不展示无来源的平均值
 - [ ] 等待 Search Console 完成 sitemap 首次抓取并复核状态
 - [ ] 等待 GA4 开始接收数据后检查实时报告
-- [ ] 在 Waffo 配置生产凭证、商品和 webhook 公钥
+- [x] 在 Waffo 配置生产凭证、商品和 webhook 公钥
 - [ ] 完成一次真实生产付款回归并确认深度报告可解锁
 - [ ] 在 Search Console/GA4 后台确认平台侧抓取和实时事件
 - [ ] 排查 `sitelens.win` 自分析偶发超时

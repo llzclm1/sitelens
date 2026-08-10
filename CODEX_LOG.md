@@ -6,6 +6,7 @@
 - 完成生产收尾验收：删除误用 API Key 作为名称的旧 Secret，确认 `QWEN_API_KEY` 有效；含图片页面返回 `mode=ai`；首页、robots.txt、sitemap.xml、GA4 和 GSC 标签在线正常。Waffo 生产凭证和商品仍待账户侧配置。
 - 发现 GA4 后台未收到数据，改用 Next.js `Script` 的 `afterInteractive` 初始化方式并重新发布；生产首页浏览器无前端错误。Pancake `/merchant/dashboard` 动态页面在内置浏览器连续超时，未盲目提交商品或付款操作。
 - 在 Pancake 生产模式创建 `SiteLens Deep Growth Report` 一次性商品，价格 `$29 USD`，Product ID 为 `PROD_28rexkec6xEqGx2QMHEcJi`；将 Product ID 写入 `wrangler.jsonc`，未混用账号中已有的 `mingora-production` API 密钥。
+- 创建 SiteLens 专用 Waffo 生产 API 密钥，并将 `WAFFO_MERCHANT_ID`、`WAFFO_PRIVATE_KEY`、`WAFFO_WEBHOOK_PUBLIC_KEY` 安全写入 Cloudflare Secrets；在 Pancake 新增 `https://sitelens.win/api/webhooks/waffo` 生产 Webhook，保留原有 `mingora.cc` Webhook。待完成支付回归。
 
 - 从文档评审进入 Phase 0 开发。
 - 实现 URL 抓取、证据规则分析、免费报告、报告页与深度报告请求。
