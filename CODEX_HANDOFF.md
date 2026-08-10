@@ -21,11 +21,12 @@
 - 生产环境已接入 Cloudflare D1，持久化报告、升级请求和支付意向；本地 `next dev` 无 Cloudflare binding 时才使用内存 fallback。
 - 已加入 Waffo Pancake Checkout Session 与 webhook 验证路由，但仍需在 Pancake 后台创建产品并配置密钥。
 - Qwen `qwen3.6-flash` 已接入为视觉增强；线上有 `QWEN_API_KEY` 时，Cloudflare Browser Run 截取首屏并以 Base64 图片发送给 Qwen，失败时自动退回规则分析或 DeepSeek。
+- 已删除 Cloudflare 中误用 API Key 作为名称的旧 Secret，只保留正确的 `QWEN_API_KEY`；生产含图片页面已验证返回 `mode=ai`。
 - GitHub 仓库已建立并推送：`https://github.com/llzclm1/sitelens`。
 - 已加入 Cloudflare OpenNext/Workers 部署配置，Worker 名称为 `sitelens`，并已发布 `sitelens.win/*` Route。
 - `sitelens.win` 已通过 Cloudflare Proxied A 记录 `@ → 192.0.2.0` 接入 Worker Route，首页和 API 已验证返回正常。
 - 之前的 OpenAI Sites 预览部署不再承担生产域名，旧的自定义域绑定已移除。
-- 部署环境已写入非敏感变量：`WAFFO_ENVIRONMENT=test`、`WAFFO_RETURN_BASE_URL`、`NEXT_PUBLIC_SITE_URL`。
+- 部署环境已写入非敏感变量：`WAFFO_ENVIRONMENT=prod`、`WAFFO_RETURN_BASE_URL`、`NEXT_PUBLIC_SITE_URL`、Qwen 视觉模型配置。
 - 已创建 SiteLens GA4 媒体资源和网站数据流，衡量 ID 为 `G-YNQ8J06W7D`，增强型衡量已开启；线上首页已输出 GA4 代码。
 - 已创建并验证 Google Search Console URL 前缀资源 `https://sitelens.win/`；`robots.txt` 和 `sitemap.xml` 已上线，sitemap 已提交。
 - 已为分析、升级和 webhook 增加请求体上限；分析和升级按 Cloudflare IP 使用 D1 计数限流，并补充保守的私网、保留地址和 IPv6 SSRF 拦截。
@@ -72,3 +73,4 @@
 - 将 `https://sitelens.win/api/webhooks/waffo` 配置为 Pancake webhook。
 - 已在 Cloudflare 创建 `@ → 192.0.2.0` 的 Proxied A 记录，Route 已生效。
 - 在 Cloudflare Browser Run 页面确认截图额度和浏览器用量；当前只取 1440×1200 首屏，不保存截图到 D1。
+- 生产首页、`robots.txt`、`sitemap.xml`、GA4 衡量 ID 和 GSC 验证标签已重新在线验证；Search Console/GA4 后台数据仍需等待平台处理。
