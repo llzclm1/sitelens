@@ -35,6 +35,7 @@ interface __BaseEnv_CloudflareEnv {
   BROWSER: BrowserRun;
   WAFFO_ENVIRONMENT: "prod";
   WAFFO_RETURN_BASE_URL: "https://sitelens.win";
+  WAFFO_DEEP_GROWTH_REPORT_PRODUCT_ID: "PROD_28rexkec6xEqGx2QMHEcJi";
   NEXT_PUBLIC_SITE_URL: "https://sitelens.win";
   QWEN_BASE_URL: "https://dashscope.aliyuncs.com/compatible-mode/v1";
   QWEN_MODEL: "qwen3.6-flash";
@@ -57,7 +58,7 @@ type StringifyValues<EnvType extends Record<string, unknown>> = {
 };
 
 declare namespace NodeJS {
-interface ProcessEnv extends StringifyValues<Pick<Cloudflare.Env, "WAFFO_ENVIRONMENT" | "WAFFO_RETURN_BASE_URL" | "NEXT_PUBLIC_SITE_URL" | "GA_MEASUREMENT_ID" | "GOOGLE_SITE_VERIFICATION" | "QWEN_BASE_URL" | "QWEN_MODEL">> {
+interface ProcessEnv extends StringifyValues<Pick<Cloudflare.Env, "WAFFO_ENVIRONMENT" | "WAFFO_RETURN_BASE_URL" | "WAFFO_DEEP_GROWTH_REPORT_PRODUCT_ID" | "NEXT_PUBLIC_SITE_URL" | "GA_MEASUREMENT_ID" | "GOOGLE_SITE_VERIFICATION" | "QWEN_BASE_URL" | "QWEN_MODEL">> {
   QWEN_API_KEY?: string;
 }
 }

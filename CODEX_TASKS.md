@@ -44,7 +44,8 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 ## 下一步
 
 - [ ] 用 5–10 个真实 Indie Hacker / 小 SaaS 首页进行人工质量复核
-- [ ] 在 Pancake 创建 `$29` 一次性产品并配置商户/签名密钥
+- [x] 在 Pancake 创建 `$29` 一次性产品并取得 Product ID `PROD_28rexkec6xEqGx2QMHEcJi`
+- [ ] 在 Pancake 创建或确认 SiteLens 专用生产 API 密钥并配置商户/签名密钥
 - [ ] 将 `https://sitelens.win/api/webhooks/waffo` 配置到 Pancake
 - [ ] 将 Waffo 生产变量写入部署环境并重新发布
 - [ ] 根据真实反馈决定付费报告是否升级到 `qwen3.7-plus`
