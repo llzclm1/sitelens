@@ -7,7 +7,9 @@
   "vars": {
     "WAFFO_ENVIRONMENT": "test",
     "WAFFO_RETURN_BASE_URL": "https://sitelens.win",
-    "NEXT_PUBLIC_SITE_URL": "https://sitelens.win"
+    "NEXT_PUBLIC_SITE_URL": "https://sitelens.win",
+    "GA_MEASUREMENT_ID": "G-YNQ8J06W7D",
+    "GOOGLE_SITE_VERIFICATION": "G0fGVxpzCXqA8jnCV35SO76-hjApPFKsSOXbZCdNQVc"
   },
   "d1_databases": [
     {

@@ -26,3 +26,6 @@
 - 更新通过类型检查和 OpenNext 生产构建；Cloudflare Worker 版本 `6f8cde0f-a937-49ac-8228-8e835c419745` 已发布，首页、`/teardowns`、`/teardowns/stripe/` 和已有报告接口均返回 200。
 - 按 humanizer 规则清理首页、报告页和 Teardown 的可见文案：减少口号式短句、抽象表达、尾部否定和规则化三段式句型；保留原有事实、数字、日期、来源链接和产品边界。
 - 文案更新通过 `npm run typecheck` 和 OpenNext 生产构建；Cloudflare Worker 版本 `28a137fc-0b30-4628-97ba-6f5b37ce489b` 已发布，首页、Stripe Teardown 和已有报告接口均返回 200。
+- 创建 SiteLens GA4 媒体资源和网站数据流，衡量 ID 为 `G-YNQ8J06W7D`；首页加入 GA4 代码，增强型衡量在 GA4 中保持开启。
+- 创建并完成 `https://sitelens.win/` 的 Google Search Console HTML 标记验证；发布 `robots.txt` 和静态 `sitemap.xml`，并在 Search Console 提交 sitemap。
+- 修复 OpenNext 生产首页未输出 GA4/GSC 标签及 sitemap 404 的问题：改用 layout 原生 head 标签和 `public/sitemap.xml`；类型检查、OpenNext 构建通过，Cloudflare Worker 版本 `6a2d9d81-4d68-4819-bcd9-e3245e621041` 已发布。

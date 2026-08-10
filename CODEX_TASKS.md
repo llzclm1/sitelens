@@ -27,6 +27,10 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [x] 加入分析过程展示和公开 Stripe Teardown 案例
 - [x] 按 humanizer 规则清理信任体系可见文案
 - [x] 自托管 Geist / Geist Mono 字体，避免生产构建依赖 Google Fonts
+- [x] 创建 GA4 SiteLens 媒体资源与网站数据流
+- [x] 在首页接入 GA4 衡量代码
+- [x] 创建并验证 Google Search Console URL 前缀资源
+- [x] 发布 `robots.txt` 与 `sitemap.xml` 并提交 sitemap
 
 ## 下一步
 
@@ -37,3 +41,5 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [ ] 根据真实反馈决定截图分析是否进入 P0
 - [ ] 为公开 Teardown 增加受控截图和页面快照存档
 - [ ] 在证据充分后再实现行业 Benchmark，不展示无来源的平均值
+- [ ] 等待 Search Console 完成 sitemap 首次抓取并复核状态
+- [ ] 等待 GA4 开始接收数据后检查实时报告
