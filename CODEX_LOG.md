@@ -9,3 +9,7 @@
 - 明确当前尚未配置生产支付凭证、持久化数据库、Playwright 截图与自动改站。
 - 确认 `pancake.waffo.ai` 是商户后台；按 Waffo SDK 的 Checkout Session + webhook 模式接入 SiteLens。
 - 检查 Cloudflare：`sitelens.win` 区域已激活，但没有 DNS 记录或 SiteLens Pages 项目。
+- 创建 GitHub 仓库 `llzclm1/sitelens` 并推送 `main`。
+- 加入 `@opennextjs/cloudflare`、Wrangler 与 Worker 配置，升级 Next.js 到 `15.5.21`，本地 OpenNext 构建通过。
+- 发布 SiteLens 生产版本：`https://sitelens.sxwdyrxyby.chatgpt.site`。
+- 创建 `sitelens.win` 自定义域绑定；Cloudflare DNS 写入因当前连接器权限不足未完成。

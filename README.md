@@ -23,7 +23,7 @@ npm run dev
 
 付款配置需要在 Pancake 中创建一个 `$29` 一次性产品，然后把以下服务端变量配置到本地或 Cloudflare 部署环境：`WAFFO_ENVIRONMENT`、`WAFFO_MERCHANT_ID`、`WAFFO_PRIVATE_KEY`、`WAFFO_DEEP_GROWTH_REPORT_PRODUCT_ID`、`WAFFO_WEBHOOK_PUBLIC_KEY`。Webhook 地址为 `https://sitelens.win/api/webhooks/waffo`。
 
-当前 Cloudflare 区域 `sitelens.win` 已激活，但还没有 DNS 记录或 SiteLens 部署项目。需要先确定部署目标，再写入 DNS；不要把域名直接指向 Pancake 商户后台。
+当前生产版本已发布到 `https://sitelens.sxwdyrxyby.chatgpt.site`，并已创建 `sitelens.win` 自定义域绑定。Cloudflare 仍需添加托管平台返回的 A/TXT 验证记录；不要把域名直接指向 Pancake 商户后台。
 
 ## 当前明确不做
 
