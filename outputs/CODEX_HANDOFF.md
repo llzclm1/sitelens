@@ -1,6 +1,6 @@
 # Codex 交接说明
 
-本项目当前处于开发前评审阶段，目标是判断 AI Website Critic 是否值得开发，以及确定最小可行技术方案。
+本项目当前处于 SiteLens Phase 0 开发前评审阶段。SiteLens 是长期产品名，AI Website Critic 是此前 MVP 研究名；长期路线图在 `SITELENS-LONG-TERM-ROADMAP.md`。
 
 ## 当前状态
 
@@ -9,13 +9,14 @@
 - 已完成 PRD 评审：`research/prd-review.md`
 - 已完成技术方案确认：`research/technical-decision.md`
 - 已完成决策备忘录：`research/decision-memo.md`
+- 已整理长期路线图：`SITELENS-LONG-TERM-ROADMAP.md`
 - 结论：先做小规模付费验证，不立即进入完整 SaaS 开发。
 - 尚未开始写应用代码、安装依赖、创建第三方账号或配置 API Key。
 - 当前没有 GitHub 远程仓库。
 
 ## 下一步
 
-执行决策备忘录中的 15–20 个目标用户小规模付费验证，重点确认：
+执行 SiteLens 路线图 Phase 0 的 15–20 个目标用户小规模付费验证，重点确认：
 
 1. 报告是否具体、可信、可执行。
 2. 用户是否愿意留下邮箱。
