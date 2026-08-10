@@ -5,6 +5,7 @@
 - 初始化 Superdesign 设计上下文：补齐 `.superdesign/init/` 六份文件和 `.superdesign/design-system.md`，记录现有 SiteLens 的页面结构、路由、CSS token、组件语法与设计约束；随后创建首页复现稿并分支生成 Audit Workspace、Teardown Magazine 两种方向，未将设计稿直接实现为业务代码。
 - 完成 AI SEO 审计与第一轮实施：线上首页当时已有可抓取的 SSR 文本、robots 和 sitemap，但没有 JSON-LD，`/llms.txt` 返回 404，sitemap 只有现有营销/Teardown/法律页。新增 Organization/WebSite、FAQPage、Product/Offer JSON-LD；新增 `/website-review`、`/pricing`、`public/llms.txt`、`public/pricing.md`；robots 禁止 `/api/` 抓取，sitemap 加入新内容。`npm run typecheck` 和 `npm run build` 通过；待发布后做线上验收和多平台查询基线。
 - AI SEO 更新部署收尾：OpenNext 生产构建完成，Cloudflare Worker `sitelens` 发布成功；线上新增页面和机器可读文件返回 200，首页、Website Review 和 Pricing 页面 HTML 含 Organization/WebSite、FAQPage 或 Product/Offer JSON-LD。Search Console sitemap 重新提交和多平台 AI 可见性基线仍待完成。
+- 根据 Pricing 页截图修复页脚横向溢出：为 flex 子项添加 `min-width: 0`、最大宽度和 `overflow-wrap`，在窄视口将页脚右侧内容左对齐；类型检查、Next 构建、OpenNext 构建通过，Worker 已重新发布，生产 CSS 已确认包含修复规则。
 - 接入 Qwen `qwen3.6-flash` 视觉增强：新增 Cloudflare Browser Run 截图 binding、首屏 JPEG Base64 转换和 Qwen OpenAI-compatible JSON refinement；未配置 binding 或调用失败时保持规则分析/DeepSeek fallback。
 - 完成生产收尾验收：删除误用 API Key 作为名称的旧 Secret，确认 `QWEN_API_KEY` 有效；含图片页面返回 `mode=ai`；首页、robots.txt、sitemap.xml、GA4 和 GSC 标签在线正常。Waffo 生产凭证和商品仍待账户侧配置。
 - 发现 GA4 后台未收到数据，改用 Next.js `Script` 的 `afterInteractive` 初始化方式并重新发布；生产首页浏览器无前端错误。Pancake `/merchant/dashboard` 动态页面在内置浏览器连续超时，未盲目提交商品或付款操作。

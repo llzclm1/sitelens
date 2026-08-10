@@ -36,6 +36,7 @@
 - Waffo 部署环境已切换为 `prod`；Pancake 已创建销售中的 `$29` 一次性商品，Product ID 为 `PROD_28rexkec6xEqGx2QMHEcJi`，并已写入 Worker 非敏感变量。生产商户 ID、私钥、Webhook 公钥已写入 Cloudflare Secrets，Pancake 已新增 `https://sitelens.win/api/webhooks/waffo` 生产 Webhook，未覆盖原有 Mingora Webhook；仍需完成支付回归。
 - Superdesign 项目上下文已初始化：`.superdesign/init/` 下六份源码/路由/页面上下文和 `.superdesign/design-system.md` 已完成；已创建 SiteLens Homepage Explorations 项目并生成首页复现稿、Audit Workspace 和 Teardown Magazine 方向，尚未将设计稿实现为业务代码，等待选定方向。
 - AI SEO 基础已实现并发布：根布局加入 Organization/WebSite JSON-LD；新增 `/website-review` 解释页（含 FAQPage JSON-LD）和 `/pricing` 事实页（含 Product/Offer JSON-LD）；新增公开 `public/llms.txt` 与 `public/pricing.md`；robots 保持 AI 搜索爬虫可抓取并禁止 `/api/`，sitemap 已加入新页面和机器可读文件。Cloudflare 线上已验证新页面、静态文件、robots 和 sitemap 返回 200。
+- Pricing 页截图反馈已处理：页脚 flex 子项允许收缩，链接可换行，移动端改为左对齐；修复版本已重新发布并确认生产 CSS 含对应规则。
 
 ## 已验证
 

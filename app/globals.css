@@ -111,6 +111,9 @@ h1 em, h2 em { color: var(--accent); font-family: inherit; font-style: italic; f
 .closing-section h2 em { color: var(--accent); }
 .closing-section > p { max-width: 330px; margin: 0 0 2px; color: color-mix(in srgb, var(--panel-ink) 67%, transparent); font-size: 15px; line-height: 1.55; }
 .footer { display: flex; align-items: center; justify-content: space-between; padding: 27px 0 35px; color: var(--ink-soft); font-size: 11px; }
+.footer > * { min-width: 0; }
+.footer > :last-child { max-width: 100%; line-height: 1.5; overflow-wrap: anywhere; text-align: right; }
+.footer a { overflow-wrap: anywhere; }
 .footer .wordmark { color: var(--ink); }
 
 .payment-banner { margin-top: 24px; padding: 14px 16px; color: var(--ink); border: 1px solid var(--line); font-size: 13px; line-height: 1.4; }.payment-paid { background: color-mix(in srgb, var(--accent) 35%, transparent); }.payment-pending { background: var(--error-bg); }.payment-failed { color: var(--error); background: var(--error-bg); }
@@ -249,6 +252,7 @@ h1 em, h2 em { color: var(--accent); font-family: inherit; font-style: italic; f
   .closing-section { gap: 28px; padding: 35px 25px 38px; }
   .closing-section h2 { font-size: 48px; }
   .footer { align-items: flex-start; flex-direction: column; gap: 17px; }
+  .footer > :last-child { text-align: left; }
   .evidence-strip { grid-template-columns: 1fr 1fr; }
   .evidence-strip div, .evidence-strip div:not(:first-child) { min-height: 90px; padding: 15px 12px 12px 0; border-bottom: 1px solid var(--line); }
   .evidence-strip div:nth-child(even) { padding-left: 12px; border-right: 0; }

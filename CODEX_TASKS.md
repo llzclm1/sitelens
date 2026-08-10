@@ -43,6 +43,7 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [x] 完成 SiteLens product-design 流程并生成 `outputs/SiteLens-产品需求文档-V1.0.md`
 - [x] 初始化 Superdesign 上下文与 SiteLens 设计系统
 - [x] 完成 AI SEO 基础：Schema、`/website-review`、`/pricing`、`llms.txt`、`pricing.md` 和 sitemap 更新
+- [x] 修复 Pricing 页页脚窄视口横向溢出并重新发布
 
 ## 下一步
 
