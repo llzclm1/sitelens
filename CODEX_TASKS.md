@@ -22,6 +22,9 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [x] 验证分析写入、跨请求报告读取和升级失败状态持久化
 - [x] 首页视觉重设计并发布到 Cloudflare
 - [x] 首页营销文案自然化并发布到 Cloudflare
+- [x] 加入 SiteLens Growth Framework 五步方法论
+- [x] 报告公开 Evidence Layer：影响、证据、修复和改写方向
+- [x] 加入分析过程展示和公开 Stripe Teardown 案例
 - [x] 自托管 Geist / Geist Mono 字体，避免生产构建依赖 Google Fonts
 
 ## 下一步
@@ -31,3 +34,5 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [ ] 将 `https://sitelens.win/api/webhooks/waffo` 配置到 Pancake
 - [ ] 将 Waffo 生产变量写入部署环境并重新发布
 - [ ] 根据真实反馈决定截图分析是否进入 P0
+- [ ] 为公开 Teardown 增加受控截图和页面快照存档
+- [ ] 在证据充分后再实现行业 Benchmark，不展示无来源的平均值

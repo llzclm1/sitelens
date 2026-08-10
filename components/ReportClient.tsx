@@ -10,8 +10,13 @@ type ReportIssue = {
   title: string;
   severity: "high" | "medium" | "low";
   evidence: string;
+  whyItMatters: string;
+  firstFix: string;
+  rewrite?: { before: string; after: string };
   confidence: "high" | "medium" | "low";
 };
+
+const frameworkItems = ["Positioning", "Clarity", "Trust", "Conversion", "Authority"];
 
 type PublicReport = {
   id: string;
@@ -115,6 +120,22 @@ export default function ReportClient({ report }: { report: PublicReport }) {
         <div><span>Proof signals</span><strong>{report.snapshot.proofSignals.length}</strong></div>
       </section>
 
+      <section className="framework-section report-framework shell" aria-labelledby="report-framework-title">
+        <div className="framework-intro">
+          <p className="eyebrow">SITELENS GROWTH FRAMEWORK</p>
+          <h2 id="report-framework-title">The score is a summary. The method is the <em>reason.</em></h2>
+          <p>This report moves through five questions before it recommends a change.</p>
+        </div>
+        <ol className="framework-list">
+          {frameworkItems.map((item, index) => (
+            <li key={item}>
+              <span>0{index + 1}</span>
+              <strong>{item}</strong>
+            </li>
+          ))}
+        </ol>
+      </section>
+
       <section className="issues-section shell">
         <div className="section-heading report-section-heading">
           <p className="eyebrow">THE FREE READ</p>
@@ -127,8 +148,24 @@ export default function ReportClient({ report }: { report: PublicReport }) {
               <div className="issue-card-content">
                 <div className="issue-card-meta"><span>{issue.category}</span><b>{issue.confidence} confidence</b></div>
                 <h3>{issue.title}</h3>
-                <p className="evidence-label">PAGE EVIDENCE</p>
-                <p className="evidence-copy">{issue.evidence}</p>
+                <div className="evidence-block">
+                  <p className="evidence-label">WHY IT MATTERS</p>
+                  <p>{issue.whyItMatters}</p>
+                </div>
+                <div className="evidence-block">
+                  <p className="evidence-label">PAGE EVIDENCE</p>
+                  <p>{issue.evidence}</p>
+                </div>
+                <div className="evidence-block">
+                  <p className="evidence-label">WHAT TO CHANGE</p>
+                  <p>{issue.firstFix}</p>
+                  {issue.rewrite ? (
+                    <div className="rewrite-block">
+                      <div><span>Current direction</span><p>{issue.rewrite.before}</p></div>
+                      <div><span>Suggested direction</span><p>{issue.rewrite.after}</p></div>
+                    </div>
+                  ) : null}
+                </div>
               </div>
               <span className="severity-mark" aria-label={`${issue.severity} priority`} />
             </article>
@@ -140,7 +177,7 @@ export default function ReportClient({ report }: { report: PublicReport }) {
         <div className="unlock-copy">
           <p className="eyebrow">THE NEXT LAYER</p>
           <h2>Knowing the blockage<br />is only half the job.</h2>
-          <p>Get the why, the rewrite, and a homepage sequence you can actually ship. Every recommendation is checked by a human before delivery.</p>
+          <p>Get the why, the rewrite, and a homepage sequence you can actually ship. SiteLens does not promise a conversion lift.</p>
           <div className="locked-list"><span>01</span>Root-cause explanation <span>02</span>Hero + CTA rewrite <span>03</span>24-hour action plan</div>
         </div>
         <form className="upgrade-card" onSubmit={requestDeepReport}>

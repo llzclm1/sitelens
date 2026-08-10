@@ -42,5 +42,5 @@ export type FullReport = {
 };
 
 export type PublicReport = Omit<FullReport, "product" | "audience" | "issues"> & {
-  issues: Array<Pick<ReportIssue, "id" | "category" | "title" | "severity" | "evidence" | "confidence">>;
+  issues: Array<Pick<ReportIssue, "id" | "category" | "title" | "severity" | "evidence" | "whyItMatters" | "firstFix" | "rewrite" | "confidence">>;
 };

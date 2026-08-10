@@ -1,6 +1,6 @@
 # SiteLens Phase 0
 
-SiteLens Phase 0 是一个面向 Indie Hacker 和小型 SaaS 创始人的网站增长诊断原型。它只验证一件事：用户提交首页后，是否愿意为一份具体、可执行、人工复核的深度报告付费。
+SiteLens Phase 0 是一个面向 Indie Hacker 和小型 SaaS 创始人的网站增长诊断原型。它只验证一件事：用户提交首页后，是否愿意为一份具体、可执行的深度报告付费。
 
 ## 本次实现
 
@@ -11,6 +11,8 @@ SiteLens Phase 0 是一个面向 Indie Hacker 和小型 SaaS 创始人的网站�
 - Waffo Pancake `$29` 一次性 Deep Growth Report Checkout 创建与 webhook 验证骨架，交付承诺为 24 小时
 - Cloudflare D1 持久化报告、升级请求与支付意向；本地 `next dev` 无 Cloudflare binding 时才使用内存 fallback
 - 首页采用证据驱动的编辑型视觉系统，使用自托管 Geist 字体并支持暗色系统偏好
+- 首页展示 SiteLens Growth Framework，提交时展示分析过程；报告提供问题影响、页面证据、修复建议和改写方向
+- 提供公开 Teardown Library，当前有一个基于 Stripe 官方首页的定性案例，并标注来源、日期和分析边界
 
 ## 本地运行
 

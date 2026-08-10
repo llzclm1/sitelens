@@ -108,7 +108,7 @@ export function toPublicReport(report: FullReport): PublicReport {
     mode: report.mode,
     summary: report.summary,
     snapshot: report.snapshot,
-    issues: report.issues.map(({ id, category, title, severity, evidence, confidence }) => ({ id, category, title, severity, evidence, confidence })),
+    issues: report.issues.map(({ id, category, title, severity, evidence, whyItMatters, firstFix, rewrite, confidence }) => ({ id, category, title, severity, evidence, whyItMatters, firstFix, rewrite, confidence })),
   };
 }
 

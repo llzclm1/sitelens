@@ -22,3 +22,5 @@
 - 用 Playwright 验收桌面、390px 手机、暗色模式和无横向溢出；新版 Worker `e2dee813-3381-499e-96ac-e042d2b304e9` 已发布，线上首页返回 200，已有报告 API 返回 200。
 - 按 humanizer 规则调整首页与 metadata 文案：去掉口号式短句、抽象营销表达和模板化否定句，改为直接说明页面分析如何帮助用户；未新增事实、数字或功能承诺。
 - 文案更新通过 `npm run typecheck` 与 `NEXT_PUBLIC_SITE_URL=https://sitelens.win npm run open:build`，并发布 Worker 版本 `a44682f5-d610-4f46-9f3d-13583f877c7c`；线上首页返回 200，新文案已验证生效。
+- 落地最小信任闭环：加入五步 SiteLens Growth Framework、提交时的透明分析步骤、报告中的 Evidence Layer（为什么重要、页面证据、怎么改、改写方向），并公开一个基于 Stripe 官方首页的定性 Teardown；没有编造转化率、Benchmark 或人工复核承诺。
+- 更新通过类型检查和 OpenNext 生产构建；Cloudflare Worker 版本 `6f8cde0f-a937-49ac-8228-8e835c419745` 已发布，首页、`/teardowns`、`/teardowns/stripe/` 和已有报告接口均返回 200。

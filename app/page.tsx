@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 type AnalysisResponse = {
@@ -26,13 +26,36 @@ const methodPoints = [
   },
 ];
 
+const frameworkItems = ["Positioning", "Clarity", "Trust", "Conversion", "Authority"];
+const analysisSteps = [
+  "Understanding your product",
+  "Reviewing the headline",
+  "Checking trust elements",
+  "Reading the conversion path",
+  "Writing page-specific recommendations",
+];
+
 export default function HomePage() {
   const router = useRouter();
   const [url, setUrl] = useState("");
   const [product, setProduct] = useState("");
   const [audience, setAudience] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [analysisStep, setAnalysisStep] = useState(0);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (!isSubmitting) {
+      setAnalysisStep(0);
+      return;
+    }
+
+    const timer = window.setInterval(() => {
+      setAnalysisStep((current) => Math.min(current + 1, analysisSteps.length - 1));
+    }, 900);
+
+    return () => window.clearInterval(timer);
+  }, [isSubmitting]);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -67,6 +90,7 @@ export default function HomePage() {
         </a>
         <div className="nav-actions">
           <a className="nav-link" href="#method">The method</a>
+          <a className="nav-link" href="/teardowns">Teardowns</a>
           <a className="nav-cta" href="#analyze">Analyze a site <span aria-hidden="true">↗</span></a>
         </div>
       </nav>
@@ -131,6 +155,19 @@ export default function HomePage() {
             <p className="form-note" id="form-note">
               {isSubmitting ? "Reading the page structure, copy, and calls to action." : "Free review. Three issues tied to your page. We do not estimate conversion rates."}
             </p>
+            {isSubmitting ? (
+              <div className="analysis-process" aria-live="polite" aria-label="Analysis progress">
+                <p className="process-label">WHAT IS HAPPENING</p>
+                <ol>
+                  {analysisSteps.map((step, index) => (
+                    <li className={index < analysisStep ? "is-done" : index === analysisStep ? "is-active" : ""} key={step}>
+                      <span aria-hidden="true">{index < analysisStep ? "✓" : `0${index + 1}`}</span>
+                      {step}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            ) : null}
           </form>
         </div>
 
@@ -161,6 +198,22 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="framework-section shell" aria-labelledby="framework-title">
+        <div className="framework-intro">
+          <p className="eyebrow">SITELENS GROWTH FRAMEWORK</p>
+          <h2 id="framework-title">A report should show <em>how</em> it got there.</h2>
+          <p>Every review follows the same five questions, so the recommendation is tied to a method instead of a black-box score.</p>
+        </div>
+        <ol className="framework-list">
+          {frameworkItems.map((item, index) => (
+            <li key={item}>
+              <span>0{index + 1}</span>
+              <strong>{item}</strong>
+            </li>
+          ))}
+        </ol>
+      </section>
+
       <section className="method-section shell" id="method">
         <div className="section-heading">
           <p className="eyebrow">HOW THE REVIEW WORKS</p>
@@ -180,6 +233,17 @@ export default function HomePage() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="teardown-teaser shell" aria-labelledby="teardown-title">
+        <div>
+          <p className="eyebrow">PUBLIC TEARDOWN LIBRARY</p>
+          <h2 id="teardown-title">See the method on a <em>real page.</em></h2>
+        </div>
+        <div>
+          <p>A qualitative read of Stripe&apos;s homepage, with the page evidence, the interpretation, and the next move kept together.</p>
+          <a className="text-link" href="/teardowns/stripe/">Read the Stripe teardown <span aria-hidden="true">↗</span></a>
         </div>
       </section>
 

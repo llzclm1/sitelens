@@ -16,6 +16,7 @@
 - 当前原型已能完成：URL 提交 → 首页抓取 → 免费三问题报告 → 深度报告请求。
 - 首页已完成一轮视觉重设计：证据驱动的编辑型版式、单一 chartreuse 强调色、不对称真实图片 Hero、Geist 自托管字体和暗色系统。
 - 首页和 metadata 已完成一轮文案自然化：减少口号式短句与模板化表达，改为更直接的用户语言，未新增事实或承诺。
+- 已加入最小信任闭环：SiteLens Growth Framework、提交时的分析过程、报告 Evidence Layer，以及公开 Stripe Teardown 案例。
 - 生产环境已接入 Cloudflare D1，持久化报告、升级请求和支付意向；本地 `next dev` 无 Cloudflare binding 时才使用内存 fallback。
 - 已加入 Waffo Pancake Checkout Session 与 webhook 验证路由，但仍需在 Pancake 后台创建产品并配置密钥。
 - DeepSeek 是可选增强；无 `DEEPSEEK_API_KEY` 时使用证据规则生成初稿。
@@ -37,6 +38,7 @@
 - 已验证分析写入 D1、跨请求读取报告，以及升级失败状态写入 D1。
 - 已用 Playwright 验收桌面首屏、390px 手机视口、暗色模式、无横向溢出和浏览器错误。
 - 文案更新后已重新完成类型检查、OpenNext 生产构建，并验证线上首页返回 200 且新文案已生效。
+- 信任体系更新后已验证首页、`/teardowns`、`/teardowns/stripe/` 和已有报告接口返回 200；公开报告现包含问题影响、页面证据、修复建议和改写方向。
 
 ## 下一步
 
@@ -48,6 +50,7 @@
 4. 用户是否愿意购买一次性 Deep Growth Report。
 5. 先人工复核报告质量，再决定是否把截图/视觉分析列为 P0。
 6. 接入真实支付后再扩大流量。
+7. 为公开 Teardown 增加受控截图和页面快照存档，再扩展更多真实案例。
 
 在出现真实购买、确认主 ICP 和确认视觉方案前，不开始完整产品开发。
 
