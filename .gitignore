@@ -6,6 +6,7 @@ node_modules/
 dist/
 build/
 coverage/
+*.tsbuildinfo
 playwright-report/
 test-results/
 *.sqlite
@@ -13,4 +14,3 @@ test-results/
 *.db
 *.log
 competitor-profiles/raw/
-
