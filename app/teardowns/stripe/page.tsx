@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Stripe Homepage Teardown | SiteLens",
+  title: "Stripe Homepage Teardown",
   description: "A qualitative review of Stripe's homepage, with the page evidence behind each recommendation.",
 };
 

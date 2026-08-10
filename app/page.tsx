@@ -90,6 +90,7 @@ export default function HomePage() {
         </a>
         <div className="nav-actions">
           <a className="nav-link" href="#method">The method</a>
+          <a className="nav-link" href="/website-review">Website review</a>
           <a className="nav-link" href="/teardowns">Teardowns</a>
           <a className="nav-cta" href="#analyze">Analyze a site <span aria-hidden="true">↗</span></a>
         </div>
@@ -257,7 +258,7 @@ export default function HomePage() {
 
       <footer className="footer shell">
         <span className="wordmark"><span className="wordmark-mark">S</span><span>SiteLens</span></span>
-        <span>Reviews based on the page itself. · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
+        <span>Reviews based on the page itself. · <a href="/website-review">Website review</a> · <a href="/pricing">Pricing</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
       </footer>
     </main>
   );

@@ -34,7 +34,8 @@
 - 已加入安全响应头、隐私页和条款页；报告 ID 改为完整 UUID，避免短 ID 碰撞和枚举风险。
 - 已加入 `deep_reports` 交付表：签名、环境、金额、币种、产品元数据和报告归属校验通过后，付款 webhook 会生成可在原报告页解锁的深度报告。
 - Waffo 部署环境已切换为 `prod`；Pancake 已创建销售中的 `$29` 一次性商品，Product ID 为 `PROD_28rexkec6xEqGx2QMHEcJi`，并已写入 Worker 非敏感变量。生产商户 ID、私钥、Webhook 公钥已写入 Cloudflare Secrets，Pancake 已新增 `https://sitelens.win/api/webhooks/waffo` 生产 Webhook，未覆盖原有 Mingora Webhook；仍需完成支付回归。
-- Superdesign 项目上下文已初始化：`.superdesign/init/` 下六份源码/路由/页面上下文和 `.superdesign/design-system.md` 已完成；尚未创建设计项目、设计稿或修改业务代码，等待确定首个设计页面与视觉方向。
+- Superdesign 项目上下文已初始化：`.superdesign/init/` 下六份源码/路由/页面上下文和 `.superdesign/design-system.md` 已完成；已创建 SiteLens Homepage Explorations 项目并生成首页复现稿、Audit Workspace 和 Teardown Magazine 方向，尚未将设计稿实现为业务代码，等待选定方向。
+- AI SEO 基础已实现：根布局加入 Organization/WebSite JSON-LD；新增 `/website-review` 解释页（含 FAQPage JSON-LD）和 `/pricing` 事实页（含 Product/Offer JSON-LD）；新增公开 `public/llms.txt` 与 `public/pricing.md`；robots 保持 AI 搜索爬虫可抓取并禁止 `/api/`，sitemap 已加入新页面和机器可读文件。当前改动已通过本地类型检查和 Next 生产构建，尚未发布到 Cloudflare。
 
 ## 已验证
 
@@ -65,6 +66,7 @@
 7. 为公开 Teardown 增加受控截图和页面快照存档，再扩展更多真实案例。
 8. 等待 Search Console 完成 sitemap 首次抓取，并在 GA4 数据流开始接收数据后检查实时报告。
 9. 在 Waffo 创建并配置生产 `$29` 商品、商户凭证和 webhook 公钥后，完成一次真实支付回归；当前代码只完成订单校验和站内深度报告交付。
+10. 发布 AI SEO 更新后，重新提交 sitemap，并用 10–20 个目标查询建立 ChatGPT、Perplexity、Gemini 和 Google 的可见性基线。
 
 在出现真实购买、确认主 ICP 和确认视觉方案前，不开始完整产品开发。
 

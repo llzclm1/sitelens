@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Terms | SiteLens",
+  title: "Terms",
   description: "Terms for using SiteLens website reviews and paid reports.",
 };
 

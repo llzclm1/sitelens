@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Privacy | SiteLens",
+  title: "Privacy",
   description: "How SiteLens handles website review, analytics, checkout and report data.",
 };
 

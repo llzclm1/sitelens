@@ -3,6 +3,7 @@
 ## 2026-08-10
 
 - 初始化 Superdesign 设计上下文：补齐 `.superdesign/init/` 六份文件和 `.superdesign/design-system.md`，记录现有 SiteLens 的页面结构、路由、CSS token、组件语法与设计约束；未生成设计稿，也未修改业务代码。
+- 完成 AI SEO 审计与第一轮实施：线上首页当时已有可抓取的 SSR 文本、robots 和 sitemap，但没有 JSON-LD，`/llms.txt` 返回 404，sitemap 只有现有营销/Teardown/法律页。新增 Organization/WebSite、FAQPage、Product/Offer JSON-LD；新增 `/website-review`、`/pricing`、`public/llms.txt`、`public/pricing.md`；robots 禁止 `/api/` 抓取，sitemap 加入新内容。`npm run typecheck` 和 `npm run build` 通过；待发布后做线上验收和多平台查询基线。
 - 接入 Qwen `qwen3.6-flash` 视觉增强：新增 Cloudflare Browser Run 截图 binding、首屏 JPEG Base64 转换和 Qwen OpenAI-compatible JSON refinement；未配置 binding 或调用失败时保持规则分析/DeepSeek fallback。
 - 完成生产收尾验收：删除误用 API Key 作为名称的旧 Secret，确认 `QWEN_API_KEY` 有效；含图片页面返回 `mode=ai`；首页、robots.txt、sitemap.xml、GA4 和 GSC 标签在线正常。Waffo 生产凭证和商品仍待账户侧配置。
 - 发现 GA4 后台未收到数据，改用 Next.js `Script` 的 `afterInteractive` 初始化方式并重新发布；生产首页浏览器无前端错误。Pancake `/merchant/dashboard` 动态页面在内置浏览器连续超时，未盲目提交商品或付款操作。

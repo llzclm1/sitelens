@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Public Teardowns | SiteLens",
+  title: "Public Teardowns",
   description: "Public website reviews from SiteLens, with the evidence behind each recommendation.",
 };
 

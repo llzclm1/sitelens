@@ -42,6 +42,7 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [x] 修复 GA4 初始化脚本并重新发布
 - [x] 完成 SiteLens product-design 流程并生成 `outputs/SiteLens-产品需求文档-V1.0.md`
 - [x] 初始化 Superdesign 上下文与 SiteLens 设计系统
+- [x] 完成 AI SEO 基础：Schema、`/website-review`、`/pricing`、`llms.txt`、`pricing.md` 和 sitemap 更新
 
 ## 下一步
 
@@ -59,6 +60,9 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [ ] 完成一次真实生产付款回归并确认深度报告可解锁
 - [ ] 在 Search Console/GA4 后台确认平台侧抓取和实时事件
 - [ ] 排查 `sitelens.win` 自分析偶发超时
+- [ ] 发布 AI SEO 更新到 Cloudflare，并重新提交 sitemap
+- [ ] 用 10–20 个目标查询记录 Google AI、ChatGPT、Perplexity、Gemini 的品牌/页面引用基线
+- [ ] 根据真实查询结果补充一个有独立证据的主题内容集群，不批量生成薄页面
 - [ ] 确定 Superdesign 首个目标页面（默认推荐 `/`）与是否保留当前编辑型视觉
 - [ ] 创建 Superdesign 项目并先生成现有页面的像素级复现稿
 - [ ] 用户批准复现稿后，再从复现稿分支生成设计变体
