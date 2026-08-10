@@ -4,6 +4,17 @@
   "name": "sitelens",
   "compatibility_date": "2026-08-10",
   "compatibility_flags": ["nodejs_compat"],
+  "vars": {
+    "WAFFO_ENVIRONMENT": "test",
+    "WAFFO_RETURN_BASE_URL": "https://sitelens.win",
+    "NEXT_PUBLIC_SITE_URL": "https://sitelens.win"
+  },
+  "routes": [
+    {
+      "pattern": "sitelens.win/*",
+      "zone_name": "sitelens.win"
+    }
+  ],
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"

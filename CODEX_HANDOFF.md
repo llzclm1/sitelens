@@ -18,8 +18,9 @@
 - 已加入 Waffo Pancake Checkout Session 与 webhook 验证路由，但仍需在 Pancake 后台创建产品并配置密钥。
 - DeepSeek 是可选增强；无 `DEEPSEEK_API_KEY` 时使用证据规则生成初稿。
 - GitHub 仓库已建立并推送：`https://github.com/llzclm1/sitelens`。
-- 已加入 Cloudflare OpenNext/Workers 部署配置，生产版本已发布到 `https://sitelens.sxwdyrxyby.chatgpt.site`。
-- 自定义域 `sitelens.win` 已在托管平台创建，但仍等待 Cloudflare DNS 验证；Cloudflare 当前连接器只有 DNS 读取权限，未能代写记录。
+- 已加入 Cloudflare OpenNext/Workers 部署配置，Worker 名称为 `sitelens`，并已发布 `sitelens.win/*` Route。
+- `sitelens.win` 目前返回 Cloudflare 1034，因为 zone 还没有指向 Cloudflare 的代理 DNS 记录；Cloudflare 当前连接器只有 DNS 读取权限，未能代写记录。
+- 之前的 OpenAI Sites 预览部署不再承担生产域名，旧的自定义域绑定已移除。
 - 部署环境已写入非敏感变量：`WAFFO_ENVIRONMENT=test`、`WAFFO_RETURN_BASE_URL`、`NEXT_PUBLIC_SITE_URL`。
 - Waffo 商户 ID、私钥、商品 ID、Webhook 公钥尚未配置，因此真实升级付款仍不可用。
 
@@ -50,4 +51,4 @@
 - 在 Pancake 创建 `$29` 一次性产品，取得 product ID。
 - 将 Waffo 商户凭证和 webhook 公钥配置到生产环境变量。
 - 将 `https://sitelens.win/api/webhooks/waffo` 配置为 Pancake webhook。
-- 在 Cloudflare 创建托管平台返回的 2 条 A 记录和 2 条 TXT 验证记录，等待 `sitelens.win` active。
+- 在 Cloudflare 创建 `@ → 192.0.2.0` 的 Proxied A 记录，等待 `sitelens.win` Route 生效。

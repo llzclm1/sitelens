@@ -11,5 +11,6 @@
 - 检查 Cloudflare：`sitelens.win` 区域已激活，但没有 DNS 记录或 SiteLens Pages 项目。
 - 创建 GitHub 仓库 `llzclm1/sitelens` 并推送 `main`。
 - 加入 `@opennextjs/cloudflare`、Wrangler 与 Worker 配置，升级 Next.js 到 `15.5.21`，本地 OpenNext 构建通过。
-- 发布 SiteLens 生产版本：`https://sitelens.sxwdyrxyby.chatgpt.site`。
-- 创建 `sitelens.win` 自定义域绑定；Cloudflare DNS 写入因当前连接器权限不足未完成。
+- 通过 Wrangler 将 OpenNext Worker `sitelens` 发布到 Cloudflare，并创建 `sitelens.win/*` Route。
+- Cloudflare 访问返回 1034；原因是 Route 需要已有的 Proxied DNS 记录，而当前 token 没有 `zone:edit`。
+- 移除旧的 OpenAI Sites 自定义域绑定，生产部署目标改为 Cloudflare Worker。
