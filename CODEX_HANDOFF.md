@@ -10,6 +10,7 @@
 - 已完成技术方案确认：`research/technical-decision.md`
 - 已完成决策备忘录：`research/decision-memo.md`
 - 已整理长期路线图：`SITELENS-LONG-TERM-ROADMAP.md`
+- 已按 product-design 流程完成用户/JTBD、功能收敛、架构、流程和设计审查，并生成最终 PRD：`outputs/SiteLens-产品需求文档-V1.0.md`；当前待产品负责人通读确认。
 - 已实现 Phase 0 原型：`app/`、`components/`、`lib/`
 - 已加入运行说明：`README.md`
 - 结论：先做小规模付费验证，不立即进入完整 SaaS 开发。

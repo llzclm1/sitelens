@@ -40,6 +40,7 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [x] 清理错误 Qwen Secret 并验证生产含图片页面返回 AI 报告
 - [x] 复核生产首页、robots.txt、sitemap.xml、GA4 和 GSC 标签
 - [x] 修复 GA4 初始化脚本并重新发布
+- [x] 完成 SiteLens product-design 流程并生成 `outputs/SiteLens-产品需求文档-V1.0.md`
 
 ## 下一步
 
