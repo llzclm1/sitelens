@@ -36,7 +36,7 @@ export default function HomePage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url, product, audience }),
       });
-      const body = await response.json();
+      const body = await response.json() as AnalysisResponse & { error?: string };
 
       if (!response.ok) {
         throw new Error(body.error ?? "The page could not be analyzed.");

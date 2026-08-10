@@ -7,7 +7,7 @@ export const runtime = "nodejs";
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
+    const body = await request.json() as { url?: unknown; product?: unknown; audience?: unknown };
     const url = normalizeUrl(typeof body.url === "string" ? body.url : "");
     const product = typeof body.product === "string" ? body.product.trim().slice(0, 300) : "";
     const audience = typeof body.audience === "string" ? body.audience.trim().slice(0, 200) : "";
@@ -18,7 +18,7 @@ export async function POST(request: Request) {
 
     const page = await fetchWebsite(url);
     const report = await analyzeWebsite({ url, html: page.html, product, audience });
-    saveReport(report);
+    await saveReport(report);
 
     return NextResponse.json(toPublicReport(report), { status: 201 });
   } catch (error) {

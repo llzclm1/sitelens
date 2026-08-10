@@ -9,6 +9,13 @@
     "WAFFO_RETURN_BASE_URL": "https://sitelens.win",
     "NEXT_PUBLIC_SITE_URL": "https://sitelens.win"
   },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "sitelens",
+      "database_id": "caf3a0a1-5a63-43c6-bebf-860fecd5d011"
+    }
+  ],
   "routes": [
     {
       "pattern": "sitelens.win/*",

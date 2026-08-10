@@ -14,12 +14,12 @@
 - 已加入运行说明：`README.md`
 - 结论：先做小规模付费验证，不立即进入完整 SaaS 开发。
 - 当前原型已能完成：URL 提交 → 首页抓取 → 免费三问题报告 → 深度报告请求。
-- 当前使用运行期内存存储；付款状态在进程重启后会丢失，生产上线前必须换成持久化数据库。
+- 生产环境已接入 Cloudflare D1，持久化报告、升级请求和支付意向；本地 `next dev` 无 Cloudflare binding 时才使用内存 fallback。
 - 已加入 Waffo Pancake Checkout Session 与 webhook 验证路由，但仍需在 Pancake 后台创建产品并配置密钥。
 - DeepSeek 是可选增强；无 `DEEPSEEK_API_KEY` 时使用证据规则生成初稿。
 - GitHub 仓库已建立并推送：`https://github.com/llzclm1/sitelens`。
 - 已加入 Cloudflare OpenNext/Workers 部署配置，Worker 名称为 `sitelens`，并已发布 `sitelens.win/*` Route。
-- `sitelens.win` 目前返回 Cloudflare 1034，因为 zone 还没有指向 Cloudflare 的代理 DNS 记录；Cloudflare 当前连接器只有 DNS 读取权限，未能代写记录。
+- `sitelens.win` 已通过 Cloudflare Proxied A 记录 `@ → 192.0.2.0` 接入 Worker Route，首页和 API 已验证返回正常。
 - 之前的 OpenAI Sites 预览部署不再承担生产域名，旧的自定义域绑定已移除。
 - 部署环境已写入非敏感变量：`WAFFO_ENVIRONMENT=test`、`WAFFO_RETURN_BASE_URL`、`NEXT_PUBLIC_SITE_URL`。
 - Waffo 商户 ID、私钥、商品 ID、Webhook 公钥尚未配置，因此真实升级付款仍不可用。
@@ -32,6 +32,7 @@
 - `localhost` 私网地址被抓取层拒绝。
 - `https://example.com` 能生成免费报告，报告页与升级请求接口可用。
 - `https://pancake.waffo.ai` 已确认是商户后台，不作为客户付款地址。
+- 已验证分析写入 D1、跨请求读取报告，以及升级失败状态写入 D1。
 
 ## 下一步
 
@@ -42,7 +43,7 @@
 3. 在 Pancake 后台创建 `$29` 一次性产品、配置密钥并完成 sandbox 付款。
 4. 用户是否愿意购买一次性 Deep Growth Report。
 5. 先人工复核报告质量，再决定是否把截图/视觉分析列为 P0。
-6. 接入持久化数据库后再扩大流量。
+6. 接入真实支付后再扩大流量。
 
 在出现真实购买、确认主 ICP 和确认视觉方案前，不开始完整产品开发。
 
@@ -51,4 +52,4 @@
 - 在 Pancake 创建 `$29` 一次性产品，取得 product ID。
 - 将 Waffo 商户凭证和 webhook 公钥配置到生产环境变量。
 - 将 `https://sitelens.win/api/webhooks/waffo` 配置为 Pancake webhook。
-- 在 Cloudflare 创建 `@ → 192.0.2.0` 的 Proxied A 记录，等待 `sitelens.win` Route 生效。
+- 已在 Cloudflare 创建 `@ → 192.0.2.0` 的 Proxied A 记录，Route 已生效。

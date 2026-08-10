@@ -72,7 +72,7 @@ export default function ReportClient({ report }: { report: PublicReport }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ reportId: report.id, email }),
       });
-      const body = await response.json();
+      const body = await response.json() as { error?: string; checkoutUrl?: string };
       if (!response.ok) throw new Error(body.error ?? "The request could not be saved.");
       if (body.checkoutUrl) {
         setUpgradeMessage("Opening secure checkout…");

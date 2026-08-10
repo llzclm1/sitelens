@@ -7,11 +7,11 @@ export const runtime = "nodejs";
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
+    const body = await request.json() as { reportId?: unknown; email?: unknown };
     const reportId = typeof body.reportId === "string" ? body.reportId : "";
     const email = typeof body.email === "string" ? body.email.trim().toLowerCase() : "";
 
-    if (!getReport(reportId)) {
+    if (!(await getReport(reportId))) {
       return NextResponse.json({ error: "This report is no longer available." }, { status: 404 });
     }
 
@@ -21,16 +21,16 @@ export async function POST(request: Request) {
 
     const intentId = crypto.randomUUID();
     const createdAt = new Date().toISOString();
-    saveUpgrade({ reportId, email, createdAt });
-    savePaymentIntent({ id: intentId, reportId, email, status: "pending", createdAt });
+    await saveUpgrade({ reportId, email, createdAt });
+    await savePaymentIntent({ id: intentId, reportId, email, status: "pending", createdAt });
 
     try {
       const checkout = await createWaffoCheckout({ reportId, intentId, buyerEmail: email });
-      updatePaymentIntentSession(intentId, checkout.sessionId);
+      await updatePaymentIntentSession(intentId, checkout.sessionId);
 
       return NextResponse.json({ ok: true, checkoutUrl: checkout.checkoutUrl, intentId });
     } catch (error) {
-      markPaymentIntentFailed(intentId, error instanceof Error ? error.message : "Unable to create Waffo checkout");
+      await markPaymentIntentFailed(intentId, error instanceof Error ? error.message : "Unable to create Waffo checkout");
       return NextResponse.json({ error: error instanceof Error ? error.message : "Unable to create Waffo checkout" }, { status: error instanceof WaffoError ? error.status : 502 });
     }
   } catch {

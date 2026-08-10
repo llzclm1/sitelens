@@ -22,7 +22,7 @@ export async function POST(request: Request) {
     const paymentSucceeded = event.eventType === "order.completed" || (event.eventType === "PAYMENT_NOTIFICATION" && (event.data.paymentStatus === "succeeded" || event.data.orderStatus === "completed"));
 
     if (paymentSucceeded && intentId) {
-      markPaymentIntentPaid({ intentId, eventId: event.eventId || event.id, orderId: event.data.orderId || event.eventId });
+      await markPaymentIntentPaid({ intentId, eventId: event.eventId || event.id, orderId: event.data.orderId || event.eventId });
     }
 
     return signedResponse("success");

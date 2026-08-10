@@ -9,7 +9,7 @@ SiteLens Phase 0 是一个面向 Indie Hacker 和小型 SaaS 创始人的网站�
 - 基于页面证据的免费三问题报告
 - 可选 DeepSeek JSON 分析增强；没有 API Key 时使用确定性的证据规则
 - Waffo Pancake `$29` 一次性 Deep Growth Report Checkout 创建与 webhook 验证骨架，交付承诺为 24 小时
-- 运行期内存存储，方便本地验证；真实付款确认依赖 Waffo webhook，生产环境仍应换成持久化数据库
+- Cloudflare D1 持久化报告、升级请求与支付意向；本地 `next dev` 无 Cloudflare binding 时才使用内存 fallback
 
 ## 本地运行
 
@@ -23,7 +23,7 @@ npm run dev
 
 付款配置需要在 Pancake 中创建一个 `$29` 一次性产品，然后把以下服务端变量配置到本地或 Cloudflare 部署环境：`WAFFO_ENVIRONMENT`、`WAFFO_MERCHANT_ID`、`WAFFO_PRIVATE_KEY`、`WAFFO_DEEP_GROWTH_REPORT_PRODUCT_ID`、`WAFFO_WEBHOOK_PUBLIC_KEY`。Webhook 地址为 `https://sitelens.win/api/webhooks/waffo`。
 
-当前生产版本已发布到 Cloudflare Worker `sitelens`，并创建了 `sitelens.win/*` Route。Cloudflare DNS 仍需添加一个 Proxied A 记录：`@ → 192.0.2.0`；不要把域名直接指向 Pancake 商户后台。
+当前生产版本已发布到 Cloudflare Worker `sitelens`，并创建了 `sitelens.win/*` Route。域名通过 Cloudflare Proxied A 记录 `@ → 192.0.2.0` 接入；不要把域名直接指向 Pancake 商户后台。D1 数据库名为 `sitelens`，初始迁移位于 `migrations/0001_initial.sql`。
 
 ## 当前明确不做
 

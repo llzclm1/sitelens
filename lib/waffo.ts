@@ -18,7 +18,7 @@ function required(name: string) {
 }
 
 function environment() {
-  return process.env.WAFFO_ENVIRONMENT === "prod" ? "prod" : "test";
+  return String(process.env.WAFFO_ENVIRONMENT ?? "test") === "prod" ? "prod" : "test";
 }
 
 function publicBaseUrl() {

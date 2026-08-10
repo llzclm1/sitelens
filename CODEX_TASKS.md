@@ -16,14 +16,15 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [x] GitHub 仓库创建与 `main` 推送
 - [x] Cloudflare OpenNext Worker `sitelens` 发布
 - [x] 创建 `sitelens.win/*` Worker Route
+- [x] Cloudflare DNS Proxied A 记录接入并验证首页/API
+- [x] 创建 Cloudflare D1 `sitelens` 数据库并完成初始迁移
+- [x] 报告、升级请求与支付意向改为 D1 持久化
+- [x] 验证分析写入、跨请求报告读取和升级失败状态持久化
 
 ## 下一步
 
 - [ ] 用 5–10 个真实 Indie Hacker / 小 SaaS 首页进行人工质量复核
 - [ ] 在 Pancake 创建 `$29` 一次性产品并配置商户/签名密钥
 - [ ] 将 `https://sitelens.win/api/webhooks/waffo` 配置到 Pancake
-- [ ] 在 Cloudflare 创建 `@ → 192.0.2.0` 的 Proxied A 记录
-- [ ] 等待 `sitelens.win` Route 生效
 - [ ] 将 Waffo 生产变量写入部署环境并重新发布
-- [ ] 选择持久化存储并保存邮箱与报告状态
 - [ ] 根据真实反馈决定截图分析是否进入 P0

@@ -186,7 +186,7 @@ async function refineWithDeepSeek(report: FullReport) {
       }),
     });
     if (!response.ok) return report;
-    const body = await response.json();
+    const body = await response.json() as { choices?: Array<{ message?: { content?: unknown } }> };
     const content = body.choices?.[0]?.message?.content;
     const parsed = JSON.parse(typeof content === "string" ? content.replace(/^```json\s*|\s*```$/g, "") : "{}");
     if (!Array.isArray(parsed.issues) || parsed.issues.length !== 3) return report;

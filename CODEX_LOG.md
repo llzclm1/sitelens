@@ -14,3 +14,6 @@
 - 通过 Wrangler 将 OpenNext Worker `sitelens` 发布到 Cloudflare，并创建 `sitelens.win/*` Route。
 - Cloudflare 访问返回 1034；原因是 Route 需要已有的 Proxied DNS 记录，而当前 token 没有 `zone:edit`。
 - 移除旧的 OpenAI Sites 自定义域绑定，生产部署目标改为 Cloudflare Worker。
+- 创建 Cloudflare D1 数据库 `sitelens`，加入 `migrations/0001_initial.sql`，并绑定为 Worker 的 `DB`。
+- 将报告、升级请求和支付意向从运行期内存迁移到 D1；使用 `getCloudflareContext({ async: true })` 访问线上 binding。
+- 重新发布 Worker，验证 `/api/analyze` 返回 201、`/api/reports/{id}` 跨请求返回 200，升级接口能读取 D1 报告并把未配置 Waffo 的失败状态写入 D1。
