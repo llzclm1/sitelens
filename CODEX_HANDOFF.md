@@ -37,6 +37,7 @@
 - Superdesign 项目上下文已初始化：`.superdesign/init/` 下六份源码/路由/页面上下文和 `.superdesign/design-system.md` 已完成；已创建 SiteLens Homepage Explorations 项目并生成首页复现稿、Audit Workspace 和 Teardown Magazine 方向，尚未将设计稿实现为业务代码，等待选定方向。
 - AI SEO 基础已实现并发布：根布局加入 Organization/WebSite JSON-LD；新增 `/website-review` 解释页（含 FAQPage JSON-LD）和 `/pricing` 事实页（含 Product/Offer JSON-LD）；新增公开 `public/llms.txt` 与 `public/pricing.md`；robots 保持 AI 搜索爬虫可抓取并禁止 `/api/`，sitemap 已加入新页面和机器可读文件。Cloudflare 线上已验证新页面、静态文件、robots 和 sitemap 返回 200。
 - Pricing 页截图反馈已处理：页脚 flex 子项允许收缩，链接可换行，移动端改为左对齐；修复版本已重新发布并确认生产 CSS 含对应规则。
+- Teardowns 页截图反馈已处理：免责声明的专用 margin 覆盖了 `.shell` 居中规则，已改为保留水平居中，和正文及页脚对齐。
 
 ## 已验证
 
@@ -54,6 +55,7 @@
 - GA4/GSC 接入后已完成类型检查、OpenNext 生产构建和 Cloudflare 发布；线上首页含 GA4 衡量代码及 GSC 验证标签，`robots.txt` 与 `sitemap.xml` 返回 200。
 - 对抗式修复后已完成远程 D1 `0002_hardening.sql` 迁移、类型检查、OpenNext 生产构建和 Cloudflare 发布；线上响应包含 HSTS、CSP、X-Frame-Options、nosniff 等安全头。
 - AI SEO 更新已通过 `npm run typecheck`、`npm run build` 和 OpenNext 生产构建；Worker 已重新发布，线上 `/website-review/`、`/pricing/`、`/llms.txt`、`/pricing.md`、`/robots.txt`、`/sitemap.xml` 均返回 200，页面 HTML 含对应 JSON-LD。
+- Teardowns 页免责声明对齐修复已通过类型检查、Next 构建和 OpenNext 生产构建；Worker 已重新发布，需在线上确认免责声明与正文容器对齐。
 
 ## 下一步
 

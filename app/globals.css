@@ -173,7 +173,7 @@ h1 em, h2 em { color: var(--accent); font-family: inherit; font-style: italic; f
 .teardown-action-plan span { color: var(--ink-soft); font-family: var(--font-mono); font-size: 9px; }
 .teardown-action-plan h3 { margin: 31px 0 8px; font-size: 17px; letter-spacing: -0.03em; }
 .teardown-action-plan p { margin: 0; color: var(--ink-soft); font-size: 13px; line-height: 1.5; }
-.teardown-disclaimer { margin: 0 0 32px; padding: 14px 16px; color: var(--ink-soft); background: var(--paper-deep); font-size: 12px; line-height: 1.5; }
+.teardown-disclaimer { margin: 0 auto 32px; padding: 14px 16px; color: var(--ink-soft); background: var(--paper-deep); font-size: 12px; line-height: 1.5; }
 .review-answer { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 72px; padding: 0 0 115px; }
 .review-answer-copy { align-self: start; padding-top: 17px; border-top: 2px solid var(--ink); }
 .review-answer-copy h2 { margin: 14px 0 18px; font-size: clamp(36px, 4.5vw, 59px); letter-spacing: -0.09em; line-height: 0.96; }

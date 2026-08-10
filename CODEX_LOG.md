@@ -1,5 +1,9 @@
 # SiteLens 修改日志
 
+## 2026-08-11
+
+- 根据 Teardowns 页底部截图定位到 `.teardown-disclaimer` 的 `margin: 0 0 32px` 覆盖了 `.shell` 的水平居中，导致免责声明背景和文字左贴页面；改为 `margin: 0 auto 32px`，使其与正文和页脚使用同一内容边界。
+
 ## 2026-08-10
 
 - 初始化 Superdesign 设计上下文：补齐 `.superdesign/init/` 六份文件和 `.superdesign/design-system.md`，记录现有 SiteLens 的页面结构、路由、CSS token、组件语法与设计约束；随后创建首页复现稿并分支生成 Audit Workspace、Teardown Magazine 两种方向，未将设计稿直接实现为业务代码。
