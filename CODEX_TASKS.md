@@ -45,6 +45,7 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [x] 完成 AI SEO 基础：Schema、`/website-review`、`/pricing`、`llms.txt`、`pricing.md` 和 sitemap 更新
 - [x] 修复 Pricing 页页脚窄视口横向溢出并重新发布
 - [x] 修复 Teardowns 页免责声明覆盖 `.shell` 居中规则的问题并重新发布
+- [x] 增加 4 张 Teardown 案例卡片并压缩为案例库网格布局
 
 ## 下一步
 

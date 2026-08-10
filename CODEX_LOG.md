@@ -3,6 +3,7 @@
 ## 2026-08-11
 
 - 根据 Teardowns 页底部截图定位到 `.teardown-disclaimer` 的 `margin: 0 0 32px` 覆盖了 `.shell` 的水平居中，导致免责声明背景和文字左贴页面；改为 `margin: 0 auto 32px`，使其与正文和页脚使用同一内容边界。
+- 将 Teardowns 单一右侧卡片扩展为 4 张案例卡片：保留 Stripe 公开案例，新增 AI workspace、B2B service、Creator tool 三个明确标注的示例；不改变页面主结构，改用紧凑 2×2 网格、卡片元信息和移动端单列。
 
 ## 2026-08-10
 
