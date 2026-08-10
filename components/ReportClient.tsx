@@ -1,7 +1,8 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 type ReportIssue = {
   id: string;
@@ -33,10 +34,31 @@ type PublicReport = {
 };
 
 export default function ReportClient({ report }: { report: PublicReport }) {
+  const searchParams = useSearchParams();
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [upgradeMessage, setUpgradeMessage] = useState("");
   const [upgradeError, setUpgradeError] = useState("");
+  const [paymentStatus, setPaymentStatus] = useState<"pending" | "paid" | "failed" | null>(null);
+  const intentId = searchParams.get("intent");
+  const paymentReturned = searchParams.get("payment") === "success";
+
+  useEffect(() => {
+    if (!paymentReturned || !intentId) return;
+    const paymentIntentId = intentId;
+    let cancelled = false;
+    let attempts = 0;
+    async function checkPayment() {
+      const response = await fetch(`/api/payments/${encodeURIComponent(paymentIntentId)}`, { cache: "no-store" });
+      if (!response.ok || cancelled) return;
+      const body = await response.json() as { status?: "pending" | "paid" | "failed" };
+      if (body.status) setPaymentStatus(body.status);
+      attempts += 1;
+      if (body.status === "pending" && attempts < 5) window.setTimeout(checkPayment, 1000);
+    }
+    void checkPayment();
+    return () => { cancelled = true; };
+  }, [intentId, paymentReturned]);
 
   async function requestDeepReport(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -52,8 +74,10 @@ export default function ReportClient({ report }: { report: PublicReport }) {
       });
       const body = await response.json();
       if (!response.ok) throw new Error(body.error ?? "The request could not be saved.");
-      if (body.checkoutUrl) window.location.assign(body.checkoutUrl);
-      setUpgradeMessage(body.message);
+      if (body.checkoutUrl) {
+        setUpgradeMessage("Opening secure checkout…");
+        window.location.assign(body.checkoutUrl);
+      }
     } catch (error) {
       setUpgradeError(error instanceof Error ? error.message : "The request could not be saved.");
     } finally {
@@ -67,6 +91,8 @@ export default function ReportClient({ report }: { report: PublicReport }) {
         <Link className="wordmark" href="/" aria-label="SiteLens home"><span className="wordmark-mark">S</span><span>SiteLens</span></Link>
         <span className="report-nav-label">GROWTH REPORT / {report.host}</span>
       </nav>
+
+      {paymentReturned ? <div className={`payment-banner shell payment-${paymentStatus ?? "pending"}`} role="status">{paymentStatus === "paid" ? "Payment confirmed. Your deep report is now in the review queue." : paymentStatus === "failed" ? "Payment was not confirmed. Please contact support before trying again." : "Payment return received. Waiting for secure payment confirmation…"}</div> : null}
 
       <section className="report-header shell">
         <div>
@@ -119,10 +145,10 @@ export default function ReportClient({ report }: { report: PublicReport }) {
         </div>
         <form className="upgrade-card" onSubmit={requestDeepReport}>
           <div className="upgrade-price"><span>DEEP GROWTH REPORT</span><strong>$29</strong></div>
-          <p>One homepage. One prioritized diagnosis. Delivered within 24 hours.</p>
+          <p>One homepage. One prioritized diagnosis. Delivered within 24 hours after secure payment.</p>
           <label htmlFor="email">Where should we send it?</label>
           <input id="email" type="email" placeholder="you@company.com" value={email} onChange={(event) => setEmail(event.target.value)} required disabled={isSubmitting} />
-          <button type="submit" disabled={isSubmitting}>{isSubmitting ? "Saving request…" : "Request the deep report ↗"}</button>
+          <button type="submit" disabled={isSubmitting}>{isSubmitting ? "Opening checkout…" : "Pay $29 and continue ↗"}</button>
           {upgradeMessage ? <p className="form-success" role="status">{upgradeMessage}</p> : null}
           {upgradeError ? <p className="form-error" role="alert">{upgradeError}</p> : null}
           <small>No automatic conversion-rate promises. Just page-specific evidence and a clear next move.</small>

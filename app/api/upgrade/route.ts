@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
-import { getReport, saveUpgrade } from "@/lib/store";
+import crypto from "node:crypto";
+import { createWaffoCheckout, WaffoError } from "@/lib/waffo";
+import { getReport, markPaymentIntentFailed, savePaymentIntent, saveUpgrade, updatePaymentIntentSession } from "@/lib/store";
 
 export const runtime = "nodejs";
 
@@ -17,16 +19,20 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Enter a valid email address." }, { status: 400 });
     }
 
-    saveUpgrade({ reportId, email, createdAt: new Date().toISOString() });
-    const checkoutUrl = process.env.PAYMENT_CHECKOUT_URL;
+    const intentId = crypto.randomUUID();
+    const createdAt = new Date().toISOString();
+    saveUpgrade({ reportId, email, createdAt });
+    savePaymentIntent({ id: intentId, reportId, email, status: "pending", createdAt });
 
-    return NextResponse.json({
-      ok: true,
-      checkoutUrl: checkoutUrl || null,
-      message: checkoutUrl
-        ? "Your report is ready for checkout."
-        : "Request saved. We will send the human-reviewed report within 24 hours.",
-    });
+    try {
+      const checkout = await createWaffoCheckout({ reportId, intentId, buyerEmail: email });
+      updatePaymentIntentSession(intentId, checkout.sessionId);
+
+      return NextResponse.json({ ok: true, checkoutUrl: checkout.checkoutUrl, intentId });
+    } catch (error) {
+      markPaymentIntentFailed(intentId, error instanceof Error ? error.message : "Unable to create Waffo checkout");
+      return NextResponse.json({ error: error instanceof Error ? error.message : "Unable to create Waffo checkout" }, { status: error instanceof WaffoError ? error.status : 502 });
+    }
   } catch {
     return NextResponse.json({ error: "The request could not be saved." }, { status: 400 });
   }

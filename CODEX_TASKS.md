@@ -11,11 +11,15 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [x] 基于页面证据的三问题免费报告
 - [x] 可选 DeepSeek 增强接口
 - [x] 报告页与深度报告请求入口
+- [x] Waffo Pancake Checkout Session 与 webhook 路由骨架
 - [x] 类型检查、生产构建、API 冒烟测试
 
 ## 下一步
 
 - [ ] 用 5–10 个真实 Indie Hacker / 小 SaaS 首页进行人工质量复核
-- [ ] 接入真实支付链接
+- [ ] 在 Pancake 创建 `$29` 一次性产品并配置商户/签名密钥
+- [ ] 将 `https://sitelens.win/api/webhooks/waffo` 配置到 Pancake
+- [ ] 选择 Cloudflare Workers/OpenNext 或其他部署目标，创建 SiteLens 部署项目
+- [ ] 将部署目标绑定到 `sitelens.win` 并创建 DNS 记录
 - [ ] 选择持久化存储并保存邮箱与报告状态
 - [ ] 根据真实反馈决定截图分析是否进入 P0
