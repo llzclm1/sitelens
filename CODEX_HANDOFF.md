@@ -40,6 +40,7 @@
 - Teardowns 页截图反馈已处理：免责声明的专用 margin 覆盖了 `.shell` 居中规则，已改为保留水平居中，和正文及页脚对齐。
 - Teardowns 案例库已扩展为 4 张卡片：1 个 Stripe 公开案例和 3 个明确标注的示例；保留原页面结构，仅将右侧内容改为紧凑 2×2 网格，窄屏回落为单列。
 - GA4 漏斗事件已补全：`analyze_started`、`analyze_completed`、`report_viewed`、`email_submitted`、`checkout_started`、`payment_confirmed`、`deep_report_unlocked`；事件仅发送必要上下文，不发送邮箱、完整 URL 或支付敏感信息。
+- 已补充 GA4 Tracking Plan：`research/analytics-tracking-plan.md`，记录事件触发、参数、转化建议、DebugView 验证和付款回访边界。
 
 ## 已验证
 

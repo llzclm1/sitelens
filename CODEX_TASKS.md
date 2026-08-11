@@ -47,6 +47,7 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [x] 修复 Teardowns 页免责声明覆盖 `.shell` 居中规则的问题并重新发布
 - [x] 增加 4 张 Teardown 案例卡片并压缩为案例库网格布局
 - [x] 补全 GA4 漏斗事件埋点并统一事件命名
+- [x] 编写 GA4 Tracking Plan 和 DebugView 验证步骤
 
 ## 下一步
 
