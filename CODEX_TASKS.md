@@ -46,6 +46,7 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [x] 修复 Pricing 页页脚窄视口横向溢出并重新发布
 - [x] 修复 Teardowns 页免责声明覆盖 `.shell` 居中规则的问题并重新发布
 - [x] 增加 4 张 Teardown 案例卡片并压缩为案例库网格布局
+- [x] 补全 GA4 漏斗事件埋点并统一事件命名
 
 ## 下一步
 
@@ -62,6 +63,7 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [x] 在 Waffo 配置生产凭证、商品和 webhook 公钥
 - [ ] 完成一次真实生产付款回归并确认深度报告可解锁
 - [ ] 在 Search Console/GA4 后台确认平台侧抓取和实时事件
+- [ ] 在 GA4 Admin 将关键漏斗事件标记为转化并用 DebugView 验证
 - [ ] 排查 `sitelens.win` 自分析偶发超时
 - [x] 发布 AI SEO 更新到 Cloudflare
 - [ ] 在 Search Console 重新提交 sitemap，并等待新页面抓取

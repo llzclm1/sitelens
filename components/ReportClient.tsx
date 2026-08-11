@@ -1,8 +1,9 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { trackEvent } from "@/lib/analytics";
 
 type ReportIssue = {
   id: string;
@@ -53,12 +54,23 @@ export default function ReportClient({ report }: { report: PublicReport }) {
   const [upgradeError, setUpgradeError] = useState("");
   const [paymentStatus, setPaymentStatus] = useState<"pending" | "paid" | "failed" | null>(null);
   const [deepReport, setDeepReport] = useState<DeepReport | null>(null);
+  const trackedReportId = useRef<string | null>(null);
+  const trackedPayment = useRef<{ intentId: string | null; confirmed: boolean; unlocked: boolean }>({ intentId: null, confirmed: false, unlocked: false });
   const intentId = searchParams.get("intent");
   const paymentReturned = searchParams.get("payment") === "success";
 
   useEffect(() => {
+    if (trackedReportId.current === report.id) return;
+    trackedReportId.current = report.id;
+    trackEvent("report_viewed", { analysis_mode: report.mode });
+  }, [report.id, report.mode]);
+
+  useEffect(() => {
     if (!paymentReturned || !intentId) return;
     const paymentIntentId = intentId;
+    if (trackedPayment.current.intentId !== paymentIntentId) {
+      trackedPayment.current = { intentId: paymentIntentId, confirmed: false, unlocked: false };
+    }
     let cancelled = false;
     let attempts = 0;
     async function checkPayment() {
@@ -66,7 +78,17 @@ export default function ReportClient({ report }: { report: PublicReport }) {
       if (!response.ok || cancelled) return;
       const body = await response.json() as { status?: "pending" | "paid" | "failed"; deepReport?: DeepReport | null };
       if (body.status) setPaymentStatus(body.status);
-      if (body.deepReport) setDeepReport(body.deepReport);
+      if (body.status === "paid" && !trackedPayment.current.confirmed) {
+        trackedPayment.current.confirmed = true;
+        trackEvent("payment_confirmed");
+      }
+      if (body.deepReport) {
+        setDeepReport(body.deepReport);
+        if (!trackedPayment.current.unlocked) {
+          trackedPayment.current.unlocked = true;
+          trackEvent("deep_report_unlocked");
+        }
+      }
       attempts += 1;
       if ((body.status === "pending" || (body.status === "paid" && !body.deepReport)) && attempts < 10) window.setTimeout(checkPayment, 1000);
     }
@@ -88,8 +110,10 @@ export default function ReportClient({ report }: { report: PublicReport }) {
       });
       const body = await response.json() as { error?: string; checkoutUrl?: string };
       if (!response.ok) throw new Error(body.error ?? "The request could not be saved.");
+      trackEvent("email_submitted");
       if (body.checkoutUrl) {
         setUpgradeMessage("Opening secure checkout…");
+        trackEvent("checkout_started");
         window.location.assign(body.checkoutUrl);
       }
     } catch (error) {

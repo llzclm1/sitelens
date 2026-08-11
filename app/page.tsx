@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { trackEvent } from "@/lib/analytics";
 
 type AnalysisResponse = {
   id: string;
@@ -61,6 +62,7 @@ export default function HomePage() {
     event.preventDefault();
     setError("");
     setIsSubmitting(true);
+    trackEvent("analyze_started");
 
     try {
       const response = await fetch("/api/analyze", {
@@ -74,6 +76,7 @@ export default function HomePage() {
         throw new Error(body.error ?? "The page could not be analyzed.");
       }
 
+      trackEvent("analyze_completed", { analysis_mode: body.mode });
       router.push(`/report/${body.id}`);
     } catch (submitError) {
       setError(submitError instanceof Error ? submitError.message : "The page could not be analyzed.");

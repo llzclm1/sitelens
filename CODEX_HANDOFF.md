@@ -39,6 +39,7 @@
 - Pricing 页截图反馈已处理：页脚 flex 子项允许收缩，链接可换行，移动端改为左对齐；修复版本已重新发布并确认生产 CSS 含对应规则。
 - Teardowns 页截图反馈已处理：免责声明的专用 margin 覆盖了 `.shell` 居中规则，已改为保留水平居中，和正文及页脚对齐。
 - Teardowns 案例库已扩展为 4 张卡片：1 个 Stripe 公开案例和 3 个明确标注的示例；保留原页面结构，仅将右侧内容改为紧凑 2×2 网格，窄屏回落为单列。
+- GA4 漏斗事件已补全：`analyze_started`、`analyze_completed`、`report_viewed`、`email_submitted`、`checkout_started`、`payment_confirmed`、`deep_report_unlocked`；事件仅发送必要上下文，不发送邮箱、完整 URL 或支付敏感信息。
 
 ## 已验证
 
@@ -58,6 +59,7 @@
 - AI SEO 更新已通过 `npm run typecheck`、`npm run build` 和 OpenNext 生产构建；Worker 已重新发布，线上 `/website-review/`、`/pricing/`、`/llms.txt`、`/pricing.md`、`/robots.txt`、`/sitemap.xml` 均返回 200，页面 HTML 含对应 JSON-LD。
 - Teardowns 页免责声明对齐修复已通过类型检查、Next 构建和 OpenNext 生产构建；Worker 已重新发布，需在线上确认免责声明与正文容器对齐。
 - Teardowns 案例卡片更新已通过类型检查和 Next 生产构建；发布后需确认桌面 2×2 与移动单列布局。
+- GA4 事件埋点已通过类型检查和 Next 生产构建；`payment_confirmed` 与 `deep_report_unlocked` 当前以用户返回报告页后的客户端确认作为触发条件。
 
 ## 下一步
 
@@ -73,6 +75,7 @@
 8. 等待 Search Console 完成 sitemap 首次抓取，并在 GA4 数据流开始接收数据后检查实时报告。
 9. 在 Waffo 创建并配置生产 `$29` 商品、商户凭证和 webhook 公钥后，完成一次真实支付回归；当前代码只完成订单校验和站内深度报告交付。
 10. 在 Search Console 重新提交更新后的 sitemap，并用 10–20 个目标查询建立 ChatGPT、Perplexity、Gemini 和 Google 的可见性基线。
+11. 在 GA4 Admin 将 `analyze_completed`、`email_submitted`、`payment_confirmed` 和 `deep_report_unlocked` 标记为转化，并用 DebugView 做一次真实流程验证。
 
 在出现真实购买、确认主 ICP 和确认视觉方案前，不开始完整产品开发。
 

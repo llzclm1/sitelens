@@ -4,6 +4,7 @@
 
 - 根据 Teardowns 页底部截图定位到 `.teardown-disclaimer` 的 `margin: 0 0 32px` 覆盖了 `.shell` 的水平居中，导致免责声明背景和文字左贴页面；改为 `margin: 0 auto 32px`，使其与正文和页脚使用同一内容边界。
 - 将 Teardowns 单一右侧卡片扩展为 4 张案例卡片：保留 Stripe 公开案例，新增 AI workspace、B2B service、Creator tool 三个明确标注的示例；不改变页面主结构，改用紧凑 2×2 网格、卡片元信息和移动端单列。
+- 补全 GA4 漏斗埋点：在首页提交、分析成功、报告挂载、升级请求成功、Checkout 跳转、支付状态确认和深度报告加载处发送 7 个自定义事件；仅发送分析模式等必要上下文，不发送邮箱、完整 URL 或支付敏感信息。GA4 Admin 转化标记和 DebugView 回归仍待完成。
 
 ## 2026-08-10
 
