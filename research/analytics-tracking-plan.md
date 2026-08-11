@@ -9,6 +9,7 @@
 - 实现：Next.js `gtag.js` + `lib/analytics.ts`
 - 页面浏览：由 GA4 配置自动收集
 - 增强型衡量：已开启
+- 全站 CTA：由根布局监听 `.nav-cta`、`.text-link` 和报告付款按钮
 - 隐私边界：不发送邮箱、完整 URL、报告 ID、支付凭证或卡信息
 
 ## 漏斗事件
@@ -22,6 +23,7 @@
 | `checkout_started` | 收到 Checkout URL 并跳转前 | 无 | 衡量进入付款流程 | 不必标记 |
 | `payment_confirmed` | 用户返回报告页，轮询确认已付款 | 无 | 诊断付款确认链路 | 不建议与解锁重复计为转化 |
 | `deep_report_unlocked` | 报告页收到深度报告 | 无 | 衡量付费交付完成 | 标记为核心转化 |
+| `cta_clicked` | 全站主要 CTA 或报告付款按钮被点击 | `cta_type`, `destination`, `page_path` | 比较首页、内容页和价格页的引导效率 | 不必标记 |
 
 ## GA4 Admin 配置
 
