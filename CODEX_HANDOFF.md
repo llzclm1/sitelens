@@ -64,7 +64,7 @@
 - Teardowns 页免责声明对齐修复已通过类型检查、Next 构建和 OpenNext 生产构建；Worker 已重新发布，需在线上确认免责声明与正文容器对齐。
 - Teardowns 案例卡片更新已通过类型检查和 Next 生产构建；发布后需确认桌面 2×2 与移动单列布局。
 - GA4 事件埋点已通过类型检查和 Next 生产构建；`payment_confirmed` 与 `deep_report_unlocked` 当前以用户返回报告页后的客户端确认作为触发条件。
-- 本轮代码修复已通过 `npm run typecheck`；待 OpenNext 构建、部署后重新检查线上 canonical、favicon、sitemap 和失败事件。
+- 本轮修复已通过 `npm run typecheck`、`npm run build` 和 OpenNext Cloudflare 部署；Worker 版本为 `619be671-745d-49ee-b53a-443195cab95f`。Cloudflare 已上传更新的 sitemap、GA4 客户端包和报告页包；GA4/GSC 后台事件与抓取结果仍需平台侧继续处理。
 
 ## 下一步
 
