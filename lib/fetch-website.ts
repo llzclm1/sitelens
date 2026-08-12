@@ -1,5 +1,6 @@
 import dns from "node:dns/promises";
 import net from "node:net";
+import { RequestError } from "@/lib/request";
 
 const MAX_REDIRECTS = 3;
 const MAX_HTML_BYTES = 600_000;
@@ -61,32 +62,47 @@ function isPrivateIp(address: string) {
 }
 
 async function assertSafeUrl(value: string) {
-  const parsed = new URL(value);
-  if (!['http:', 'https:'].includes(parsed.protocol)) throw new Error("Use an http:// or https:// website URL.");
-  if (parsed.username || parsed.password) throw new Error("URLs with usernames or passwords are not supported.");
+  let parsed: URL;
+  try {
+    parsed = new URL(value);
+  } catch {
+    throw new RequestError("Enter a valid website URL.");
+  }
+  if (!['http:', 'https:'].includes(parsed.protocol)) throw new RequestError("Use an http:// or https:// website URL.");
+  if (parsed.username || parsed.password) throw new RequestError("URLs with usernames or passwords are not supported.");
 
   const hostname = parsed.hostname.replace(/^\[|\]$/g, '').toLowerCase();
   if (hostname === "localhost" || hostname.endsWith(".localhost") || hostname.endsWith(".local") || hostname.endsWith(".internal")) {
-    throw new Error("Private or local websites are not supported.");
+    throw new RequestError("Private or local websites are not supported.");
   }
 
   if (net.isIP(hostname)) {
-    if (isPrivateIp(hostname)) throw new Error("Private or local websites are not supported.");
+    if (isPrivateIp(hostname)) throw new RequestError("Private or local websites are not supported.");
     return;
   }
 
-  const addresses = await dns.lookup(hostname, { all: true });
+  let addresses: Array<{ address: string }>;
+  try {
+    addresses = await dns.lookup(hostname, { all: true });
+  } catch {
+    throw new RequestError("The website hostname could not be resolved.", 422);
+  }
   if (!addresses.length || addresses.some(({ address }) => isPrivateIp(address))) {
-    throw new Error("This website resolves to a private network and cannot be analyzed.");
+    throw new RequestError("This website resolves to a private network and cannot be analyzed.", 422);
   }
 }
 
 export function normalizeUrl(input: string) {
   const trimmed = input.trim();
-  if (!trimmed) throw new Error("Enter a website URL.");
+  if (!trimmed) throw new RequestError("Enter a website URL.");
   const value = /^[a-z][a-z\d+.-]*:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`;
-  const parsed = new URL(value);
-  if (!parsed.hostname) throw new Error("Enter a valid website URL.");
+  let parsed: URL;
+  try {
+    parsed = new URL(value);
+  } catch {
+    throw new RequestError("Enter a valid website URL.");
+  }
+  if (!parsed.hostname) throw new RequestError("Enter a valid website URL.");
   parsed.hash = "";
   return parsed.toString();
 }
@@ -103,7 +119,7 @@ async function readLimitedBody(response: Response) {
     total += value.byteLength;
     if (total > MAX_HTML_BYTES) {
       await reader.cancel();
-      throw new Error("This homepage is too large to analyze in Phase 0.");
+      throw new RequestError("This homepage is too large to analyze in Phase 0.", 413);
     }
     chunks.push(value);
   }
@@ -134,25 +150,30 @@ export async function fetchWebsite(startUrl: string) {
 
       if (response.status >= 300 && response.status < 400) {
         const location = response.headers.get("location");
-        if (!location || attempt === MAX_REDIRECTS) throw new Error("This website redirects too many times.");
-        currentUrl = new URL(location, currentUrl).toString();
+        if (!location || attempt === MAX_REDIRECTS) throw new RequestError("This website redirects too many times.", 422);
+        try {
+          currentUrl = new URL(location, currentUrl).toString();
+        } catch {
+          throw new RequestError("This website returned an invalid redirect.", 422);
+        }
         continue;
       }
 
-      if (!response.ok) throw new Error(`The website returned HTTP ${response.status}.`);
+      if (!response.ok) throw new RequestError(`The website returned HTTP ${response.status}.`, 422);
       const contentType = response.headers.get("content-type") ?? "";
       if (contentType && !contentType.includes("text/html") && !contentType.includes("application/xhtml+xml")) {
-        throw new Error("That URL does not return an HTML homepage.");
+        throw new RequestError("That URL does not return an HTML homepage.", 422);
       }
 
       return { finalUrl: currentUrl, html: await readLimitedBody(response) };
     } catch (error) {
-      if (error instanceof Error && error.name === "AbortError") throw new Error("The website took too long to respond.");
-      throw error;
+      if (error instanceof RequestError) throw error;
+      if (error instanceof Error && error.name === "AbortError") throw new RequestError("The website took too long to respond.", 504);
+      throw new RequestError("The website could not be reached.", 502);
     } finally {
       clearTimeout(timeout);
     }
   }
 
-  throw new Error("The website could not be reached.");
+  throw new RequestError("The website could not be reached.", 502);
 }

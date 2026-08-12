@@ -1,8 +1,10 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Privacy",
   description: "How SiteLens handles website review, analytics, checkout and report data.",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPage() {

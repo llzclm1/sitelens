@@ -49,6 +49,9 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [x] 补全 GA4 漏斗事件埋点并统一事件命名
 - [x] 编写 GA4 Tracking Plan 和 DebugView 验证步骤
 - [x] 增加整站主要 CTA 点击追踪
+- [x] 修复分析/Checkout 失败状态码、失败事件和支付价值参数
+- [x] 修复公开页面 canonical、sitemap 末尾斜杠和 favicon 404
+- [x] 修复 GA4 初始化竞态，未加载完成时先写入 dataLayer
 
 ## 下一步
 
@@ -60,13 +63,13 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [ ] 根据真实反馈决定付费报告是否升级到 `qwen3.7-plus`
 - [ ] 为公开 Teardown 增加受控截图和页面快照存档
 - [ ] 在证据充分后再实现行业 Benchmark，不展示无来源的平均值
-- [ ] 等待 Search Console 完成 sitemap 首次抓取并复核状态
+- [ ] 等待 Search Console 完成更新后 sitemap 抓取并复核状态
 - [ ] 等待 GA4 开始接收数据后检查实时报告
 - [x] 在 Waffo 配置生产凭证、商品和 webhook 公钥
 - [ ] 完成一次真实生产付款回归并确认深度报告可解锁
 - [ ] 在 Search Console/GA4 后台确认平台侧抓取和实时事件
 - [ ] 在 GA4 Admin 将关键漏斗事件标记为转化并用 DebugView 验证
-- [ ] 排查 `sitelens.win` 自分析偶发超时
+- [ ] 排查 `sitelens.win` 自分析偶发超时，并观察 `analyze_failed` 的状态码分布
 - [x] 发布 AI SEO 更新到 Cloudflare
 - [ ] 在 Search Console 重新提交 sitemap，并等待新页面抓取
 - [ ] 用 10–20 个目标查询记录 Google AI、ChatGPT、Perplexity、Gemini 的品牌/页面引用基线

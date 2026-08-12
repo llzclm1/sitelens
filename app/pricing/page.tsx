@@ -13,7 +13,7 @@ const structuredData = {
   category: "Website conversion review",
   offers: {
     "@type": "Offer",
-    url: `${siteUrl}/pricing/`,
+    url: `${siteUrl}/pricing`,
     priceCurrency: "USD",
     price: "29",
     availability: "https://schema.org/InStock",
@@ -23,7 +23,7 @@ const structuredData = {
 export const metadata: Metadata = {
   title: "Pricing",
   description: "SiteLens pricing: a free website review and a $29 one-time Deep Growth Report.",
-  alternates: { canonical: "/pricing/" },
+  alternates: { canonical: "/pricing" },
 };
 
 export default function PricingPage() {

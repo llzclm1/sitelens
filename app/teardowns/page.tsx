@@ -1,8 +1,10 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Public Teardowns",
   description: "Public website reviews from SiteLens, with the evidence behind each recommendation.",
+  alternates: { canonical: "/teardowns" },
 };
 
 const teardownCards = [
@@ -11,7 +13,7 @@ const teardownCards = [
     title: "Stripe homepage",
     description: "A qualitative read of positioning, clarity, trust signals, and the next decision a visitor has to make.",
     meta: "Source: stripe.com · qualitative review",
-    href: "/teardowns/stripe/",
+    href: "/teardowns/stripe",
     linkLabel: "Read the full teardown",
   },
   {

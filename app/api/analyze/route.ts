@@ -35,6 +35,6 @@ export async function POST(request: Request) {
     return NextResponse.json(toPublicReport(report), { status: 201 });
   } catch (error) {
     const message = error instanceof Error ? error.message : "The page could not be analyzed.";
-    return NextResponse.json({ error: message }, { status: error instanceof RequestError ? error.status : 400 });
+    return NextResponse.json({ error: message }, { status: error instanceof RequestError ? error.status : 502 });
   }
 }

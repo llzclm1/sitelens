@@ -63,6 +63,7 @@ export default function HomePage() {
     setError("");
     setIsSubmitting(true);
     trackEvent("analyze_started");
+    let statusCode = 0;
 
     try {
       const response = await fetch("/api/analyze", {
@@ -70,6 +71,7 @@ export default function HomePage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url, product, audience }),
       });
+      statusCode = response.status;
       const body = await response.json() as AnalysisResponse & { error?: string };
 
       if (!response.ok) {
@@ -79,6 +81,7 @@ export default function HomePage() {
       trackEvent("analyze_completed", { analysis_mode: body.mode });
       router.push(`/report/${body.id}`);
     } catch (submitError) {
+      trackEvent("analyze_failed", { status_code: statusCode });
       setError(submitError instanceof Error ? submitError.message : "The page could not be analyzed.");
       setIsSubmitting(false);
     }
@@ -247,7 +250,7 @@ export default function HomePage() {
         </div>
         <div>
           <p>We read Stripe&apos;s homepage and keep the evidence, interpretation, and next move together.</p>
-          <a className="text-link" href="/teardowns/stripe/">Read the Stripe teardown <span aria-hidden="true">↗</span></a>
+          <a className="text-link" href="/teardowns/stripe">Read the Stripe teardown <span aria-hidden="true">↗</span></a>
         </div>
       </section>
 

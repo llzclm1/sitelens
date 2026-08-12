@@ -65,7 +65,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             <Script async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`} strategy="afterInteractive" />
             <Script id="site-lens-ga4" strategy="afterInteractive">
               {`window.dataLayer = window.dataLayer || [];
-function gtag(){window.dataLayer.push(arguments);}
+window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
 gtag('js', new Date());
 gtag('config', '${gaMeasurementId}');`}
             </Script>

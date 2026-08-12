@@ -55,7 +55,7 @@ export default function ReportClient({ report }: { report: PublicReport }) {
   const [paymentStatus, setPaymentStatus] = useState<"pending" | "paid" | "failed" | null>(null);
   const [deepReport, setDeepReport] = useState<DeepReport | null>(null);
   const trackedReportId = useRef<string | null>(null);
-  const trackedPayment = useRef<{ intentId: string | null; confirmed: boolean; unlocked: boolean }>({ intentId: null, confirmed: false, unlocked: false });
+  const trackedPayment = useRef<{ intentId: string | null; confirmed: boolean; failed: boolean; unlocked: boolean }>({ intentId: null, confirmed: false, failed: false, unlocked: false });
   const intentId = searchParams.get("intent");
   const paymentReturned = searchParams.get("payment") === "success";
 
@@ -69,7 +69,7 @@ export default function ReportClient({ report }: { report: PublicReport }) {
     if (!paymentReturned || !intentId) return;
     const paymentIntentId = intentId;
     if (trackedPayment.current.intentId !== paymentIntentId) {
-      trackedPayment.current = { intentId: paymentIntentId, confirmed: false, unlocked: false };
+      trackedPayment.current = { intentId: paymentIntentId, confirmed: false, failed: false, unlocked: false };
     }
     let cancelled = false;
     let attempts = 0;
@@ -80,13 +80,17 @@ export default function ReportClient({ report }: { report: PublicReport }) {
       if (body.status) setPaymentStatus(body.status);
       if (body.status === "paid" && !trackedPayment.current.confirmed) {
         trackedPayment.current.confirmed = true;
-        trackEvent("payment_confirmed");
+        trackEvent("payment_confirmed", { value: 29, currency: "USD" });
+      }
+      if (body.status === "failed" && !trackedPayment.current.failed) {
+        trackedPayment.current.failed = true;
+        trackEvent("payment_failed", { value: 29, currency: "USD" });
       }
       if (body.deepReport) {
         setDeepReport(body.deepReport);
         if (!trackedPayment.current.unlocked) {
           trackedPayment.current.unlocked = true;
-          trackEvent("deep_report_unlocked");
+          trackEvent("deep_report_unlocked", { value: 29, currency: "USD" });
         }
       }
       attempts += 1;
@@ -101,6 +105,7 @@ export default function ReportClient({ report }: { report: PublicReport }) {
     setUpgradeError("");
     setUpgradeMessage("");
     setIsSubmitting(true);
+    let statusCode = 0;
 
     try {
       const response = await fetch("/api/upgrade", {
@@ -108,15 +113,17 @@ export default function ReportClient({ report }: { report: PublicReport }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ reportId: report.id, email }),
       });
+      statusCode = response.status;
       const body = await response.json() as { error?: string; checkoutUrl?: string };
       if (!response.ok) throw new Error(body.error ?? "The request could not be saved.");
       trackEvent("email_submitted");
       if (body.checkoutUrl) {
         setUpgradeMessage("Opening secure checkout…");
-        trackEvent("checkout_started");
+        trackEvent("checkout_started", { value: 29, currency: "USD" });
         window.location.assign(body.checkoutUrl);
       }
     } catch (error) {
+      trackEvent("checkout_failed", { status_code: statusCode });
       setUpgradeError(error instanceof Error ? error.message : "The request could not be saved.");
     } finally {
       setIsSubmitting(false);

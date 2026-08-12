@@ -1,8 +1,10 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Stripe Homepage Teardown",
   description: "A qualitative review of Stripe's homepage, with the page evidence behind each recommendation.",
+  alternates: { canonical: "/teardowns/stripe" },
 };
 
 export default function StripeTeardownPage() {

@@ -1,5 +1,12 @@
 # SiteLens 修改日志
 
+## 2026-08-12
+
+- 根据 GA4、GSC 和 Cloudflare 交叉检查修复生产闭环：分析接口的未预期错误改为 502，Checkout 配置缺失改为 503，客户端新增 `analyze_failed`、`checkout_failed` 和 `payment_failed`，付费事件补充 USD $29 的价值参数；不发送邮箱、完整 URL 或支付敏感信息。
+- 修复 GA4 初始化竞态：`gtag` 尚未可用时先将事件写入 `dataLayer`，避免首屏 CTA 或分析提交事件丢失。
+- 修复 SEO 可索引性：为公开子页面补充逐页 canonical，统一使用无末尾斜杠 URL，更新 sitemap 的 canonical URL 和 `lastmod`，robots 对站点 URL 做末尾斜杠归一化。
+- 增加 `/favicon.ico` 兼容路由，消除 Cloudflare 观测到的重复 favicon 404；保留现有 `/icon.svg`。
+
 ## 2026-08-11
 
 - 根据 Teardowns 页底部截图定位到 `.teardown-disclaimer` 的 `margin: 0 0 32px` 覆盖了 `.shell` 的水平居中，导致免责声明背景和文字左贴页面；改为 `margin: 0 auto 32px`，使其与正文和页脚使用同一内容边界。

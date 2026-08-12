@@ -18,11 +18,14 @@
 | --- | --- | --- | --- | --- |
 | `analyze_started` | 首页分析表单提交 | 无 | 衡量提交意图 | 可选 |
 | `analyze_completed` | `/api/analyze` 成功返回报告 | `analysis_mode` | 衡量免费报告完成 | 标记 |
+| `analyze_failed` | `/api/analyze` 返回错误或网络失败 | `status_code` | 定位分析链路失败 | 不标记 |
 | `report_viewed` | 报告组件首次挂载 | `analysis_mode` | 衡量报告交付 | 不必标记 |
 | `email_submitted` | `/api/upgrade` 成功保存升级请求 | 无 | 衡量邮箱收集/付费意图 | 标记 |
-| `checkout_started` | 收到 Checkout URL 并跳转前 | 无 | 衡量进入付款流程 | 不必标记 |
-| `payment_confirmed` | 用户返回报告页，轮询确认已付款 | 无 | 诊断付款确认链路 | 不建议与解锁重复计为转化 |
-| `deep_report_unlocked` | 报告页收到深度报告 | 无 | 衡量付费交付完成 | 标记为核心转化 |
+| `checkout_started` | 收到 Checkout URL 并跳转前 | `value`, `currency` | 衡量进入付款流程 | 不必标记 |
+| `checkout_failed` | `/api/upgrade` 返回错误或网络失败 | `status_code` | 定位 Checkout 创建失败 | 不标记 |
+| `payment_confirmed` | 用户返回报告页，轮询确认已付款 | `value`, `currency` | 诊断付款确认链路 | 不建议与解锁重复计为转化 |
+| `payment_failed` | 用户返回报告页，轮询确认付款失败 | `value`, `currency` | 区分付款失败与回访缺失 | 不标记 |
+| `deep_report_unlocked` | 报告页收到深度报告 | `value`, `currency` | 衡量付费交付完成 | 标记为核心转化 |
 | `cta_clicked` | 全站主要 CTA 或报告付款按钮被点击 | `cta_type`, `destination`, `page_path` | 比较首页、内容页和价格页的引导效率 | 不必标记 |
 
 ## GA4 Admin 配置
@@ -41,8 +44,9 @@
 2. 访问首页并提交一个可访问的测试网站。
 3. 确认依次出现 `analyze_started`、`analyze_completed`、`report_viewed`。
 4. 在报告页提交邮箱，确认出现 `email_submitted` 和 `checkout_started`。
-5. 仅在允许的支付环境中完成一次付款回归，确认 `payment_confirmed` 和 `deep_report_unlocked`。
-6. 在 Realtime 报告确认事件用户数与 DebugView 一致。
+5. 用一个不可访问的网站或临时关闭 Checkout 配置，确认失败流程出现 `analyze_failed` 或 `checkout_failed`，并检查 `status_code`。
+6. 仅在允许的支付环境中完成一次付款回归，确认 `payment_confirmed` 和 `deep_report_unlocked`；失败订单应出现 `payment_failed`。
+7. 在 Realtime 报告确认事件用户数与 DebugView 一致。
 
 ## 解释边界
 
