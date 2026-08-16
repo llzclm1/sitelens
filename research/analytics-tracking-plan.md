@@ -11,6 +11,7 @@
 - 增强型衡量：已开启
 - 全站 CTA：由根布局监听 `.nav-cta`、`.text-link` 和报告付款按钮
 - 隐私边界：不发送邮箱、完整 URL、报告 ID、支付凭证或卡信息
+- 服务端事实层：D1 `analytics_events` 记录分析、报告交付、邮箱意向、Checkout 和支付解锁，不保存邮箱或完整 URL
 
 ## 漏斗事件
 
@@ -51,5 +52,7 @@
 ## 解释边界
 
 付款事件当前通过用户返回原报告页后的客户端轮询确认触发。如果付款成功但用户没有返回 SiteLens，GA4 不会收到这两个客户端事件；D1/Waffo 记录仍是支付事实来源。若后续需要无回访也能统计收入，应再接入 GA4 Measurement Protocol，并将服务端 webhook 作为事件来源。
+
+当前 D1 服务端事实事件会记录 `payment_confirmed` 和 `deep_report_unlocked`，因此即使用户没有回到 SiteLens，产品侧仍可从 D1 统计已确认的订单与报告交付。GA4 仍保留客户端事件，用于用户路径和来源分析。
 
 当前没有采集邮箱或完整 URL，因此不需要为漏斗事件创建自定义用户维度。UTM 参数由 GA4 自动识别，后续发布 X 或 SEO 链接时统一使用 `utm_source`、`utm_medium`、`utm_campaign`。

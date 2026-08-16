@@ -3,6 +3,25 @@ import { buildDeepReport } from "@/lib/deep-report";
 import type { DeepReport, FullReport, PublicReport } from "@/lib/types";
 
 type UpgradeRequest = { reportId: string; email: string; createdAt: string };
+export type AnalyticsEventName =
+  | "analyze_started"
+  | "analyze_completed"
+  | "analyze_failed"
+  | "report_viewed"
+  | "email_submitted"
+  | "checkout_started"
+  | "checkout_failed"
+  | "payment_confirmed"
+  | "payment_failed"
+  | "deep_report_unlocked";
+type AnalyticsEvent = {
+  eventName: AnalyticsEventName;
+  statusCode?: number;
+  analysisMode?: FullReport["mode"];
+  value?: number;
+  currency?: string;
+  createdAt: string;
+};
 export type PaymentIntent = {
   id: string;
   reportId: string;
@@ -20,6 +39,7 @@ type MemoryStore = {
   reports: Map<string, FullReport>;
   upgrades: UpgradeRequest[];
   paymentIntents: Map<string, PaymentIntent>;
+  analyticsEvents: AnalyticsEvent[];
 };
 
 type ReportRow = { payload: string };
@@ -41,7 +61,7 @@ const globalStore = globalThis as typeof globalThis & {
   __sitelensStore?: MemoryStore;
   __sitelensDeepReports?: Map<string, DeepReport>;
 };
-const memoryStore: MemoryStore = globalStore.__sitelensStore ?? { reports: new Map(), upgrades: [], paymentIntents: new Map() };
+const memoryStore: MemoryStore = globalStore.__sitelensStore ?? { reports: new Map(), upgrades: [], paymentIntents: new Map(), analyticsEvents: [] };
 globalStore.__sitelensStore = memoryStore;
 
 export async function getDatabase(): Promise<D1Database | undefined> {
@@ -133,6 +153,25 @@ export async function saveUpgrade(request: UpgradeRequest) {
   }
 
   memoryStore.upgrades.push(request);
+}
+
+export async function recordAnalyticsEvent(input: Omit<AnalyticsEvent, "createdAt"> & { createdAt?: string }) {
+  const event = { ...input, createdAt: input.createdAt ?? new Date().toISOString() };
+
+  try {
+    const database = await getDatabase();
+    if (database) {
+      await database
+        .prepare("INSERT INTO analytics_events (event_name, status_code, analysis_mode, value, currency, created_at) VALUES (?, ?, ?, ?, ?, ?)")
+        .bind(event.eventName, event.statusCode ?? null, event.analysisMode ?? null, event.value ?? null, event.currency ?? null, event.createdAt)
+        .run();
+      return;
+    }
+
+    memoryStore.analyticsEvents.push(event);
+  } catch {
+    // Analytics must never make a report, checkout, or payment request fail.
+  }
 }
 
 export async function savePaymentIntent(intent: PaymentIntent) {
@@ -235,6 +274,7 @@ export async function createDeepReportForPayment(paymentIntentId: string) {
 
   const deepReport = buildDeepReport(report, paymentIntentId);
   await saveDeepReport(deepReport);
+  await recordAnalyticsEvent({ eventName: "deep_report_unlocked", value: 29, currency: "USD" });
   return deepReport;
 }
 

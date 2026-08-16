@@ -13,7 +13,7 @@ export default function SiteAnalytics() {
   useEffect(() => {
     function handleClick(event: MouseEvent) {
       if (!(event.target instanceof Element)) return;
-      const action = event.target.closest<HTMLElement>("a.nav-cta, a.text-link, .upgrade-card button");
+      const action = event.target.closest<HTMLElement>("a.nav-cta, a.text-link, .upgrade-card button, .audit-form button");
       if (!action || (action instanceof HTMLButtonElement && action.disabled)) return;
 
       trackEvent("cta_clicked", {

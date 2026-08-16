@@ -4,7 +4,7 @@ import { fetchWebsite, normalizeUrl } from "@/lib/fetch-website";
 import { captureWebsiteScreenshot } from "@/lib/screenshot";
 import { readJsonBody, RequestError } from "@/lib/request";
 import { enforceRateLimit } from "@/lib/rate-limit";
-import { saveReport, toPublicReport } from "@/lib/store";
+import { recordAnalyticsEvent, saveReport, toPublicReport } from "@/lib/store";
 
 export const runtime = "nodejs";
 
@@ -27,14 +27,18 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Tell us what the product does and who it is for." }, { status: 400 });
     }
 
+    await recordAnalyticsEvent({ eventName: "analyze_started" });
     const page = await fetchWebsite(url);
     const screenshot = process.env.QWEN_API_KEY ? await captureWebsiteScreenshot(page.finalUrl) : undefined;
     const report = await analyzeWebsite({ url: page.finalUrl, html: page.html, product, audience, screenshot });
     await saveReport(report);
+    await recordAnalyticsEvent({ eventName: "analyze_completed", analysisMode: report.mode });
 
     return NextResponse.json(toPublicReport(report), { status: 201 });
   } catch (error) {
     const message = error instanceof Error ? error.message : "The page could not be analyzed.";
-    return NextResponse.json({ error: message }, { status: error instanceof RequestError ? error.status : 502 });
+    const status = error instanceof RequestError ? error.status : 502;
+    await recordAnalyticsEvent({ eventName: "analyze_failed", statusCode: status });
+    return NextResponse.json({ error: message }, { status });
   }
 }

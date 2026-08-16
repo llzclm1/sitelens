@@ -11,10 +11,10 @@
 
 ## Key pages
 
-- [Website review](https://sitelens.win/website-review/): what a SiteLens review is, how it works, and common questions.
-- [Pricing](https://sitelens.win/pricing/): current free review and $29 one-time Deep Growth Report details.
-- [Public teardowns](https://sitelens.win/teardowns/): qualitative reviews with the page evidence behind each recommendation.
-- [Stripe homepage teardown](https://sitelens.win/teardowns/stripe/): a dated public example of the review method.
+- [Website review](https://sitelens.win/website-review): what a SiteLens review is, how it works, and common questions.
+- [Pricing](https://sitelens.win/pricing): current free review and $29 one-time Deep Growth Report details.
+- [Public teardowns](https://sitelens.win/teardowns): qualitative reviews with the page evidence behind each recommendation.
+- [Stripe homepage teardown](https://sitelens.win/teardowns/stripe): a dated public example of the review method.
 - [Homepage](https://sitelens.win/): submit a website for a free review.
 
 ## Pricing

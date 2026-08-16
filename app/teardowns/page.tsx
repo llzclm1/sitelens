@@ -21,7 +21,7 @@ const teardownCards = [
     title: "AI workspace homepage",
     description: "The promise sounds ambitious, but the first screen makes the visitor work to identify the workflow and outcome.",
     meta: "Illustrative example · no measured results",
-    href: "/#audit-form",
+    href: "/#analyze",
     linkLabel: "Analyze a similar page",
   },
   {
@@ -29,7 +29,7 @@ const teardownCards = [
     title: "B2B service homepage",
     description: "A polished service page can still leave the buying decision vague when proof and the next step arrive too late.",
     meta: "Illustrative example · no measured results",
-    href: "/#audit-form",
+    href: "/#analyze",
     linkLabel: "Analyze a similar page",
   },
   {
@@ -37,7 +37,7 @@ const teardownCards = [
     title: "Creator tool homepage",
     description: "The page needs to show the before-and-after moment before asking a visitor to start or sign up.",
     meta: "Illustrative example · no measured results",
-    href: "/#audit-form",
+    href: "/#analyze",
     linkLabel: "Analyze a similar page",
   },
 ];

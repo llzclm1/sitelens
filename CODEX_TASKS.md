@@ -52,6 +52,10 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [x] 修复分析/Checkout 失败状态码、失败事件和支付价值参数
 - [x] 修复公开页面 canonical、sitemap 末尾斜杠和 favicon 404
 - [x] 修复 GA4 初始化竞态，未加载完成时先写入 dataLayer
+- [x] 增加 D1 服务端漏斗事实层，记录分析、报告、邮箱、Checkout 和支付交付事件
+- [x] 修复 Teardown 示例 CTA 指向不存在的 `#audit-form` 锚点
+- [x] 修复 `llms.txt` 中的末尾斜杠链接并刷新 sitemap `lastmod`
+- [x] 增加可用的站内 404 页面，给真实访问者提供下一步路径
 
 ## 下一步
 
@@ -73,6 +77,7 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [x] 发布 AI SEO 更新到 Cloudflare
 - [ ] 在 Search Console 重新提交 sitemap，并等待新页面抓取
 - [ ] 用 10–20 个目标查询记录 Google AI、ChatGPT、Perplexity、Gemini 的品牌/页面引用基线
+- [ ] 在 D1 执行 `research/analytics-funnel.sql`，用服务端事实数据建立首个 30 天漏斗基线
 - [ ] 根据真实查询结果补充一个有独立证据的主题内容集群，不批量生成薄页面
 - [x] 确定 Superdesign 首个目标页面为首页并生成现有页面复现稿
 - [x] 从复现稿分支生成 Audit Workspace 和 Teardown Magazine 设计变体

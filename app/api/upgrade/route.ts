@@ -3,7 +3,7 @@ import crypto from "node:crypto";
 import { createWaffoCheckout, waffoIsConfigured, WaffoError } from "@/lib/waffo";
 import { readJsonBody, RequestError } from "@/lib/request";
 import { enforceRateLimit } from "@/lib/rate-limit";
-import { getReport, markPaymentIntentFailed, savePaymentIntent, saveUpgrade, updatePaymentIntentSession } from "@/lib/store";
+import { getReport, markPaymentIntentFailed, recordAnalyticsEvent, savePaymentIntent, saveUpgrade, updatePaymentIntentSession } from "@/lib/store";
 
 export const runtime = "nodejs";
 
@@ -22,14 +22,17 @@ export async function POST(request: Request) {
     const email = typeof body.email === "string" ? body.email.trim().toLowerCase() : "";
 
     if (!(await getReport(reportId))) {
+      await recordAnalyticsEvent({ eventName: "checkout_failed", statusCode: 404 });
       return NextResponse.json({ error: "This report is no longer available." }, { status: 404 });
     }
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      await recordAnalyticsEvent({ eventName: "checkout_failed", statusCode: 400 });
       return NextResponse.json({ error: "Enter a valid email address." }, { status: 400 });
     }
 
     if (!waffoIsConfigured()) {
+      await recordAnalyticsEvent({ eventName: "checkout_failed", statusCode: 503 });
       return NextResponse.json({ error: "Secure checkout is temporarily unavailable." }, { status: 503 });
     }
 
@@ -37,20 +40,26 @@ export async function POST(request: Request) {
     const createdAt = new Date().toISOString();
     await saveUpgrade({ reportId, email, createdAt });
     await savePaymentIntent({ id: intentId, reportId, email, status: "pending", createdAt });
+    await recordAnalyticsEvent({ eventName: "email_submitted" });
 
     try {
       const checkout = await createWaffoCheckout({ reportId, intentId, buyerEmail: email });
       await updatePaymentIntentSession(intentId, checkout.sessionId);
+      await recordAnalyticsEvent({ eventName: "checkout_started", value: 29, currency: "USD" });
 
       return NextResponse.json({ ok: true, checkoutUrl: checkout.checkoutUrl, intentId });
     } catch (error) {
       await markPaymentIntentFailed(intentId, error instanceof Error ? error.message : "Unable to create Waffo checkout");
-      return NextResponse.json({ error: error instanceof WaffoError && error.status === 503 ? "Secure checkout is temporarily unavailable." : "Secure checkout could not be created. Try again shortly." }, { status: error instanceof WaffoError ? error.status : 502 });
+      const status = error instanceof WaffoError ? error.status : 502;
+      await recordAnalyticsEvent({ eventName: "checkout_failed", statusCode: status });
+      return NextResponse.json({ error: error instanceof WaffoError && error.status === 503 ? "Secure checkout is temporarily unavailable." : "Secure checkout could not be created. Try again shortly." }, { status });
     }
   } catch (error) {
+    const status = error instanceof RequestError ? error.status : 502;
+    await recordAnalyticsEvent({ eventName: "checkout_failed", statusCode: status });
     return NextResponse.json(
       { error: error instanceof RequestError ? error.message : "The request could not be saved." },
-      { status: error instanceof RequestError ? error.status : 502 },
+      { status },
     );
   }
 }

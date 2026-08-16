@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import ReportClient from "@/components/ReportClient";
-import { getPublicReport } from "@/lib/store";
+import { getPublicReport, recordAnalyticsEvent } from "@/lib/store";
 
 export const dynamic = "force-dynamic";
 
@@ -13,5 +13,6 @@ export default async function ReportPage({ params }: { params: Promise<{ id: str
     return null;
   }
 
+  await recordAnalyticsEvent({ eventName: "report_viewed", analysisMode: report.mode });
   return <ReportClient report={report} />;
 }

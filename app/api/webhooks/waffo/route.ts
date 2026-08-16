@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createDeepReportForPayment, getPaymentIntent, markPaymentIntentPaid } from "@/lib/store";
+import { createDeepReportForPayment, getPaymentIntent, markPaymentIntentPaid, recordAnalyticsEvent } from "@/lib/store";
 import { readTextBody } from "@/lib/request";
 import { signWaffoResponse, verifyWaffoWebhook, waffoEnvironment, type WaffoWebhookEvent } from "@/lib/waffo";
 
@@ -37,7 +37,9 @@ export async function POST(request: Request) {
       );
 
       if (!orderMatches) return signedResponse("failed");
+      const wasAlreadyPaid = intent?.status === "paid";
       await markPaymentIntentPaid({ intentId, eventId: event.eventId || event.id, orderId: event.data.orderId || event.eventId });
+      if (!wasAlreadyPaid) await recordAnalyticsEvent({ eventName: "payment_confirmed", value: 29, currency: "USD" });
       await createDeepReportForPayment(intentId);
     }
 

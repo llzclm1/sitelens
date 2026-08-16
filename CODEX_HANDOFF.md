@@ -44,6 +44,9 @@
 - 已增加整站 `cta_clicked` 事件：根布局统一监听主要导航 CTA、文本 CTA 和报告付款按钮，附带 `cta_type`、规范化 `destination` 与 `page_path`。
 - 已根据 GA4、GSC 和 Cloudflare 数据修复生产问题：分析/Checkout 失败返回更准确的 4xx/5xx，漏斗补充失败事件与 `$29 USD` 价值参数，GA4 未加载完成时事件先写入 `dataLayer`。
 - 已为公开页面补充逐页 canonical，sitemap 统一无末尾斜杠并更新 `lastmod`，新增 `/favicon.ico` 兼容路由；目标是减少 308、canonical 错配和重复 favicon 404。
+- 已增加 D1 `analytics_events` 服务端事实层；分析开始/完成/失败、报告交付、邮箱意向、Checkout、支付确认和深度报告解锁均可在不保存邮箱、完整 URL 或支付敏感信息的前提下统计。
+- 已修复 Teardown 示例卡片原先指向不存在的 `#audit-form` 锚点，统一指向首页真实的 `#analyze` 表单；`llms.txt` 和 sitemap 统一使用无末尾斜杠 canonical URL。
+- 已增加站内 `404` 页面，为真实访问者提供返回首页、网站评审和公开 Teardown 的路径；Cloudflare 观察到的 WordPress/`.env` 扫描仍属于外部机器人噪声，不视为产品错误。
 
 ## 已验证
 
@@ -65,6 +68,7 @@
 - Teardowns 案例卡片更新已通过类型检查和 Next 生产构建；发布后需确认桌面 2×2 与移动单列布局。
 - GA4 事件埋点已通过类型检查和 Next 生产构建；`payment_confirmed` 与 `deep_report_unlocked` 当前以用户返回报告页后的客户端确认作为触发条件。
 - 本轮修复已通过 `npm run typecheck`、`npm run build` 和 OpenNext Cloudflare 部署；Worker 版本为 `619be671-745d-49ee-b53a-443195cab95f`。Cloudflare 已上传更新的 sitemap、GA4 客户端包和报告页包；GA4/GSC 后台事件与抓取结果仍需平台侧继续处理。
+- 本轮“全部修复”新增 D1 漏斗迁移 `migrations/0003_analytics_events.sql`；代码和文档已更新，需在发布前应用远程 D1 迁移并用 `research/analytics-funnel.sql` 做首个服务端基线。
 
 ## 下一步
 
@@ -81,6 +85,7 @@
 9. 在 Waffo 创建并配置生产 `$29` 商品、商户凭证和 webhook 公钥后，完成一次真实支付回归；当前代码只完成订单校验和站内深度报告交付。
 10. 在 Search Console 重新提交更新后的 sitemap，并用 10–20 个目标查询建立 ChatGPT、Perplexity、Gemini 和 Google 的可见性基线。
 11. 在 GA4 Admin 将 `analyze_completed`、`email_submitted`、`payment_confirmed` 和 `deep_report_unlocked` 标记为转化，并用 DebugView 做一次真实流程验证。
+12. 发布后执行 `wrangler d1 migrations apply sitelens --remote`，再用 `research/analytics-funnel.sql` 检查服务端漏斗；GA4 Admin、GSC 重新提交和真实支付仍需账号侧动作，不能由代码提交代替。
 
 在出现真实购买、确认主 ICP 和确认视觉方案前，不开始完整产品开发。
 

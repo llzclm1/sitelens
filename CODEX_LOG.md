@@ -1,5 +1,11 @@
 # SiteLens 修改日志
 
+## 2026-08-16
+
+- 根据 GA4、GSC 和 Cloudflare 观测结果完成可控范围内的全量修复：新增 D1 `analytics_events` 服务端事实层，覆盖分析、报告、邮箱、Checkout、支付确认和深度报告解锁；不记录邮箱、完整 URL、报告 ID 或支付敏感信息。
+- 修复 Teardown 三张示例卡片指向不存在的 `#audit-form` 锚点；统一 `llms.txt`、sitemap 和公开页面入口的无末尾斜杠 canonical；增加站内 404 页面。
+- 新增 `research/analytics-funnel.sql`，用于从 D1 查询近 30 天漏斗和失败状态分布；GA4 Admin 关键事件、GSC sitemap 重新提交和真实付款回归仍必须在账号侧完成。
+
 ## 2026-08-12
 
 - 根据 GA4、GSC 和 Cloudflare 交叉检查修复生产闭环：分析接口的未预期错误改为 502，Checkout 配置缺失改为 503，客户端新增 `analyze_failed`、`checkout_failed` 和 `payment_failed`，付费事件补充 USD $29 的价值参数；不发送邮箱、完整 URL 或支付敏感信息。
