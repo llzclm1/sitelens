@@ -43,6 +43,7 @@
 - 已补充 GA4 Tracking Plan：`research/analytics-tracking-plan.md`，记录事件触发、参数、转化建议、DebugView 验证和付款回访边界。
 - 已增加整站 `cta_clicked` 事件：根布局统一监听主要导航 CTA、文本 CTA 和报告付款按钮，附带 `cta_type`、规范化 `destination` 与 `page_path`。
 - 已根据 GA4、GSC 和 Cloudflare 数据修复生产问题：分析/Checkout 失败返回更准确的 4xx/5xx，漏斗补充失败事件与 `$29 USD` 价值参数，GA4 未加载完成时事件先写入 `dataLayer`。
+- 本轮又将 GA4 gtag 初始化前置到 React hydration 之前，并让 `trackEvent` 统一初始化 `dataLayer` 后再发送或排队事件，降低首屏交互丢失风险；GA4 Admin 关键事件标记仍属于账号侧配置。
 - 已为公开页面补充逐页 canonical，sitemap 统一无末尾斜杠并更新 `lastmod`，新增 `/favicon.ico` 兼容路由；目标是减少 308、canonical 错配和重复 favicon 404。
 - 已增加 D1 `analytics_events` 服务端事实层；分析开始/完成/失败、报告交付、邮箱意向、Checkout、支付确认和深度报告解锁均可在不保存邮箱、完整 URL 或支付敏感信息的前提下统计。
 - 已修复 Teardown 示例卡片原先指向不存在的 `#audit-form` 锚点，统一指向首页真实的 `#analyze` 表单；`llms.txt` 和 sitemap 统一使用无末尾斜杠 canonical URL。
@@ -67,6 +68,7 @@
 - Teardowns 页免责声明对齐修复已通过类型检查、Next 构建和 OpenNext 生产构建；Worker 已重新发布，需在线上确认免责声明与正文容器对齐。
 - Teardowns 案例卡片更新已通过类型检查和 Next 生产构建；发布后需确认桌面 2×2 与移动单列布局。
 - GA4 事件埋点已通过类型检查和 Next 生产构建；`payment_confirmed` 与 `deep_report_unlocked` 当前以用户返回报告页后的客户端确认作为触发条件。
+- 本轮 GA4 初始化修复已通过 `npm run typecheck`、`npm run build` 和 `npm run open:build`；线上发布后需用 DebugView 做一次真实交互回归。
 - 本轮修复已通过 `npm run typecheck`、`npm run build` 和 OpenNext Cloudflare 部署；Worker 版本为 `619be671-745d-49ee-b53a-443195cab95f`。Cloudflare 已上传更新的 sitemap、GA4 客户端包和报告页包；GA4/GSC 后台事件与抓取结果仍需平台侧继续处理。
 - 本轮“全部修复”新增 D1 漏斗迁移 `migrations/0003_analytics_events.sql`；代码和文档已更新，需在发布前应用远程 D1 迁移并用 `research/analytics-funnel.sql` 做首个服务端基线。
 

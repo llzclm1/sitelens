@@ -1,5 +1,10 @@
 # SiteLens 修改日志
 
+## 2026-08-20
+
+- 针对 GA4 过去 7 天只有自动事件、关键事件为 0 的观测，修复初始化竞态：将 gtag 前置到 React hydration 之前，并让事件发送器始终先初始化 `dataLayer`、再判断 gtag 是否可用；不新增 PII 或支付敏感参数。
+- 复核线上 `/sitemap.xml` 当前返回 HTTP 200 和 `application/xml`；Search Console 中的“无法抓取”仍是 2026-08-10 的平台历史状态，需在账号侧重新提交后等待 Google 重新读取。
+
 ## 2026-08-16
 
 - 根据 GA4、GSC 和 Cloudflare 观测结果完成可控范围内的全量修复：新增 D1 `analytics_events` 服务端事实层，覆盖分析、报告、邮箱、Checkout、支付确认和深度报告解锁；不记录邮箱、完整 URL、报告 ID 或支付敏感信息。

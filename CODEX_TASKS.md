@@ -51,7 +51,7 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [x] 增加整站主要 CTA 点击追踪
 - [x] 修复分析/Checkout 失败状态码、失败事件和支付价值参数
 - [x] 修复公开页面 canonical、sitemap 末尾斜杠和 favicon 404
-- [x] 修复 GA4 初始化竞态，未加载完成时先写入 dataLayer
+- [x] 修复 GA4 初始化竞态，将 gtag 前置到 hydration 前并在未加载完成时先写入 dataLayer
 - [x] 增加 D1 服务端漏斗事实层，记录分析、报告、邮箱、Checkout 和支付交付事件
 - [x] 修复 Teardown 示例 CTA 指向不存在的 `#audit-form` 锚点
 - [x] 修复 `llms.txt` 中的末尾斜杠链接并刷新 sitemap `lastmod`
