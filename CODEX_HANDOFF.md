@@ -91,7 +91,7 @@
 10. 在 Search Console 重新提交更新后的 sitemap，并用 10–20 个目标查询建立 ChatGPT、Perplexity、Gemini 和 Google 的可见性基线。
 11. 在 GA4 Admin 将 `analyze_completed`、`email_submitted`、`payment_confirmed` 和 `deep_report_unlocked` 标记为转化，并用 DebugView 做一次真实流程验证。
 12. 发布后执行 `wrangler d1 migrations apply sitelens --remote`，再用 `research/analytics-funnel.sql` 检查服务端漏斗；GA4 Admin、GSC 重新提交和真实支付仍需账号侧动作，不能由代码提交代替。
-13. 发布本轮 SEO 与埋点修复后，在 GA4 DebugView 触发一次测试分析流程；随后在 GA4 Admin 标记关键事件，并在 GSC 重新提交 `sitemap.xml`。
+13. 已在 GSC 重新提交 `sitemap.xml`，等待 Google 异步读取；已用 `example.com` 完成生产分析测试，远程 D1 已记录 `analyze_started`、`analyze_completed` 和 `report_viewed`。GA4 Admin 仍需等待自定义事件出现后标记关键事件并用 DebugView 验证；真实付款回归仍未执行。
 
 在出现真实购买、确认主 ICP 和确认视觉方案前，不开始完整产品开发。
 

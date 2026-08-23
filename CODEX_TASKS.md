@@ -78,7 +78,7 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [ ] 在 GA4 Admin 将关键漏斗事件标记为转化并用 DebugView 验证
 - [ ] 排查 `sitelens.win` 自分析偶发超时，并观察 `analyze_failed` 的状态码分布
 - [x] 发布 AI SEO 更新到 Cloudflare
-- [ ] 在 Search Console 重新提交 sitemap，并等待新页面抓取
+- [x] 在 Search Console 重新提交 sitemap，并等待新页面抓取
 - [ ] 用 10–20 个目标查询记录 Google AI、ChatGPT、Perplexity、Gemini 的品牌/页面引用基线
 - [ ] 在 D1 执行 `research/analytics-funnel.sql`，用服务端事实数据建立首个 30 天漏斗基线
 - [ ] 根据真实查询结果补充一个有独立证据的主题内容集群，不批量生成薄页面

@@ -1,5 +1,12 @@
 # SiteLens 修改日志
 
+## 2026-08-23（账号侧复核）
+
+- 在 GSC 属性 `https://sitelens.win/` 重新提交 `sitemap.xml`；界面确认“已成功提交站点地图”，列表提交日期更新为 2026-08-23，状态等待 Google 异步处理。
+- 使用 `https://example.com`、非敏感产品描述和目标用户完成一次生产分析测试；报告 ID 仅用于验证，不写入本日志。
+- 远程 D1 已记录 `analyze_started`、`analyze_completed`（heuristic）和 `report_viewed`，说明分析和报告闭环正常。
+- GA4 Admin 等待约 30 秒后仍未显示自定义事件；保留为平台处理/客户端接收待观察项，不将 GA4 后台未即时显示误判为后端失败；未进行真实付款。
+
 ## 2026-08-23
 
 - 根据 GA4、GSC、Cloudflare 和 AdSense 复核结果修复可控问题：增强 GA4 未加载完成时的事件队列，避免首屏交互丢失；不新增邮箱、完整 URL 或支付敏感信息。
