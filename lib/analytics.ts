@@ -13,10 +13,8 @@ export function trackEvent(eventName: string, params?: AnalyticsEventParams) {
   if (typeof window === "undefined") return;
   const eventParams = params ?? {};
   window.dataLayer = window.dataLayer ?? [];
-  if (typeof window.gtag === "function") {
-    window.gtag("event", eventName, eventParams);
-    return;
-  }
-
-  window.dataLayer.push(["event", eventName, eventParams]);
+  window.gtag = window.gtag ?? ((...args: unknown[]) => {
+    window.dataLayer?.push(args);
+  });
+  window.gtag("event", eventName, eventParams);
 }

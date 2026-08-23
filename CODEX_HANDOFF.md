@@ -48,6 +48,9 @@
 - 已增加 D1 `analytics_events` 服务端事实层；分析开始/完成/失败、报告交付、邮箱意向、Checkout、支付确认和深度报告解锁均可在不保存邮箱、完整 URL 或支付敏感信息的前提下统计。
 - 已修复 Teardown 示例卡片原先指向不存在的 `#audit-form` 锚点，统一指向首页真实的 `#analyze` 表单；`llms.txt` 和 sitemap 统一使用无末尾斜杠 canonical URL。
 - 已增加站内 `404` 页面，为真实访问者提供返回首页、网站评审和公开 Teardown 的路径；Cloudflare 观察到的 WordPress/`.env` 扫描仍属于外部机器人噪声，不视为产品错误。
+- 已修复 GA4 未加载完成时的事件队列，避免交互事件在 gtag 初始化竞态中丢失；未新增 PII 或支付敏感参数。
+- 已增加 `/ai-website-audit`、`/landing-page-review`、`/saas-website-analysis`、`/website-conversion-check` 四个高意图 SEO 入口，加入统一的页面证据说明、FAQ/Breadcrumb JSON-LD、内部链接和 sitemap。
+- 本轮 `npm run typecheck`、`npm run build`、`npm run open:build` 通过；远程 D1 检查显示无待应用迁移。AdSense 仍因当前 Google 账号无权访问且没有 publisher ID 而无法配置，未生成伪造的 `ads.txt`。
 
 ## 已验证
 
@@ -88,6 +91,7 @@
 10. 在 Search Console 重新提交更新后的 sitemap，并用 10–20 个目标查询建立 ChatGPT、Perplexity、Gemini 和 Google 的可见性基线。
 11. 在 GA4 Admin 将 `analyze_completed`、`email_submitted`、`payment_confirmed` 和 `deep_report_unlocked` 标记为转化，并用 DebugView 做一次真实流程验证。
 12. 发布后执行 `wrangler d1 migrations apply sitelens --remote`，再用 `research/analytics-funnel.sql` 检查服务端漏斗；GA4 Admin、GSC 重新提交和真实支付仍需账号侧动作，不能由代码提交代替。
+13. 发布本轮 SEO 与埋点修复后，在 GA4 DebugView 触发一次测试分析流程；随后在 GA4 Admin 标记关键事件，并在 GSC 重新提交 `sitemap.xml`。
 
 在出现真实购买、确认主 ICP 和确认视觉方案前，不开始完整产品开发。
 

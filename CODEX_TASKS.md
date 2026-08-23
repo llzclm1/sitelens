@@ -56,6 +56,9 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [x] 修复 Teardown 示例 CTA 指向不存在的 `#audit-form` 锚点
 - [x] 修复 `llms.txt` 中的末尾斜杠链接并刷新 sitemap `lastmod`
 - [x] 增加可用的站内 404 页面，给真实访问者提供下一步路径
+- [x] 修复 GA4 未加载完成时的事件队列，并保留无 PII 的漏斗参数
+- [x] 增加 AI Website Audit、Landing Page Review、SaaS Website Analysis 和 Website Conversion Check 入口
+- [x] 将新增 SEO 入口加入内部链接和 sitemap
 
 ## 下一步
 

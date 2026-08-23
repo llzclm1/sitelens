@@ -1,5 +1,12 @@
 # SiteLens 修改日志
 
+## 2026-08-23
+
+- 根据 GA4、GSC、Cloudflare 和 AdSense 复核结果修复可控问题：增强 GA4 未加载完成时的事件队列，避免首屏交互丢失；不新增邮箱、完整 URL 或支付敏感信息。
+- 增加 `/ai-website-audit`、`/landing-page-review`、`/saas-website-analysis`、`/website-conversion-check` 四个高意图 SEO 入口，统一使用证据边界、FAQPage 和 BreadcrumbList JSON-LD，并从 `/website-review` 建立内部链接。
+- 更新 `public/sitemap.xml`，加入新页面并刷新首页 `lastmod`；AdSense 因当前账号无权访问且没有 publisher ID，不伪造 `ads.txt`。
+- `npm run typecheck`、`npm run build` 和 `npm run open:build` 通过；生产 D1 检查结果为无待应用迁移。GA4 Admin 关键事件、GSC sitemap 重新提交和真实付款回归仍需账号侧确认或用户授权。
+
 ## 2026-08-20
 
 - 针对 GA4 过去 7 天只有自动事件、关键事件为 0 的观测，修复初始化竞态：将 gtag 前置到 React hydration 之前，并让事件发送器始终先初始化 `dataLayer`、再判断 gtag 是否可用；不新增 PII 或支付敏感参数。

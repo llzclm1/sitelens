@@ -119,6 +119,13 @@ export default function WebsiteReviewPage() {
         </div>
       </section>
 
+      <section className="teardown-action-plan shell" aria-label="Related SiteLens reviews">
+        <article><span>AI WEBSITE AUDIT</span><h3>Find the page evidence first</h3><p>See how an AI-assisted audit connects positioning, proof, and the first change.</p><Link className="text-link" href="/ai-website-audit">Read the AI audit guide ↗</Link></article>
+        <article><span>LANDING PAGE REVIEW</span><h3>Follow the next decision</h3><p>Review the first screen, CTA path, and trust signals visitors can see.</p><Link className="text-link" href="/landing-page-review">Read the landing page guide ↗</Link></article>
+        <article><span>SAAS ANALYSIS</span><h3>Make the product easier to place</h3><p>Check category clarity, product outcome, and proof before adding more traffic.</p><Link className="text-link" href="/saas-website-analysis">Read the SaaS analysis guide ↗</Link></article>
+        <article><span>CONVERSION CHECK</span><h3>Choose one useful fix</h3><p>Use a focused check to find the first clarity, trust, or CTA problem worth changing.</p><Link className="text-link" href="/website-conversion-check">Read the conversion guide ↗</Link></article>
+      </section>
+
       <p className="teardown-disclaimer shell">SiteLens does not access private analytics, run experiments, or promise a conversion lift. Public reviews are qualitative interpretations of the page and include their evidence boundary.</p>
 
       <footer className="footer shell">
