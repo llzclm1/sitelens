@@ -3,6 +3,8 @@
 ## 2026-08-27
 
 - 按 Impeccable init 使用既有 PRD、路线图和生产实现补齐 `PRODUCT.md`；记录用户、产品目的、能力边界、品牌承诺和现有证据，不创建新的视觉系统。
+- 按 Impeccable critique 对首页执行双上下文设计评审与浏览器/检测器证据检查：评分 26/36，检测器 0 条，发现浅色模式标题对比度、表单前置负担、Framework/Method 重叠和首屏证据不足等优先问题；快照已写入 `.impeccable/critique/`。
+- 按 Impeccable audit 完成首页技术审计：无 P0；主要为浅色模式对比度、触达尺寸、移动端导航发现性、首屏远程图片和单一 hover 色值等 P1–P3 项；`npm run typecheck` 通过。
 
 ## 2026-08-23（账号侧复核）
 

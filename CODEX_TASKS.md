@@ -60,6 +60,8 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [x] 增加 AI Website Audit、Landing Page Review、SaaS Website Analysis 和 Website Conversion Check 入口
 - [x] 将新增 SEO 入口加入内部链接和 sitemap
 - [x] 按 Impeccable init 记录 SiteLens 产品真相到 `PRODUCT.md`
+- [x] 按 Impeccable critique 完成首页双评审并写入 `.impeccable/critique/`
+- [x] 按 Impeccable audit 完成首页无障碍、性能、响应式、主题和实现完整性审计
 
 ## 下一步
 

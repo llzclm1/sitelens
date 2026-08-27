@@ -5,6 +5,8 @@
 ## 当前状态
 
 - 已按 Impeccable init 创建 `PRODUCT.md`，作为产品真相记录；没有改变现有页面视觉实现。
+- 已按 Impeccable critique 完成首页双上下文评审，快照位于 `.impeccable/critique/2026-08-27T11-54-57Z__app-page-tsx.md`；评分为 26/36，检测器无发现。
+- 已按 Impeccable audit 完成首页技术审计；没有 P0 阻断项，优先修复浅色模式标题对比度和首屏证据/表单说明，再处理移动端导航、触达尺寸和远程图片依赖。
 - 已整理主文档：`PRD-ai-website-critic.md`
 - 已完成竞品 quick scan：`research/competitor-scan.md`
 - 已完成 PRD 评审：`research/prd-review.md`
