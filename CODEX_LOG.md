@@ -8,6 +8,7 @@
 - 按 Impeccable 推荐收口首页：将首屏远程图片替换为基于 Stripe 公共 Teardown 的证据卡，标题强调改为高对比度文字加 chartreuse 下划线，表单附近明确“3 个页面问题 / 仅公开页面 / $29 一次性深度报告”，并把五步框架映射到三类免费发现。
 - 补齐移动端 Teardowns 入口、导航/CTA/文本链接最小触控高度和分析中的 `Stop waiting` 客户端等待控制；未新增转化承诺或伪造案例数据。
 - `npm run typecheck`、`npm run build`、`npm run open:build` 和 Impeccable detector 均通过；OpenNext Worker 产物已生成，当前待 Cloudflare 发布和线上桌面/390px 手机验收。
+- 首次线上截图发现证据卡的底部推荐在 1280×720 首屏被裁切；仅压缩卡片内部留白并将比例调整为 5:4，保留原有首屏构图和信息层级；修复后再次通过类型检查、Next 构建、OpenNext 构建、detector 和 `git diff --check`。
 
 ## 2026-08-23（账号侧复核）
 
