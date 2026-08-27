@@ -6,7 +6,7 @@
 
 - 已按 Impeccable init 创建 `PRODUCT.md`，作为产品真相记录；没有改变现有页面视觉实现。
 - 已按 Impeccable critique 完成首页双上下文评审，快照位于 `.impeccable/critique/2026-08-27T11-54-57Z__app-page-tsx.md`；评分为 26/36，检测器无发现。
-- 已按 Impeccable audit 完成首页技术审计；没有 P0 阻断项，优先修复浅色模式标题对比度和首屏证据/表单说明，再处理移动端导航、触达尺寸和远程图片依赖。
+- 已按 Impeccable audit 完成首页技术审计；没有 P0 阻断项。本轮已完成浅色模式标题对比度、首屏公开拆解证据卡、表单免费/付费边界、Framework/Method 映射、移动端导航、触达尺寸和分析等待控制优化。
 - 已整理主文档：`PRD-ai-website-critic.md`
 - 已完成竞品 quick scan：`research/competitor-scan.md`
 - 已完成 PRD 评审：`research/prd-review.md`
@@ -54,6 +54,7 @@
 - 已修复 GA4 未加载完成时的事件队列，避免交互事件在 gtag 初始化竞态中丢失；未新增 PII 或支付敏感参数。
 - 已增加 `/ai-website-audit`、`/landing-page-review`、`/saas-website-analysis`、`/website-conversion-check` 四个高意图 SEO 入口，加入统一的页面证据说明、FAQ/Breadcrumb JSON-LD、内部链接和 sitemap。
 - 本轮 `npm run typecheck`、`npm run build`、`npm run open:build` 通过；远程 D1 检查显示无待应用迁移。AdSense 仍因当前 Google 账号无权访问且没有 publisher ID 而无法配置，未生成伪造的 `ads.txt`。
+- 本轮首页视觉收口已通过 `npm run typecheck`、`npm run build`、`npm run open:build` 和 Impeccable detector；首屏移除远程 Unsplash 依赖，改为基于现有 Stripe 公共 Teardown 文案的定性证据卡，并加入可中止客户端等待的 `Stop waiting` 控制。当前仍需 Cloudflare 发布后做线上桌面/移动截图验收。
 
 ## 已验证
 
@@ -73,6 +74,7 @@
 - AI SEO 更新已通过 `npm run typecheck`、`npm run build` 和 OpenNext 生产构建；Worker 已重新发布，线上 `/website-review/`、`/pricing/`、`/llms.txt`、`/pricing.md`、`/robots.txt`、`/sitemap.xml` 均返回 200，页面 HTML 含对应 JSON-LD。
 - Teardowns 页免责声明对齐修复已通过类型检查、Next 构建和 OpenNext 生产构建；Worker 已重新发布，需在线上确认免责声明与正文容器对齐。
 - Teardowns 案例卡片更新已通过类型检查和 Next 生产构建；发布后需确认桌面 2×2 与移动单列布局。
+- 首页 Impeccable 推荐优化已通过类型检查、Next 生产构建、OpenNext Cloudflare 构建和 detector；发布后需确认浅色/深色主题、390px 手机导航、首屏证据卡和等待中止状态。
 - GA4 事件埋点已通过类型检查和 Next 生产构建；`payment_confirmed` 与 `deep_report_unlocked` 当前以用户返回报告页后的客户端确认作为触发条件。
 - 本轮 GA4 初始化修复已通过 `npm run typecheck`、`npm run build` 和 `npm run open:build`；线上发布后需用 DebugView 做一次真实交互回归。
 - 本轮修复已通过 `npm run typecheck`、`npm run build` 和 OpenNext Cloudflare 部署；Worker 版本为 `619be671-745d-49ee-b53a-443195cab95f`。Cloudflare 已上传更新的 sitemap、GA4 客户端包和报告页包；GA4/GSC 后台事件与抓取结果仍需平台侧继续处理。

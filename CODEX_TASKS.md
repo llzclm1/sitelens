@@ -62,6 +62,7 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [x] 按 Impeccable init 记录 SiteLens 产品真相到 `PRODUCT.md`
 - [x] 按 Impeccable critique 完成首页双评审并写入 `.impeccable/critique/`
 - [x] 按 Impeccable audit 完成首页无障碍、性能、响应式、主题和实现完整性审计
+- [x] 按 Impeccable 推荐完成首页对比度、证据卡、付费边界、框架映射、移动导航、触控尺寸和分析等待控制优化
 
 ## 下一步
 

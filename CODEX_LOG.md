@@ -5,6 +5,9 @@
 - 按 Impeccable init 使用既有 PRD、路线图和生产实现补齐 `PRODUCT.md`；记录用户、产品目的、能力边界、品牌承诺和现有证据，不创建新的视觉系统。
 - 按 Impeccable critique 对首页执行双上下文设计评审与浏览器/检测器证据检查：评分 26/36，检测器 0 条，发现浅色模式标题对比度、表单前置负担、Framework/Method 重叠和首屏证据不足等优先问题；快照已写入 `.impeccable/critique/`。
 - 按 Impeccable audit 完成首页技术审计：无 P0；主要为浅色模式对比度、触达尺寸、移动端导航发现性、首屏远程图片和单一 hover 色值等 P1–P3 项；`npm run typecheck` 通过。
+- 按 Impeccable 推荐收口首页：将首屏远程图片替换为基于 Stripe 公共 Teardown 的证据卡，标题强调改为高对比度文字加 chartreuse 下划线，表单附近明确“3 个页面问题 / 仅公开页面 / $29 一次性深度报告”，并把五步框架映射到三类免费发现。
+- 补齐移动端 Teardowns 入口、导航/CTA/文本链接最小触控高度和分析中的 `Stop waiting` 客户端等待控制；未新增转化承诺或伪造案例数据。
+- `npm run typecheck`、`npm run build`、`npm run open:build` 和 Impeccable detector 均通过；OpenNext Worker 产物已生成，当前待 Cloudflare 发布和线上桌面/390px 手机验收。
 
 ## 2026-08-23（账号侧复核）
 

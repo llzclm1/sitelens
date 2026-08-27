@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { trackEvent } from "@/lib/analytics";
 
@@ -44,6 +44,7 @@ export default function HomePage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [analysisStep, setAnalysisStep] = useState(0);
   const [error, setError] = useState("");
+  const requestController = useRef<AbortController | null>(null);
 
   useEffect(() => {
     if (!isSubmitting) {
@@ -62,6 +63,8 @@ export default function HomePage() {
     event.preventDefault();
     setError("");
     setIsSubmitting(true);
+    const controller = new AbortController();
+    requestController.current = controller;
     trackEvent("analyze_started");
     let statusCode = 0;
 
@@ -70,6 +73,7 @@ export default function HomePage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url, product, audience }),
+        signal: controller.signal,
       });
       statusCode = response.status;
       const body = await response.json() as AnalysisResponse & { error?: string };
@@ -79,12 +83,22 @@ export default function HomePage() {
       }
 
       trackEvent("analyze_completed", { analysis_mode: body.mode });
+      requestController.current = null;
       router.push(`/report/${body.id}`);
     } catch (submitError) {
+      requestController.current = null;
+      if (submitError instanceof DOMException && submitError.name === "AbortError") {
+        setIsSubmitting(false);
+        return;
+      }
       trackEvent("analyze_failed", { status_code: statusCode });
       setError(submitError instanceof Error ? submitError.message : "The page could not be analyzed.");
       setIsSubmitting(false);
     }
+  }
+
+  function handleCancel() {
+    requestController.current?.abort();
   }
 
   return (
@@ -97,7 +111,7 @@ export default function HomePage() {
         <div className="nav-actions">
           <a className="nav-link" href="#method">The method</a>
           <a className="nav-link" href="/website-review">Website review</a>
-          <a className="nav-link" href="/teardowns">Teardowns</a>
+          <a className="nav-link nav-link-secondary" href="/teardowns">Teardowns</a>
           <a className="nav-cta" href="#analyze">Analyze a site <span aria-hidden="true">↗</span></a>
         </div>
       </nav>
@@ -105,9 +119,9 @@ export default function HomePage() {
       <section className="hero shell">
         <div className="hero-copy">
           <p className="eyebrow">WEBSITE REVIEW / PAGE EVIDENCE</p>
-          <h1>Find what blocks <em>signups.</em></h1>
+          <h1>Find what blocks <em>conversions.</em></h1>
           <p className="hero-lede">
-            Paste your URL. We&apos;ll point to the first conversion problem worth fixing.
+            Paste a public URL. We&apos;ll point to the first conversion problem worth fixing.
           </p>
 
           <form className="audit-form" id="analyze" onSubmit={handleSubmit} aria-busy={isSubmitting}>
@@ -140,6 +154,7 @@ export default function HomePage() {
                   placeholder="e.g. turns support tickets into docs"
                   value={product}
                   onChange={(event) => setProduct(event.target.value)}
+                  aria-describedby="form-note"
                   required
                   disabled={isSubmitting}
                 />
@@ -153,6 +168,7 @@ export default function HomePage() {
                   placeholder="e.g. small SaaS teams"
                   value={audience}
                   onChange={(event) => setAudience(event.target.value)}
+                  aria-describedby="form-note"
                   required
                   disabled={isSubmitting}
                 />
@@ -160,7 +176,7 @@ export default function HomePage() {
             </div>
             {error ? <p className="form-error" role="alert">{error}</p> : null}
             <p className="form-note" id="form-note">
-              {isSubmitting ? "Reading the page structure, copy, and calls to action." : "The free review returns three issues tied to your page. It does not estimate a conversion rate."}
+              {isSubmitting ? "Reading the page structure, copy, and calls to action." : "Free review: 3 page-specific findings. Public pages only. Deep Growth Report: $29 one time."}
             </p>
             {isSubmitting ? (
               <div className="analysis-process" aria-live="polite" aria-label="Analysis progress">
@@ -173,6 +189,9 @@ export default function HomePage() {
                     </li>
                   ))}
                 </ol>
+                <div className="process-actions">
+                  <button className="process-cancel" type="button" onClick={handleCancel}>Stop waiting</button>
+                </div>
               </div>
             ) : null}
           </form>
@@ -180,17 +199,31 @@ export default function HomePage() {
 
         <figure className="hero-visual">
           <div className="hero-image-frame">
-            <img
-              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80"
-              alt="A laptop and annotated homepage audit notes on a dark desk"
-              width="1200"
-              height="900"
-              fetchPriority="high"
-            />
+            <article className="hero-evidence-card" aria-label="Sample SiteLens finding from the public Stripe teardown">
+              <header className="hero-evidence-header">
+                <div>
+                  <p className="evidence-label">PUBLIC TEARDOWN</p>
+                  <strong>STRIPE / HOMEPAGE</strong>
+                </div>
+                <span>QUALITATIVE</span>
+              </header>
+              <div className="hero-evidence-main">
+                <p className="evidence-label">THE PAGE SAYS</p>
+                <h2>Financial infrastructure to grow your revenue.</h2>
+              </div>
+              <div className="hero-evidence-read">
+                <p className="evidence-label">OUR READ</p>
+                <p>A broad promise supports the category, but a smaller team may still need help choosing where to start.</p>
+              </div>
+              <footer className="hero-evidence-next">
+                <span>NEXT MOVE</span>
+                <strong>Give visitors a business model choice after the hero.</strong>
+              </footer>
+            </article>
           </div>
           <figcaption>
-            <span>WHAT WE READ</span>
-            <strong>The difference between what you meant and what visitors see.</strong>
+            <span>PUBLIC EVIDENCE</span>
+            <strong>A sample finding: page detail, interpretation, and the next move.</strong>
           </figcaption>
         </figure>
       </section>
@@ -209,7 +242,11 @@ export default function HomePage() {
         <div className="framework-intro">
           <p className="eyebrow">SITELENS GROWTH FRAMEWORK</p>
           <h2 id="framework-title">You can see how we reached the <em>recommendation.</em></h2>
-          <p>Every review uses the same five questions. The score is only a summary of what we found.</p>
+          <p>Every review uses the same five questions. They feed three free findings: clarity, next step, and proof.</p>
+          <div className="framework-bridge" aria-label="How the framework maps to the free review">
+            <span>FREE REVIEW OUTPUT</span>
+            <strong>Clarity · Next step · Proof</strong>
+          </div>
         </div>
         <ol className="framework-list">
           {frameworkItems.map((item, index) => (
@@ -223,13 +260,13 @@ export default function HomePage() {
 
       <section className="method-section shell" id="method">
         <div className="section-heading">
-          <p className="eyebrow">HOW THE REVIEW WORKS</p>
-          <h2>Start with what visitors <em>can see.</em></h2>
+          <p className="eyebrow">HOW FINDINGS ARE FORMED</p>
+          <h2>Five questions. Three <em>useful moves.</em></h2>
         </div>
         <div className="method-layout">
           <div className="method-lead">
             <p className="method-statement">Read the page first.</p>
-            <p>Each finding starts with a detail on the page. It explains what that detail may make a visitor hesitate about, then suggests the next change.</p>
+            <p>The five framework questions become three page-specific findings. Each starts with a detail on the page, explains why it may create hesitation, then suggests the next change.</p>
             <a className="text-link" href="#analyze">Review your homepage <span aria-hidden="true">↗</span></a>
           </div>
           <div className="method-list">
