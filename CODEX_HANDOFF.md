@@ -54,7 +54,7 @@
 - 已修复 GA4 未加载完成时的事件队列，避免交互事件在 gtag 初始化竞态中丢失；未新增 PII 或支付敏感参数。
 - 已增加 `/ai-website-audit`、`/landing-page-review`、`/saas-website-analysis`、`/website-conversion-check` 四个高意图 SEO 入口，加入统一的页面证据说明、FAQ/Breadcrumb JSON-LD、内部链接和 sitemap。
 - 本轮 `npm run typecheck`、`npm run build`、`npm run open:build` 通过；远程 D1 检查显示无待应用迁移。AdSense 仍因当前 Google 账号无权访问且没有 publisher ID 而无法配置，未生成伪造的 `ads.txt`。
-- 本轮首页视觉收口已通过 `npm run typecheck`、`npm run build`、`npm run open:build` 和 Impeccable detector；首屏移除远程 Unsplash 依赖，改为基于现有 Stripe 公共 Teardown 文案的定性证据卡，并加入可中止客户端等待的 `Stop waiting` 控制。Cloudflare Worker 版本 `de330109-770b-466f-99ce-8ec80a9f0365` 已发布，线上 1280px 桌面、390px 手机和 Teardown 四卡片均已复核无横向溢出、浏览器错误或证据卡裁切。
+- 本轮首页视觉收口已通过 `npm run typecheck`、`npm run build`、`npm run open:build` 和 Impeccable detector；首屏移除远程 Unsplash 依赖，改为基于现有 Stripe 公共 Teardown 文案的定性证据卡，并加入可中止客户端等待的 `Stop waiting` 控制。Cloudflare Worker 版本 `f123ee98-9200-4028-9490-e30820db90cb` 已发布，线上 1280px 桌面、390px 手机和 Teardown 四卡片均已复核无横向溢出、浏览器错误或证据卡裁切。
 - 已修复 CTA 追踪误报：分析表单的 `Stop waiting` 不再被当作付款 CTA，分析按钮归因到 `#analyze`，并新增 `analyze_cancelled` 客户端事件；CSP 已移除不再使用的 Unsplash 图片域名。
 
 ## 已验证
@@ -76,7 +76,7 @@
 - Teardowns 页免责声明对齐修复已通过类型检查、Next 构建和 OpenNext 生产构建；Worker 已重新发布，需在线上确认免责声明与正文容器对齐。
 - Teardowns 案例卡片更新已通过类型检查和 Next 生产构建；发布后需确认桌面 2×2 与移动单列布局。
 - 首页 Impeccable 推荐优化已通过类型检查、Next 生产构建、OpenNext Cloudflare 构建和 detector；浅色/深色主题、390px 手机导航、首屏证据卡和等待中止状态已完成线上复核。
-- 首页 Impeccable 推荐优化已在 Worker `de330109-770b-466f-99ce-8ec80a9f0365` 上完成线上验收：1280px 桌面首屏显示完整证据卡，390px 首页保留 Teardowns 入口且 `scrollWidth === innerWidth`，Teardowns 页面保留 4 张卡片并在手机端回落单列。
+- 首页 Impeccable 推荐优化已在 Worker `f123ee98-9200-4028-9490-e30820db90cb` 上完成线上验收：1280px 桌面首屏显示完整证据卡，390px 首页保留 Teardowns 入口且 `scrollWidth === innerWidth`，Teardowns 页面保留 4 张卡片并在手机端回落单列。
 - 只读查询远程 D1 近 30 天漏斗完成：`analyze_started=1`、`analyze_completed=1`、`report_viewed=1`、`analyze_failed(400)=1`，没有 `checkout_started`、`payment_confirmed` 或 `deep_report_unlocked`；这说明当前主要缺口是流量/真实购买验证，不是已观测到的超时故障。
 - GA4 事件埋点已通过类型检查和 Next 生产构建；`payment_confirmed` 与 `deep_report_unlocked` 当前以用户返回报告页后的客户端确认作为触发条件。
 - 本轮 GA4 初始化修复已通过 `npm run typecheck`、`npm run build` 和 `npm run open:build`；线上发布后需用 DebugView 做一次真实交互回归。
