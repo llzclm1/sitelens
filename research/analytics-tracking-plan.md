@@ -18,6 +18,7 @@
 | 事件 | 触发条件 | 参数 | 用途 | 转化建议 |
 | --- | --- | --- | --- | --- |
 | `analyze_started` | 首页分析表单提交 | 无 | 衡量提交意图 | 可选 |
+| `analyze_cancelled` | 用户在分析等待过程中点击 `Stop waiting` | 无 | 区分用户主动停止与请求失败 | 不标记 |
 | `analyze_completed` | `/api/analyze` 成功返回报告 | `analysis_mode` | 衡量免费报告完成 | 标记 |
 | `analyze_failed` | `/api/analyze` 返回错误或网络失败 | `status_code` | 定位分析链路失败 | 不标记 |
 | `report_viewed` | 报告组件首次挂载 | `analysis_mode` | 衡量报告交付 | 不必标记 |
@@ -44,10 +45,11 @@
 1. 打开 GA4 DebugView。
 2. 访问首页并提交一个可访问的测试网站。
 3. 确认依次出现 `analyze_started`、`analyze_completed`、`report_viewed`。
-4. 在报告页提交邮箱，确认出现 `email_submitted` 和 `checkout_started`。
-5. 用一个不可访问的网站或临时关闭 Checkout 配置，确认失败流程出现 `analyze_failed` 或 `checkout_failed`，并检查 `status_code`。
-6. 仅在允许的支付环境中完成一次付款回归，确认 `payment_confirmed` 和 `deep_report_unlocked`；失败订单应出现 `payment_failed`。
-7. 在 Realtime 报告确认事件用户数与 DebugView 一致。
+4. 在分析等待过程中点击 `Stop waiting`，确认出现 `analyze_cancelled`，且不会被记录为付款 CTA。
+5. 在报告页提交邮箱，确认出现 `email_submitted` 和 `checkout_started`。
+6. 用一个不可访问的网站或临时关闭 Checkout 配置，确认失败流程出现 `analyze_failed` 或 `checkout_failed`，并检查 `status_code`。
+7. 仅在允许的支付环境中完成一次付款回归，确认 `payment_confirmed` 和 `deep_report_unlocked`；失败订单应出现 `payment_failed`。
+8. 在 Realtime 报告确认事件用户数与 DebugView 一致。
 
 ## 解释边界
 

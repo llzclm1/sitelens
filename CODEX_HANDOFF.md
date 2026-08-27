@@ -23,7 +23,7 @@
 - 已加入最小信任闭环：SiteLens Growth Framework、提交时的分析过程、报告 Evidence Layer，以及公开 Stripe Teardown 案例。
 - 信任体系文案已完成 humanizer 处理：改掉短句堆叠、抽象口号和过度营销表达，保留事实、数字、来源和功能结构。
 - 生产环境已接入 Cloudflare D1，持久化报告、升级请求和支付意向；本地 `next dev` 无 Cloudflare binding 时才使用内存 fallback。
-- 已加入 Waffo Pancake Checkout Session 与 webhook 验证路由，但仍需在 Pancake 后台创建产品并配置密钥。
+- 已加入 Waffo Pancake Checkout Session 与 webhook 验证路由；Pancake 商品、生产密钥和 webhook 已完成配置，仍需真实付款回归。
 - Qwen `qwen3.6-flash` 已接入为视觉增强；线上有 `QWEN_API_KEY` 时，Cloudflare Browser Run 截取首屏并以 Base64 图片发送给 Qwen，失败时自动退回规则分析或 DeepSeek。
 - 已删除 Cloudflare 中误用 API Key 作为名称的旧 Secret，只保留正确的 `QWEN_API_KEY`；生产含图片页面已验证返回 `mode=ai`。
 - GitHub 仓库已建立并推送：`https://github.com/llzclm1/sitelens`。
@@ -55,6 +55,7 @@
 - 已增加 `/ai-website-audit`、`/landing-page-review`、`/saas-website-analysis`、`/website-conversion-check` 四个高意图 SEO 入口，加入统一的页面证据说明、FAQ/Breadcrumb JSON-LD、内部链接和 sitemap。
 - 本轮 `npm run typecheck`、`npm run build`、`npm run open:build` 通过；远程 D1 检查显示无待应用迁移。AdSense 仍因当前 Google 账号无权访问且没有 publisher ID 而无法配置，未生成伪造的 `ads.txt`。
 - 本轮首页视觉收口已通过 `npm run typecheck`、`npm run build`、`npm run open:build` 和 Impeccable detector；首屏移除远程 Unsplash 依赖，改为基于现有 Stripe 公共 Teardown 文案的定性证据卡，并加入可中止客户端等待的 `Stop waiting` 控制。Cloudflare Worker 版本 `de330109-770b-466f-99ce-8ec80a9f0365` 已发布，线上 1280px 桌面、390px 手机和 Teardown 四卡片均已复核无横向溢出、浏览器错误或证据卡裁切。
+- 已修复 CTA 追踪误报：分析表单的 `Stop waiting` 不再被当作付款 CTA，分析按钮归因到 `#analyze`，并新增 `analyze_cancelled` 客户端事件；CSP 已移除不再使用的 Unsplash 图片域名。
 
 ## 已验证
 
@@ -76,6 +77,7 @@
 - Teardowns 案例卡片更新已通过类型检查和 Next 生产构建；发布后需确认桌面 2×2 与移动单列布局。
 - 首页 Impeccable 推荐优化已通过类型检查、Next 生产构建、OpenNext Cloudflare 构建和 detector；浅色/深色主题、390px 手机导航、首屏证据卡和等待中止状态已完成线上复核。
 - 首页 Impeccable 推荐优化已在 Worker `de330109-770b-466f-99ce-8ec80a9f0365` 上完成线上验收：1280px 桌面首屏显示完整证据卡，390px 首页保留 Teardowns 入口且 `scrollWidth === innerWidth`，Teardowns 页面保留 4 张卡片并在手机端回落单列。
+- 只读查询远程 D1 近 30 天漏斗完成：`analyze_started=1`、`analyze_completed=1`、`report_viewed=1`、`analyze_failed(400)=1`，没有 `checkout_started`、`payment_confirmed` 或 `deep_report_unlocked`；这说明当前主要缺口是流量/真实购买验证，不是已观测到的超时故障。
 - GA4 事件埋点已通过类型检查和 Next 生产构建；`payment_confirmed` 与 `deep_report_unlocked` 当前以用户返回报告页后的客户端确认作为触发条件。
 - 本轮 GA4 初始化修复已通过 `npm run typecheck`、`npm run build` 和 `npm run open:build`；线上发布后需用 DebugView 做一次真实交互回归。
 - 本轮修复已通过 `npm run typecheck`、`npm run build` 和 OpenNext Cloudflare 部署；Worker 版本为 `619be671-745d-49ee-b53a-443195cab95f`。Cloudflare 已上传更新的 sitemap、GA4 客户端包和报告页包；GA4/GSC 后台事件与抓取结果仍需平台侧继续处理。

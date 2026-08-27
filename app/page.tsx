@@ -98,6 +98,7 @@ export default function HomePage() {
   }
 
   function handleCancel() {
+    trackEvent("analyze_cancelled");
     requestController.current?.abort();
   }
 

@@ -9,6 +9,8 @@
 - 补齐移动端 Teardowns 入口、导航/CTA/文本链接最小触控高度和分析中的 `Stop waiting` 客户端等待控制；未新增转化承诺或伪造案例数据。
 - `npm run typecheck`、`npm run build`、`npm run open:build` 和 Impeccable detector 均通过；OpenNext Worker 产物已生成。
 - 首次线上截图发现证据卡的底部推荐在 1280×720 首屏被裁切；仅压缩卡片内部留白并将比例调整为 5:4，保留原有首屏构图和信息层级；修复后再次通过类型检查、Next 构建、OpenNext 构建、detector 和 `git diff --check`，发布 Worker `de330109-770b-466f-99ce-8ec80a9f0365`，并完成桌面/390px 手机首页及 Teardown 四卡片线上验收。
+- 修复整站 CTA 追踪选择器误把分析等待按钮当作付款 CTA 的问题：仅追踪分析主按钮，不再追踪 `Stop waiting`；新增 `analyze_cancelled`，并让分析按钮目标记录为 `#analyze`。同步移除 CSP 中已不再使用的 Unsplash 图片源。
+- 只读执行远程 D1 `research/analytics-funnel.sql`：近 30 天有 1 次分析开始、1 次完成、1 次报告查看、1 次 400 失败，未出现 504、Checkout 或付款事件；当前缺口是数据量和真实支付回归，不能据此声称产品已验证付费需求。
 
 ## 2026-08-23（账号侧复核）
 
