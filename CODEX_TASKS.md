@@ -59,6 +59,7 @@ Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请
 - [x] 修复 GA4 未加载完成时的事件队列，并保留无 PII 的漏斗参数
 - [x] 增加 AI Website Audit、Landing Page Review、SaaS Website Analysis 和 Website Conversion Check 入口
 - [x] 将新增 SEO 入口加入内部链接和 sitemap
+- [x] 按 Impeccable init 记录 SiteLens 产品真相到 `PRODUCT.md`
 
 ## 下一步
 

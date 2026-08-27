@@ -4,6 +4,7 @@
 
 ## 当前状态
 
+- 已按 Impeccable init 创建 `PRODUCT.md`，作为产品真相记录；没有改变现有页面视觉实现。
 - 已整理主文档：`PRD-ai-website-critic.md`
 - 已完成竞品 quick scan：`research/competitor-scan.md`
 - 已完成 PRD 评审：`research/prd-review.md`
