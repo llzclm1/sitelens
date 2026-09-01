@@ -10,6 +10,7 @@
 - 页面浏览：由 GA4 配置自动收集
 - 增强型衡量：已开启
 - 全站 CTA：由根布局监听 `.nav-cta`、`.text-link` 和报告付款按钮
+- 自定义事件：统一附带当前 `page_path`，便于按页面定位漏斗断点
 - 隐私边界：不发送邮箱、完整 URL、报告 ID、支付凭证或卡信息
 - 服务端事实层：D1 `analytics_events` 记录分析、报告交付、邮箱意向、Checkout 和支付解锁，不保存邮箱或完整 URL
 
@@ -17,17 +18,17 @@
 
 | 事件 | 触发条件 | 参数 | 用途 | 转化建议 |
 | --- | --- | --- | --- | --- |
-| `analyze_started` | 首页分析表单提交 | 无 | 衡量提交意图 | 可选 |
-| `analyze_cancelled` | 用户在分析等待过程中点击 `Stop waiting` | 无 | 区分用户主动停止与请求失败 | 不标记 |
-| `analyze_completed` | `/api/analyze` 成功返回报告 | `analysis_mode` | 衡量免费报告完成 | 标记 |
-| `analyze_failed` | `/api/analyze` 返回错误或网络失败 | `status_code` | 定位分析链路失败 | 不标记 |
-| `report_viewed` | 报告组件首次挂载 | `analysis_mode` | 衡量报告交付 | 不必标记 |
-| `email_submitted` | `/api/upgrade` 成功保存升级请求 | 无 | 衡量邮箱收集/付费意图 | 标记 |
-| `checkout_started` | 收到 Checkout URL 并跳转前 | `value`, `currency` | 衡量进入付款流程 | 不必标记 |
-| `checkout_failed` | `/api/upgrade` 返回错误或网络失败 | `status_code` | 定位 Checkout 创建失败 | 不标记 |
-| `payment_confirmed` | 用户返回报告页，轮询确认已付款 | `value`, `currency` | 诊断付款确认链路 | 不建议与解锁重复计为转化 |
-| `payment_failed` | 用户返回报告页，轮询确认付款失败 | `value`, `currency` | 区分付款失败与回访缺失 | 不标记 |
-| `deep_report_unlocked` | 报告页收到深度报告 | `value`, `currency` | 衡量付费交付完成 | 标记为核心转化 |
+| `analyze_started` | 首页分析表单提交 | `page_path` | 衡量提交意图 | 可选 |
+| `analyze_cancelled` | 用户在分析等待过程中点击 `Stop waiting` | `page_path` | 区分用户主动停止与请求失败 | 不标记 |
+| `analyze_completed` | `/api/analyze` 成功返回报告 | `analysis_mode`, `page_path` | 衡量免费报告完成 | 标记 |
+| `analyze_failed` | `/api/analyze` 返回错误或网络失败 | `status_code`, `page_path` | 定位分析链路失败 | 不标记 |
+| `report_viewed` | 报告组件首次挂载 | `analysis_mode`, `page_path` | 衡量报告交付 | 不必标记 |
+| `email_submitted` | `/api/upgrade` 成功保存升级请求 | `page_path` | 衡量邮箱收集/付费意图 | 标记 |
+| `checkout_started` | 收到 Checkout URL 并跳转前 | `value`, `currency`, `page_path` | 衡量进入付款流程 | 不必标记 |
+| `checkout_failed` | `/api/upgrade` 返回错误或网络失败 | `status_code`, `page_path` | 定位 Checkout 创建失败 | 不标记 |
+| `payment_confirmed` | 用户返回报告页，轮询确认已付款 | `value`, `currency`, `page_path` | 诊断付款确认链路 | 不建议与解锁重复计为转化 |
+| `payment_failed` | 用户返回报告页，轮询确认付款失败 | `value`, `currency`, `page_path` | 区分付款失败与回访缺失 | 不标记 |
+| `deep_report_unlocked` | 报告页收到深度报告 | `value`, `currency`, `page_path` | 衡量付费交付完成 | 标记为核心转化 |
 | `cta_clicked` | 全站主要 CTA 或报告付款按钮被点击 | `cta_type`, `destination`, `page_path` | 比较首页、内容页和价格页的引导效率 | 不必标记 |
 
 ## GA4 Admin 配置

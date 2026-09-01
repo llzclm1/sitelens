@@ -11,10 +11,14 @@ declare global {
 
 export function trackEvent(eventName: string, params?: AnalyticsEventParams) {
   if (typeof window === "undefined") return;
-  const eventParams = params ?? {};
   window.dataLayer = window.dataLayer ?? [];
-  window.gtag = window.gtag ?? ((...args: unknown[]) => {
+  if (typeof window.gtag !== "function") window.gtag = (...args: unknown[]) => {
     window.dataLayer?.push(args);
-  });
+  };
+
+  const eventParams = {
+    ...params,
+    page_path: window.location.pathname,
+  } satisfies AnalyticsEventParams;
   window.gtag("event", eventName, eventParams);
 }

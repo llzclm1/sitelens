@@ -4,6 +4,15 @@
 
 Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请求”是否成立。
 
+## 2026-09-01 本轮状态
+
+- [x] 将 Sitemap 切换为标准 Next.js `app/sitemap.ts` 路由并仅保留公开 HTML 页面
+- [x] GA4 自定义事件统一附带 `page_path`，并增强发送器容错
+- [x] 本地生产构建验证 Sitemap XML、robots.txt 和 GA4 标识输出
+- [ ] 在 GSC 重新提交新的 Sitemap 并等待 Google 重新读取
+- [ ] 在 GA4 DebugView 验证自定义漏斗事件并标记关键事件
+- [ ] 完成一次真实生产付款回归
+
 ## 已完成
 
 - [x] 首页与 URL / 产品 / 目标用户提交

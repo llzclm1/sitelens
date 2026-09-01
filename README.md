@@ -13,7 +13,7 @@ SiteLens Phase 0 是一个面向 Indie Hacker 和小型 SaaS 创始人的网站�
 - 首页采用证据驱动的编辑型视觉系统，使用自托管 Geist 字体并支持暗色系统偏好
 - 首页展示 SiteLens Growth Framework，提交时展示分析过程；报告提供问题影响、页面证据、修复建议和改写方向
 - 提供公开 Teardown Library，当前有一个基于 Stripe 官方首页的定性案例，并标注来源、日期和分析边界
-- 已接入 Google Analytics 4（衡量 ID：`G-YNQ8J06W7D`）和 Google Search Console；首页包含 GSC 验证标签，`robots.txt` 与 `sitemap.xml` 已发布
+- 已接入 Google Analytics 4（衡量 ID：`G-YNQ8J06W7D`）和 Google Search Console；首页包含 GSC 验证标签，`robots.txt` 与标准 Next.js `sitemap.xml` 已发布
 - API 具备 32 KB 请求体上限、D1 IP 限流和私网 SSRF 拦截；生产响应包含基础安全头
 - 付款 webhook 会校验环境、报告、产品元数据、金额、币种和买家邮箱，并在付款确认后生成站内 Deep Report
 - 提供 `/privacy` 和 `/terms` 页面；GA4/GSC 构建变量带生产回退，避免普通生产构建静默移除标签

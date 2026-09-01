@@ -1,5 +1,13 @@
 # Codex 交接说明
 
+## 2026-09-01 本轮处理
+
+- 将 Sitemap 从 `public/sitemap.xml` 改为 Next.js 标准 `app/sitemap.ts` 路由，响应明确为 `200` / `application/xml`；只收录公开 HTML 页面，移除 `llms.txt` 和 `pricing.md` 这类机器可读文件。
+- GA4 自定义事件发送器增加函数类型防护，并统一附带无 PII 的 `page_path` 参数；追踪计划已同步。
+- 已通过 `npm run typecheck`、`npm run build`、`npm run open:build`，并用本地生产服务确认 `/sitemap.xml` 和 `/robots.txt` 均为 `200`，Sitemap 内容为合法 XML。
+- 线上分析回归在内置浏览器被客户端拦截为 `Failed to fetch`，不能据此判断 Worker 业务失败；Cloudflare 生产指标仍显示 Worker 错误为 0。发布后需在真实浏览器和 GA4 DebugView 重试一次。
+- GSC 重新提交 Sitemap、GA4 Admin 标记关键事件和真实付款回归属于账号侧/外部状态，尚未将其误报为代码完成。
+
 本项目当前处于 SiteLens Phase 0 可运行原型阶段。SiteLens 是长期产品名，AI Website Critic 是此前 MVP 研究名；长期路线图在 `SITELENS-LONG-TERM-ROADMAP.md`。
 
 ## 当前状态

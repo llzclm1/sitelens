@@ -1,5 +1,12 @@
 # SiteLens 修改日志
 
+## 2026-09-01
+
+- 将 `public/sitemap.xml` 改为 Next.js `app/sitemap.ts` 标准路由，响应头固定由 Next 生成 `application/xml`；Sitemap 只包含公开 HTML 页面，不再提交 `llms.txt` 和 `pricing.md`。
+- 加强 `lib/analytics.ts`：仅在 `window.gtag` 确实为函数时复用它，未加载时继续排入 `dataLayer`，并为自定义事件统一补充当前 `page_path`；不采集邮箱、完整 URL 或支付敏感信息。
+- `npm run typecheck`、`npm run build`、`npm run open:build` 通过；本地生产服务确认 `/sitemap.xml`、`/robots.txt` 为 `200`，Sitemap 为合法 XML，首页输出 GA4 衡量 ID。
+- 线上分析回归在内置浏览器侧返回 `Failed to fetch`，当前不能作为 Worker 业务失败证据；Cloudflare Worker 指标仍为 0 错误。发布后需使用真实浏览器和 GA4 DebugView 完成账号侧回归。
+
 ## 2026-08-27
 
 - 按 Impeccable init 使用既有 PRD、路线图和生产实现补齐 `PRODUCT.md`；记录用户、产品目的、能力边界、品牌承诺和现有证据，不创建新的视觉系统。
