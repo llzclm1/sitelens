@@ -1,5 +1,12 @@
 # Codex 交接说明
 
+## 2026-09-07 GA4 / GSC 账号侧 P0
+
+- 在 SiteLens GA4 属性中确认近期事件已收到：`analyze_started`、`analyze_completed`、`analyze_failed`、`cta_clicked`、`report_viewed` 等；已将 `analyze_completed` 标记为关键事件，未把失败事件或 CTA 点击误标为转化。
+- GSC 网页索引报告（2026-09-04 更新）显示 11 个已编入索引、3 个未编入索引：2 个是带斜杠 URL 的预期重定向（`/teardowns/stripe/`、`/website-review/`），1 个是 `pricing.md` 机器可读文件已抓取但未编入索引；均不是当前 HTML 页面故障。
+- GSC 近 28 天效果数据仍为 1 点击、61 展示、CTR 1.6%、平均排名 76.7，数据截止 2026-09-05；最近发布的 SEO/GEO 页面尚未进入这轮报告。
+- 下一步保留为：等待新数据周期，观察 `/ai-website-audit` 的 CTR、`analyze_completed` 关键事件和真实付款事件；不把索引报告中的预期重定向当成 SEO 故障。
+
 ## 2026-09-07 GSC 增量 P0：优化已有曝光入口
 
 - 将 `/ai-website-audit` 的 Title 调整为 `AI Website Audit: Find Your First Conversion Fix`，首屏说明改为明确的免费、页面证据和下一步动作。

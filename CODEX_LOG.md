@@ -2,6 +2,12 @@
 
 ## 2026-09-07
 
+- 在 SiteLens GA4 属性中确认近期事件已进入数据流，并将 `analyze_completed` 标记为关键事件；没有把 `analyze_failed`、`cta_clicked` 或 `report_viewed` 误计为核心转化。
+- 复核 GSC 索引状态：11 个页面已收录；2 个未收录项是带斜杠 URL 的预期重定向，1 个是 `pricing.md` 机器可读文件已抓取但未收录，未发现当前公开 HTML 页面故障。
+- GSC 近 28 天仍为 1 点击、61 展示、CTR 1.6%、平均排名 76.7；最近上线页面尚未进入这轮数据，继续等待下一周期验证。
+
+## 2026-09-07
+
 - 针对 GSC 已有展示但无点击的 `/ai-website-audit`，收紧 Title 为 `AI Website Audit: Find Your First Conversion Fix`，并补充免费审计、页面证据和下一步动作说明。
 - 增加“与 SEO checker 的区别”FAQ，相关案例入口改为 Stripe 完整公开 Teardown，避免只给泛化的案例库入口。
 - 通过类型检查、生产构建、OpenNext 构建和 diff 检查；Cloudflare Worker `5d91f0f5-efdf-46b9-a04e-966fc84d4046` 发布成功，线上页面、FAQ、案例链接和 Sitemap 验证通过。

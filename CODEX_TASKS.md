@@ -1,5 +1,13 @@
 # SiteLens 任务状态
 
+## 2026-09-07 GA4 / GSC 账号侧 P0
+
+- [x] 在 SiteLens GA4 属性确认近期自定义事件已收到
+- [x] 将 `analyze_completed` 标记为关键事件
+- [x] 核对 GSC 11 个已收录页面和 3 个未收录页面的具体原因
+- [x] 确认重定向项和 `pricing.md` 不属于当前 HTML 页面故障
+- [ ] 等待新数据周期，比较 CTR、分析完成和真实付款事件
+
 ## 2026-09-07 GSC 增量 P0：优化已有曝光入口
 
 - [x] 优化 `/ai-website-audit` Title、Description 和首屏说明
