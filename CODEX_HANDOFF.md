@@ -8,6 +8,7 @@
 - 增加 Website Review 的 BreadcrumbList，以及 Stripe Teardown 的 Article/BreadcrumbList JSON-LD，并保留公开来源、日期和定性证据边界。
 - 扩展 `public/llms.txt` 到完整公开页面索引，新增 `public/llms-full.txt` 作为扩展、引用安全的产品上下文；未新增无法证明的效果、Benchmark 或客户案例。
 - 账号侧后续仍需在 GSC 等待抓取/索引刷新，并用目标查询建立 AI 搜索引用基线；这些不是代码部署完成的同义词。
+- 已在 Google Search Console 重新提交 `https://sitelens.win/sitemap.xml`；界面确认“已成功提交站点地图”，Google 将异步处理后续抓取。
 
 ## 2026-09-01 本轮处理
 

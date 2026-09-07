@@ -7,6 +7,7 @@
 - 刷新 Sitemap 的公开页面 `lastModified`；为 Website Review 增加 BreadcrumbList，为 Stripe Teardown 增加 Article 与 BreadcrumbList。
 - 扩展 `public/llms.txt` 的公开页面和机器可读文件索引，新增 `public/llms-full.txt`；所有描述保留定性分析和证据边界，不新增无来源的增长承诺。
 - 待完成的外部验证：GSC 抓取/索引刷新、AI 搜索引用基线和线上发布后的 HTML/robots/sitemap 复核。
+- 已在 Google Search Console 重新提交 `https://sitelens.win/sitemap.xml`；页面确认提交成功，后续抓取和发现网页数量仍由 Google 异步处理。
 
 ## 2026-09-01
 
