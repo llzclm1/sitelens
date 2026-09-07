@@ -284,11 +284,12 @@ export default function HomePage() {
       <section className="teardown-teaser shell" aria-labelledby="teardown-title">
         <div>
           <p className="eyebrow">PUBLIC TEARDOWN LIBRARY</p>
-          <h2 id="teardown-title">Read one public <em>review.</em></h2>
+          <h2 id="teardown-title">Read the page before you <em>change it.</em></h2>
         </div>
         <div>
-          <p>We read Stripe&apos;s homepage and keep the evidence, interpretation, and next move together.</p>
+          <p>Eight public reviews keep the evidence, interpretation, and next move together. Start with one case, then use the comparison to frame your own page.</p>
           <a className="text-link" href="/teardowns/stripe">Read the Stripe teardown <span aria-hidden="true">↗</span></a>
+          <a className="text-link" href="/insights/homepage-patterns">Read the homepage patterns <span aria-hidden="true">↗</span></a>
         </div>
       </section>
 

@@ -2,6 +2,12 @@
 
 ## 2026-09-07
 
+- 强化首页和 Website Review 的内部链接：首页新增 Homepage Patterns 入口，Website Review 新增 Diagnose、Clarify、Check 三组决策型入口，串联本轮 6 个高意图页面。
+- 多链接卡片改为垂直排列，保持现有页面结构和视觉层级，不改变分析、支付或追踪逻辑。
+- `npm run typecheck`、`npm run build`、`npm run open:build` 和 `git diff --check` 通过；Cloudflare Worker `7bde15e6-f923-4446-b835-45fcae5def84` 发布成功，线上首页和 Website Review 新入口返回 200。
+
+## 2026-09-07
+
 - 按激进增量方案新增 6 个高意图页面，覆盖 SaaS 不转化、价值主张、SaaS 首页审计、AI 审计与 SEO checker 对比、落地页转化复核、网站 messaging 审计。
 - 新增 Slack、Webflow、HubSpot 三个公开 Teardown，使用官方公开首页作为来源，标注复核日期和定性证据边界；案例库由 5 个扩展为 8 个案例。
 - 更新 Teardown 卡片、Next.js Sitemap、`llms.txt` 和 `llms-full.txt`，建立新增页面之间的内部链接。

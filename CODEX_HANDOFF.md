@@ -1,5 +1,12 @@
 # Codex 交接说明
 
+## 2026-09-07 内部链接增量
+
+- 首页 Teardown 入口改为“先读证据再改页面”，增加 Homepage Patterns 内链，并明确案例库已有 8 个公开案例。
+- `/website-review` 增加 3 组决策型入口，覆盖 Diagnose、Clarify、Check，并串联本轮 6 个高意图页面。
+- 为多链接卡片补充紧凑的垂直布局；没有改变分析、支付或事件逻辑。
+- `npm run typecheck`、`npm run build`、`npm run open:build` 和 `git diff --check` 已通过；Cloudflare Worker 版本为 `7bde15e6-f923-4446-b835-45fcae5def84`，线上首页和 Website Review 返回 200 且新入口存在。
+
 ## 2026-09-07 激进 GSC 增量第一批
 
 - 新增 6 个高意图、证据型页面：`/why-saas-websites-dont-convert`、`/homepage-value-proposition-examples`、`/saas-homepage-audit`、`/ai-website-audit-vs-seo-checker`、`/landing-page-conversion-review`、`/website-messaging-audit`。

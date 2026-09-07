@@ -1,5 +1,14 @@
 # SiteLens 任务状态
 
+## 2026-09-07 内部链接增量
+
+- [x] 首页增加案例库与 Homepage Patterns 入口
+- [x] Website Review 增加 3 组决策型入口，覆盖本轮 6 个高意图页面
+- [x] 优化多链接卡片的垂直布局
+- [x] 通过类型检查、生产构建、OpenNext 构建和 diff 检查
+- [x] 发布到 Cloudflare，Worker 版本 `7bde15e6-f923-4446-b835-45fcae5def84`
+- [x] 线上验证首页和 Website Review 新入口
+
 ## 2026-09-07 激进 GSC 增量第一批
 
 - [x] 新增 6 个高意图证据型 SEO 页面

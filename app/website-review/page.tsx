@@ -134,6 +134,12 @@ export default function WebsiteReviewPage() {
         <article><span>CONVERSION CHECK</span><h3>Choose one useful fix</h3><p>Use a focused check to find the first clarity, trust, or CTA problem worth changing.</p><Link className="text-link" href="/website-conversion-check">Read the conversion guide ↗</Link></article>
       </section>
 
+      <section className="teardown-action-plan shell" aria-label="Decision guides">
+        <article><span>DIAGNOSE</span><h3>Find the reason before adding traffic</h3><p>Start with the common SaaS conversion gaps, then inspect category, proof, and CTA fit on your own homepage.</p><Link className="text-link" href="/why-saas-websites-dont-convert">Why SaaS sites do not convert ↗</Link><Link className="text-link" href="/saas-homepage-audit">Audit a SaaS homepage ↗</Link></article>
+        <article><span>CLARIFY</span><h3>Make the offer easier to place</h3><p>Use a customer, problem, outcome, and proof to turn an abstract claim into a useful first sentence.</p><Link className="text-link" href="/homepage-value-proposition-examples">See value proposition examples ↗</Link><Link className="text-link" href="/website-messaging-audit">Read the messaging audit ↗</Link></article>
+        <article><span>CHECK</span><h3>Separate search from conversion</h3><p>Know whether the next move belongs in technical SEO, page messaging, or the landing-page decision path.</p><Link className="text-link" href="/ai-website-audit-vs-seo-checker">Compare AI audit and SEO checker ↗</Link><Link className="text-link" href="/landing-page-conversion-review">Review landing-page friction ↗</Link></article>
+      </section>
+
       <p className="teardown-disclaimer shell">SiteLens does not access private analytics, run experiments, or promise a conversion lift. Public reviews are qualitative interpretations of the page and include their evidence boundary.</p>
 
       <footer className="footer shell">
