@@ -69,6 +69,7 @@ export default function TeardownsPage() {
           <p className="eyebrow">05 / CASE LIBRARY</p>
           <h2 id="teardown-library-title">Five pages.<br />Five decisions.</h2>
           <p>Each review starts with what a visitor can see and ends with the next decision the page should support. Every case uses a public homepage and includes its source and review date.</p>
+          <Link className="text-link" href="/insights/homepage-patterns">Read the cross-case analysis <span aria-hidden="true">↗</span></Link>
         </aside>
         <div className="teardown-findings">
           {teardownCards.map((card) => (

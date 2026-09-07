@@ -1,5 +1,13 @@
 # SiteLens 任务状态
 
+## 2026-09-07 GSC 增量内容资产
+
+- [x] 新增原创跨案例分析页 `/insights/homepage-patterns`
+- [x] 接入 Sitemap、Teardown 内链、`llms.txt` 和 `llms-full.txt`
+- [x] 添加来源、复核日期和定性分析边界
+- [x] 通过类型检查、生产构建和 diff 检查
+- [ ] 等待新页面进入 GSC 数据后复核展示和查询
+
 ## 2026-09-07 GSC 查询驱动的 SEO 增量
 
 - [x] 读取 GSC 近 28 天查询和页面数据

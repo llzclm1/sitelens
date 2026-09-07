@@ -28,6 +28,7 @@
 - [Website conversion check](https://sitelens.win/website-conversion-check): a focused guide to CTA and conversion-path review.
 - [Pricing](https://sitelens.win/pricing): current free review and $29 one-time Deep Growth Report details.
 - [Public teardowns](https://sitelens.win/teardowns): qualitative public reviews with the evidence behind each recommendation.
+- [Homepage patterns](https://sitelens.win/insights/homepage-patterns): a qualitative comparison of five public product homepages and their first visitor decisions.
 - [Stripe homepage teardown](https://sitelens.win/teardowns/stripe): a dated public example of the SiteLens review method.
 - [Linear homepage teardown](https://sitelens.win/teardowns/linear): a qualitative review of Linear's product-development positioning and first workflow.
 - [Notion homepage teardown](https://sitelens.win/teardowns/notion): a qualitative review of Notion's workspace, AI, and product-entry clarity.

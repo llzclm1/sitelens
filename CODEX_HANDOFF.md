@@ -1,5 +1,11 @@
 # Codex 交接说明
 
+## 2026-09-07 GSC 增量内容资产
+
+- 新增 `/insights/homepage-patterns`，基于 Stripe、Linear、Notion、Vercel、Figma 五个已公开、已标注日期的 Teardown，生成原创跨案例分析。
+- 页面包含 Article/Breadcrumb JSON-LD、来源链接、方法边界和内部链接；已接入 Sitemap、Teardown 索引和 `llms` 文件。
+- 未新增批量关键词页，未声称转化提升；本轮 `npm run typecheck`、`npm run build` 和 `git diff --check` 已通过。
+
 ## 2026-09-07 GSC 查询驱动的 SEO 增量
 
 - GSC 近 28 天（2026-08-09 至 2026-09-05）显示：1 次点击、61 次展示、CTR 1.6%、平均排名 76.7；`/ai-website-audit` 获得 47 次展示但没有点击，是当前首要优化入口。

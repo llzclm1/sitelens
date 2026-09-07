@@ -28,6 +28,7 @@ The Deep Growth Report costs $29 USD one time. It adds a prioritized diagnosis, 
 - [Website conversion check](https://sitelens.win/website-conversion-check): conversion-path intent page.
 - [Pricing](https://sitelens.win/pricing): current offers and payment boundary.
 - [Public teardowns](https://sitelens.win/teardowns): qualitative case library.
+- [Homepage patterns](https://sitelens.win/insights/homepage-patterns): qualitative cross-case analysis of five public product homepages, with sources and evidence boundaries.
 - [Stripe teardown](https://sitelens.win/teardowns/stripe): public example reviewed on August 10, 2026.
 - [Linear teardown](https://sitelens.win/teardowns/linear): public review of Linear's category promise, workflow choices, and proof.
 - [Notion teardown](https://sitelens.win/teardowns/notion): public review of Notion's workspace promise, AI framing, and entry paths.

@@ -11,6 +11,7 @@ const pages: Array<{ path: string; lastModified: string }> = [
   { path: "/landing-page-review", lastModified },
   { path: "/saas-website-analysis", lastModified },
   { path: "/website-conversion-check", lastModified },
+  { path: "/insights/homepage-patterns", lastModified },
   { path: "/pricing", lastModified },
   { path: "/teardowns", lastModified },
   { path: "/teardowns/stripe", lastModified },

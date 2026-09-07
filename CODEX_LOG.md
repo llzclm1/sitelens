@@ -2,6 +2,12 @@
 
 ## 2026-09-07
 
+- 新增 `/insights/homepage-patterns` 原创跨案例分析页，基于 5 个公开 Teardown 总结首页首个决策、产品广度、证据放置、产品隐喻和下一步动作。
+- 页面加入 Article/Breadcrumb JSON-LD、官方来源、复核日期、内链和证据边界，并接入 Sitemap 与 `llms` 文件。
+- 未批量生成关键词页或添加未经验证的转化效果声明；类型检查、生产构建和 diff 检查通过。
+
+## 2026-09-07
+
 - 根据 GSC 近 28 天数据优化 SEO 入口：`/ai-website-audit` 有 47 次展示但 0 次点击，因此调整 Title、Description、首屏说明，并加入 Website Review、Teardowns、Pricing 的正文内链。
 - 将 `/website-review` 的页面标题改为更具体的转化清晰度主题；没有新增薄页面，也没有修改分析、支付或 GA4 事件逻辑。
 - `npm run typecheck`、`npm run build` 和 `git diff --check` 通过；等待发布后的新 GSC 周期验证效果。
