@@ -5,6 +5,7 @@
 - 根据 GSC 近 28 天数据优化 SEO 入口：`/ai-website-audit` 有 47 次展示但 0 次点击，因此调整 Title、Description、首屏说明，并加入 Website Review、Teardowns、Pricing 的正文内链。
 - 将 `/website-review` 的页面标题改为更具体的转化清晰度主题；没有新增薄页面，也没有修改分析、支付或 GA4 事件逻辑。
 - `npm run typecheck`、`npm run build` 和 `git diff --check` 通过；等待发布后的新 GSC 周期验证效果。
+- Cloudflare Worker `310db4e0-102d-4458-88a5-68a1bad84213` 发布成功；线上确认 `/ai-website-audit` 和 `/website-review` 的新文案生效。
 
 ## 2026-09-07
 

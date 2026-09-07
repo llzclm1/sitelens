@@ -6,6 +6,7 @@
 - [x] 优化 `/ai-website-audit` 的查询匹配、首屏说明和正文内链
 - [x] 优化 `/website-review` 的页面标题和 WebPage 名称
 - [x] 通过类型检查、生产构建和 diff 检查
+- [x] 发布到 Cloudflare 并验证两个目标页面的线上文案和内链
 - [ ] 等待新数据周期，比较优化后的 CTR、展示和平均排名
 
 ## 2026-09-07 文案 humanizer 收口

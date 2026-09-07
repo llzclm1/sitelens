@@ -6,6 +6,7 @@
 - 根据查询 `website audit ai`、`ai website audit` 和 `ai site audit`，优化 `/ai-website-audit` 的 Title、Description、首屏说明和 WebPage 描述，并加入指向 Website Review、Teardowns 和 Pricing 的正文内链。
 - 将 `/website-review` 的标题改为更具体的 conversion clarity 主题；未增加批量关键词页，也未改分析逻辑、事件参数或支付流程。
 - 已通过 `npm run typecheck`、`npm run build` 和 `git diff --check`；发布后需等待新的 GSC 数据周期，再比较 CTR、展示和查询变化。
+- Cloudflare 已完成发布，Worker 版本为 `310db4e0-102d-4458-88a5-68a1bad84213`；线上已确认新 Title、Description、H1 和正文内链生效。
 
 ## 2026-09-07 文案 humanizer 收口
 
