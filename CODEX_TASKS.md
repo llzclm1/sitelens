@@ -9,6 +9,7 @@
 - [x] 为 Website Review 和 Stripe Teardown 增加 Breadcrumb/Article 结构化数据
 - [x] 扩展 `llms.txt` 并新增 `llms-full.txt`
 - [x] 在 Google Search Console 重新提交 `https://sitelens.win/sitemap.xml`
+- [ ] 重新构建并发布本轮 SEO/GEO 更新到 Cloudflare；当前 Next.js 生产构建长时间停留在编译阶段
 - [ ] 等待 GSC 抓取/索引刷新并记录实际状态
 - [ ] 用 10–20 个目标查询记录 Google AI、ChatGPT、Perplexity、Gemini 的引用基线
 
