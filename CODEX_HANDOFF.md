@@ -1,5 +1,12 @@
 # Codex 交接说明
 
+## 2026-09-07 GSC 查询驱动的 SEO 增量
+
+- GSC 近 28 天（2026-08-09 至 2026-09-05）显示：1 次点击、61 次展示、CTR 1.6%、平均排名 76.7；`/ai-website-audit` 获得 47 次展示但没有点击，是当前首要优化入口。
+- 根据查询 `website audit ai`、`ai website audit` 和 `ai site audit`，优化 `/ai-website-audit` 的 Title、Description、首屏说明和 WebPage 描述，并加入指向 Website Review、Teardowns 和 Pricing 的正文内链。
+- 将 `/website-review` 的标题改为更具体的 conversion clarity 主题；未增加批量关键词页，也未改分析逻辑、事件参数或支付流程。
+- 已通过 `npm run typecheck`、`npm run build` 和 `git diff --check`；发布后需等待新的 GSC 数据周期，再比较 CTR、展示和查询变化。
+
 ## 2026-09-07 文案 humanizer 收口
 
 - 按 humanizer 规则清理公开 Teardown 文案和报告生成的 CTA 改写：减少模板化说明、抽象宣传词和被动表达，改为更直接的页面语言。

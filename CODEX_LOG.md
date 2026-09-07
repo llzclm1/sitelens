@@ -2,6 +2,12 @@
 
 ## 2026-09-07
 
+- 根据 GSC 近 28 天数据优化 SEO 入口：`/ai-website-audit` 有 47 次展示但 0 次点击，因此调整 Title、Description、首屏说明，并加入 Website Review、Teardowns、Pricing 的正文内链。
+- 将 `/website-review` 的页面标题改为更具体的转化清晰度主题；没有新增薄页面，也没有修改分析、支付或 GA4 事件逻辑。
+- `npm run typecheck`、`npm run build` 和 `git diff --check` 通过；等待发布后的新 GSC 周期验证效果。
+
+## 2026-09-07
+
 - 按 humanizer 规则收口公开 Teardown 和报告 CTA 文案：删除重复的模板句、抽象宣传词和用户可见的破折号表达，改为更直接的英语。
 - 未改页面结构、链接、结构化数据、分析事件参数或产品事实；`npm run typecheck`、`npm run build` 和 `git diff --check` 通过。
 - 完成 OpenNext 生产构建并发布到 Cloudflare Worker `ca77997e-b828-4f2e-bb6c-72be31a9789e`；线上 Teardown 索引、Stripe 和 Notion 页面确认新文案已生效。

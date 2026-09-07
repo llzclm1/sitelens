@@ -11,6 +11,7 @@ export type SeoIntentPageConfig = {
   intro: string;
   checks: ReadonlyArray<{ label: string; title: string; copy: string }>;
   faq: ReadonlyArray<{ question: string; answer: string }>;
+  relatedLinks?: ReadonlyArray<{ label: string; title: string; copy: string; href: string; linkLabel: string }>;
 };
 
 export function SeoIntentPage({ config }: { config: SeoIntentPageConfig }) {
@@ -102,6 +103,19 @@ export function SeoIntentPage({ config }: { config: SeoIntentPageConfig }) {
           ))}
         </div>
       </section>
+
+      {config.relatedLinks ? (
+        <section className="teardown-action-plan shell" aria-label="Related SiteLens pages">
+          {config.relatedLinks.map((item) => (
+            <article key={item.href}>
+              <span>{item.label}</span>
+              <h3>{item.title}</h3>
+              <p>{item.copy}</p>
+              <Link className="text-link" href={item.href}>{item.linkLabel} <span aria-hidden="true">↗</span></Link>
+            </article>
+          ))}
+        </section>
+      ) : null}
 
       <p className="teardown-disclaimer shell">SiteLens provides qualitative page analysis. It does not estimate a conversion rate or replace private analytics and experiments.</p>
 

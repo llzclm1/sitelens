@@ -29,7 +29,7 @@ const structuredData = {
       "@type": "WebPage",
       "@id": `${siteUrl}/website-review#webpage`,
       url: `${siteUrl}/website-review`,
-      name: "Website Review | SiteLens",
+      name: "Website Review for Conversion Clarity | SiteLens",
       description: "What a SiteLens evidence-based website review checks and how the recommendations are formed.",
       isPartOf: { "@id": `${siteUrl}/#website` },
       inLanguage: "en",
@@ -55,7 +55,7 @@ const structuredData = {
 };
 
 export const metadata: Metadata = {
-  title: "Website Review",
+  title: "Website Review for Conversion Clarity",
   description: "An evidence-based website review for clarity, trust, and conversion problems, with a concrete next move.",
   alternates: { canonical: "/website-review" },
 };

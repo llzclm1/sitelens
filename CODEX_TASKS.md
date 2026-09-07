@@ -1,5 +1,13 @@
 # SiteLens 任务状态
 
+## 2026-09-07 GSC 查询驱动的 SEO 增量
+
+- [x] 读取 GSC 近 28 天查询和页面数据
+- [x] 优化 `/ai-website-audit` 的查询匹配、首屏说明和正文内链
+- [x] 优化 `/website-review` 的页面标题和 WebPage 名称
+- [x] 通过类型检查、生产构建和 diff 检查
+- [ ] 等待新数据周期，比较优化后的 CTR、展示和平均排名
+
 ## 2026-09-07 文案 humanizer 收口
 
 - [x] 清理公开 Teardown、报告 CTA 和案例库文案中的模板化与宣传式表达
