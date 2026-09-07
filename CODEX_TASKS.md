@@ -8,8 +8,9 @@
 - [x] 刷新公开 Sitemap 的 `lastModified`
 - [x] 为 Website Review 和 Stripe Teardown 增加 Breadcrumb/Article 结构化数据
 - [x] 扩展 `llms.txt` 并新增 `llms-full.txt`
+- [x] 新增 Linear、Notion、Vercel、Figma 四个真实公开 Teardown 页面并建立内部链接
 - [x] 在 Google Search Console 重新提交 `https://sitelens.win/sitemap.xml`
-- [x] 重新构建并发布本轮 SEO/GEO 更新到 Cloudflare；Worker 版本 `feebaa01-d061-4fbc-bb3e-0e3110a733bc`
+- [x] 重新构建并发布本轮 SEO/GEO 更新到 Cloudflare；Worker 版本 `b64d462d-f7ff-4d41-bcee-4c810e874ae4`
 - [ ] 等待 GSC 抓取/索引刷新并记录实际状态
 - [ ] 用 10–20 个目标查询记录 Google AI、ChatGPT、Perplexity、Gemini 的引用基线
 

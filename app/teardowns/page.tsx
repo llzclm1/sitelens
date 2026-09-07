@@ -17,28 +17,36 @@ const teardownCards = [
     linkLabel: "Read the full teardown",
   },
   {
-    label: "02 / EXAMPLE CASE",
-    title: "AI workspace homepage",
-    description: "The promise sounds ambitious, but the first screen makes the visitor work to identify the workflow and outcome.",
-    meta: "Illustrative example · no measured results",
-    href: "/#analyze",
-    linkLabel: "Analyze a similar page",
+    label: "02 / PUBLIC CASE",
+    title: "Linear homepage",
+    description: "A product development system with a clear category promise and several possible starting workflows.",
+    meta: "Source: linear.app · reviewed 2026-09-07",
+    href: "/teardowns/linear",
+    linkLabel: "Read the full teardown",
   },
   {
-    label: "03 / EXAMPLE CASE",
-    title: "B2B service homepage",
-    description: "A polished service page can still leave the buying decision vague when proof and the next step arrive too late.",
-    meta: "Illustrative example · no measured results",
-    href: "/#analyze",
-    linkLabel: "Analyze a similar page",
+    label: "03 / PUBLIC CASE",
+    title: "Notion homepage",
+    description: "A broad workspace promise that turns into a choice between knowledge, projects, and AI work.",
+    meta: "Source: notion.com · reviewed 2026-09-07",
+    href: "/teardowns/notion",
+    linkLabel: "Read the full teardown",
   },
   {
-    label: "04 / EXAMPLE CASE",
-    title: "Creator tool homepage",
-    description: "The page needs to show the before-and-after moment before asking a visitor to start or sign up.",
-    meta: "Illustrative example · no measured results",
-    href: "/#analyze",
-    linkLabel: "Analyze a similar page",
+    label: "04 / PUBLIC CASE",
+    title: "Vercel homepage",
+    description: "Agentic infrastructure made credible by a large product map and recognizable use-case proof.",
+    meta: "Source: vercel.com · reviewed 2026-09-07",
+    href: "/teardowns/vercel",
+    linkLabel: "Read the full teardown",
+  },
+  {
+    label: "05 / PUBLIC CASE",
+    title: "Figma homepage",
+    description: "An intelligent canvas that expands from design into code, AI, and the wider product process.",
+    meta: "Source: figma.com · reviewed 2026-09-07",
+    href: "/teardowns/figma",
+    linkLabel: "Read the full teardown",
   },
 ];
 
@@ -58,9 +66,9 @@ export default function TeardownsPage() {
 
       <section className="teardown-grid shell" aria-labelledby="teardown-library-title">
         <aside className="teardown-sidebar">
-          <p className="eyebrow">04 / CASE LIBRARY</p>
-          <h2 id="teardown-library-title">One page.<br />Four decisions.</h2>
-          <p>Each card connects what a visitor sees to the next decision the page needs to make. One is a public review; the rest are illustrative examples.</p>
+          <p className="eyebrow">05 / CASE LIBRARY</p>
+          <h2 id="teardown-library-title">Five pages.<br />Five decisions.</h2>
+          <p>Each review connects what a visitor sees to the next decision the page needs to make. Every case is based on a public homepage and includes its source and review date.</p>
         </aside>
         <div className="teardown-findings">
           {teardownCards.map((card) => (

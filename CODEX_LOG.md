@@ -10,6 +10,8 @@
 - 已在 Google Search Console 重新提交 `https://sitelens.win/sitemap.xml`；页面确认提交成功，后续抓取和发现网页数量仍由 Google 异步处理。
 - 通过 `next.config.ts` 关闭构建期 `serverMinification`，清理残留 `.next` / `.open-next` 后完成 OpenNext 生产构建；Cloudflare Worker `sitelens` 发布版本为 `feebaa01-d061-4fbc-bb3e-0e3110a733bc`。
 - 线上复核确认 `robots.txt` 明确允许主要搜索/AI 抓取器、`sitemap.xml` 的 `lastmod` 为 `2026-09-07`、`llms.txt` 已包含公开页面索引，首页/Website Review/Stripe Teardown 含预期 JSON-LD。
+- 新增 Linear、Notion、Vercel、Figma 四个公开 Teardown 内容页，全部使用独立标题、canonical、来源、复核日期、Article/Breadcrumb JSON-LD，并从案例库和机器可读文件互相发现。
+- 本轮新增页面已通过 `npm run typecheck`、`npm run build`、OpenNext 构建和线上 HTML 验收；Sitemap 已返回四个新 URL，Cloudflare Worker 发布版本为 `b64d462d-f7ff-4d41-bcee-4c810e874ae4`。
 
 ## 2026-09-01
 

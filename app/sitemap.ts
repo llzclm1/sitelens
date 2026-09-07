@@ -14,6 +14,10 @@ const pages: Array<{ path: string; lastModified: string }> = [
   { path: "/pricing", lastModified },
   { path: "/teardowns", lastModified },
   { path: "/teardowns/stripe", lastModified },
+  { path: "/teardowns/linear", lastModified },
+  { path: "/teardowns/notion", lastModified },
+  { path: "/teardowns/vercel", lastModified },
+  { path: "/teardowns/figma", lastModified },
   { path: "/privacy", lastModified },
   { path: "/terms", lastModified },
 ];

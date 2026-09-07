@@ -29,6 +29,10 @@
 - [Pricing](https://sitelens.win/pricing): current free review and $29 one-time Deep Growth Report details.
 - [Public teardowns](https://sitelens.win/teardowns): qualitative public reviews with the evidence behind each recommendation.
 - [Stripe homepage teardown](https://sitelens.win/teardowns/stripe): a dated public example of the SiteLens review method.
+- [Linear homepage teardown](https://sitelens.win/teardowns/linear): a qualitative review of Linear's product-development positioning and first workflow.
+- [Notion homepage teardown](https://sitelens.win/teardowns/notion): a qualitative review of Notion's workspace, AI, and product-entry clarity.
+- [Vercel homepage teardown](https://sitelens.win/teardowns/vercel): a qualitative review of Vercel's agentic infrastructure positioning and buyer paths.
+- [Figma homepage teardown](https://sitelens.win/teardowns/figma): a qualitative review of Figma's canvas, product suite, and first product choice.
 
 ## Machine-readable files
 

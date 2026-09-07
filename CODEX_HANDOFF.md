@@ -10,7 +10,8 @@
 - 账号侧后续仍需在 GSC 等待抓取/索引刷新，并用目标查询建立 AI 搜索引用基线；这些不是代码部署完成的同义词。
 - 已在 Google Search Console 重新提交 `https://sitelens.win/sitemap.xml`；界面确认“已成功提交站点地图”，Google 将异步处理后续抓取。
 - 为稳定 Cloudflare 生产构建，`next.config.ts` 关闭了构建期 `serverMinification`；清理残留构建目录后，OpenNext 完整构建成功。
-- 本轮 SEO/GEO 更新已发布到 Cloudflare Worker，版本 `feebaa01-d061-4fbc-bb3e-0e3110a733bc`；线上已复核 `robots.txt`、`sitemap.xml`、`llms.txt`、首页结构化数据、Website Review 和 Stripe Teardown。
+- 新增 Linear、Notion、Vercel、Figma 四个真实公开 Teardown 内容页；每页包含来源、复核日期、页面证据、定性解读、行动建议和 Article/Breadcrumb JSON-LD，并接入 Teardown 索引、Sitemap 与 `llms` 文件。
+- 本轮 SEO/GEO 更新已发布到 Cloudflare Worker，版本 `b64d462d-f7ff-4d41-bcee-4c810e874ae4`；线上已复核 4 个新 URL、`robots.txt`、`sitemap.xml`、`llms.txt` 和新页面结构化数据。
 
 ## 2026-09-01 本轮处理
 
