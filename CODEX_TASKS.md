@@ -6,6 +6,7 @@
 - [x] 接入 Sitemap、Teardown 内链、`llms.txt` 和 `llms-full.txt`
 - [x] 添加来源、复核日期和定性分析边界
 - [x] 通过类型检查、生产构建和 diff 检查
+- [x] 发布到 Cloudflare 并在线验证新页面、Sitemap 和 `llms` 文件
 - [ ] 等待新页面进入 GSC 数据后复核展示和查询
 
 ## 2026-09-07 GSC 查询驱动的 SEO 增量

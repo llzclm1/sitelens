@@ -5,6 +5,7 @@
 - 新增 `/insights/homepage-patterns`，基于 Stripe、Linear、Notion、Vercel、Figma 五个已公开、已标注日期的 Teardown，生成原创跨案例分析。
 - 页面包含 Article/Breadcrumb JSON-LD、来源链接、方法边界和内部链接；已接入 Sitemap、Teardown 索引和 `llms` 文件。
 - 未新增批量关键词页，未声称转化提升；本轮 `npm run typecheck`、`npm run build` 和 `git diff --check` 已通过。
+- Cloudflare Worker 已发布，版本为 `8979cd9d-99a9-4e33-8af5-7620d5d72901`；线上已确认新页面、Sitemap、`llms.txt` 和 Teardown 内链生效。
 
 ## 2026-09-07 GSC 查询驱动的 SEO 增量
 

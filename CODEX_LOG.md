@@ -5,6 +5,7 @@
 - 新增 `/insights/homepage-patterns` 原创跨案例分析页，基于 5 个公开 Teardown 总结首页首个决策、产品广度、证据放置、产品隐喻和下一步动作。
 - 页面加入 Article/Breadcrumb JSON-LD、官方来源、复核日期、内链和证据边界，并接入 Sitemap 与 `llms` 文件。
 - 未批量生成关键词页或添加未经验证的转化效果声明；类型检查、生产构建和 diff 检查通过。
+- OpenNext 生产构建和 Cloudflare 发布完成，Worker 版本为 `8979cd9d-99a9-4e33-8af5-7620d5d72901`；线上已确认新页面、Sitemap、`llms.txt` 和 Teardown 内链生效。
 
 ## 2026-09-07
 
