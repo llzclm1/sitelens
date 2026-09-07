@@ -5,6 +5,7 @@
 - [x] 清理公开 Teardown、报告 CTA 和案例库文案中的模板化与宣传式表达
 - [x] 保留来源、日期、证据边界、价格和事件参数
 - [x] 通过类型检查、生产构建和 diff 检查
+- [x] 发布到 Cloudflare 并复核线上 Teardown 页面文案，Worker 版本 `ca77997e-b828-4f2e-bb6c-72be31a9789e`
 
 ## 2026-09-07 SEO / GEO 优化
 

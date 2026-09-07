@@ -4,6 +4,7 @@
 
 - 按 humanizer 规则收口公开 Teardown 和报告 CTA 文案：删除重复的模板句、抽象宣传词和用户可见的破折号表达，改为更直接的英语。
 - 未改页面结构、链接、结构化数据、分析事件参数或产品事实；`npm run typecheck`、`npm run build` 和 `git diff --check` 通过。
+- 完成 OpenNext 生产构建并发布到 Cloudflare Worker `ca77997e-b828-4f2e-bb6c-72be31a9789e`；线上 Teardown 索引、Stripe 和 Notion 页面确认新文案已生效。
 
 ## 2026-09-07
 

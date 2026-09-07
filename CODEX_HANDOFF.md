@@ -5,6 +5,7 @@
 - 按 humanizer 规则清理公开 Teardown 文案和报告生成的 CTA 改写：减少模板化说明、抽象宣传词和被动表达，改为更直接的页面语言。
 - 保留官方页面引用、来源、复核日期、证据边界、产品价格和现有事件参数；未改页面结构、链接或分析逻辑。
 - 已清理用户可见代码路径中的 em dash / en dash；`npm run typecheck`、`npm run build` 和 `git diff --check` 通过。
+- OpenNext 生产构建和 Cloudflare 发布已完成，Worker 版本为 `ca77997e-b828-4f2e-bb6c-72be31a9789e`；线上 Teardown 索引、Stripe 和 Notion 页面已复核新文案。
 
 ## 2026-09-07 SEO / GEO 优化
 
