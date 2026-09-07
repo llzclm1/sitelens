@@ -48,6 +48,30 @@ const teardownCards = [
     href: "/teardowns/figma",
     linkLabel: "Read the full teardown",
   },
+  {
+    label: "06 / PUBLIC CASE",
+    title: "Slack homepage",
+    description: "Conversation as the entry point for knowledge, people, process, platform, and AI work.",
+    meta: "Source: slack.com · reviewed 2026-09-07",
+    href: "/teardowns/slack",
+    linkLabel: "Read the full teardown",
+  },
+  {
+    label: "07 / PUBLIC CASE",
+    title: "Webflow homepage",
+    description: "A visual website platform organized around building, publishing, growth, and team workflows.",
+    meta: "Source: webflow.com · reviewed 2026-09-07",
+    href: "/teardowns/webflow",
+    linkLabel: "Read the full teardown",
+  },
+  {
+    label: "08 / PUBLIC CASE",
+    title: "HubSpot homepage",
+    description: "A broad customer platform that routes visitors through teams, growth problems, and connected products.",
+    meta: "Source: hubspot.com · reviewed 2026-09-07",
+    href: "/teardowns/hubspot",
+    linkLabel: "Read the full teardown",
+  },
 ];
 
 export default function TeardownsPage() {
@@ -66,8 +90,8 @@ export default function TeardownsPage() {
 
       <section className="teardown-grid shell" aria-labelledby="teardown-library-title">
         <aside className="teardown-sidebar">
-          <p className="eyebrow">05 / CASE LIBRARY</p>
-          <h2 id="teardown-library-title">Five pages.<br />Five decisions.</h2>
+          <p className="eyebrow">08 / CASE LIBRARY</p>
+          <h2 id="teardown-library-title">Eight pages.<br />Eight decisions.</h2>
           <p>Each review starts with what a visitor can see and ends with the next decision the page should support. Every case uses a public homepage and includes its source and review date.</p>
           <Link className="text-link" href="/insights/homepage-patterns">Read the cross-case analysis <span aria-hidden="true">↗</span></Link>
         </aside>

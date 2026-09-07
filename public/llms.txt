@@ -26,6 +26,12 @@
 - [Landing page review](https://sitelens.win/landing-page-review): a focused guide to first-screen clarity and the next decision.
 - [SaaS website analysis](https://sitelens.win/saas-website-analysis): a focused guide to SaaS positioning, proof, and product outcome.
 - [Website conversion check](https://sitelens.win/website-conversion-check): a focused guide to CTA and conversion-path review.
+- [Why SaaS websites don't convert](https://sitelens.win/why-saas-websites-dont-convert): common homepage gaps in category clarity, proof, and action.
+- [Homepage value proposition examples](https://sitelens.win/homepage-value-proposition-examples): how to make the customer, problem, outcome, and proof visible.
+- [SaaS homepage audit](https://sitelens.win/saas-homepage-audit): a focused review of SaaS positioning, proof, and CTA fit.
+- [AI website audit vs SEO checker](https://sitelens.win/ai-website-audit-vs-seo-checker): the difference between search signals and visitor decision friction.
+- [Landing page conversion review](https://sitelens.win/landing-page-conversion-review): a review of message match, decision load, and testable page changes.
+- [Website messaging audit](https://sitelens.win/website-messaging-audit): a review of audience, outcome, proof, and CTA language.
 - [Pricing](https://sitelens.win/pricing): current free review and $29 one-time Deep Growth Report details.
 - [Public teardowns](https://sitelens.win/teardowns): qualitative public reviews with the evidence behind each recommendation.
 - [Homepage patterns](https://sitelens.win/insights/homepage-patterns): a qualitative comparison of five public product homepages and their first visitor decisions.
@@ -34,6 +40,9 @@
 - [Notion homepage teardown](https://sitelens.win/teardowns/notion): a qualitative review of Notion's workspace, AI, and product-entry clarity.
 - [Vercel homepage teardown](https://sitelens.win/teardowns/vercel): a qualitative review of Vercel's agentic infrastructure positioning and buyer paths.
 - [Figma homepage teardown](https://sitelens.win/teardowns/figma): a qualitative review of Figma's canvas, product suite, and first product choice.
+- [Slack homepage teardown](https://sitelens.win/teardowns/slack): a qualitative review of Slack's conversation-first work platform and job routing.
+- [Webflow homepage teardown](https://sitelens.win/teardowns/webflow): a qualitative review of Webflow's visual website platform and team-to-outcome paths.
+- [HubSpot homepage teardown](https://sitelens.win/teardowns/hubspot): a qualitative review of HubSpot's customer platform, use cases, and proof.
 
 ## Machine-readable files
 

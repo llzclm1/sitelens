@@ -1,5 +1,13 @@
 # Codex 交接说明
 
+## 2026-09-07 激进 GSC 增量第一批
+
+- 新增 6 个高意图、证据型页面：`/why-saas-websites-dont-convert`、`/homepage-value-proposition-examples`、`/saas-homepage-audit`、`/ai-website-audit-vs-seo-checker`、`/landing-page-conversion-review`、`/website-messaging-audit`。
+- 新增 3 个公开 Teardown：Slack、Webflow、HubSpot；案例库扩展为 8 个公开页面，并补齐 Article/Breadcrumb JSON-LD、来源和复核日期。
+- 全部新页面已接入 Next.js Sitemap、Teardown 索引、`llms.txt` 和 `llms-full.txt`；保留公开定性分析边界，不声称转化提升或搜索排名结果。
+- `npm run typecheck`、`npm run build`、`npm run open:build` 和 `git diff --check` 已通过；Cloudflare Worker 版本为 `ddfa245e-fe77-476e-8aeb-2a5e7ef9c2de`，线上新页面返回 200。
+- 下一步：等待 GSC 新数据周期；按页面和查询对比展示、CTR、平均排名、分析开始率和 `analyze_completed`。不把部署、Sitemap 提交或页面返回 200 当作已收录或已获得流量。
+
 ## 2026-09-07 GA4 / GSC 账号侧 P0
 
 - 在 SiteLens GA4 属性中确认近期事件已收到：`analyze_started`、`analyze_completed`、`analyze_failed`、`cta_clicked`、`report_viewed` 等；已将 `analyze_completed` 标记为关键事件，未把失败事件或 CTA 点击误标为转化。

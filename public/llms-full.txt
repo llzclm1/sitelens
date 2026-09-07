@@ -26,6 +26,12 @@ The Deep Growth Report costs $29 USD one time. It adds a prioritized diagnosis, 
 - [Landing page review](https://sitelens.win/landing-page-review): landing page clarity and CTA intent page.
 - [SaaS website analysis](https://sitelens.win/saas-website-analysis): SaaS positioning and proof intent page.
 - [Website conversion check](https://sitelens.win/website-conversion-check): conversion-path intent page.
+- [Why SaaS websites don't convert](https://sitelens.win/why-saas-websites-dont-convert): common SaaS homepage problems and the first evidence-backed fix.
+- [Homepage value proposition examples](https://sitelens.win/homepage-value-proposition-examples): examples of customer, problem, outcome, and proof language.
+- [SaaS homepage audit](https://sitelens.win/saas-homepage-audit): a page-evidence audit for SaaS category clarity, proof, and CTA fit.
+- [AI website audit vs SEO checker](https://sitelens.win/ai-website-audit-vs-seo-checker): a comparison of technical discovery checks and visitor decision analysis.
+- [Landing page conversion review](https://sitelens.win/landing-page-conversion-review): a qualitative review of message match, decision load, and testable changes.
+- [Website messaging audit](https://sitelens.win/website-messaging-audit): a focused audit of audience, outcome, proof, and CTA language.
 - [Pricing](https://sitelens.win/pricing): current offers and payment boundary.
 - [Public teardowns](https://sitelens.win/teardowns): qualitative case library.
 - [Homepage patterns](https://sitelens.win/insights/homepage-patterns): qualitative cross-case analysis of five public product homepages, with sources and evidence boundaries.
@@ -34,6 +40,9 @@ The Deep Growth Report costs $29 USD one time. It adds a prioritized diagnosis, 
 - [Notion teardown](https://sitelens.win/teardowns/notion): public review of Notion's workspace promise, AI framing, and entry paths.
 - [Vercel teardown](https://sitelens.win/teardowns/vercel): public review of Vercel's agentic infrastructure promise and product map.
 - [Figma teardown](https://sitelens.win/teardowns/figma): public review of Figma's intelligent canvas, suite expansion, and product choice.
+- [Slack teardown](https://sitelens.win/teardowns/slack): public review of Slack's conversation-first positioning, work categories, and proof.
+- [Webflow teardown](https://sitelens.win/teardowns/webflow): public review of Webflow's build, publish, growth, and team workflow promise.
+- [HubSpot teardown](https://sitelens.win/teardowns/hubspot): public review of HubSpot's connected customer platform and use-case routing.
 
 ## Citation guidance
 

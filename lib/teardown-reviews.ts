@@ -138,4 +138,97 @@ export const teardownReviews: Record<string, TeardownReview> = {
       { label: "03 / TRUST", title: "Date and place the proof", copy: "The Fortune 500 signal is useful; connect it to the role or workflow it validates." },
     ],
   },
+  slack: {
+    slug: "slack",
+    label: "PUBLIC TEARDOWN / SLACK",
+    company: "Slack",
+    title: "Slack makes conversation the entry point for work.",
+    description: "A review of Slack's homepage. Each recommendation points to something visible on the page.",
+    sourceUrl: "https://slack.com/",
+    reviewed: "2026-09-07",
+    pageSays: {
+      heading: "All your people and AI agents working together.",
+      copy: "Slack opens with a people-and-agents promise, then shows how conversations connect to knowledge, people, process, and platform work.",
+    },
+    evidence: [
+      "The hero pairs team communication with Slackbot and gives visitors Get started and Find your plan as the first actions.",
+      "The page turns the product into four recognizable jobs: knowledge, people, process, and platform.",
+      "Public proof includes customer logos, an Anthropic quote, and product usage or survey figures that are dated in the page footnotes.",
+    ],
+    read: {
+      heading: "The conversation metaphor makes a broad platform approachable.",
+      copy: "A team can understand the starting point quickly. A buyer evaluating search, automation, or external collaboration may still need to choose which job deserves attention first.",
+    },
+    recommendation: {
+      heading: "Keep conversation as the entry point, then route by job.",
+      copy: "The page already has useful knowledge, people, process, and platform groupings. Bring one of those choices closer to the first action so a visitor can recognize the most relevant path.",
+    },
+    actions: [
+      { label: "01 / POSITIONING", title: "Own the work conversation", copy: "The first sentence gives the product a human starting point before the AI and platform layers appear." },
+      { label: "02 / CLARITY", title: "Route by the work to be done", copy: "Search, automation, projects, and client work are clearer entry points than a complete feature inventory." },
+      { label: "03 / TRUST", title: "Date the supporting proof", copy: "The page uses substantial proof; keeping its footnotes visible helps a skeptical buyer understand what each number represents." },
+    ],
+  },
+  webflow: {
+    slug: "webflow",
+    label: "PUBLIC TEARDOWN / WEBFLOW",
+    company: "Webflow",
+    title: "Webflow connects visual building to a growth workflow.",
+    description: "A review of Webflow's homepage. Each recommendation points to something visible on the page.",
+    sourceUrl: "https://webflow.com/",
+    reviewed: "2026-09-07",
+    pageSays: {
+      heading: "Build for what's next.",
+      copy: "Webflow promises every team the tools to build, manage, and grow a website. The page then routes marketing, design, engineering, and agency visitors through specific work.",
+    },
+    evidence: [
+      "The hero uses Get started and Talk to Sales, followed by visible paths for marketing, design, engineering, and agencies.",
+      "The page connects visual design, publishing, conversion optimization, collaboration, AI search, and site operations in one platform story.",
+      "Customer stories place concrete outcomes next to named companies, including pipeline, publishing speed, and page migration examples.",
+    ],
+    read: {
+      heading: "The audience routing prevents a platform story from becoming one vague promise.",
+      copy: "The page is strongest when it pairs a team with a job. As the platform expands into AEO, AI, analytics, and apps, the number of possible starting points also grows.",
+    },
+    recommendation: {
+      heading: "Make the team-to-outcome path the main navigation logic.",
+      copy: "Keep the broad platform promise, but make each audience path state its first measurable job. This helps a visitor understand why the next section exists before scanning the product map.",
+    },
+    actions: [
+      { label: "01 / POSITIONING", title: "Lead with the website outcome", copy: "Build, manage, and grow gives the product a practical promise beyond a visual editor category." },
+      { label: "02 / CLARITY", title: "Pair every capability with a team", copy: "Team labels turn a large platform into a set of recognizable decisions for the visitor." },
+      { label: "03 / TRUST", title: "Keep story metrics attached to context", copy: "The customer stories are more persuasive when the outcome, timeframe, and starting problem appear together." },
+    ],
+  },
+  hubspot: {
+    slug: "hubspot",
+    label: "PUBLIC TEARDOWN / HUBSPOT",
+    company: "HubSpot",
+    title: "HubSpot turns a large suite into customer-growth paths.",
+    description: "A review of HubSpot's homepage. Each recommendation points to something visible on the page.",
+    sourceUrl: "https://www.hubspot.com/",
+    reviewed: "2026-09-07",
+    pageSays: {
+      heading: "Unite marketing, sales, and customer service on one agentic customer platform.",
+      copy: "HubSpot frames the product as a connected customer platform, then lets visitors enter through hubs, use cases, team size, AI agents, and customer proof.",
+    },
+    evidence: [
+      "The homepage offers free and demo actions while the navigation separates Marketing, Sales, Service, Content, Data, Revenue, CRM, and Agent products.",
+      "The page also provides use-case paths such as generating leads, building pipeline, scaling support, and growing sales for small businesses.",
+      "Public proof includes a stated customer count, logos, case studies, and outcome figures, each presented as part of the company's own customer evidence.",
+    ],
+    read: {
+      heading: "Use cases keep the platform from reading like a product catalog.",
+      copy: "A visitor can choose a team or business problem instead of reading every Hub. The remaining challenge is deciding which entry path should own the first conversion for a broad audience.",
+    },
+    recommendation: {
+      heading: "Make one customer problem the default starting point.",
+      copy: "Keep the suite and its navigation, but choose one primary growth decision after the hero. The other hubs can remain visible as supporting paths rather than competing first actions.",
+    },
+    actions: [
+      { label: "01 / POSITIONING", title: "Use the connected-platform idea", copy: "It explains why several hubs belong together and gives the suite a single business outcome." },
+      { label: "02 / CLARITY", title: "Let problems outrank products", copy: "Generate leads, close deals, and retain customers are easier first choices than an ungrouped list of software hubs." },
+      { label: "03 / TRUST", title: "Separate company proof from page promise", copy: "Customer counts and case studies support scale; specific use-case proof should sit beside the team decision it validates." },
+    ],
+  },
 };

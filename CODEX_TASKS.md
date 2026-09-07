@@ -1,5 +1,16 @@
 # SiteLens 任务状态
 
+## 2026-09-07 激进 GSC 增量第一批
+
+- [x] 新增 6 个高意图证据型 SEO 页面
+- [x] 新增 Slack、Webflow、HubSpot 3 个公开 Teardown
+- [x] 扩展 Teardown 案例库为 8 个页面并补齐内部链接
+- [x] 接入 Sitemap、`llms.txt` 和 `llms-full.txt`
+- [x] 通过类型检查、生产构建、OpenNext 构建和 diff 检查
+- [x] 发布到 Cloudflare，Worker 版本 `ddfa245e-fe77-476e-8aeb-2a5e7ef9c2de`
+- [x] 线上验证新页面返回 200、Sitemap 含新增 URL
+- [ ] 等待 GSC 抓取和数据回流，比较页面级展示、CTR、排名和分析完成
+
 ## 2026-09-07 GA4 / GSC 账号侧 P0
 
 - [x] 在 SiteLens GA4 属性确认近期自定义事件已收到

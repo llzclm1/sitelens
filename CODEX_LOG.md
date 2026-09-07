@@ -2,6 +2,14 @@
 
 ## 2026-09-07
 
+- 按激进增量方案新增 6 个高意图页面，覆盖 SaaS 不转化、价值主张、SaaS 首页审计、AI 审计与 SEO checker 对比、落地页转化复核、网站 messaging 审计。
+- 新增 Slack、Webflow、HubSpot 三个公开 Teardown，使用官方公开首页作为来源，标注复核日期和定性证据边界；案例库由 5 个扩展为 8 个案例。
+- 更新 Teardown 卡片、Next.js Sitemap、`llms.txt` 和 `llms-full.txt`，建立新增页面之间的内部链接。
+- `npm run typecheck`、`npm run build`、`npm run open:build`、`git diff --check` 通过；Cloudflare Worker `ddfa245e-fe77-476e-8aeb-2a5e7ef9c2de` 发布成功，新增页面线上返回 200。
+- 本轮不宣称页面已被 GSC 收录、已获得排名或带来转化；等待新数据周期后复核页面与查询表现。
+
+## 2026-09-07
+
 - 在 SiteLens GA4 属性中确认近期事件已进入数据流，并将 `analyze_completed` 标记为关键事件；没有把 `analyze_failed`、`cta_clicked` 或 `report_viewed` 误计为核心转化。
 - 复核 GSC 索引状态：11 个页面已收录；2 个未收录项是带斜杠 URL 的预期重定向，1 个是 `pricing.md` 机器可读文件已抓取但未收录，未发现当前公开 HTML 页面故障。
 - GSC 近 28 天仍为 1 点击、61 展示、CTR 1.6%、平均排名 76.7；最近上线页面尚未进入这轮数据，继续等待下一周期验证。
