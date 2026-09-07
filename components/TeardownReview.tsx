@@ -63,7 +63,7 @@ export function TeardownReview({ review }: { review: TeardownReviewData }) {
           </article>
           <article className="teardown-finding">
             <p className="evidence-label">PAGE EVIDENCE</p>
-            <h2>The page gives the promise visible support.</h2>
+            <h2>The page backs up that promise.</h2>
             <ul>{review.evidence.map((item) => <li key={item}>{item}</li>)}</ul>
           </article>
           <article className="teardown-finding">
@@ -89,9 +89,9 @@ export function TeardownReview({ review }: { review: TeardownReviewData }) {
         ))}
       </section>
 
-      <p className="teardown-disclaimer shell">SiteLens does not have access to {review.company}&apos;s private analytics, experiments, or conversion data. This is an interpretation of a public page, not a measured performance claim.</p>
+      <p className="teardown-disclaimer shell">We only used the public page. SiteLens has no access to {review.company}&apos;s private analytics, experiments, or conversion data. This is an interpretation, not a measured performance claim.</p>
 
-      <footer className="footer shell"><Link className="wordmark" href="/"><span className="wordmark-mark">S</span><span>SiteLens</span></Link><span>Public reviews with the evidence included.</span><Link href="/">Analyze your own site ↗</Link></footer>
+      <footer className="footer shell"><Link className="wordmark" href="/"><span className="wordmark-mark">S</span><span>SiteLens</span></Link><span>Public reviews with the evidence shown.</span><Link href="/">Analyze your own site ↗</Link></footer>
     </main>
   );
 }

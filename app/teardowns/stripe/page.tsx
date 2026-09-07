@@ -11,7 +11,7 @@ const structuredData = {
       "@id": `${siteUrl}/teardowns/stripe#article`,
       url: `${siteUrl}/teardowns/stripe`,
       headline: "Stripe's homepage teardown",
-      description: "A qualitative review of Stripe's homepage, with the page evidence behind each recommendation.",
+      description: "A review of Stripe's homepage. Each recommendation points to something visible on the page.",
       datePublished: "2026-08-10",
       dateModified: "2026-08-10",
       author: { "@id": `${siteUrl}/#organization` },
@@ -34,7 +34,7 @@ const structuredData = {
 
 export const metadata: Metadata = {
   title: "Stripe Homepage Teardown",
-  description: "A qualitative review of Stripe's homepage, with the page evidence behind each recommendation.",
+  description: "A review of Stripe's homepage. Each recommendation points to something visible on the page.",
   alternates: { canonical: "/teardowns/stripe" },
 };
 
@@ -58,7 +58,7 @@ export default function StripeTeardownPage() {
         <aside className="teardown-sidebar">
           <p className="eyebrow">CASE 01 / STRIPE</p>
           <h2 id="stripe-read-title">What a first-time visitor sees</h2>
-          <p>The page was read from the public homepage, without access to Stripe&apos;s analytics, experiments, or private conversion data.</p>
+          <p>We read the public homepage without using Stripe&apos;s analytics, experiments, or private conversion data.</p>
         </aside>
         <div className="teardown-findings">
           <article className="teardown-finding">
@@ -94,9 +94,9 @@ export default function StripeTeardownPage() {
         <article><span>03 / TRUST</span><h3>Put proof near the choice</h3><p>Place the existing numbers and customer stories near the point where visitors choose what to explore.</p></article>
       </section>
 
-      <p className="teardown-disclaimer shell">SiteLens does not have access to Stripe&apos;s analytics, experiments, or conversion data. This is an interpretation of a public page, not a measured performance claim.</p>
+      <p className="teardown-disclaimer shell">We only used the public page. SiteLens has no access to Stripe&apos;s analytics, experiments, or conversion data. This is an interpretation, not a measured performance claim.</p>
 
-      <footer className="footer shell"><Link className="wordmark" href="/"><span className="wordmark-mark">S</span><span>SiteLens</span></Link><span>Public reviews with the evidence included.</span><Link href="/">Analyze your own site ↗</Link></footer>
+      <footer className="footer shell"><Link className="wordmark" href="/"><span className="wordmark-mark">S</span><span>SiteLens</span></Link><span>Public reviews with the evidence shown.</span><Link href="/">Analyze your own site ↗</Link></footer>
     </main>
   );
 }

@@ -96,7 +96,7 @@ function buildIssues(snapshot: WebsiteSnapshot, product: string, audience: strin
       evidence: "No signup, trial, demo, contact, or purchase CTA text was found in buttons or links.",
       whyItMatters: "Even a convinced visitor has no obvious next step, so intent cannot turn into a signup.",
       firstFix: "Add one primary “Start free” or “Create your account” action in the header and directly after the hero.",
-      rewrite: { before: "No primary signup action found", after: "Start free — see your first result today" },
+      rewrite: { before: "No primary signup action found", after: "Start free. See your first result today." },
       confidence: "high",
     });
   } else if (snapshot.ctaExamples.every((cta) => /learn more|discover|see more|click here/i.test(cta))) {

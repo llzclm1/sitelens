@@ -1,5 +1,11 @@
 # Codex 交接说明
 
+## 2026-09-07 文案 humanizer 收口
+
+- 按 humanizer 规则清理公开 Teardown 文案和报告生成的 CTA 改写：减少模板化说明、抽象宣传词和被动表达，改为更直接的页面语言。
+- 保留官方页面引用、来源、复核日期、证据边界、产品价格和现有事件参数；未改页面结构、链接或分析逻辑。
+- 已清理用户可见代码路径中的 em dash / en dash；`npm run typecheck`、`npm run build` 和 `git diff --check` 通过。
+
 ## 2026-09-07 SEO / GEO 优化
 
 - 扩展根布局 JSON-LD：Organization 增加 logo/knowsAbout，新增首页 WebPage 和 SoftwareApplication/Offer 实体；补齐 Open Graph locale 与 Twitter 摘要卡。

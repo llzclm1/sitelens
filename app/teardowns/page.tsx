@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Public Teardowns",
-  description: "Public website reviews from SiteLens, with the evidence behind each recommendation.",
+  description: "Public SiteLens website reviews that show the page evidence behind each recommendation.",
   alternates: { canonical: "/teardowns" },
 };
 
@@ -35,7 +35,7 @@ const teardownCards = [
   {
     label: "04 / PUBLIC CASE",
     title: "Vercel homepage",
-    description: "Agentic infrastructure made credible by a large product map and recognizable use-case proof.",
+    description: "Infrastructure for apps and agents, organized around a broad product map and concrete use cases.",
     meta: "Source: vercel.com · reviewed 2026-09-07",
     href: "/teardowns/vercel",
     linkLabel: "Read the full teardown",
@@ -43,7 +43,7 @@ const teardownCards = [
   {
     label: "05 / PUBLIC CASE",
     title: "Figma homepage",
-    description: "An intelligent canvas that expands from design into code, AI, and the wider product process.",
+    description: "A shared canvas that reaches from design into code, AI, and the wider product process.",
     meta: "Source: figma.com · reviewed 2026-09-07",
     href: "/teardowns/figma",
     linkLabel: "Read the full teardown",
@@ -61,14 +61,14 @@ export default function TeardownsPage() {
       <header className="teardown-header shell">
         <p className="eyebrow">PUBLIC TEARDOWN LIBRARY</p>
         <h1>Public website <em>reviews.</em></h1>
-        <p className="teardown-intro">These are qualitative page reviews, not claims about measured conversion lift. Each review connects what we saw on the page to a recommended next move.</p>
+        <p className="teardown-intro">These are qualitative page reviews. They do not claim measured conversion lift. Each one connects something visible on the page to a next move.</p>
       </header>
 
       <section className="teardown-grid shell" aria-labelledby="teardown-library-title">
         <aside className="teardown-sidebar">
           <p className="eyebrow">05 / CASE LIBRARY</p>
           <h2 id="teardown-library-title">Five pages.<br />Five decisions.</h2>
-          <p>Each review connects what a visitor sees to the next decision the page needs to make. Every case is based on a public homepage and includes its source and review date.</p>
+          <p>Each review starts with what a visitor can see and ends with the next decision the page should support. Every case uses a public homepage and includes its source and review date.</p>
         </aside>
         <div className="teardown-findings">
           {teardownCards.map((card) => (
@@ -83,9 +83,9 @@ export default function TeardownsPage() {
         </div>
       </section>
 
-      <p className="teardown-disclaimer shell">These are qualitative reviews. SiteLens does not have access to private analytics or experiment results.</p>
+      <p className="teardown-disclaimer shell">These are qualitative reviews. We did not use private analytics or experiment results.</p>
 
-      <footer className="footer shell"><Link className="wordmark" href="/"><span className="wordmark-mark">S</span><span>SiteLens</span></Link><span>Public reviews with the evidence included.</span></footer>
+      <footer className="footer shell"><Link className="wordmark" href="/"><span className="wordmark-mark">S</span><span>SiteLens</span></Link><span>Public reviews with the evidence shown.</span></footer>
     </main>
   );
 }

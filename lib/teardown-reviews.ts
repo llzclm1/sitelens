@@ -19,12 +19,12 @@ export const teardownReviews: Record<string, TeardownReview> = {
     label: "PUBLIC TEARDOWN / LINEAR",
     company: "Linear",
     title: "Linear makes product work feel like a system.",
-    description: "A qualitative review of Linear's homepage, with the page evidence behind each recommendation.",
+    description: "A review of Linear's homepage. Each recommendation points to something visible on the page.",
     sourceUrl: "https://linear.app/",
     reviewed: "2026-09-07",
     pageSays: {
       heading: "The product development system for teams and agents.",
-      copy: "Linear opens with a category promise for planning and building products, then frames the product around the AI era, speed, intake, planning, and shipping.",
+      copy: "Linear opens with a category promise for planning and building products. It then explains the product through AI, intake, planning, and shipping.",
     },
     evidence: [
       "The hero names product development, teams, and agents in one sentence.",
@@ -37,10 +37,10 @@ export const teardownReviews: Record<string, TeardownReview> = {
     },
     recommendation: {
       heading: "Give each visitor a first workflow after the hero.",
-      copy: "Keep the system-level promise, then offer a short path for a team that wants to plan, triage feedback, or ship with agents. The choice would turn breadth into a useful first step.",
+      copy: "Keep the system promise, then offer a short path for a team that wants to plan, triage feedback, or ship with agents. That gives visitors a useful first step.",
     },
     actions: [
-      { label: "01 / POSITIONING", title: "Keep the system promise", copy: "The category line gives the product a strong point of view before the feature map begins." },
+      { label: "01 / POSITIONING", title: "Keep the system promise", copy: "The category line tells visitors what kind of system Linear wants to be before the feature map begins." },
       { label: "02 / CLARITY", title: "Name the first workflow", copy: "Help a new team choose the most relevant starting point without exploring every product area." },
       { label: "03 / TRUST", title: "Use proof beside the choice", copy: "Place team scale and customer evidence where a visitor decides which workflow to explore." },
     ],
@@ -49,13 +49,13 @@ export const teardownReviews: Record<string, TeardownReview> = {
     slug: "notion",
     label: "PUBLIC TEARDOWN / NOTION",
     company: "Notion",
-    title: "Notion turns a broad workspace into an AI story.",
-    description: "A qualitative review of Notion's homepage, with the page evidence behind each recommendation.",
+    title: "Notion sells one workspace through several jobs.",
+    description: "A review of Notion's homepage. Each recommendation points to something visible on the page.",
     sourceUrl: "https://www.notion.com/",
     reviewed: "2026-09-07",
     pageSays: {
       heading: "Where teams and agents think together.",
-      copy: "Notion leads with a workspace promise, then explains the product through capturing context, finding answers, and automating busywork with AI.",
+      copy: "Notion leads with a workspace promise. It then explains the product through capturing context, finding answers, and automating busywork with AI.",
     },
     evidence: [
       "The page presents Notion AI, agents, meeting notes, enterprise search, knowledge base, docs, and projects as connected product areas.",
@@ -64,14 +64,14 @@ export const teardownReviews: Record<string, TeardownReview> = {
     ],
     read: {
       heading: "The homepage sells one system through several jobs.",
-      copy: "The breadth supports an expanding platform, but a first-time visitor may not know whether Notion is primarily a knowledge base, a project tool, or an AI work layer for their team.",
+      copy: "The range of products is easy to see, but a first-time visitor may not know whether Notion is primarily a knowledge base, a project tool, or an AI work layer for their team.",
     },
     recommendation: {
       heading: "Let visitors choose a job before they choose a plan.",
-      copy: "After the broad promise, route visitors through a small set of jobs such as centralize knowledge, manage projects, or automate team work. That would make the platform easier to place.",
+      copy: "After the broad promise, route visitors through a small set of jobs such as centralizing knowledge, managing projects, or automating team work. That gives the platform a clearer entry point.",
     },
     actions: [
-      { label: "01 / POSITIONING", title: "Keep the one-system idea", copy: "The system-of-record promise gives the many product areas a coherent reason to exist." },
+      { label: "01 / POSITIONING", title: "Keep the one-system idea", copy: "The shared-workspace promise gives the many product areas a reason to sit together." },
       { label: "02 / CLARITY", title: "Organize by job to be done", copy: "A visitor should see their immediate problem before scanning the full product catalog." },
       { label: "03 / TRUST", title: "Attach proof to each job", copy: "Use customer stories and the existing adoption signal near the workflow each visitor is considering." },
     ],
@@ -80,13 +80,13 @@ export const teardownReviews: Record<string, TeardownReview> = {
     slug: "vercel",
     label: "PUBLIC TEARDOWN / VERCEL",
     company: "Vercel",
-    title: "Vercel positions infrastructure around the agent era.",
-    description: "A qualitative review of Vercel's homepage, with the page evidence behind each recommendation.",
+    title: "Vercel leads with infrastructure for apps and agents.",
+    description: "A review of Vercel's homepage. Each recommendation points to something visible on the page.",
     sourceUrl: "https://vercel.com/",
     reviewed: "2026-09-07",
     pageSays: {
       heading: "Agentic infrastructure to ship apps and agents.",
-      copy: "Vercel's current homepage puts the Agent Stack first, then connects it to a core platform for delivery, compute, security, workflows, and observability.",
+      copy: "Vercel's current homepage puts the Agent Stack first. It then connects that offer to a core platform for delivery, compute, security, workflows, and observability.",
     },
     evidence: [
       "The page separates Agent Stack, Core Platform, and Tools before presenting the main promise.",
@@ -99,10 +99,10 @@ export const teardownReviews: Record<string, TeardownReview> = {
     },
     recommendation: {
       heading: "Turn the product map into a decision map.",
-      copy: "Keep the agentic infrastructure claim, then ask whether the visitor is building an AI app, deploying a web product, or operating a multi-tenant platform. Each answer can lead to one focused proof point.",
+      copy: "Keep the infrastructure claim, then ask whether the visitor is building an AI app, deploying a web product, or operating a multi-tenant platform. Each answer can lead to one focused proof point.",
     },
     actions: [
-      { label: "01 / POSITIONING", title: "Own the infrastructure category", copy: "The agentic infrastructure line makes a clear strategic claim beyond generic hosting." },
+      { label: "01 / POSITIONING", title: "Own the infrastructure category", copy: "The infrastructure line gives Vercel a clear position beyond generic hosting." },
       { label: "02 / CLARITY", title: "Route by build job", copy: "Translate the product taxonomy into the three decisions most visitors are trying to make." },
       { label: "03 / TRUST", title: "Show evidence at the decision", copy: "Place scale examples beside the use case they prove instead of leaving proof at the end of the page." },
     ],
@@ -111,13 +111,13 @@ export const teardownReviews: Record<string, TeardownReview> = {
     slug: "figma",
     label: "PUBLIC TEARDOWN / FIGMA",
     company: "Figma",
-    title: "Figma makes the canvas bigger than design.",
-    description: "A qualitative review of Figma's homepage, with the page evidence behind each recommendation.",
+    title: "Figma uses one canvas for more than design.",
+    description: "A review of Figma's homepage. Each recommendation points to something visible on the page.",
     sourceUrl: "https://www.figma.com/",
     reviewed: "2026-09-07",
     pageSays: {
       heading: "The intelligent canvas for infinite creativity.",
-      copy: "Figma frames the homepage around a shared product-development workspace, then connects design, code, AI, collaboration, and a growing product family.",
+      copy: "Figma frames the homepage around a shared product-development workspace. It then connects design, code, AI, collaboration, and its product family.",
     },
     evidence: [
       "The page gives visitors paths for design and exploration, building and shipping products, and a long product navigation.",

@@ -2,6 +2,11 @@
 
 ## 2026-09-07
 
+- 按 humanizer 规则收口公开 Teardown 和报告 CTA 文案：删除重复的模板句、抽象宣传词和用户可见的破折号表达，改为更直接的英语。
+- 未改页面结构、链接、结构化数据、分析事件参数或产品事实；`npm run typecheck`、`npm run build` 和 `git diff --check` 通过。
+
+## 2026-09-07
+
 - 完成 SEO/GEO 结构化优化：根布局增加首页 WebPage、SoftwareApplication/Offer、Organization logo/knowsAbout，并补齐 Open Graph locale 与 Twitter 摘要卡。
 - 更新 robots 规则，明确公开页面对主要搜索与 AI 抓取器可访问，`/api/` 继续禁止抓取。
 - 刷新 Sitemap 的公开页面 `lastModified`；为 Website Review 增加 BreadcrumbList，为 Stripe Teardown 增加 Article 与 BreadcrumbList。

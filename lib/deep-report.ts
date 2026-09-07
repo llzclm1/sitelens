@@ -6,7 +6,7 @@ export function buildDeepReport(report: FullReport, paymentIntentId: string): De
   const headlineBefore = report.snapshot.h1[0] || report.snapshot.title || "No clear homepage promise found";
   const headlineAfter = primary?.rewrite?.after || `${report.product} helps ${report.audience} reach a clear result faster.`;
   const ctaBefore = report.snapshot.ctaExamples[0] || "No primary signup action found";
-  const ctaAfter = "Start free — see your first result today";
+  const ctaAfter = "Start free. See your first result today.";
 
   return {
     id: crypto.randomUUID(),
