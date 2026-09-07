@@ -1,5 +1,12 @@
 # Codex 交接说明
 
+## 2026-09-07 GSC 增量 P0：优化已有曝光入口
+
+- 将 `/ai-website-audit` 的 Title 调整为 `AI Website Audit: Find Your First Conversion Fix`，首屏说明改为明确的免费、页面证据和下一步动作。
+- 增加“与 SEO checker 的区别”FAQ，并把原 Teardown 入口收窄为 Stripe 完整公开案例，直接给搜索访客一个可验证的点击理由。
+- 已通过 `npm run typecheck`、`npm run build`、`npm run open:build` 和 `git diff --check`；Cloudflare Worker 版本为 `5d91f0f5-efdf-46b9-a04e-966fc84d4046`，线上 Title、FAQ、案例链接和 Sitemap 均已验证。
+- 仍需等待下一个 GSC 数据周期，对比该页面的展示、CTR、查询和分析开始率；暂不把上线等同于排名或收录改善。
+
 ## 2026-09-07 GSC 增量内容资产
 
 - 新增 `/insights/homepage-patterns`，基于 Stripe、Linear、Notion、Vercel、Figma 五个已公开、已标注日期的 Teardown，生成原创跨案例分析。

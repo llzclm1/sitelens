@@ -2,6 +2,13 @@
 
 ## 2026-09-07
 
+- 针对 GSC 已有展示但无点击的 `/ai-website-audit`，收紧 Title 为 `AI Website Audit: Find Your First Conversion Fix`，并补充免费审计、页面证据和下一步动作说明。
+- 增加“与 SEO checker 的区别”FAQ，相关案例入口改为 Stripe 完整公开 Teardown，避免只给泛化的案例库入口。
+- 通过类型检查、生产构建、OpenNext 构建和 diff 检查；Cloudflare Worker `5d91f0f5-efdf-46b9-a04e-966fc84d4046` 发布成功，线上页面、FAQ、案例链接和 Sitemap 验证通过。
+- 保留 GSC 等待项：上线本身不代表已抓取、收录或排名改善。
+
+## 2026-09-07
+
 - 新增 `/insights/homepage-patterns` 原创跨案例分析页，基于 5 个公开 Teardown 总结首页首个决策、产品广度、证据放置、产品隐喻和下一步动作。
 - 页面加入 Article/Breadcrumb JSON-LD、官方来源、复核日期、内链和证据边界，并接入 Sitemap 与 `llms` 文件。
 - 未批量生成关键词页或添加未经验证的转化效果声明；类型检查、生产构建和 diff 检查通过。

@@ -1,5 +1,13 @@
 # SiteLens 任务状态
 
+## 2026-09-07 GSC 增量 P0：优化已有曝光入口
+
+- [x] 优化 `/ai-website-audit` Title、Description 和首屏说明
+- [x] 增加 SEO checker 对比 FAQ 和 Stripe 完整案例入口
+- [x] 通过类型检查、生产构建、OpenNext 构建和 diff 检查
+- [x] 发布到 Cloudflare 并在线验证 Title、FAQ、案例链接和 Sitemap
+- [ ] 等待 GSC 数据回流，比较展示、CTR、查询和分析开始率
+
 ## 2026-09-07 GSC 增量内容资产
 
 - [x] 新增原创跨案例分析页 `/insights/homepage-patterns`
