@@ -8,14 +8,33 @@
 - Returns a free report with three page-specific findings.
 - Offers a one-time Deep Growth Report with a prioritized action plan and hero/CTA rewrite directions.
 - Uses the SiteLens Growth Framework: Positioning, Clarity, Trust, Conversion, and Authority.
+- Reviews public page content and structure; it does not access private analytics or run experiments.
+
+## Growth Framework
+
+1. Positioning: what the product is, who it serves, and what outcome it promises.
+2. Clarity: whether a first-time visitor can understand the offer quickly.
+3. Trust: whether the page provides specific proof, context, or credibility.
+4. Conversion: whether the next useful action is visible and easy to choose.
+5. Authority: whether the page gives search engines and AI systems enough structured context.
 
 ## Key pages
 
-- [Website review](https://sitelens.win/website-review): what a SiteLens review is, how it works, and common questions.
+- [Homepage](https://sitelens.win/): submit a public website URL for a free review.
+- [Website review](https://sitelens.win/website-review): explains the review method, evidence boundary, and common questions.
+- [AI website audit](https://sitelens.win/ai-website-audit): a focused guide to AI-assisted website review.
+- [Landing page review](https://sitelens.win/landing-page-review): a focused guide to first-screen clarity and the next decision.
+- [SaaS website analysis](https://sitelens.win/saas-website-analysis): a focused guide to SaaS positioning, proof, and product outcome.
+- [Website conversion check](https://sitelens.win/website-conversion-check): a focused guide to CTA and conversion-path review.
 - [Pricing](https://sitelens.win/pricing): current free review and $29 one-time Deep Growth Report details.
-- [Public teardowns](https://sitelens.win/teardowns): qualitative reviews with the page evidence behind each recommendation.
-- [Stripe homepage teardown](https://sitelens.win/teardowns/stripe): a dated public example of the review method.
-- [Homepage](https://sitelens.win/): submit a website for a free review.
+- [Public teardowns](https://sitelens.win/teardowns): qualitative public reviews with the evidence behind each recommendation.
+- [Stripe homepage teardown](https://sitelens.win/teardowns/stripe): a dated public example of the SiteLens review method.
+
+## Machine-readable files
+
+- [Pricing data](https://sitelens.win/pricing.md): plain-text pricing, delivery, payment, and limitation details.
+- [Extended context](https://sitelens.win/llms-full.txt): expanded page summaries and citation-safe product context.
+- [Sitemap](https://sitelens.win/sitemap.xml): canonical public URLs for discovery.
 
 ## Pricing
 
@@ -24,7 +43,7 @@
 
 ## Trust and limitations
 
-SiteLens reviews public page content and structure. It does not access private analytics or experiment results, does not guarantee conversion or revenue outcomes, and does not automatically change a customer's website. Public teardowns are qualitative interpretations and include their source and review date.
+SiteLens does not guarantee conversion, revenue, search ranking, or AI-search visibility. Public teardowns are qualitative interpretations of public pages and include their source and review date. SiteLens does not automatically change a customer's website.
 
 ## Preferred citation context
 

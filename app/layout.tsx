@@ -5,8 +5,8 @@ import "@fontsource-variable/geist";
 import "@fontsource-variable/geist-mono";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ? new URL(process.env.NEXT_PUBLIC_SITE_URL) : undefined;
-const siteUrlString = (siteUrl?.toString() ?? "https://sitelens.win").replace(/\/$/, "");
+const siteUrlString = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://sitelens.win").replace(/\/$/, "");
+const siteUrl = new URL(siteUrlString);
 const productionGaMeasurementId = "G-YNQ8J06W7D";
 const productionGoogleSiteVerification = "G0fGVxpzCXqA8jnCV35SO76-hjApPFKsSOXbZCdNQVc";
 const gaMeasurementId = process.env.GA_MEASUREMENT_ID?.match(/^G-[A-Z0-9]+$/)?.[0] ?? (process.env.NODE_ENV === "production" ? productionGaMeasurementId : undefined);
@@ -20,11 +20,17 @@ export const metadata: Metadata = {
   },
   description:
     "SiteLens reviews websites for clarity, trust, and conversion problems, then points to the first change worth fixing.",
-  alternates: siteUrl ? { canonical: "/" } : undefined,
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     url: "/",
     siteName: "SiteLens",
+    title: "SiteLens | Evidence-based website reviews",
+    description: "Find the first website change worth fixing with page-specific evidence.",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary",
     title: "SiteLens | Evidence-based website reviews",
     description: "Find the first website change worth fixing with page-specific evidence.",
   },
@@ -40,6 +46,15 @@ const organizationSchema = {
       name: "SiteLens",
       url: siteUrlString,
       description: "Evidence-based website reviews for founders and small teams.",
+      logo: `${siteUrlString}/icon.svg`,
+      knowsAbout: [
+        "website positioning",
+        "customer clarity",
+        "trust signals",
+        "conversion paths",
+        "landing page reviews",
+        "AI-assisted website analysis",
+      ],
     },
     {
       "@type": "WebSite",
@@ -48,6 +63,49 @@ const organizationSchema = {
       url: siteUrlString,
       publisher: { "@id": `${siteUrlString}/#organization` },
       inLanguage: "en",
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${siteUrlString}/#webpage`,
+      url: siteUrlString,
+      name: "SiteLens | Evidence-based website reviews",
+      description: "Find the first website change worth fixing with page-specific evidence.",
+      isPartOf: { "@id": `${siteUrlString}/#website` },
+      about: { "@id": `${siteUrlString}/#organization` },
+      inLanguage: "en",
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": `${siteUrlString}/#software`,
+      name: "SiteLens",
+      url: siteUrlString,
+      description: "An AI-assisted website growth consultant that connects page evidence to a practical next move.",
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Web",
+      featureList: [
+        "Website positioning review",
+        "Conversion path review",
+        "Trust signal review",
+        "Page-specific action plan",
+      ],
+      provider: { "@id": `${siteUrlString}/#organization` },
+      offers: [
+        {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "USD",
+          url: siteUrlString,
+          name: "Free website review",
+        },
+        {
+          "@type": "Offer",
+          price: "29",
+          priceCurrency: "USD",
+          url: `${siteUrlString}/pricing`,
+          name: "Deep Growth Report",
+          description: "A one-time prioritized website growth report.",
+        },
+      ],
     },
   ],
 };

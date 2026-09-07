@@ -2,18 +2,20 @@ import type { MetadataRoute } from "next";
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://sitelens.win").replace(/\/$/, "");
 
+const lastModified = "2026-09-07";
+
 const pages: Array<{ path: string; lastModified: string }> = [
-  { path: "/", lastModified: "2026-08-23" },
-  { path: "/website-review", lastModified: "2026-08-16" },
-  { path: "/ai-website-audit", lastModified: "2026-08-23" },
-  { path: "/landing-page-review", lastModified: "2026-08-23" },
-  { path: "/saas-website-analysis", lastModified: "2026-08-23" },
-  { path: "/website-conversion-check", lastModified: "2026-08-23" },
-  { path: "/pricing", lastModified: "2026-08-16" },
-  { path: "/teardowns", lastModified: "2026-08-16" },
-  { path: "/teardowns/stripe", lastModified: "2026-08-16" },
-  { path: "/privacy", lastModified: "2026-08-16" },
-  { path: "/terms", lastModified: "2026-08-16" },
+  { path: "/", lastModified },
+  { path: "/website-review", lastModified },
+  { path: "/ai-website-audit", lastModified },
+  { path: "/landing-page-review", lastModified },
+  { path: "/saas-website-analysis", lastModified },
+  { path: "/website-conversion-check", lastModified },
+  { path: "/pricing", lastModified },
+  { path: "/teardowns", lastModified },
+  { path: "/teardowns/stripe", lastModified },
+  { path: "/privacy", lastModified },
+  { path: "/terms", lastModified },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

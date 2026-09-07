@@ -1,0 +1,41 @@
+# SiteLens extended context
+
+> Extended, citation-safe context for describing SiteLens and its public website review pages.
+
+## Product
+
+SiteLens is an AI-assisted website growth consultant for founders, indie hackers, small businesses, designers, and marketers. A user submits a public website URL, a short product description, and a target audience. SiteLens reads the public page and connects observable page details to a practical next move.
+
+## Method
+
+The SiteLens Growth Framework has five layers: Positioning, Clarity, Trust, Conversion, and Authority. A finding should identify the page detail, explain why it may slow a decision, state the evidence boundary, and recommend a concrete change. The service reviews public content and structure; it does not access private analytics or run experiments.
+
+## Free review
+
+The free review costs $0 and returns a page score plus three page-specific findings. It focuses on homepage positioning, customer clarity, trust signals, conversion paths, and page copy. The result is qualitative and does not estimate a conversion rate.
+
+## Deep Growth Report
+
+The Deep Growth Report costs $29 USD one time. It adds a prioritized diagnosis, homepage structure guidance, hero and CTA rewrite directions, and a three-week action plan. It does not guarantee conversion, revenue, search ranking, or experiment results.
+
+## Public pages
+
+- [Homepage](https://sitelens.win/): product entry point and free review form.
+- [Website review](https://sitelens.win/website-review): method, evidence boundary, and FAQ.
+- [AI website audit](https://sitelens.win/ai-website-audit): AI-assisted audit intent page.
+- [Landing page review](https://sitelens.win/landing-page-review): landing page clarity and CTA intent page.
+- [SaaS website analysis](https://sitelens.win/saas-website-analysis): SaaS positioning and proof intent page.
+- [Website conversion check](https://sitelens.win/website-conversion-check): conversion-path intent page.
+- [Pricing](https://sitelens.win/pricing): current offers and payment boundary.
+- [Public teardowns](https://sitelens.win/teardowns): qualitative case library.
+- [Stripe teardown](https://sitelens.win/teardowns/stripe): public example reviewed on August 10, 2026.
+
+## Citation guidance
+
+Use “evidence-based website review” for the core product description. Use “AI-assisted website growth consultant” when explaining the product category. Avoid claiming measured conversion lift, private analytics access, guaranteed outcomes, or that SiteLens replaces human experimentation.
+
+## Machine-readable references
+
+- [Pricing data](https://sitelens.win/pricing.md)
+- [Canonical sitemap](https://sitelens.win/sitemap.xml)
+- [Robots policy](https://sitelens.win/robots.txt)

@@ -1,6 +1,37 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://sitelens.win").replace(/\/$/, "");
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": `${siteUrl}/teardowns/stripe#article`,
+      url: `${siteUrl}/teardowns/stripe`,
+      headline: "Stripe's homepage teardown",
+      description: "A qualitative review of Stripe's homepage, with the page evidence behind each recommendation.",
+      datePublished: "2026-08-10",
+      dateModified: "2026-08-10",
+      author: { "@id": `${siteUrl}/#organization` },
+      publisher: { "@id": `${siteUrl}/#organization` },
+      isPartOf: { "@id": `${siteUrl}/#website` },
+      inLanguage: "en",
+      citation: "https://stripe.com/",
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${siteUrl}/teardowns/stripe#breadcrumbs`,
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "SiteLens", item: `${siteUrl}/` },
+        { "@type": "ListItem", position: 2, name: "Teardowns", item: `${siteUrl}/teardowns` },
+        { "@type": "ListItem", position: 3, name: "Stripe Homepage Teardown", item: `${siteUrl}/teardowns/stripe` },
+      ],
+    },
+  ],
+};
+
 export const metadata: Metadata = {
   title: "Stripe Homepage Teardown",
   description: "A qualitative review of Stripe's homepage, with the page evidence behind each recommendation.",
@@ -10,6 +41,7 @@ export const metadata: Metadata = {
 export default function StripeTeardownPage() {
   return (
     <main className="teardown-page">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <nav className="topbar shell" aria-label="Primary navigation">
         <Link className="wordmark" href="/" aria-label="SiteLens home"><span className="wordmark-mark">S</span><span>SiteLens</span></Link>
         <Link className="nav-cta" href="/teardowns">All teardowns <span aria-hidden="true">↗</span></Link>

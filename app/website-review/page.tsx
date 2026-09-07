@@ -43,6 +43,14 @@ const structuredData = {
         acceptedAnswer: { "@type": "Answer", text: item.answer },
       })),
     },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${siteUrl}/website-review#breadcrumbs`,
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "SiteLens", item: `${siteUrl}/` },
+        { "@type": "ListItem", position: 2, name: "Website Review", item: `${siteUrl}/website-review` },
+      ],
+    },
   ],
 };
 

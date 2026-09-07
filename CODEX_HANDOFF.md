@@ -1,5 +1,14 @@
 # Codex 交接说明
 
+## 2026-09-07 SEO / GEO 优化
+
+- 扩展根布局 JSON-LD：Organization 增加 logo/knowsAbout，新增首页 WebPage 和 SoftwareApplication/Offer 实体；补齐 Open Graph locale 与 Twitter 摘要卡。
+- 明确允许 GPTBot、ChatGPT-User、PerplexityBot、ClaudeBot、Google-Extended、Googlebot 和 bingbot 抓取公开内容，同时继续禁止 `/api/`。
+- 将公开页面 Sitemap `lastModified` 刷新为 `2026-09-07`；只保留公开 HTML 路由，机器可读文件通过 `llms.txt` 链接发现。
+- 增加 Website Review 的 BreadcrumbList，以及 Stripe Teardown 的 Article/BreadcrumbList JSON-LD，并保留公开来源、日期和定性证据边界。
+- 扩展 `public/llms.txt` 到完整公开页面索引，新增 `public/llms-full.txt` 作为扩展、引用安全的产品上下文；未新增无法证明的效果、Benchmark 或客户案例。
+- 账号侧后续仍需在 GSC 等待抓取/索引刷新，并用目标查询建立 AI 搜索引用基线；这些不是代码部署完成的同义词。
+
 ## 2026-09-01 本轮处理
 
 - 将 Sitemap 从 `public/sitemap.xml` 改为 Next.js 标准 `app/sitemap.ts` 路由，响应明确为 `200` / `application/xml`；只收录公开 HTML 页面，移除 `llms.txt` 和 `pricing.md` 这类机器可读文件。

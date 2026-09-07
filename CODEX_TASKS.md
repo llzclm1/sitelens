@@ -1,5 +1,16 @@
 # SiteLens 任务状态
 
+## 2026-09-07 SEO / GEO 优化
+
+- [x] 扩展根布局 Organization、WebPage、SoftwareApplication 和 Offer JSON-LD
+- [x] 补齐 Open Graph locale 与 Twitter 摘要卡
+- [x] 显式允许主要搜索与 AI 抓取器访问公开页面，继续禁止 `/api/`
+- [x] 刷新公开 Sitemap 的 `lastModified`
+- [x] 为 Website Review 和 Stripe Teardown 增加 Breadcrumb/Article 结构化数据
+- [x] 扩展 `llms.txt` 并新增 `llms-full.txt`
+- [ ] 等待 GSC 抓取/索引刷新并记录实际状态
+- [ ] 用 10–20 个目标查询记录 Google AI、ChatGPT、Perplexity、Gemini 的引用基线
+
 ## 当前阶段
 
 Phase 0 可运行原型：验证“免费三问题报告 → $29 深度报告请求”是否成立。
