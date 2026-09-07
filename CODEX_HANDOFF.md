@@ -9,7 +9,8 @@
 - 扩展 `public/llms.txt` 到完整公开页面索引，新增 `public/llms-full.txt` 作为扩展、引用安全的产品上下文；未新增无法证明的效果、Benchmark 或客户案例。
 - 账号侧后续仍需在 GSC 等待抓取/索引刷新，并用目标查询建立 AI 搜索引用基线；这些不是代码部署完成的同义词。
 - 已在 Google Search Console 重新提交 `https://sitelens.win/sitemap.xml`；界面确认“已成功提交站点地图”，Google 将异步处理后续抓取。
-- SEO/GEO 代码已推送为 `6f3f17d`；Cloudflare 生产仍是旧版本。`next build` 在多个本地环境均停留在 `Creating an optimized production build ...`，未使用旧 `.open-next` 产物发布。
+- 为稳定 Cloudflare 生产构建，`next.config.ts` 关闭了构建期 `serverMinification`；清理残留构建目录后，OpenNext 完整构建成功。
+- 本轮 SEO/GEO 更新已发布到 Cloudflare Worker，版本 `feebaa01-d061-4fbc-bb3e-0e3110a733bc`；线上已复核 `robots.txt`、`sitemap.xml`、`llms.txt`、首页结构化数据、Website Review 和 Stripe Teardown。
 
 ## 2026-09-01 本轮处理
 

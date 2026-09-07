@@ -6,9 +6,10 @@
 - 更新 robots 规则，明确公开页面对主要搜索与 AI 抓取器可访问，`/api/` 继续禁止抓取。
 - 刷新 Sitemap 的公开页面 `lastModified`；为 Website Review 增加 BreadcrumbList，为 Stripe Teardown 增加 Article 与 BreadcrumbList。
 - 扩展 `public/llms.txt` 的公开页面和机器可读文件索引，新增 `public/llms-full.txt`；所有描述保留定性分析和证据边界，不新增无来源的增长承诺。
-- 待完成的外部验证：GSC 抓取/索引刷新、AI 搜索引用基线和线上发布后的 HTML/robots/sitemap 复核。
+- 待完成的外部验证：GSC 抓取/索引刷新和 AI 搜索引用基线；线上 HTML、robots、sitemap、llms 和结构化数据已完成复核。
 - 已在 Google Search Console 重新提交 `https://sitelens.win/sitemap.xml`；页面确认提交成功，后续抓取和发现网页数量仍由 Google 异步处理。
-- 尝试使用项目目录和独立临时构建目录重新生成 Cloudflare 产物；两处均停留在 `Creating an optimized production build ...`，因此没有拿旧版本 `.open-next` 产物部署。
+- 通过 `next.config.ts` 关闭构建期 `serverMinification`，清理残留 `.next` / `.open-next` 后完成 OpenNext 生产构建；Cloudflare Worker `sitelens` 发布版本为 `feebaa01-d061-4fbc-bb3e-0e3110a733bc`。
+- 线上复核确认 `robots.txt` 明确允许主要搜索/AI 抓取器、`sitemap.xml` 的 `lastmod` 为 `2026-09-07`、`llms.txt` 已包含公开页面索引，首页/Website Review/Stripe Teardown 含预期 JSON-LD。
 
 ## 2026-09-01
 
