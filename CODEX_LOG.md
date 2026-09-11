@@ -6,6 +6,7 @@
 - 用交付物标签明确 `URL + context`、`Page evidence`、`Score + 3 findings` 和 `Deep report`，并保留公开页面边界。
 - 未修改分析 API、报告数据结构、支付流程、GA4 事件或 Teardown 内容。
 - `npm run typecheck`、`npm run build`、`npm run open:build` 和本地 Chromium QA 通过；QA 为 25 页面、0 findings、0 warnings。
+- 已提交到 `main` 并发布 Cloudflare Worker `21847d72-dedd-4531-8414-e9dd09b55c21`；线上首页返回 200，新的能力流水线文案已生效。
 
 ## 2026-09-11
 
