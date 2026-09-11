@@ -6,6 +6,7 @@
 - 历史已支付报告兼容：首次重新读取时补生成新版 Blueprint，不重复计入 `deep_report_unlocked`。
 - 当前仍不能由代码代替的账号侧验收：一笔真实 `$29` Waffo 订单、`payment_confirmed`/`deep_report_unlocked` 的 GA4 与 D1 证据、以及 GSC 新 Sitemap 抓取/索引状态。
 - 代码验收已通过：`npm run typecheck` → `npm run build` → `npm run open:build` → `npm run security:review`（8/8）→ `npm run security:supply-chain` → `npm audit --omit=dev --audit-level=high`（0 vulnerabilities）→ 本地 Chromium QA（25/25，0 findings、0 warnings）。
+- 已发布 Cloudflare Worker `sitelens` 版本 `231fd15a-a354-443a-b841-19938ca38cc1`；线上已复核首页、Sitemap、法律页、llms、报告页和报告 API。
 
 ## 2026-09-11 首页能力具象化
 

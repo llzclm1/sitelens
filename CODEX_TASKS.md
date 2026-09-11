@@ -9,6 +9,7 @@
 - [x] 修正 Mixed Content 检测，忽略普通 HTTP 超链接，只统计可能加载资源的标签
 - [x] 在截图前再次执行公开 URL 安全检查
 - [x] 按页面实际更新时间拆分 Sitemap `lastModified`，更新隐私政策、条款、README 和 llms 文件
+- [x] 发布到 Cloudflare Worker `sitelens` 并线上复核关键公开路由、报告隐私头和 Sitemap
 - [ ] 用真实 $29 订单验证 Waffo → webhook → deep report → GA4/D1 闭环
 - [ ] 等待并复核 GA4 实时事件和 GSC 抓取/索引数据
 

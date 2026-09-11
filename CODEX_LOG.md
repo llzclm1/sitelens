@@ -9,6 +9,7 @@
 - Sitemap 改为按首页/法律页面和旧编辑内容分别记录更新时间；同步更新 README、隐私政策、条款、`llms.txt` 和 `llms-full.txt`。
 - 本轮未执行真实支付，不将支付确认、GA4 实时事件、GSC 抓取或索引结果标记为已完成。
 - 已验证：`npm run typecheck`、`npm run build`、`npm run open:build`、源码安全审计 8/8、供应链审计、生产依赖审计 0 vulnerabilities 和本地 Chromium QA 25/25，0 findings、0 warnings。
+- 已发布 Cloudflare Worker `sitelens` 版本 `231fd15a-a354-443a-b841-19938ca38cc1`；线上首页、Sitemap、隐私/条款、llms、报告页和报告 API 均返回预期状态，报告页含 noindex，报告 API 含 no-store/noindex。
 
 ## 2026-09-11
 
