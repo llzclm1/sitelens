@@ -2,6 +2,15 @@
 
 ## 2026-09-11
 
+- 按推荐方案把安全能力分成内部发布门禁和用户报告两层，没有把 `security-review`、Agent Governance 或 MCP Skill 伪装成可直接部署的运行时插件。
+- 报告页新增 `PUBLIC SECURITY SIGNALS`，只展示公开 URL 能证明的传输、响应头和 HTML 标记信号，并明确不是渗透测试、源码审计或合规认证。
+- 新增 `scripts/security-review.mjs`：检查提交的环境文件、硬编码凭证、动态执行、基线安全头、请求体上限、服务端限流、SSRF 边界和 D1 参数绑定。
+- 新增 `scripts/supply-chain-review.mjs`：检查 lockfile 版本、resolved 包 integrity、无界/latest 依赖和 GitHub Actions 的 `npm ci`；CI 另运行生产依赖 `npm audit`。
+- 本地审计结果：源码 8/8、供应链 PASS；类型检查、Next 构建、OpenNext 构建、25 页面浏览器 QA 均通过。
+- 本轮修改待提交后重新部署 Cloudflare，并在真实报告页面确认新模块；旧报告通过默认值兼容，不回写历史报告。
+
+## 2026-09-11
+
 - 按 Anthropic 官方 `webapp-testing` 和 GitHub `awesome-copilot` 的浏览器 QA 工作流，为 SiteLens 增加 Python Playwright 黑盒 runner；不引入业务组件测试框架，直接通过真实 Chromium 检查用户可见流程。
 - QA 覆盖 25 个公开路由、桌面/移动截图、`main`/`h1`、链接和按钮名称、表单标签、图片 alt、横向溢出、同源 HTTP 错误、请求失败、`console.error` 和 `pageerror`。
 - 首页流程真实填写 URL、产品描述和目标受众，点击分析后验证 `/report/{id}` 及报告标题；Teardown 流程验证 3 张案例卡片和 Homepage Patterns 跳转。

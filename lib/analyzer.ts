@@ -1,6 +1,6 @@
 import crypto from "node:crypto";
 import { refineWithQwen } from "@/lib/qwen";
-import type { FullReport, ReportIssue, WebsiteSnapshot } from "@/lib/types";
+import type { FullReport, ReportIssue, SecurityHeaderPresence, SecuritySignals, WebsiteSnapshot } from "@/lib/types";
 
 function decodeEntities(value: string) {
   return value.replace(/&nbsp;/gi, " ").replace(/&amp;/gi, "&").replace(/&quot;/gi, '"').replace(/&#39;/gi, "'").replace(/&lt;/gi, "<").replace(/&gt;/gi, ">");
@@ -18,7 +18,37 @@ function allMatches(html: string, expression: RegExp) {
   return [...html.matchAll(expression)].map((match) => cleanText(match[1] ?? "").slice(0, 500)).filter(Boolean);
 }
 
-function collectSnapshot(html: string): WebsiteSnapshot {
+function collectSecuritySignals(url: string, html: string, headers?: SecurityHeaderPresence): SecuritySignals {
+  const pageUrl = new URL(url);
+  const pageHost = pageUrl.hostname.toLowerCase();
+  const mixedContentCount = pageUrl.protocol === "https:"
+    ? [...html.matchAll(/(?:src|href)=["']http:\/\/[^"']+/gi)].length
+    : 0;
+  const insecureFormCount = pageUrl.protocol === "https"
+    ? [...html.matchAll(/<form\b[^>]*action=["']http:\/\/[^"']+/gi)].length
+    : 0;
+  const thirdPartyScriptCount = [...html.matchAll(/<script\b[^>]+src=["']([^"']+)["']/gi)].filter((match) => {
+    try {
+      return new URL(match[1], pageUrl).hostname.toLowerCase() !== pageHost;
+    } catch {
+      return false;
+    }
+  }).length;
+
+  return {
+    https: pageUrl.protocol === "https:",
+    mixedContentCount,
+    insecureFormCount,
+    thirdPartyScriptCount,
+    contentSecurityPolicy: headers?.contentSecurityPolicy ?? false,
+    strictTransportSecurity: headers?.strictTransportSecurity ?? false,
+    frameProtection: headers?.frameProtection ?? false,
+    contentTypeProtection: headers?.contentTypeProtection ?? false,
+    referrerPolicy: headers?.referrerPolicy ?? false,
+  };
+}
+
+function collectSnapshot(html: string, url: string, headers?: SecurityHeaderPresence): WebsiteSnapshot {
   const title = firstMatch(html, /<title[^>]*>([\s\S]*?)<\/title>/i);
   const description = firstMatch(html, /<meta[^>]+name=["']description["'][^>]+content=["']([^"']*)["'][^>]*>/i) || firstMatch(html, /<meta[^>]+content=["']([^"']*)["'][^>]+name=["']description["'][^>]*>/i);
   const h1 = allMatches(html, /<h1[^>]*>([\s\S]*?)<\/h1>/gi);
@@ -44,6 +74,7 @@ function collectSnapshot(html: string): WebsiteSnapshot {
     missingAltCount,
     internalLinkCount,
     textLength: bodyText.length,
+    securitySignals: collectSecuritySignals(url, html, headers),
   };
 }
 
@@ -205,8 +236,8 @@ async function refineWithDeepSeek(report: FullReport) {
   }
 }
 
-export async function analyzeWebsite({ url, html, product, audience, screenshot }: { url: string; html: string; product: string; audience: string; screenshot?: string }): Promise<FullReport> {
-  const snapshot = collectSnapshot(html);
+export async function analyzeWebsite({ url, html, product, audience, screenshot, securityHeaders }: { url: string; html: string; product: string; audience: string; screenshot?: string; securityHeaders?: SecurityHeaderPresence }): Promise<FullReport> {
+  const snapshot = collectSnapshot(html, url, securityHeaders);
   const issues = buildIssues(snapshot, product, audience);
   const score = Math.max(18, Math.min(96, 100 - issues.reduce((total, issue) => total + ({ high: 25, medium: 13, low: 6 }[issue.severity]), 0) - (snapshot.textLength < 160 ? 8 : 0)));
   const primary = issues[0];

@@ -1,5 +1,16 @@
 # SiteLens 任务状态
 
+## 2026-09-11 安全审计能力接入
+
+- [x] 在报告页增加公开安全信号模块和非渗透测试边界说明
+- [x] 接入 HTTPS、CSP、HSTS、Frame Protection、nosniff、Referrer-Policy、混合内容、不安全表单和第三方脚本检查
+- [x] 新增源码安全审计脚本和供应链审计脚本
+- [x] 将源码审计、供应链审计和生产依赖 `npm audit` 接入 GitHub Actions
+- [x] 本地安全审计和供应链审计通过
+- [x] 类型检查、Next 构建、OpenNext 构建和浏览器 QA 通过
+- [ ] 提交后观察 GitHub Actions 首次安全门禁结果
+- [ ] 发布后验证线上报告安全信号模块
+
 ## 2026-09-11 浏览器 QA Skill 集成
 
 - [x] 新增真实 Chromium 黑盒 QA runner，覆盖 25 个公开路由

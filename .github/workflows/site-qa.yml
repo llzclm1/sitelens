@@ -23,6 +23,15 @@ jobs:
       - name: Install Node dependencies
         run: npm ci
 
+      - name: Run source security review
+        run: npm run security:review
+
+      - name: Run supply-chain review
+        run: npm run security:supply-chain
+
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=high
+
       - name: Build production app
         run: npm run build
 

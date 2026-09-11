@@ -1,5 +1,14 @@
 # Codex 交接说明
 
+## 2026-09-11 安全审计能力接入
+
+- 在报告页增加 `PUBLIC SECURITY SIGNALS`：基于公开 URL 的 HTTPS、CSP、HSTS、Frame Protection、`nosniff`、Referrer-Policy、混合内容、不安全表单和第三方脚本信号。
+- 报告明确声明这些是可观察的基线信号，不是渗透测试、源码审计或 OWASP 合规认证；旧报告缺少新字段时使用兼容默认值。
+- 新增 `scripts/security-review.mjs` 和 `scripts/supply-chain-review.mjs`，分别检查仓库源码安全边界、密钥、响应头、请求校验、限流、SSRF、D1 参数绑定，以及 lockfile 完整性和 CI 安装策略。
+- GitHub Actions 已加入源码审计、供应链审计和 `npm audit --omit=dev --audit-level=high`，全部通过才继续构建和浏览器 QA。
+- 本地 `npm run security:review` 通过 8/8，`npm run security:supply-chain` 通过；`npm run typecheck`、`npm run build`、`npm run open:build`、浏览器 QA 和 `git diff --check` 通过。
+- 本轮代码尚未重新发布 Cloudflare；需先提交推送，再部署并验证线上报告的新安全信号模块。
+
 ## 2026-09-11 浏览器 QA Skill 集成
 
 - 新增 `qa/site_qa.py`，按 Anthropic `webapp-testing` 的黑盒思路使用真实 Chromium 检查公开页面、关键导航和首页分析→报告闭环。

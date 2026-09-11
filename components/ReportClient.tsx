@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { trackEvent } from "@/lib/analytics";
+import type { SecuritySignals } from "@/lib/types";
 
 type ReportIssue = {
   id: string;
@@ -35,6 +36,7 @@ type PublicReport = {
     proofSignals: string[];
     imageCount: number;
     missingAltCount: number;
+    securitySignals?: SecuritySignals;
   };
   issues: ReportIssue[];
 };
@@ -47,6 +49,17 @@ type DeepReport = {
 };
 
 export default function ReportClient({ report }: { report: PublicReport }) {
+  const securitySignals = report.snapshot.securitySignals ?? {
+    https: false,
+    contentSecurityPolicy: false,
+    strictTransportSecurity: false,
+    frameProtection: false,
+    contentTypeProtection: false,
+    referrerPolicy: false,
+    mixedContentCount: 0,
+    insecureFormCount: 0,
+    thirdPartyScriptCount: 0,
+  };
   const searchParams = useSearchParams();
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -192,6 +205,25 @@ export default function ReportClient({ report }: { report: PublicReport }) {
         <div><span>H1 headings</span><strong>{report.snapshot.h1.length}</strong></div>
         <div><span>Signup signals</span><strong>{report.snapshot.ctaCount}</strong></div>
         <div><span>Proof signals</span><strong>{report.snapshot.proofSignals.length}</strong></div>
+      </section>
+
+      <section className="security-signals shell" aria-labelledby="security-signals-title">
+        <div className="security-signals-intro">
+          <p className="eyebrow">PUBLIC SECURITY SIGNALS</p>
+          <h2 id="security-signals-title">A baseline read of what the public page <em>reveals.</em></h2>
+          <p>These are observable response and markup signals, not a penetration test or a complete security audit.</p>
+        </div>
+        <div className="security-signal-grid">
+          <div><span>Transport</span><strong>{securitySignals.https ? "HTTPS" : "HTTP"}</strong><small>{securitySignals.https ? "Encrypted transport detected" : "Encrypted transport not detected"}</small></div>
+          <div><span>Content policy</span><strong>{securitySignals.contentSecurityPolicy ? "Present" : "Not found"}</strong><small>Content-Security-Policy response header</small></div>
+          <div><span>Frame protection</span><strong>{securitySignals.frameProtection ? "Present" : "Not found"}</strong><small>X-Frame-Options or frame-ancestors</small></div>
+          <div><span>HSTS</span><strong>{securitySignals.strictTransportSecurity ? "Present" : "Not found"}</strong><small>Strict-Transport-Security response header</small></div>
+          <div><span>Content type</span><strong>{securitySignals.contentTypeProtection ? "Present" : "Not found"}</strong><small>X-Content-Type-Options: nosniff</small></div>
+          <div><span>Referrer policy</span><strong>{securitySignals.referrerPolicy ? "Present" : "Not found"}</strong><small>Referrer-Policy response header</small></div>
+          <div><span>Mixed content</span><strong>{securitySignals.mixedContentCount}</strong><small>HTTP resources on an HTTPS page</small></div>
+          <div><span>Insecure forms</span><strong>{securitySignals.insecureFormCount}</strong><small>Forms posting to HTTP destinations</small></div>
+          <div><span>External scripts</span><strong>{securitySignals.thirdPartyScriptCount}</strong><small>Scripts hosted outside this hostname</small></div>
+        </div>
       </section>
 
       <section className="framework-section report-framework shell" aria-labelledby="report-framework-title">

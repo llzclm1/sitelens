@@ -1,6 +1,21 @@
 export type Severity = "high" | "medium" | "low";
 export type Confidence = "high" | "medium" | "low";
 
+export type SecurityHeaderPresence = {
+  contentSecurityPolicy: boolean;
+  strictTransportSecurity: boolean;
+  frameProtection: boolean;
+  contentTypeProtection: boolean;
+  referrerPolicy: boolean;
+};
+
+export type SecuritySignals = SecurityHeaderPresence & {
+  https: boolean;
+  mixedContentCount: number;
+  insecureFormCount: number;
+  thirdPartyScriptCount: number;
+};
+
 export type WebsiteSnapshot = {
   title: string;
   description: string;
@@ -13,6 +28,7 @@ export type WebsiteSnapshot = {
   missingAltCount: number;
   internalLinkCount: number;
   textLength: number;
+  securitySignals: SecuritySignals;
 };
 
 export type ReportIssue = {

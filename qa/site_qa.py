@@ -164,6 +164,8 @@ class SiteQA:
                 page.wait_for_url("**/report/*", timeout=15000)
                 if page.get_by_role("heading", name=re.compile("What sitelens.win should fix first")).count() != 1:
                     self.fail("interaction", "report page rendered without the expected heading", page.url)
+                if page.get_by_role("heading", name=re.compile("baseline read of what the public page")).count() != 1:
+                    self.fail("interaction", "report page is missing the public security signals section", page.url)
             except PlaywrightTimeoutError:
                 self.fail("interaction", f"analysis submission did not navigate to report: {page.url}", "/")
             self.screenshot(page, "flow-report-navigation")

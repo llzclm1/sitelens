@@ -1,6 +1,7 @@
 import dns from "node:dns/promises";
 import net from "node:net";
 import { RequestError } from "@/lib/request";
+import type { SecurityHeaderPresence } from "@/lib/types";
 
 const MAX_REDIRECTS = 3;
 const MAX_HTML_BYTES = 600_000;
@@ -165,7 +166,14 @@ export async function fetchWebsite(startUrl: string) {
         throw new RequestError("That URL does not return an HTML homepage.", 422);
       }
 
-      return { finalUrl: currentUrl, html: await readLimitedBody(response) };
+      const securityHeaders: SecurityHeaderPresence = {
+        contentSecurityPolicy: response.headers.has("content-security-policy"),
+        strictTransportSecurity: response.headers.has("strict-transport-security"),
+        frameProtection: response.headers.has("x-frame-options") || response.headers.has("content-security-policy") && /frame-ancestors\s+[^;]+/i.test(response.headers.get("content-security-policy") ?? ""),
+        contentTypeProtection: response.headers.get("x-content-type-options")?.toLowerCase().includes("nosniff") ?? false,
+        referrerPolicy: response.headers.has("referrer-policy"),
+      };
+      return { finalUrl: currentUrl, html: await readLimitedBody(response), securityHeaders };
     } catch (error) {
       if (error instanceof RequestError) throw error;
       if (error instanceof Error && error.name === "AbortError") throw new RequestError("The website took too long to respond.", 504);

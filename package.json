@@ -10,7 +10,9 @@
     "start": "next start",
     "lint": "tsc --noEmit",
     "typecheck": "tsc --noEmit",
-    "qa:smoke": "python3 qa/site_qa.py"
+    "qa:smoke": "python3 qa/site_qa.py",
+    "security:review": "node scripts/security-review.mjs",
+    "security:supply-chain": "node scripts/supply-chain-review.mjs"
   },
   "dependencies": {
     "@fontsource-variable/geist": "^5.3.0",
