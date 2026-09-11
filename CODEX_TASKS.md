@@ -1,5 +1,17 @@
 # SiteLens 任务状态
 
+## 2026-09-11 浏览器 QA Skill 集成
+
+- [x] 新增真实 Chromium 黑盒 QA runner，覆盖 25 个公开路由
+- [x] 检查页面结构、基础可访问性、图片 alt、同源 HTTP、请求失败、console/page 错误和横向溢出
+- [x] 验证首页分析→报告、Teardown→Homepage Patterns 和移动端首页流程
+- [x] 增加截图、JSON summary、依赖说明和 GitHub Actions workflow
+- [x] 用 QA-only fixture/fallback 解决本地 D1 和外部 DNS 差异，不触碰生产分析数据
+- [x] 修复 QA 发现的 GTM 图片 beacon CSP 拦截
+- [x] 本地 QA 通过：`findingCount=0`
+- [ ] 推送后观察 GitHub Actions 首次运行结果
+- [ ] 发布 CSP 修复后复核线上响应头
+
 ## 2026-09-07 内部链接增量
 
 - [x] 首页增加案例库与 Homepage Patterns 入口

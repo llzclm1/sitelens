@@ -8,6 +8,8 @@ import { recordAnalyticsEvent, saveReport, toPublicReport } from "@/lib/store";
 
 export const runtime = "nodejs";
 
+const QA_FIXTURE_HTML = `<!doctype html><html><head><title>Support docs for SaaS teams</title><meta name="description" content="Turn support tickets into searchable docs."></head><body><main><h1>Turn support tickets into searchable docs</h1><p>Make every answer easier to find for small SaaS teams.</p><a href="/signup">Start free</a><p>Trusted by customer teams.</p></main></body></html>`;
+
 export async function POST(request: Request) {
   try {
     const rate = await enforceRateLimit(request, "analyze", 5);
@@ -28,8 +30,10 @@ export async function POST(request: Request) {
     }
 
     await recordAnalyticsEvent({ eventName: "analyze_started" });
-    const page = await fetchWebsite(url);
-    const screenshot = process.env.QWEN_API_KEY ? await captureWebsiteScreenshot(page.finalUrl) : undefined;
+    const page = process.env.SITELENS_QA === "1"
+      ? { finalUrl: url, html: QA_FIXTURE_HTML }
+      : await fetchWebsite(url);
+    const screenshot = process.env.SITELENS_QA === "1" ? undefined : process.env.QWEN_API_KEY ? await captureWebsiteScreenshot(page.finalUrl) : undefined;
     const report = await analyzeWebsite({ url: page.finalUrl, html: page.html, product, audience, screenshot });
     await saveReport(report);
     await recordAnalyticsEvent({ eventName: "analyze_completed", analysisMode: report.mode });

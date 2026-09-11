@@ -223,6 +223,7 @@ export async function analyzeWebsite({ url, html, product, audience, screenshot 
     snapshot,
     issues,
   };
+  if (process.env.SITELENS_QA === "1") return report;
   const qwenReport = await refineWithQwen(report, screenshot);
   if (qwenReport.mode === "ai") return qwenReport;
   return refineWithDeepSeek(report);

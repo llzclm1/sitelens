@@ -1,5 +1,14 @@
 # SiteLens 修改日志
 
+## 2026-09-11
+
+- 按 Anthropic 官方 `webapp-testing` 和 GitHub `awesome-copilot` 的浏览器 QA 工作流，为 SiteLens 增加 Python Playwright 黑盒 runner；不引入业务组件测试框架，直接通过真实 Chromium 检查用户可见流程。
+- QA 覆盖 25 个公开路由、桌面/移动截图、`main`/`h1`、链接和按钮名称、表单标签、图片 alt、横向溢出、同源 HTTP 错误、请求失败、`console.error` 和 `pageerror`。
+- 首页流程真实填写 URL、产品描述和目标受众，点击分析后验证 `/report/{id}` 及报告标题；Teardown 流程验证 3 张案例卡片和 Homepage Patterns 跳转。
+- 新增 GitHub Actions，在 `main` push 和 Pull Request 自动构建和运行 QA，并上传截图与 JSON 汇总；本地/CI 通过 `SITELENS_QA=1` 使用内存存储和固定 fixture，避免 D1、外部 DNS 和 AI 供应商造成非产品性波动。
+- QA 首次运行发现 GTM 图片 beacon 被 CSP 拦截，已在 `next.config.ts` 的 `img-src` 增加 `https://www.googletagmanager.com`；重建后 `findingCount=0`。
+- `npm run typecheck`、`npm run build`、`npm run open:build` 和 `git diff --check` 通过；线上发布与 GitHub Actions 首次结果待本轮提交后确认。
+
 ## 2026-09-07
 
 - 强化首页和 Website Review 的内部链接：首页新增 Homepage Patterns 入口，Website Review 新增 Diagnose、Clarify、Check 三组决策型入口，串联本轮 6 个高意图页面。

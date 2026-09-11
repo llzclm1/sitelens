@@ -1,5 +1,14 @@
 # Codex 交接说明
 
+## 2026-09-11 浏览器 QA Skill 集成
+
+- 新增 `qa/site_qa.py`，按 Anthropic `webapp-testing` 的黑盒思路使用真实 Chromium 检查公开页面、关键导航和首页分析→报告闭环。
+- 覆盖 25 个公开路由、桌面/移动视口、截图、同源 HTTP 错误、请求失败、`console.error`、`pageerror`、基础可访问性和横向溢出；Teardown 流程额外检查 Slack、Webflow、HubSpot 卡片以及跨案例分析入口。
+- 新增 `qa/requirements.txt`、`qa/README.md` 和 `.github/workflows/site-qa.yml`；`main` push 和 Pull Request 会自动构建、启动本地服务、运行 QA 并保留截图与 `summary.json` artifact。
+- QA 使用 `SITELENS_QA=1` 进入内存存储和固定 HTML fixture，仅供本地/CI 使用，不调用生产抓取、截图或 AI 供应商，也不改变生产路径。
+- QA 发现并修复 GTM 图片 beacon 被 CSP 拦截的问题；生产 CSP 已允许 `https://www.googletagmanager.com` 的图片请求。
+- 本地结果：25 个公开页面、分析→报告和 Teardown 导航均通过，`findingCount=0`；`npm run typecheck`、`npm run build`、`npm run open:build` 和 `git diff --check` 通过。
+
 ## 2026-09-07 内部链接增量
 
 - 首页 Teardown 入口改为“先读证据再改页面”，增加 Homepage Patterns 内链，并明确案例库已有 8 个公开案例。

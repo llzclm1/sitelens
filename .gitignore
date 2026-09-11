@@ -2,6 +2,7 @@
 .env.*
 !.env.example
 node_modules/
+.venv/
 .next/
 .open-next/
 .wrangler/
@@ -11,6 +12,7 @@ coverage/
 *.tsbuildinfo
 playwright-report/
 test-results/
+output/playwright/
 *.sqlite
 *.sqlite3
 *.db

@@ -22,6 +22,8 @@ function memoryRateLimit(key: string, limit: number, windowMs: number) {
 }
 
 async function database() {
+  if (process.env.SITELENS_QA === "1") return undefined;
+
   try {
     return (await getCloudflareContext({ async: true })).env.DB as D1Database | undefined;
   } catch {

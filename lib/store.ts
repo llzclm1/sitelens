@@ -65,6 +65,8 @@ const memoryStore: MemoryStore = globalStore.__sitelensStore ?? { reports: new M
 globalStore.__sitelensStore = memoryStore;
 
 export async function getDatabase(): Promise<D1Database | undefined> {
+  if (process.env.SITELENS_QA === "1") return undefined;
+
   try {
     const database = (await getCloudflareContext({ async: true })).env.DB;
     if (database) return database;
