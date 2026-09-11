@@ -7,7 +7,7 @@
 - 新增 `scripts/security-review.mjs` 和 `scripts/supply-chain-review.mjs`，分别检查仓库源码安全边界、密钥、响应头、请求校验、限流、SSRF、D1 参数绑定，以及 lockfile 完整性和 CI 安装策略。
 - GitHub Actions 已加入源码审计、供应链审计和 `npm audit --omit=dev --audit-level=high`，全部通过才继续构建和浏览器 QA。
 - 本地 `npm run security:review` 通过 8/8，`npm run security:supply-chain` 通过；`npm run typecheck`、`npm run build`、`npm run open:build`、浏览器 QA 和 `git diff --check` 通过。
-- 本轮代码尚未重新发布 Cloudflare；需先提交推送，再部署并验证线上报告的新安全信号模块。
+- 已发布 Cloudflare Worker，版本 `a6d3c25b-ac68-43a9-8d73-15bbe4e9134e`；线上分析接口返回 `201` 且新报告包含 9 个安全信号字段，报告页显示边界说明和 `PUBLIC SECURITY SIGNALS` 模块。
 
 ## 2026-09-11 浏览器 QA Skill 集成
 

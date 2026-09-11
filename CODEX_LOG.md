@@ -7,7 +7,7 @@
 - 新增 `scripts/security-review.mjs`：检查提交的环境文件、硬编码凭证、动态执行、基线安全头、请求体上限、服务端限流、SSRF 边界和 D1 参数绑定。
 - 新增 `scripts/supply-chain-review.mjs`：检查 lockfile 版本、resolved 包 integrity、无界/latest 依赖和 GitHub Actions 的 `npm ci`；CI 另运行生产依赖 `npm audit`。
 - 本地审计结果：源码 8/8、供应链 PASS；类型检查、Next 构建、OpenNext 构建、25 页面浏览器 QA 均通过。
-- 本轮修改待提交后重新部署 Cloudflare，并在真实报告页面确认新模块；旧报告通过默认值兼容，不回写历史报告。
+- Cloudflare Worker `a6d3c25b-ac68-43a9-8d73-15bbe4e9134e` 发布成功；使用 `https://example.com` 生成非敏感线上 smoke report，分析接口返回 `201`，报告页面确认安全信号模块、边界说明和 9 个字段；旧报告通过默认值兼容，不回写历史报告。
 
 ## 2026-09-11
 

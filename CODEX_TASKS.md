@@ -8,8 +8,8 @@
 - [x] 将源码审计、供应链审计和生产依赖 `npm audit` 接入 GitHub Actions
 - [x] 本地安全审计和供应链审计通过
 - [x] 类型检查、Next 构建、OpenNext 构建和浏览器 QA 通过
+- [x] 发布 Cloudflare 并用非敏感示例 URL 验证线上分析接口和报告安全信号
 - [ ] 提交后观察 GitHub Actions 首次安全门禁结果
-- [ ] 发布后验证线上报告安全信号模块
 
 ## 2026-09-11 浏览器 QA Skill 集成
 
