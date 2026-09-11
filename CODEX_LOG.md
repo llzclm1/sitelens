@@ -2,6 +2,13 @@
 
 ## 2026-09-11
 
+- 首页新增能力流水线，按“提交、读取、解释、计划”把当前真实产品范围具象化。
+- 用交付物标签明确 `URL + context`、`Page evidence`、`Score + 3 findings` 和 `Deep report`，并保留公开页面边界。
+- 未修改分析 API、报告数据结构、支付流程、GA4 事件或 Teardown 内容。
+- `npm run typecheck`、`npm run build`、`npm run open:build` 和本地 Chromium QA 通过；QA 为 25 页面、0 findings、0 warnings。
+
+## 2026-09-11
+
 - 按推荐方案把安全能力分成内部发布门禁和用户报告两层，没有把 `security-review`、Agent Governance 或 MCP Skill 伪装成可直接部署的运行时插件。
 - 报告页新增 `PUBLIC SECURITY SIGNALS`，只展示公开 URL 能证明的传输、响应头和 HTML 标记信号，并明确不是渗透测试、源码审计或合规认证。
 - 新增 `scripts/security-review.mjs`：检查提交的环境文件、硬编码凭证、动态执行、基线安全头、请求体上限、服务端限流、SSRF 边界和 D1 参数绑定。

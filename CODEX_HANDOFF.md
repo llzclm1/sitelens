@@ -1,5 +1,14 @@
 # Codex 交接说明
 
+## 2026-09-11 首页能力具象化
+
+- 首页新增“从公开 URL 到第一处修改”的四步能力区：提交页面、读取页面证据、获得三项免费发现、解锁 `$29` Deep Growth Report。
+- 明确列出当前会读取的公开信号：HTML、文案、标题、CTA、信任线索、链接、图片 alt 和安全响应头。
+- 在首页直接写出免费报告与深度报告的交付物，并标注只分析单个公开页面，不访问私有数据、不做全站爬取、不自动改站。
+- 保持原有分析表单、报告、支付和埋点逻辑不变；新增区域仅为首页信息表达和视觉层级。
+- `npm run typecheck`、`npm run build`、`npm run open:build` 和本地 Chromium QA 通过，QA 结果为 25 页面、`findingCount=0`、`warningCount=0`。
+- 待完成：提交并发布本轮首页变更到 Cloudflare，随后复核线上首页文案和移动端布局。
+
 ## 2026-09-11 安全审计能力接入
 
 - 在报告页增加 `PUBLIC SECURITY SIGNALS`：基于公开 URL 的 HTTPS、CSP、HSTS、Frame Protection、`nosniff`、Referrer-Policy、混合内容、不安全表单和第三方脚本信号。

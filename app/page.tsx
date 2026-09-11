@@ -36,6 +36,37 @@ const analysisSteps = [
   "Writing page-specific recommendations",
 ];
 
+const capabilitySteps = [
+  {
+    number: "01",
+    label: "SUBMIT",
+    title: "Start with one public homepage",
+    copy: "Share the URL, what the product does, and who it is for. No login or private account access is needed.",
+    output: "URL + context",
+  },
+  {
+    number: "02",
+    label: "READ",
+    title: "We inspect what a visitor can see",
+    copy: "SiteLens reads the page HTML, copy, headings, CTAs, proof cues, links, image alt text, and public security signals.",
+    output: "Page evidence",
+  },
+  {
+    number: "03",
+    label: "EXPLAIN",
+    title: "You get three specific problems",
+    copy: "The free report connects each finding to its impact, visible evidence, first fix, and an optional rewrite direction.",
+    output: "Score + 3 findings",
+  },
+  {
+    number: "04",
+    label: "PLAN",
+    title: "Unlock the next three weeks",
+    copy: "The $29 Deep Growth Report adds hero and CTA rewrite directions plus a prioritized action plan on the original report page.",
+    output: "Deep report",
+  },
+];
+
 export default function HomePage() {
   const router = useRouter();
   const [url, setUrl] = useState("");
@@ -237,6 +268,27 @@ export default function HomePage() {
           <span>CTA signals</span>
           <span>Trust cues</span>
         </div>
+      </section>
+
+      <section className="capability-section shell" aria-labelledby="capability-title">
+        <div className="capability-heading">
+          <h2 id="capability-title">From a public URL to a <em>first fix.</em></h2>
+          <p>Here is what SiteLens actually does after you submit a page.</p>
+        </div>
+        <ol className="capability-flow">
+          {capabilitySteps.map((step) => (
+            <li key={step.number}>
+              <span className="capability-number">{step.number}</span>
+              <div className="capability-copy">
+                <span className="capability-label">{step.label}</span>
+                <h3>{step.title}</h3>
+                <p>{step.copy}</p>
+              </div>
+              <strong className="capability-output">{step.output}</strong>
+            </li>
+          ))}
+        </ol>
+        <p className="capability-boundary">Scope: one public page at a time. No private analytics, experiments, full-site crawl, or automatic website edits.</p>
       </section>
 
       <section className="framework-section shell" aria-labelledby="framework-title">
