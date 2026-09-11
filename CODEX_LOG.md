@@ -1,5 +1,15 @@
 # SiteLens 修改日志
 
+## 2026-09-11 整站审核问题修复
+
+- 将 Next 升级到 `15.5.25`、OpenNext Cloudflare 升级到 `1.20.6`、Wrangler 升级到 `4.131.0`，并用 npm override 将 PostCSS 固定到 `8.5.28`；`npm audit --omit=dev --audit-level=high` 已返回 0 vulnerabilities。
+- Deep Growth Report 新增五段式 Homepage Blueprint（Hero、Problem、Solution、Proof、CTA），每段包含目的、指导和报告证据；旧支付记录缺少该字段时会按原报告重建，不重复写入解锁事件。
+- 报告 HTML/API 加入 `noindex`、`no-store` 和 `X-Robots-Tag`，保留可分享链接但避免搜索引擎收录与缓存用户报告。
+- Mixed Content 只统计脚本、图片、iframe、媒体、资源 link 等可加载标签，普通 HTTP 文本链接不再计入；截图调用前复用 URL SSRF 校验。
+- Sitemap 改为按首页/法律页面和旧编辑内容分别记录更新时间；同步更新 README、隐私政策、条款、`llms.txt` 和 `llms-full.txt`。
+- 本轮未执行真实支付，不将支付确认、GA4 实时事件、GSC 抓取或索引结果标记为已完成。
+- 已验证：`npm run typecheck`、`npm run build`、`npm run open:build`、源码安全审计 8/8、供应链审计、生产依赖审计 0 vulnerabilities 和本地 Chromium QA 25/25，0 findings、0 warnings。
+
 ## 2026-09-11
 
 - 首页新增能力流水线，按“提交、读取、解释、计划”把当前真实产品范围具象化。

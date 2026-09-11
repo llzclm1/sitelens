@@ -11,5 +11,10 @@ export async function GET(_request: Request, { params }: { params: Promise<{ id:
     return NextResponse.json({ error: "Report not found." }, { status: 404 });
   }
 
-  return NextResponse.json(report);
+  return NextResponse.json(report, {
+    headers: {
+      "cache-control": "private, no-store",
+      "x-robots-tag": "noindex, nofollow, noarchive",
+    },
+  });
 }

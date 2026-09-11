@@ -17,7 +17,7 @@ export default function PrivacyPage() {
       <article className="legal-copy">
         <p className="eyebrow">SITE LENS / PRIVACY</p>
         <h1>What happens to the information you give us.</h1>
-        <p className="legal-updated">Last updated: August 10, 2026</p>
+        <p className="legal-updated">Last updated: September 11, 2026</p>
         <h2>What we collect</h2>
         <p>When you request a review, we process the website URL, the product description, the target audience and the resulting report. When you start checkout, we store the email address and payment intent needed to create and reconcile the order.</p>
         <h2>How we use it</h2>
@@ -25,7 +25,7 @@ export default function PrivacyPage() {
         <h2>Analytics and payments</h2>
         <p>SiteLens uses Google Analytics 4 to understand visits and product usage. Google may set analytics cookies or similar identifiers according to its own policies. Checkout is handled by Waffo Pancake; SiteLens does not receive or store your full card number.</p>
         <h2>Storage and requests</h2>
-        <p>Reports and payment records are stored in the SiteLens database for operating the service. To request removal of a report or checkout record, use the merchant contact shown in your checkout receipt and include the report or payment reference.</p>
+        <p>Reports and payment records are stored in the SiteLens database for operating the service. A report link is intentionally shareable, but report pages and report API responses are marked not to be indexed or cached. To request removal of a report or checkout record, use the merchant contact shown in your checkout receipt and include the report or payment reference.</p>
         <h2>Boundaries</h2>
         <p>Do not submit confidential information in the product or audience fields, and only submit websites you are authorized to have analyzed. SiteLens is not an analytics processor for your customers and does not promise a conversion result.</p>
       </article>

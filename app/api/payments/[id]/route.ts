@@ -14,5 +14,5 @@ export async function GET(_request: Request, { params }: { params: Promise<{ id:
     status: intent.status,
     paidAt: intent.paidAt ?? null,
     deepReport: deepReport ?? null,
-  }, { headers: { "cache-control": "private, no-store" } });
+  }, { headers: { "cache-control": "private, no-store", "x-robots-tag": "noindex, nofollow, noarchive" } });
 }

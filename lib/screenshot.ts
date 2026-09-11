@@ -1,4 +1,5 @@
 import { getCloudflareContext } from "@opennextjs/cloudflare";
+import { assertSafeUrl } from "@/lib/fetch-website";
 
 const MAX_SCREENSHOT_BYTES = 6_000_000;
 
@@ -13,6 +14,7 @@ function toBase64(bytes: Uint8Array) {
 
 export async function captureWebsiteScreenshot(url: string) {
   try {
+    await assertSafeUrl(url);
     const context = await getCloudflareContext({ async: true });
     const browser = context.env.BROWSER;
     if (!browser) return undefined;

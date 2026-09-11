@@ -8,11 +8,11 @@ SiteLens Phase 0 是一个面向 Indie Hacker 和小型 SaaS 创始人的网站�
 - 首页 HTML 抓取、跳转限制、超时限制、大小限制与基础 SSRF 防护
 - 基于页面证据的免费三问题报告
 - 可选 DeepSeek JSON 分析增强；没有 API Key 时使用确定性的证据规则
-- Waffo Pancake `$29` 一次性 Deep Growth Report Checkout 创建与 webhook 验证骨架，交付承诺为 24 小时
+- Waffo Pancake `$29` 一次性 Deep Growth Report Checkout 创建与 webhook 验证；付款确认后在原报告页解锁
 - Cloudflare D1 持久化报告、升级请求与支付意向；本地 `next dev` 无 Cloudflare binding 时才使用内存 fallback
 - 首页采用证据驱动的编辑型视觉系统，使用自托管 Geist 字体并支持暗色系统偏好
 - 首页展示 SiteLens Growth Framework，提交时展示分析过程；报告提供问题影响、页面证据、修复建议和改写方向
-- 提供公开 Teardown Library，当前有一个基于 Stripe 官方首页的定性案例，并标注来源、日期和分析边界
+- 提供公开 Teardown Library，包含 8 个基于官方首页的定性案例，并标注来源、日期和分析边界
 - 已接入 Google Analytics 4（衡量 ID：`G-YNQ8J06W7D`）和 Google Search Console；首页包含 GSC 验证标签，`robots.txt` 与标准 Next.js `sitemap.xml` 已发布
 - API 具备 32 KB 请求体上限、D1 IP 限流和私网 SSRF 拦截；生产响应包含基础安全头
 - 付款 webhook 会校验环境、报告、产品元数据、金额、币种和买家邮箱，并在付款确认后生成站内 Deep Report
@@ -39,7 +39,7 @@ npm run dev
 - 不承诺真实转化率提升
 - 不自动修改用户网站
 - 不把 Pancake 商户后台地址伪装成客户付款页
-- 不在 Phase 0 里加入竞品监控、GEO 或企业级审计
+- 不在 Phase 0 里加入独立的竞品监控、GEO 优化服务或企业级审计；现有 Authority/GEO 页面仅作为公开内容和机器可读发现基础
 
 ## 下一步验收
 

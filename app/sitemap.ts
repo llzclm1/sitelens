@@ -2,34 +2,36 @@ import type { MetadataRoute } from "next";
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://sitelens.win").replace(/\/$/, "");
 
-const lastModified = "2026-09-07";
+const homepageUpdated = "2026-09-11";
+const editorialUpdated = "2026-09-07";
+const legalUpdated = "2026-09-11";
 
 const pages: Array<{ path: string; lastModified: string }> = [
-  { path: "/", lastModified },
-  { path: "/website-review", lastModified },
-  { path: "/ai-website-audit", lastModified },
-  { path: "/landing-page-review", lastModified },
-  { path: "/saas-website-analysis", lastModified },
-  { path: "/website-conversion-check", lastModified },
-  { path: "/why-saas-websites-dont-convert", lastModified },
-  { path: "/homepage-value-proposition-examples", lastModified },
-  { path: "/saas-homepage-audit", lastModified },
-  { path: "/ai-website-audit-vs-seo-checker", lastModified },
-  { path: "/landing-page-conversion-review", lastModified },
-  { path: "/website-messaging-audit", lastModified },
-  { path: "/insights/homepage-patterns", lastModified },
-  { path: "/pricing", lastModified },
-  { path: "/teardowns", lastModified },
-  { path: "/teardowns/stripe", lastModified },
-  { path: "/teardowns/linear", lastModified },
-  { path: "/teardowns/notion", lastModified },
-  { path: "/teardowns/vercel", lastModified },
-  { path: "/teardowns/figma", lastModified },
-  { path: "/teardowns/slack", lastModified },
-  { path: "/teardowns/webflow", lastModified },
-  { path: "/teardowns/hubspot", lastModified },
-  { path: "/privacy", lastModified },
-  { path: "/terms", lastModified },
+  { path: "/", lastModified: homepageUpdated },
+  { path: "/website-review", lastModified: homepageUpdated },
+  { path: "/ai-website-audit", lastModified: editorialUpdated },
+  { path: "/landing-page-review", lastModified: editorialUpdated },
+  { path: "/saas-website-analysis", lastModified: editorialUpdated },
+  { path: "/website-conversion-check", lastModified: editorialUpdated },
+  { path: "/why-saas-websites-dont-convert", lastModified: editorialUpdated },
+  { path: "/homepage-value-proposition-examples", lastModified: editorialUpdated },
+  { path: "/saas-homepage-audit", lastModified: editorialUpdated },
+  { path: "/ai-website-audit-vs-seo-checker", lastModified: editorialUpdated },
+  { path: "/landing-page-conversion-review", lastModified: editorialUpdated },
+  { path: "/website-messaging-audit", lastModified: editorialUpdated },
+  { path: "/insights/homepage-patterns", lastModified: editorialUpdated },
+  { path: "/pricing", lastModified: homepageUpdated },
+  { path: "/teardowns", lastModified: editorialUpdated },
+  { path: "/teardowns/stripe", lastModified: editorialUpdated },
+  { path: "/teardowns/linear", lastModified: editorialUpdated },
+  { path: "/teardowns/notion", lastModified: editorialUpdated },
+  { path: "/teardowns/vercel", lastModified: editorialUpdated },
+  { path: "/teardowns/figma", lastModified: editorialUpdated },
+  { path: "/teardowns/slack", lastModified: editorialUpdated },
+  { path: "/teardowns/webflow", lastModified: editorialUpdated },
+  { path: "/teardowns/hubspot", lastModified: editorialUpdated },
+  { path: "/privacy", lastModified: legalUpdated },
+  { path: "/terms", lastModified: legalUpdated },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

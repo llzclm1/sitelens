@@ -338,6 +338,15 @@ h1 em, h2 em { color: var(--ink); font-family: inherit; font-style: italic; font
 .deep-report-plan strong { display: block; margin-bottom: 10px; font-size: 16px; }
 .deep-report-plan p { margin: 0 16px 12px 0; color: var(--ink-soft); font-size: 13px; line-height: 1.45; }
 .deep-report-plan small { display: block; margin-right: 16px; color: var(--ink-soft); font-size: 10px; line-height: 1.45; }
+.deep-report-blueprint { grid-column: 1 / -1; display: grid; grid-template-columns: 0.78fr 1.22fr; gap: 62px; padding-top: 30px; border-top: 1px solid var(--line); }
+.deep-report-blueprint h3 { max-width: 390px; margin: 16px 0 0; font-size: clamp(28px, 3vw, 42px); letter-spacing: -0.08em; line-height: 0.98; }
+.deep-report-blueprint ol { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 12px; margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.deep-report-blueprint li { display: grid; grid-template-columns: 42px 1fr; gap: 12px; min-width: 0; padding: 17px 0 18px; border-bottom: 1px solid var(--line); }
+.deep-report-blueprint li:nth-child(odd) { padding-right: 12px; border-right: 1px solid var(--line); }
+.deep-report-blueprint li > span { color: var(--ink-soft); font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em; }
+.deep-report-blueprint strong { margin: 0 0 7px; font-size: 15px; }
+.deep-report-blueprint p { margin: 0 0 8px; color: var(--ink-soft); font-size: 12px; line-height: 1.45; }
+.deep-report-blueprint small { display: block; color: var(--ink-soft); font-size: 10px; line-height: 1.45; }
 .legal-page { min-height: 100vh; }
 .legal-copy { max-width: 720px; padding: 100px 0 120px; }
 .legal-copy h1 { max-width: 720px; margin: 18px 0 22px; font-size: clamp(48px, 7vw, 82px); letter-spacing: -0.1em; line-height: 0.93; }
@@ -347,7 +356,10 @@ h1 em, h2 em { color: var(--ink); font-family: inherit; font-style: italic; font
 
 @media (max-width: 760px) {
   .deep-report { grid-template-columns: 1fr; gap: 35px; margin-top: 42px; padding-top: 30px; }
-  .deep-report-rewrites, .deep-report-plan { grid-template-columns: 1fr; }
+  .deep-report-rewrites, .deep-report-plan, .deep-report-blueprint { grid-template-columns: 1fr; }
   .deep-report-plan { gap: 22px; }
   .deep-report-plan > li { border-right: 0; }
+  .deep-report-blueprint { gap: 28px; }
+  .deep-report-blueprint ol { grid-template-columns: 1fr; }
+  .deep-report-blueprint li:nth-child(odd) { padding-right: 0; border-right: 0; }
 }

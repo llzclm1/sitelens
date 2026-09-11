@@ -45,6 +45,7 @@ type DeepReport = {
   executiveSummary: string;
   heroRewrite: { before: string; after: string };
   ctaRewrite: { before: string; after: string };
+  homepageBlueprint: Array<{ order: number; section: string; purpose: string; guidance: string; evidence: string }>;
   actionPlan: Array<{ week: number; focus: string; action: string; evidence: string }>;
 };
 
@@ -171,6 +172,25 @@ export default function ReportClient({ report }: { report: PublicReport }) {
               <strong>{deepReport.ctaRewrite.after}</strong>
             </article>
           </div>
+          <section className="deep-report-blueprint" aria-labelledby="homepage-blueprint-title">
+            <div>
+              <p className="eyebrow">HOMEPAGE BLUEPRINT</p>
+              <h3 id="homepage-blueprint-title">A page sequence built around the next <em>decision.</em></h3>
+            </div>
+            <ol>
+              {deepReport.homepageBlueprint.map((item) => (
+                <li key={`${item.order}-${item.section}`}>
+                  <span>0{item.order}</span>
+                  <div>
+                    <strong>{item.section}</strong>
+                    <p>{item.purpose}</p>
+                    <p>{item.guidance}</p>
+                    <small>Evidence: {item.evidence}</small>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </section>
           <ol className="deep-report-plan">
             {deepReport.actionPlan.map((item) => (
               <li key={`${item.week}-${item.focus}`}>
@@ -284,7 +304,7 @@ export default function ReportClient({ report }: { report: PublicReport }) {
           <p className="eyebrow">DEEP REPORT</p>
           <h2>The next step is deciding<br />what to change.</h2>
           <p>The deep report explains the issue, rewrites the hero and CTA, and lays out a homepage sequence. SiteLens does not promise a conversion lift.</p>
-          <div className="locked-list"><span>01</span>Root-cause explanation <span>02</span>Hero + CTA rewrite <span>03</span>24-hour action plan</div>
+          <div className="locked-list"><span>01</span>Root-cause explanation <span>02</span>Hero + CTA rewrite <span>03</span>Homepage blueprint + three-week plan</div>
         </div>
         <form className="upgrade-card" onSubmit={requestDeepReport}>
           <div className="upgrade-price"><span>DEEP GROWTH REPORT</span><strong>$29</strong></div>

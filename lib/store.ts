@@ -237,7 +237,7 @@ export async function saveDeepReport(deepReport: DeepReport) {
   const database = await getDatabase();
   if (database) {
     await database
-      .prepare("INSERT OR IGNORE INTO deep_reports (id, payment_intent_id, report_id, payload, created_at) VALUES (?, ?, ?, ?, ?)")
+      .prepare("INSERT INTO deep_reports (id, payment_intent_id, report_id, payload, created_at) VALUES (?, ?, ?, ?, ?) ON CONFLICT(payment_intent_id) DO UPDATE SET id = excluded.id, report_id = excluded.report_id, payload = excluded.payload, created_at = excluded.created_at")
       .bind(deepReport.id, deepReport.paymentIntentId, deepReport.reportId, JSON.stringify(deepReport), deepReport.createdAt)
       .run();
     return;
@@ -246,7 +246,7 @@ export async function saveDeepReport(deepReport: DeepReport) {
   const memoryKey = `deep:${deepReport.paymentIntentId}`;
   const memoryDeepReports = globalStore.__sitelensDeepReports ?? new Map<string, DeepReport>();
   globalStore.__sitelensDeepReports = memoryDeepReports;
-  if (!memoryDeepReports.has(memoryKey)) memoryDeepReports.set(memoryKey, deepReport);
+  memoryDeepReports.set(memoryKey, deepReport);
 }
 
 export async function getDeepReportForPayment(paymentIntentId: string) {
@@ -267,7 +267,7 @@ export async function getDeepReportForPayment(paymentIntentId: string) {
 
 export async function createDeepReportForPayment(paymentIntentId: string) {
   const existing = await getDeepReportForPayment(paymentIntentId);
-  if (existing) return existing;
+  if (existing?.homepageBlueprint?.length) return existing;
 
   const intent = await getPaymentIntent(paymentIntentId);
   if (!intent || intent.status !== "paid") return undefined;
@@ -276,7 +276,7 @@ export async function createDeepReportForPayment(paymentIntentId: string) {
 
   const deepReport = buildDeepReport(report, paymentIntentId);
   await saveDeepReport(deepReport);
-  await recordAnalyticsEvent({ eventName: "deep_report_unlocked", value: 29, currency: "USD" });
+  if (!existing) await recordAnalyticsEvent({ eventName: "deep_report_unlocked", value: 29, currency: "USD" });
   return deepReport;
 }
 

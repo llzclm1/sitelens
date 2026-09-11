@@ -7,8 +7,9 @@
 - Reviews homepage positioning, customer clarity, trust signals, conversion paths, and page copy.
 - Returns a free report with three page-specific findings.
 - Offers a one-time Deep Growth Report with a prioritized action plan and hero/CTA rewrite directions.
+- The paid report also includes a five-part homepage blueprint: Hero, Problem, Solution, Proof, and CTA.
 - Uses the SiteLens Growth Framework: Positioning, Clarity, Trust, Conversion, and Authority.
-- Reviews public page content and structure; it does not access private analytics or run experiments.
+- Reviews public page content, structure, and observable baseline security signals; it does not access private analytics, run experiments, crawl an entire site, or edit a website.
 
 ## Growth Framework
 

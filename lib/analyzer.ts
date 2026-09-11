@@ -22,7 +22,12 @@ function collectSecuritySignals(url: string, html: string, headers?: SecurityHea
   const pageUrl = new URL(url);
   const pageHost = pageUrl.hostname.toLowerCase();
   const mixedContentCount = pageUrl.protocol === "https:"
-    ? [...html.matchAll(/(?:src|href)=["']http:\/\/[^"']+/gi)].length
+    ? [...html.matchAll(/<([a-z][a-z0-9]*)\b[^>]*>/gi)].filter((match) => {
+        const tag = match[0];
+        const name = match[1].toLowerCase();
+        if (name === "a" || name === "area" || name === "base" || (name === "link" && !/\brel\s*=\s*["'][^"']*(?:stylesheet|preload|modulepreload|manifest|icon|prefetch|dns-prefetch|preconnect)[^"']*["']/i.test(tag))) return false;
+        return /(?:src|data|poster|href)=["']http:\/\/[^"']+/i.test(tag);
+      }).length
     : 0;
   const insecureFormCount = pageUrl.protocol === "https"
     ? [...html.matchAll(/<form\b[^>]*action=["']http:\/\/[^"']+/gi)].length

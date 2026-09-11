@@ -17,9 +17,9 @@ export default function TermsPage() {
       <article className="legal-copy">
         <p className="eyebrow">SITE LENS / TERMS</p>
         <h1>Use the review as a decision aid, not a promise.</h1>
-        <p className="legal-updated">Last updated: August 10, 2026</p>
+        <p className="legal-updated">Last updated: September 11, 2026</p>
         <h2>What SiteLens provides</h2>
-        <p>SiteLens provides qualitative website reviews based on the submitted page and the context you provide. Free reports are automated. Paid reports add a structured action plan and rewrite directions. SiteLens does not promise a conversion lift, search ranking, revenue result or business outcome.</p>
+        <p>SiteLens provides qualitative website reviews based on the submitted page and the context you provide. Free reports are automated. Paid reports add a structured homepage blueprint, prioritized action plan, and rewrite directions. SiteLens does not promise a conversion lift, search ranking, revenue result or business outcome.</p>
         <h2>Your responsibility</h2>
         <p>You must own or be authorized to submit a website for analysis. Do not use SiteLens to probe private systems, bypass access controls, or submit confidential data. You are responsible for deciding whether a recommendation is suitable for your business.</p>
         <h2>Paid reports</h2>

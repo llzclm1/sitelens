@@ -1,5 +1,12 @@
 # Codex 交接说明
 
+## 2026-09-11 整站审核修复
+
+- 当前代码已修复整站审核中的发布阻塞：依赖升级后生产依赖审计为 0 vulnerabilities，付费报告补齐 Homepage Blueprint，报告链接加入 noindex/no-store，安全信号和 Sitemap 已同步修正。
+- 历史已支付报告兼容：首次重新读取时补生成新版 Blueprint，不重复计入 `deep_report_unlocked`。
+- 当前仍不能由代码代替的账号侧验收：一笔真实 `$29` Waffo 订单、`payment_confirmed`/`deep_report_unlocked` 的 GA4 与 D1 证据、以及 GSC 新 Sitemap 抓取/索引状态。
+- 代码验收已通过：`npm run typecheck` → `npm run build` → `npm run open:build` → `npm run security:review`（8/8）→ `npm run security:supply-chain` → `npm audit --omit=dev --audit-level=high`（0 vulnerabilities）→ 本地 Chromium QA（25/25，0 findings、0 warnings）。
+
 ## 2026-09-11 首页能力具象化
 
 - 首页新增“从公开 URL 到第一处修改”的四步能力区：提交页面、读取页面证据、获得三项免费发现、解锁 `$29` Deep Growth Report。

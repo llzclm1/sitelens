@@ -1,5 +1,17 @@
 # SiteLens 任务状态
 
+## 2026-09-11 整站审核问题修复
+
+- [x] 升级 Next、OpenNext、Wrangler，并锁定 PostCSS override；生产依赖审计为 0 vulnerabilities
+- [x] 付费 Deep Growth Report 增加带证据的五段式 Homepage Blueprint，并兼容历史已支付报告
+- [x] 修正计划文案，将错误的 24-hour action plan 统一为 three-week action plan
+- [x] 报告页面和报告 API 设置 noindex/no-store，降低 UUID 报告被搜索和缓存的风险
+- [x] 修正 Mixed Content 检测，忽略普通 HTTP 超链接，只统计可能加载资源的标签
+- [x] 在截图前再次执行公开 URL 安全检查
+- [x] 按页面实际更新时间拆分 Sitemap `lastModified`，更新隐私政策、条款、README 和 llms 文件
+- [ ] 用真实 $29 订单验证 Waffo → webhook → deep report → GA4/D1 闭环
+- [ ] 等待并复核 GA4 实时事件和 GSC 抓取/索引数据
+
 ## 2026-09-11 首页能力具象化
 
 - [x] 增加 URL → 页面证据 → 免费报告 → 深度报告的首页能力流水线

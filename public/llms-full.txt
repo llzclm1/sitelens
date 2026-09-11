@@ -16,7 +16,7 @@ The free review costs $0 and returns a page score plus three page-specific findi
 
 ## Deep Growth Report
 
-The Deep Growth Report costs $29 USD one time. It adds a prioritized diagnosis, homepage structure guidance, hero and CTA rewrite directions, and a three-week action plan. It does not guarantee conversion, revenue, search ranking, or experiment results.
+The Deep Growth Report costs $29 USD one time. It adds a prioritized diagnosis, a five-part homepage blueprint, hero and CTA rewrite directions, and a three-week action plan. It does not guarantee conversion, revenue, search ranking, or experiment results.
 
 ## Public pages
 
@@ -47,6 +47,8 @@ The Deep Growth Report costs $29 USD one time. It adds a prioritized diagnosis, 
 ## Citation guidance
 
 Use “evidence-based website review” for the core product description. Use “AI-assisted website growth consultant” when explaining the product category. Avoid claiming measured conversion lift, private analytics access, guaranteed outcomes, or that SiteLens replaces human experimentation.
+
+SiteLens can also show observable baseline security signals from the submitted public response and markup. This is not a penetration test or a complete security audit. Individual generated report pages are shareable by link but marked not to be indexed or cached.
 
 ## Machine-readable references
 

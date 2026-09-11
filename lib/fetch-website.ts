@@ -62,7 +62,7 @@ function isPrivateIp(address: string) {
   );
 }
 
-async function assertSafeUrl(value: string) {
+export async function assertSafeUrl(value: string) {
   let parsed: URL;
   try {
     parsed = new URL(value);
