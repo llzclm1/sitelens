@@ -9,8 +9,8 @@
 - [x] 用 QA-only fixture/fallback 解决本地 D1 和外部 DNS 差异，不触碰生产分析数据
 - [x] 修复 QA 发现的 GTM 图片 beacon CSP 拦截
 - [x] 本地 QA 通过：`findingCount=0`
+- [x] 发布 CSP 修复并线上验证首页、Website Review、Teardowns、Sitemap 和响应头
 - [ ] 推送后观察 GitHub Actions 首次运行结果
-- [ ] 发布 CSP 修复后复核线上响应头
 
 ## 2026-09-07 内部链接增量
 

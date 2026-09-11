@@ -7,7 +7,8 @@
 - 首页流程真实填写 URL、产品描述和目标受众，点击分析后验证 `/report/{id}` 及报告标题；Teardown 流程验证 3 张案例卡片和 Homepage Patterns 跳转。
 - 新增 GitHub Actions，在 `main` push 和 Pull Request 自动构建和运行 QA，并上传截图与 JSON 汇总；本地/CI 通过 `SITELENS_QA=1` 使用内存存储和固定 fixture，避免 D1、外部 DNS 和 AI 供应商造成非产品性波动。
 - QA 首次运行发现 GTM 图片 beacon 被 CSP 拦截，已在 `next.config.ts` 的 `img-src` 增加 `https://www.googletagmanager.com`；重建后 `findingCount=0`。
-- `npm run typecheck`、`npm run build`、`npm run open:build` 和 `git diff --check` 通过；线上发布与 GitHub Actions 首次结果待本轮提交后确认。
+- `npm run typecheck`、`npm run build`、`npm run open:build` 和 `git diff --check` 通过；Cloudflare Worker `ac14cfb0-96fc-4134-93aa-7befc1c2acca` 发布成功。
+- 线上首页、`/teardowns`、`/website-review` 和 `/sitemap.xml` 返回 200；线上 CSP 已包含 `https://www.googletagmanager.com` 图片源。GitHub Actions 首次运行仍待仓库侧异步观察。
 
 ## 2026-09-07
 

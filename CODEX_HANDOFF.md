@@ -8,6 +8,7 @@
 - QA 使用 `SITELENS_QA=1` 进入内存存储和固定 HTML fixture，仅供本地/CI 使用，不调用生产抓取、截图或 AI 供应商，也不改变生产路径。
 - QA 发现并修复 GTM 图片 beacon 被 CSP 拦截的问题；生产 CSP 已允许 `https://www.googletagmanager.com` 的图片请求。
 - 本地结果：25 个公开页面、分析→报告和 Teardown 导航均通过，`findingCount=0`；`npm run typecheck`、`npm run build`、`npm run open:build` 和 `git diff --check` 通过。
+- 已发布 Cloudflare Worker，版本 `ac14cfb0-96fc-4134-93aa-7befc1c2acca`；线上首页、Website Review、Teardowns、Sitemap 均返回 200，线上 CSP 已包含 GTM 图片源。GitHub Actions 首次运行仍需在仓库侧异步观察。
 
 ## 2026-09-07 内部链接增量
 
