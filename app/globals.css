@@ -211,6 +211,12 @@ h1 em, h2 em { color: var(--ink); font-family: inherit; font-style: italic; font
 .teardown-action-plan h3 { margin: 31px 0 8px; font-size: 17px; letter-spacing: -0.03em; }
 .teardown-action-plan p { margin: 0; color: var(--ink-soft); font-size: 13px; line-height: 1.5; }
 .teardown-action-plan article .text-link { display: flex; width: fit-content; margin-top: 14px; }
+.seo-evidence-example { padding: 0 0 115px; }
+.seo-evidence-example article { max-width: 820px; padding: 20px 22px 24px 0; border-top: 2px solid var(--ink); }
+.seo-evidence-example h2 { max-width: 680px; margin: 16px 0 12px; font-size: clamp(30px, 4vw, 52px); letter-spacing: -0.08em; line-height: 0.98; }
+.seo-evidence-example article > p:not(.evidence-label):not(.seo-evidence-source) { max-width: 690px; margin: 0; color: var(--ink-soft); font-size: 15px; line-height: 1.6; }
+.seo-evidence-source { margin: 18px 0 0; color: var(--ink-soft); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.04em; }
+.seo-evidence-example .text-link { display: flex; width: fit-content; margin-top: 14px; }
 .teardown-teaser > div:last-child .text-link { display: flex; width: fit-content; }
 .teardown-disclaimer { margin: 0 auto 32px; padding: 14px 16px; color: var(--ink-soft); background: var(--paper-deep); font-size: 12px; line-height: 1.5; }
 .review-answer { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 72px; padding: 0 0 115px; }

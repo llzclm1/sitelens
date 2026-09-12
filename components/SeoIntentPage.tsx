@@ -11,6 +11,7 @@ export type SeoIntentPageConfig = {
   intro: string;
   checks: ReadonlyArray<{ label: string; title: string; copy: string }>;
   faq: ReadonlyArray<{ question: string; answer: string }>;
+  evidenceExample?: { label: string; title: string; copy: string; source: string; href: string; linkLabel: string };
   relatedLinks?: ReadonlyArray<{ label: string; title: string; copy: string; href: string; linkLabel: string }>;
 };
 
@@ -61,7 +62,7 @@ export function SeoIntentPage({ config }: { config: SeoIntentPageConfig }) {
 
       <header className="teardown-header shell">
         <p className="eyebrow">{config.eyebrow}</p>
-        <h1>{config.title} <em>{config.emphasis}</em></h1>
+        <h1>{config.title}{" "}<em>{config.emphasis}</em></h1>
         <p className="teardown-intro">{config.intro}</p>
         <div className="teardown-source"><span>Free review: three page-specific findings</span><span>Deep Growth Report: $29 one time</span></div>
       </header>
@@ -82,6 +83,18 @@ export function SeoIntentPage({ config }: { config: SeoIntentPageConfig }) {
           ))}
         </div>
       </section>
+
+      {config.evidenceExample ? (
+        <section className="seo-evidence-example shell" aria-label="Concrete public example">
+          <article>
+            <p className="evidence-label">{config.evidenceExample.label}</p>
+            <h2>{config.evidenceExample.title}</h2>
+            <p>{config.evidenceExample.copy}</p>
+            <p className="seo-evidence-source">Source: {config.evidenceExample.source}</p>
+            <Link className="text-link" href={config.evidenceExample.href}>{config.evidenceExample.linkLabel} <span aria-hidden="true">↗</span></Link>
+          </article>
+        </section>
+      ) : null}
 
       <section className="teardown-action-plan shell" aria-label="How to use the review">
         <article><span>01 / INPUT</span><h3>Share the public page</h3><p>Add the URL, what the product does, and who it is for.</p></article>

@@ -1,5 +1,13 @@
 # Codex 交接说明
 
+## 2026-09-13 SEO/GEO 审计问题修复
+
+- 修复共享 SEO 意图页 H1 的显式空格，`/why-websites-dont-convert` 和 `/ai-website-audit-vs-seo-checker` 不再把两个词连在一起。
+- 为 `/why-websites-dont-convert` 增加一个基于现有 Stripe 公开 Teardown 的具体证据示例，标注来源与复核日期，并链接到完整案例；没有声称转化提升或真实实验结果。
+- 已完成类型检查、Next 生产构建、OpenNext Cloudflare 构建、源码安全审计、供应链审计、生产依赖审计和 26 页面 Chromium QA；结果为 0 findings、0 warnings、0 vulnerabilities。
+- 已发布 Cloudflare Worker 版本 `016bd031-32ff-4bb6-988a-6bb5ca0103b6`，线上读取 H1 文本确认空格存在，具体证据区块和 Stripe 链接均可见。
+- 搜索需求仍是观察项：不以部署、收录请求或内部测试代替 GSC 展示、查询和点击证据，继续等待 7–14 天数据回流。
+
 ## 2026-09-12 流量质量、漏斗与搜索需求闭环
 
 - 新增受控的流量质量信号：首屏落地页、UTM 白名单、搜索来源分类、`organic_landing_view` 和 15 秒带互动的 `qualified_session`；这些是方向性质量信号，不等同于真人判定或增长结果。

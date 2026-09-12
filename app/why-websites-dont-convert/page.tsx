@@ -20,6 +20,14 @@ export default function WhyWebsitesDontConvertPage() {
       { label: "02 / TRUST GAP", title: "The promise has nothing concrete behind it.", copy: "A visitor may understand the category and still hesitate when the page gives no customer context, workflow, example, or specific evidence near the decision." },
       { label: "03 / ACTION GAP", title: "The next step asks for too much or means too little.", copy: "A vague CTA, competing buttons, or an early demo request can make action feel larger than the certainty the page has earned." },
     ],
+    evidenceExample: {
+      label: "PUBLIC EXAMPLE / STRIPE",
+      title: "A broad promise still needs a clear next choice.",
+      copy: "Stripe's public homepage leads with \"Financial infrastructure to grow your revenue.\" The SiteLens teardown notes that the promise establishes the category, but smaller teams may still need help deciding where to start. A practical next move is to offer a business-model choice after the hero and keep proof close to that choice.",
+      source: "stripe.com, reviewed 2026-08-10",
+      href: "/teardowns/stripe",
+      linkLabel: "Read the full Stripe teardown",
+    },
     faq: [
       { question: "What is the first thing to check when a website does not convert?", answer: "Check whether a first-time visitor can say what the product does, who it is for, and what changes after using it. If those answers are unclear, more traffic usually increases the number of confused visitors." },
       { question: "How do I know whether the problem is the website or demand?", answer: "Separate page understanding from market demand. A public review can identify clarity and trust friction, while analytics, interviews, and experiments are needed to test demand and conversion impact." },
