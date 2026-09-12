@@ -7,6 +7,7 @@
 - 将 `qualified_session` 改为首次有效互动后的 15 秒计时，不因标签页切换而漏记，并保留会话去重。
 - 新增 `/why-websites-dont-convert`，围绕定位、信任、行动三类缺口提供可执行内容，并接入 Sitemap、llms 文件和 Website Review 内链。
 - 修正 QA 对 gtag `arguments` 队列项的识别，生产模式浏览器 QA 通过 26 个公开页面和关键交互，0 findings；2 条 networkidle 超时提示不影响检查，未发现 console/pageerror 或同源请求错误。
+- 在线上 GA4 DebugView 通过 `?debug_mode=1` 验证事件流，已看到 `organic_landing_view`、`analysis_form_started`、`cta_clicked`、`analyze_started` 和 `analyze_completed`；不把这次内部测试计入真实增长结论。
 - 已验证 `npm run typecheck`、`npm run build`、`npm run open:build` 和 `git diff --check`；当前未把 GA4 DebugView、GSC 新曝光或 Cloudflare 访问质量标记为已确认。
 
 ## 2026-09-11 整站审核问题修复

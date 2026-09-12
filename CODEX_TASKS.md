@@ -6,7 +6,7 @@
 - [x] 增加 `analysis_form_started`、`qualified_session`、`organic_landing_view`，保留会话去重和无 PII 边界
 - [x] 将搜索需求入口 `/why-websites-dont-convert` 接入页面、Sitemap、llms 文件与站内链接
 - [x] 用生产模式 Chromium QA 验证 26 个公开页面、事件形成和分析→报告闭环，0 findings
-- [ ] 在 GA4 DebugView 用 `?debug_mode=1` 做一次内部测试，随后观察真实漏斗事件
+- [x] 在 GA4 DebugView 用 `?debug_mode=1` 做内部测试，已收到落地、表单开始、CTA、分析开始和分析完成事件
 - [ ] 观察 Cloudflare 的路径与状态码分布，区分爬虫/缓存/错误请求，不能把 unique visitors 当真人用户
 - [ ] 等待 7–14 天复核 GSC 新入口的展示、查询和 CTR，再决定是否继续扩展搜索页面
 

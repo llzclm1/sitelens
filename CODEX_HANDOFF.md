@@ -7,7 +7,7 @@
 - 漏斗补齐 `analysis_form_started`，并把首页、分析提交、报告查看、邮箱、结账、支付和深度报告解锁统一纳入客户端 GA4 与服务端 D1 事件计划；不采集邮箱、完整 URL 或支付敏感信息。
 - 新增 `/why-websites-dont-convert` 需求入口，解释定位、信任、行动三类常见转化缺口，并加入 Sitemap、llms 文件和 Website Review 内链；保持人写内容与小范围验证，不批量生成薄页面。
 - 本地生产模式 Chromium QA 已通过：26 个公开页面、首页表单事件与分析→报告流程，`findingCount=0`；有 2 条 `networkidle` 超时提示，来自页面检查等待，不是 console/pageerror 或同源请求错误。
-- 本轮代码已通过类型检查、Next 构建、OpenNext Cloudflare 构建和 diff 检查。外部待观察仍是：真实用户质量、GA4 DebugView 中的事件、GSC 新查询/展示，以及 Cloudflare 访问与状态码分布；部署或收录本身不等于流量或转化结果。
+- 本轮代码已通过类型检查、Next 构建、OpenNext Cloudflare 构建和 diff 检查。线上 GA4 DebugView 已收到带 `debug_mode=1` 的落地、表单开始、CTA、分析开始和分析完成事件；外部待观察仍是：真实用户质量、GA4 正式报表样本、GSC 新查询/展示，以及 Cloudflare 访问与状态码分布。部署或收录本身不等于流量或转化结果。
 
 ## 2026-09-11 整站审核修复
 
