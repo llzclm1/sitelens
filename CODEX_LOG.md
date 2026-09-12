@@ -4,8 +4,9 @@
 
 - 针对“流量质量未确认、漏斗事件未形成、搜索需求尚未建立”补齐最小闭环：GA4 事件增加落地页、UTM、搜索来源和获客渠道上下文。
 - 新增首屏表单开始、15 秒带互动会话和搜索落地事件；质量事件只作为方向性信号，不伪装成真人验证，不记录邮箱或完整 URL。
+- 将 `qualified_session` 改为首次有效互动后的 15 秒计时，不因标签页切换而漏记，并保留会话去重。
 - 新增 `/why-websites-dont-convert`，围绕定位、信任、行动三类缺口提供可执行内容，并接入 Sitemap、llms 文件和 Website Review 内链。
-- 修正 QA 对 gtag `arguments` 队列项的识别，生产模式浏览器 QA 通过 26 个公开页面和关键交互，0 findings、0 warnings（单页 networkidle 超时提示已不影响检查）。
+- 修正 QA 对 gtag `arguments` 队列项的识别，生产模式浏览器 QA 通过 26 个公开页面和关键交互，0 findings；2 条 networkidle 超时提示不影响检查，未发现 console/pageerror 或同源请求错误。
 - 已验证 `npm run typecheck`、`npm run build`、`npm run open:build` 和 `git diff --check`；当前未把 GA4 DebugView、GSC 新曝光或 Cloudflare 访问质量标记为已确认。
 
 ## 2026-09-11 整站审核问题修复

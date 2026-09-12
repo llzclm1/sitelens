@@ -52,7 +52,7 @@ export default function SiteAnalytics() {
     }
 
     function maybeTrackQualifiedSession() {
-      if (qualifiedSessionSent || !firstInteractionAt || document.visibilityState !== "visible") return;
+      if (qualifiedSessionSent || !firstInteractionAt) return;
       if (Date.now() - firstInteractionAt < 15000) return;
       qualifiedSessionSent = true;
       writeSessionMarker("sitelens:qualified-session");
