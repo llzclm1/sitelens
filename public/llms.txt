@@ -28,6 +28,7 @@
 - [SaaS website analysis](https://sitelens.win/saas-website-analysis): a focused guide to SaaS positioning, proof, and product outcome.
 - [Website conversion check](https://sitelens.win/website-conversion-check): a focused guide to CTA and conversion-path review.
 - [Why SaaS websites don't convert](https://sitelens.win/why-saas-websites-dont-convert): common homepage gaps in category clarity, proof, and action.
+- [Why websites don't convert](https://sitelens.win/why-websites-dont-convert): a broad review of positioning, trust, and action gaps before adding more traffic.
 - [Homepage value proposition examples](https://sitelens.win/homepage-value-proposition-examples): how to make the customer, problem, outcome, and proof visible.
 - [SaaS homepage audit](https://sitelens.win/saas-homepage-audit): a focused review of SaaS positioning, proof, and CTA fit.
 - [AI website audit vs SEO checker](https://sitelens.win/ai-website-audit-vs-seo-checker): the difference between search signals and visitor decision friction.

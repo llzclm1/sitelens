@@ -14,6 +14,7 @@ const pages: Array<{ path: string; lastModified: string }> = [
   { path: "/saas-website-analysis", lastModified: editorialUpdated },
   { path: "/website-conversion-check", lastModified: editorialUpdated },
   { path: "/why-saas-websites-dont-convert", lastModified: editorialUpdated },
+  { path: "/why-websites-dont-convert", lastModified: editorialUpdated },
   { path: "/homepage-value-proposition-examples", lastModified: editorialUpdated },
   { path: "/saas-homepage-audit", lastModified: editorialUpdated },
   { path: "/ai-website-audit-vs-seo-checker", lastModified: editorialUpdated },

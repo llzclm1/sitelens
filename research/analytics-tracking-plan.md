@@ -11,14 +11,17 @@
 - 增强型衡量：已开启
 - 全站 CTA：由根布局监听 `.nav-cta`、`.text-link` 和报告付款按钮
 - 自定义事件：统一附带当前 `page_path`，便于按页面定位漏斗断点
+- 客户端上下文：自定义事件附带经过白名单过滤的 UTM、首个落地路径、搜索来源类别和 acquisition channel；不保存完整来源 URL
 - 隐私边界：不发送邮箱、完整 URL、报告 ID、支付凭证或卡信息
 - 服务端事实层：D1 `analytics_events` 记录分析、报告交付、邮箱意向、Checkout 和支付解锁，不保存邮箱或完整 URL
+- 质量信号边界：`qualified_session` 只是“页面可见 + 有交互 + 约 15 秒”的方向性信号，不代表已确认的人类用户
 
 ## 漏斗事件
 
 | 事件 | 触发条件 | 参数 | 用途 | 转化建议 |
 | --- | --- | --- | --- | --- |
 | `analyze_started` | 首页分析表单提交 | `page_path` | 衡量提交意图 | 可选 |
+| `analysis_form_started` | 用户首次聚焦分析表单字段 | `field_name`, `page_path` | 衡量表单开始率与提交前流失 | 不标记 |
 | `analyze_cancelled` | 用户在分析等待过程中点击 `Stop waiting` | `page_path` | 区分用户主动停止与请求失败 | 不标记 |
 | `analyze_completed` | `/api/analyze` 成功返回报告 | `analysis_mode`, `page_path` | 衡量免费报告完成 | 标记 |
 | `analyze_failed` | `/api/analyze` 返回错误或网络失败 | `status_code`, `page_path` | 定位分析链路失败 | 不标记 |
@@ -30,6 +33,8 @@
 | `payment_failed` | 用户返回报告页，轮询确认付款失败 | `value`, `currency`, `page_path` | 区分付款失败与回访缺失 | 不标记 |
 | `deep_report_unlocked` | 报告页收到深度报告 | `value`, `currency`, `page_path` | 衡量付费交付完成 | 标记为核心转化 |
 | `cta_clicked` | 全站主要 CTA 或报告付款按钮被点击 | `cta_type`, `destination`, `page_path` | 比较首页、内容页和价格页的引导效率 | 不必标记 |
+| `qualified_session` | 页面可见且发生交互后持续约 15 秒 | `engagement_seconds`, `interaction_count`, `page_path` | 作为 Cloudflare 请求之外的方向性质量信号 | 不标记 |
+| `organic_landing_view` | 从搜索来源或 `utm_medium=organic` 首次进入会话 | `search_engine`, `page_path` | 衡量搜索落地，而不是把请求量当搜索用户 | 不标记 |
 
 ## GA4 Admin 配置
 
@@ -51,6 +56,7 @@
 6. 用一个不可访问的网站或临时关闭 Checkout 配置，确认失败流程出现 `analyze_failed` 或 `checkout_failed`，并检查 `status_code`。
 7. 仅在允许的支付环境中完成一次付款回归，确认 `payment_confirmed` 和 `deep_report_unlocked`；失败订单应出现 `payment_failed`。
 8. 在 Realtime 报告确认事件用户数与 DebugView 一致。
+9. 使用带 `?debug_mode=1` 的测试链接时，在 DebugView 验证事件参数；测试事件不得写入业务转化结论。
 
 ## 解释边界
 
@@ -59,3 +65,10 @@
 当前 D1 服务端事实事件会记录 `payment_confirmed` 和 `deep_report_unlocked`，因此即使用户没有回到 SiteLens，产品侧仍可从 D1 统计已确认的订单与报告交付。GA4 仍保留客户端事件，用于用户路径和来源分析。
 
 当前没有采集邮箱或完整 URL，因此不需要为漏斗事件创建自定义用户维度。UTM 参数由 GA4 自动识别，后续发布 X 或 SEO 链接时统一使用 `utm_source`、`utm_medium`、`utm_campaign`。
+
+## 本轮质量与搜索实验
+
+- `analysis_form_started` 用来区分“进入页面但没有开始填写”和“填写后没有提交”。
+- `qualified_session` 只在可见页面发生交互并持续约 15 秒后发送，帮助将 Cloudflare 的请求/独立访客数据与可观察的页面参与信号对照；它不是机器人识别，也不是唯一用户证明。
+- `organic_landing_view` 用于识别搜索或明确标记为 organic 的落地。当前只新增一个广泛意图页面 `/why-websites-dont-convert` 作为搜索需求实验，不批量生成同义页面。
+- 查询实验的成功标准是：出现非品牌查询、产生自然搜索落地、并至少有一部分落地访问进入 `analysis_form_started` 或 `analyze_started`，而不是只看收录数量。

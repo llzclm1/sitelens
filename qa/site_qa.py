@@ -28,6 +28,7 @@ PUBLIC_PATHS = [
     "/saas-website-analysis",
     "/website-conversion-check",
     "/why-saas-websites-dont-convert",
+    "/why-websites-dont-convert",
     "/homepage-value-proposition-examples",
     "/saas-homepage-audit",
     "/ai-website-audit-vs-seo-checker",
@@ -153,8 +154,19 @@ class SiteQA:
         page = browser.new_page(viewport={"width": 1440, "height": 900}, device_scale_factor=1)
         self.attach_browser_listeners(page, "interaction")
         try:
-            page.goto(self.base_url, wait_until="domcontentloaded", timeout=15000)
+            page.goto(f"{self.base_url}/?debug_mode=1", wait_until="domcontentloaded", timeout=15000)
             self.wait_for_ready(page)
+
+            page.locator("#url").focus()
+            page.wait_for_timeout(16000)
+            event_names = page.evaluate(
+                """() => (window.dataLayer || [])
+                    .filter((entry) => entry && entry[0] === 'event')
+                    .map((entry) => entry[1])""",
+            )
+            for expected_event in ("analysis_form_started", "qualified_session"):
+                if expected_event not in event_names:
+                    self.fail("analytics", f"missing client event: {expected_event}", "/")
 
             page.locator("#url").fill("https://sitelens.win")
             page.locator("#product").fill("turn support tickets into searchable docs")
