@@ -9,6 +9,12 @@
 - 验证通过：`npm run typecheck`、`npm run build`、`npm run open:build`、`npm run security:review`（8/8）、`npm run security:supply-chain`、`git diff --check`，以及本地 Chromium QA 26 页面、0 findings、2 条既有 networkidle warning。
 - 本轮代码已提交为 `e449711` 并推送 `main`；Cloudflare Worker `8d4aae77-7cf3-4589-a589-8837ecaeb6de` 发布成功。内置浏览器和只读 HTTP 检查确认首页问题入口、短答案、官方参考、robots、Sitemap 和 llms 文件已在线生效。GSC、AI 引用、外部提及和真实付款仍是账号侧/外部证据，不在本轮代码中虚构完成。
 
+## 2026-09-15 GSC 账号侧收口
+
+- 近 7 天（2026-09-06 至 2026-09-12）效果：0 点击、7 展示、CTR 0%、平均排名 23.4；唯一查询为 `why b2b saas websites dont convert`，目前没有点击。
+- URL Inspection：`/`、`/ai-website-audit`、`/teardowns` 已收录；`/ai-website-audit-vs-seo-checker` 尚未收录，但已成功请求优先抓取，Google 提示后续异步处理。
+- 已重新提交 `sitemap.xml`，界面确认提交成功；提交后列表仍暂显示“无法抓取/已发现 0 个网页”，等待 Google 重新读取，不将其误报为已修复。
+
 ## 2026-09-15
 
 - 根据 GEO 增量目标，在首页增加 4 个“从问题开始”的内容入口，复用已有高意图页面：网站为什么流失访客、SaaS 首页是否清晰、AI 审计与 SEO Checker 的区别、Landing Page 下一步决策。

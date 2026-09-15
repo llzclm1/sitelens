@@ -8,7 +8,8 @@
 - robots 现在明确允许 `OAI-SearchBot` 和 `anthropic-ai`，公开内容仍允许抓取，`/api/` 仍禁止；首页 WebPage、意图页 WebPage、Sitemap、`llms.txt` 和 `llms-full.txt` 已同步当前复核日期。
 - 本地已通过 `npm run typecheck`、`npm run build`、`npm run open:build`、`npm run security:review`（8/8）、`npm run security:supply-chain`、`git diff --check` 和 Chromium QA（26 页面，0 findings，2 条既有 networkidle warning）。
 - 本轮代码已提交为 `e449711`（`feat: improve SEO and GEO answer pathways`）并推送 `main`；Cloudflare Worker 版本 `8d4aae77-7cf3-4589-a589-8837ecaeb6de` 已发布。内置浏览器确认首页问题入口和核心意图页内容生效，只读 HTTP 检查确认 robots、Sitemap、llms 文件和更新时间生效。
-- 外部未完成项仍是 GSC URL Inspection/查询回流、AI 引用基线、真实外部提及/链接和真实 `$29` 付款证据；不以部署、sitemap 提交或内部测试替代这些证据。
+- GSC 账号侧已完成首页、`/ai-website-audit`、`/teardowns` 和核心对比页 URL Inspection：前三者已收录，核心对比页已成功加入优先抓取队列；近 7 天（2026-09-06 至 2026-09-12）为 0 点击、7 展示、CTR 0%、平均排名 23.4。Sitemap 于 2026-09-15 重新提交成功，但界面仍暂显示“无法抓取/已发现 0 个网页”，属于 Google 异步状态，不能标记为已修复。
+- 外部未完成项仍是 GSC 新数据回流、AI 引用基线、真实外部提及/链接和真实 `$29` 付款证据；不以部署、sitemap 提交或内部测试替代这些证据。
 
 ## 2026-09-15 GEO 增量：首页问题导航
 

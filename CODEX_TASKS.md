@@ -8,7 +8,8 @@
 - [x] robots 增加 `OAI-SearchBot` 与 `anthropic-ai`，继续允许公开内容、禁止 `/api/`；Sitemap 和 `llms` 文件同步当前复核日期。
 - [x] 通过类型检查、Next 生产构建、OpenNext 构建、源码安全审计、供应链审计和 26 页面 Chromium QA；0 findings，2 条既有 networkidle warning。
 - [x] Cloudflare 重新发布并线上核验本轮短答案、内链、robots 和结构化数据；Worker 版本 `8d4aae77-7cf3-4589-a589-8837ecaeb6de`，首页、核心意图页、robots、Sitemap 和 llms 文件均已返回预期内容。
-- [ ] 在 GSC 做首页、核心意图页和 Teardown 的 URL Inspection，记录实际索引/规范 URL/最后抓取；等待搜索查询与 CTR 回流。
+- [x] 在 GSC 完成首页、`/ai-website-audit`、`/teardowns` 和核心对比页的 URL Inspection：首页、`/ai-website-audit`、`/teardowns` 已收录；核心对比页已提交优先抓取，Google 仍在异步处理。
+- [ ] GSC 近 7 天（2026-09-06 至 2026-09-12）为 0 点击、7 展示、CTR 0%、平均排名 23.4；Sitemap 已于 2026-09-15 重新提交，但界面暂显示“无法抓取/已发现 0 个网页”，等待 Google 刷新。
 - [ ] 用 10–20 个目标问题记录 Google AI、ChatGPT、Perplexity、Gemini 的引用基线；外部发帖、获链和真实用户/付款仍需账号侧或用户授权。
 
 ## 2026-09-15 GEO 增量：首页问题导航
