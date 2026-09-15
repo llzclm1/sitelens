@@ -4,6 +4,7 @@
 
 - 修复 `SeoIntentPage` 的 H1 显式空格，避免服务端渲染后的词语粘连。
 - 在 `/why-websites-dont-convert` 增加基于 Stripe 公开 Teardown 的具体示例，包含可核对的页面判断、来源、复核日期和完整案例链接。
+- 为 `/teardowns` 增加 `CollectionPage` / `ItemList` JSON-LD，并把 Stripe 卡片的复核日期补齐；同步将转化诊断页 Sitemap 更新时间改为 `2026-09-13`。
 - 为示例增加单独的证据区块样式，保持原有页面结构，只增加可验证内容和必要的视觉层级。
 - 通过类型检查、Next 构建、OpenNext 构建、源码安全审计、供应链审计、`npm audit` 和本地 Chromium QA（26 页面，0 findings、0 warnings）。
 - 发布 Cloudflare Worker `016bd031-32ff-4bb6-988a-6bb5ca0103b6`；线上读取 H1 和证据区块确认生效。

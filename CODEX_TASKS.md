@@ -4,6 +4,8 @@
 
 - [x] 修复共享 SEO 意图页 H1 缺少空格的问题
 - [x] 为 `/why-websites-dont-convert` 增加带来源和日期的 Stripe 具体证据示例
+- [x] 为 Teardown 索引增加 `CollectionPage` / `ItemList` 结构化数据并补齐 Stripe 复核日期
+- [x] 更新 `/why-websites-dont-convert` 的 Sitemap `lastModified`
 - [x] 完成类型检查、生产构建、OpenNext 构建、安全审计和 26 页面 Chromium QA
 - [x] 发布 Cloudflare 并线上复核关键文本和证据链接
 - [ ] 等待 7–14 天后复核 GSC 查询、展示、点击和 CTR

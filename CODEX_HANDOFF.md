@@ -4,6 +4,7 @@
 
 - 修复共享 SEO 意图页 H1 的显式空格，`/why-websites-dont-convert` 和 `/ai-website-audit-vs-seo-checker` 不再把两个词连在一起。
 - 为 `/why-websites-dont-convert` 增加一个基于现有 Stripe 公开 Teardown 的具体证据示例，标注来源与复核日期，并链接到完整案例；没有声称转化提升或真实实验结果。
+- 公开 Teardown 索引补充 `CollectionPage` / `ItemList` 结构化数据，并将 Stripe 卡片补齐复核日期；`/why-websites-dont-convert` 的 Sitemap `lastModified` 已更新为 `2026-09-13`。
 - 已完成类型检查、Next 生产构建、OpenNext Cloudflare 构建、源码安全审计、供应链审计、生产依赖审计和 26 页面 Chromium QA；结果为 0 findings、0 warnings、0 vulnerabilities。
 - 已发布 Cloudflare Worker 版本 `016bd031-32ff-4bb6-988a-6bb5ca0103b6`，线上读取 H1 文本确认空格存在，具体证据区块和 Stripe 链接均可见。
 - 搜索需求仍是观察项：不以部署、收录请求或内部测试代替 GSC 展示、查询和点击证据，继续等待 7–14 天数据回流。

@@ -4,6 +4,7 @@ const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://sitelens.win").rep
 
 const homepageUpdated = "2026-09-11";
 const editorialUpdated = "2026-09-07";
+const conversionGuideUpdated = "2026-09-13";
 const legalUpdated = "2026-09-11";
 
 const pages: Array<{ path: string; lastModified: string }> = [
@@ -14,7 +15,7 @@ const pages: Array<{ path: string; lastModified: string }> = [
   { path: "/saas-website-analysis", lastModified: editorialUpdated },
   { path: "/website-conversion-check", lastModified: editorialUpdated },
   { path: "/why-saas-websites-dont-convert", lastModified: editorialUpdated },
-  { path: "/why-websites-dont-convert", lastModified: editorialUpdated },
+  { path: "/why-websites-dont-convert", lastModified: conversionGuideUpdated },
   { path: "/homepage-value-proposition-examples", lastModified: editorialUpdated },
   { path: "/saas-homepage-audit", lastModified: editorialUpdated },
   { path: "/ai-website-audit-vs-seo-checker", lastModified: editorialUpdated },

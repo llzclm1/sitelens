@@ -12,7 +12,7 @@ const teardownCards = [
     label: "01 / PUBLIC CASE",
     title: "Stripe homepage",
     description: "A qualitative read of positioning, clarity, trust signals, and the next decision a visitor has to make.",
-    meta: "Source: stripe.com · qualitative review",
+    meta: "Source: stripe.com · reviewed 2026-08-10",
     href: "/teardowns/stripe",
     linkLabel: "Read the full teardown",
   },
@@ -74,9 +74,40 @@ const teardownCards = [
   },
 ];
 
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://sitelens.win").replace(/\/$/, "");
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": `${siteUrl}/teardowns#collection`,
+      url: `${siteUrl}/teardowns`,
+      name: "Public Teardowns",
+      description: "Public SiteLens website reviews that show the page evidence behind each recommendation.",
+      isPartOf: { "@id": `${siteUrl}/#website` },
+      inLanguage: "en",
+    },
+    {
+      "@type": "ItemList",
+      "@id": `${siteUrl}/teardowns#itemlist`,
+      name: "SiteLens public teardown library",
+      numberOfItems: teardownCards.length,
+      itemListElement: teardownCards.map((card, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: card.title,
+        url: `${siteUrl}${card.href}`,
+      })),
+    },
+  ],
+};
+
 export default function TeardownsPage() {
   return (
     <main className="teardown-page">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+
       <nav className="topbar shell" aria-label="Primary navigation">
         <Link className="wordmark" href="/" aria-label="SiteLens home"><span className="wordmark-mark">S</span><span>SiteLens</span></Link>
         <Link className="nav-cta" href="/">Analyze a site <span aria-hidden="true">↗</span></Link>
