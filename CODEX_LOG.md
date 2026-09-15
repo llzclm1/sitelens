@@ -7,7 +7,7 @@
 - 在 AI Audit vs SEO Checker 页面加入 Google 与 OpenAI 官方参考链接，并保留无特殊 GEO 文件/标签即可获得 Google AI 可见性的边界说明。
 - robots 新增 `OAI-SearchBot` 与 `anthropic-ai`；Sitemap 仅更新实际改动页面的 `lastModified`；`llms.txt` 与 `llms-full.txt` 标记 `2026-09-15` 复核日期。
 - 验证通过：`npm run typecheck`、`npm run build`、`npm run open:build`、`npm run security:review`（8/8）、`npm run security:supply-chain`、`git diff --check`，以及本地 Chromium QA 26 页面、0 findings、2 条既有 networkidle warning。
-- 本轮暂未提交、推送或发布；Cloudflare 需在提交后重试并用线上 HTML 单独验收。GSC、AI 引用、外部提及和真实付款仍是账号侧/外部证据，不在本轮代码中虚构完成。
+- 本轮代码已提交为 `e449711` 并推送 `main`；Cloudflare Worker `8d4aae77-7cf3-4589-a589-8837ecaeb6de` 发布成功。内置浏览器和只读 HTTP 检查确认首页问题入口、短答案、官方参考、robots、Sitemap 和 llms 文件已在线生效。GSC、AI 引用、外部提及和真实付款仍是账号侧/外部证据，不在本轮代码中虚构完成。
 
 ## 2026-09-15
 

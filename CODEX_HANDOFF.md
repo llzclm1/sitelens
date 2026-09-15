@@ -7,7 +7,7 @@
 - `/ai-website-audit-vs-seo-checker` 增加 Google AI Search、Google 生成式 AI 指南和 OpenAI Publisher FAQ 的可见参考链接，帮助页面表达 SEO/GEO 的证据边界。
 - robots 现在明确允许 `OAI-SearchBot` 和 `anthropic-ai`，公开内容仍允许抓取，`/api/` 仍禁止；首页 WebPage、意图页 WebPage、Sitemap、`llms.txt` 和 `llms-full.txt` 已同步当前复核日期。
 - 本地已通过 `npm run typecheck`、`npm run build`、`npm run open:build`、`npm run security:review`（8/8）、`npm run security:supply-chain`、`git diff --check` 和 Chromium QA（26 页面，0 findings，2 条既有 networkidle warning）。
-- 当前代码改动尚未提交/发布；上轮 Cloudflare 发布曾在静态资源上传后无 Worker 回执，线上版本不能提前视为包含本轮改动。下一步先提交推送，再重试并独立核验线上 HTML、robots、Sitemap 和结构化数据。
+- 本轮代码已提交为 `e449711`（`feat: improve SEO and GEO answer pathways`）并推送 `main`；Cloudflare Worker 版本 `8d4aae77-7cf3-4589-a589-8837ecaeb6de` 已发布。内置浏览器确认首页问题入口和核心意图页内容生效，只读 HTTP 检查确认 robots、Sitemap、llms 文件和更新时间生效。
 - 外部未完成项仍是 GSC URL Inspection/查询回流、AI 引用基线、真实外部提及/链接和真实 `$29` 付款证据；不以部署、sitemap 提交或内部测试替代这些证据。
 
 ## 2026-09-15 GEO 增量：首页问题导航

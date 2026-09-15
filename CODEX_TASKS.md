@@ -7,7 +7,7 @@
 - [x] 为 AI Audit vs SEO Checker 页面增加 Google 与 OpenAI 官方参考链接，保留“无特殊 GEO 魔法、以基础 SEO 和原创内容为主”的边界。
 - [x] robots 增加 `OAI-SearchBot` 与 `anthropic-ai`，继续允许公开内容、禁止 `/api/`；Sitemap 和 `llms` 文件同步当前复核日期。
 - [x] 通过类型检查、Next 生产构建、OpenNext 构建、源码安全审计、供应链审计和 26 页面 Chromium QA；0 findings，2 条既有 networkidle warning。
-- [ ] Cloudflare 重新发布并线上核验本轮短答案、内链、robots 和结构化数据；上轮发布通道曾在静态资源上传后无 Worker 回执。
+- [x] Cloudflare 重新发布并线上核验本轮短答案、内链、robots 和结构化数据；Worker 版本 `8d4aae77-7cf3-4589-a589-8837ecaeb6de`，首页、核心意图页、robots、Sitemap 和 llms 文件均已返回预期内容。
 - [ ] 在 GSC 做首页、核心意图页和 Teardown 的 URL Inspection，记录实际索引/规范 URL/最后抓取；等待搜索查询与 CTR 回流。
 - [ ] 用 10–20 个目标问题记录 Google AI、ChatGPT、Perplexity、Gemini 的引用基线；外部发帖、获链和真实用户/付款仍需账号侧或用户授权。
 
