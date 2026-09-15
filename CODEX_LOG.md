@@ -6,7 +6,7 @@
 - 增加首页 `ItemList` JSON-LD，让搜索和 AI 抓取器能从同一入口理解这些页面分别回答什么问题；没有新增无法验证的效果、客户案例或页面数量承诺。
 - 新增区域使用独立的响应式布局，桌面为 2×2，移动端为单列；不改变分析接口、支付、GA4 事件或 D1 数据结构。
 - `git diff --check`、`npm run typecheck`、`npm run build`、`npm run open:build` 通过；本地 Chromium QA 检查 26 个公开页面和关键流程，0 findings，2 条 `networkidle` warning。
-- 本轮没有自动发布 Cloudflare；等待发布后再做线上结构化数据与移动端复核，并继续观察 GSC 数据周期。
+- GitHub 已推送 `00a5b53`；Cloudflare 发布尝试上传 3 个静态资源后未返回 Worker 版本，命令已停止，线上部署列表仍显示旧版本 `4f882edf-fb19-4c80-9c86-9bc19157ede8`。本轮改动尚未线上生效，待网络/发布通道恢复后重试并独立复核首页结构化数据与移动端布局。
 
 ## 2026-09-13
 
