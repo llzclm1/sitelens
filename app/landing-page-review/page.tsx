@@ -15,6 +15,7 @@ export default function LandingPageReviewPage() {
     emphasis: "decision.",
     description: "A landing page review that explains the first visitor question, the next step, and the page evidence behind each recommendation.",
     intro: "A landing page can look polished and still leave the buying decision unclear. SiteLens reviews the page in the order a new visitor experiences it.",
+    answer: "A landing page review should follow the visitor from the incoming promise to the next action. Start with whether the first screen explains the offer, then check message match, trust evidence, CTA clarity, and the smallest useful change to test.",
     checks: [
       { label: "01 / FIRST SCREEN", title: "Can visitors name the offer?", copy: "The review checks whether the headline and opening copy explain the product, audience, and expected outcome without decoding a slogan." },
       { label: "02 / CONVERSION PATH", title: "Is the next step visible?", copy: "The audit follows the page from the hero to the primary CTA and identifies where the action becomes late, vague, or split across too many choices." },

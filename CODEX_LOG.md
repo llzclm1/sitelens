@@ -2,6 +2,15 @@
 
 ## 2026-09-15
 
+- 按 SEO/GEO 增量方案，给 11 个意图页加入独立短答案区块、复核日期和 `WebPage.dateModified`，提高首段可引用性并明确内容新鲜度。
+- 在共享意图页组件中补默认内链，覆盖 Website Review、公开 Teardowns 和免费分析入口；有定制内链的页面不重复追加。
+- 在 AI Audit vs SEO Checker 页面加入 Google 与 OpenAI 官方参考链接，并保留无特殊 GEO 文件/标签即可获得 Google AI 可见性的边界说明。
+- robots 新增 `OAI-SearchBot` 与 `anthropic-ai`；Sitemap 仅更新实际改动页面的 `lastModified`；`llms.txt` 与 `llms-full.txt` 标记 `2026-09-15` 复核日期。
+- 验证通过：`npm run typecheck`、`npm run build`、`npm run open:build`、`npm run security:review`（8/8）、`npm run security:supply-chain`、`git diff --check`，以及本地 Chromium QA 26 页面、0 findings、2 条既有 networkidle warning。
+- 本轮暂未提交、推送或发布；Cloudflare 需在提交后重试并用线上 HTML 单独验收。GSC、AI 引用、外部提及和真实付款仍是账号侧/外部证据，不在本轮代码中虚构完成。
+
+## 2026-09-15
+
 - 根据 GEO 增量目标，在首页增加 4 个“从问题开始”的内容入口，复用已有高意图页面：网站为什么流失访客、SaaS 首页是否清晰、AI 审计与 SEO Checker 的区别、Landing Page 下一步决策。
 - 增加首页 `ItemList` JSON-LD，让搜索和 AI 抓取器能从同一入口理解这些页面分别回答什么问题；没有新增无法验证的效果、客户案例或页面数量承诺。
 - 新增区域使用独立的响应式布局，桌面为 2×2，移动端为单列；不改变分析接口、支付、GA4 事件或 D1 数据结构。

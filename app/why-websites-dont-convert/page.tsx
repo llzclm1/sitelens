@@ -15,6 +15,7 @@ export default function WhyWebsitesDontConvertPage() {
     emphasis: "take action.",
     description: "Learn why websites lose visitors and how to find the first clarity, trust, or conversion problem worth fixing.",
     intro: "A website can have useful pages, a polished design, and steady requests while still leaving a new visitor unsure. The first review should find the missing decision, not add more traffic by default.",
+    answer: "Websites often lose potential customers when visitors cannot place the offer, verify the promise, or see a suitable next step. Diagnose those three gaps in order, using page evidence first and private analytics or experiments to confirm their actual conversion impact.",
     checks: [
       { label: "01 / POSITIONING GAP", title: "The visitor cannot place the offer.", copy: "A homepage needs to make the product, customer, and outcome recognizable. Broad claims and internal language force the visitor to do the positioning work." },
       { label: "02 / TRUST GAP", title: "The promise has nothing concrete behind it.", copy: "A visitor may understand the category and still hesitate when the page gives no customer context, workflow, example, or specific evidence near the decision." },

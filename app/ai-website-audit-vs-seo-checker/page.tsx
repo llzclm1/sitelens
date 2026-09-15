@@ -15,6 +15,7 @@ export default function AiWebsiteAuditVsSeoCheckerPage() {
     emphasis: "questions.",
     description: "Compare an AI website audit with an SEO checker and see when you need technical checks, visitor clarity, or both.",
     intro: "An SEO checker asks whether search engines can crawl and interpret a page. A growth-oriented website audit asks whether a person can understand the offer, trust it, and take the next step.",
+    answer: "An SEO checker and an AI-assisted website audit answer different questions. SEO checks focus on crawlability, metadata, structure, and discoverability; a growth review focuses on offer clarity, trust, and the next visitor decision. Use both when traffic and conversion are separate problems.",
     checks: [
       { label: "01 / SEO CHECKER", title: "Find technical and search signals.", copy: "Title tags, descriptions, headings, links, schema, indexability, and performance are useful checks. They can explain discoverability problems, but not every conversion problem." },
       { label: "02 / AI AUDIT", title: "Find decision friction in the page.", copy: "An AI-assisted review reads the offer, audience, proof, CTA, and page sequence. It should point to the visible wording or structure behind each recommendation." },
@@ -30,6 +31,11 @@ export default function AiWebsiteAuditVsSeoCheckerPage() {
       { label: "METHOD / AI AUDIT", title: "See the page-evidence method", copy: "SiteLens keeps the AI in the analysis layer and shows the evidence behind the business recommendation.", href: "/ai-website-audit", linkLabel: "Read the AI audit guide" },
       { label: "PUBLIC CASE / WEBFLOW", title: "See SEO and conversion meet", copy: "The Webflow teardown shows how a homepage can speak to publishing, traffic, AI visibility, and conversion without making those jobs identical.", href: "/teardowns/webflow", linkLabel: "Read the Webflow teardown" },
       { label: "NEXT STEP / FREE REVIEW", title: "Check the page visitors see", copy: "Get a qualitative review of the public homepage before buying more traffic.", href: "/#analyze", linkLabel: "Review a site" },
+    ],
+    sources: [
+      { label: "Google: AI features and your website", href: "https://developers.google.com/search/docs/appearance/ai-features", note: "Google says the same SEO fundamentals support AI Overviews and AI Mode, including crawlability, helpful content, internal links, and structured data that matches visible text." },
+      { label: "Google: Generative AI features optimization", href: "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide", note: "Google recommends original, well-organized content and warns against creating pages for every AI query variation or mass-producing low-value pages." },
+      { label: "OpenAI: Publishers and Developers FAQ", href: "https://help.openai.com/en/articles/12627856", note: "OpenAI documents OAI-SearchBot as the crawler used to discover and cite web content in ChatGPT search." },
     ],
   }} />;
 }

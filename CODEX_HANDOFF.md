@@ -1,5 +1,15 @@
 # Codex 交接说明
 
+## 2026-09-15 SEO/GEO 增量：答案、证据与抓取入口
+
+- 11 个可索引意图页现在都有独立的 `SHORT ANSWER` 区块、页面复核日期和 `WebPage.dateModified`；答案围绕页面可观察证据、访客决策和测量边界撰写，没有新增效果承诺。
+- 共享 `SeoIntentPage` 为缺少专属入口的页面补上默认内链；已有 `relatedLinks` 的页面继续使用其专属案例/方法/分析入口。
+- `/ai-website-audit-vs-seo-checker` 增加 Google AI Search、Google 生成式 AI 指南和 OpenAI Publisher FAQ 的可见参考链接，帮助页面表达 SEO/GEO 的证据边界。
+- robots 现在明确允许 `OAI-SearchBot` 和 `anthropic-ai`，公开内容仍允许抓取，`/api/` 仍禁止；首页 WebPage、意图页 WebPage、Sitemap、`llms.txt` 和 `llms-full.txt` 已同步当前复核日期。
+- 本地已通过 `npm run typecheck`、`npm run build`、`npm run open:build`、`npm run security:review`（8/8）、`npm run security:supply-chain`、`git diff --check` 和 Chromium QA（26 页面，0 findings，2 条既有 networkidle warning）。
+- 当前代码改动尚未提交/发布；上轮 Cloudflare 发布曾在静态资源上传后无 Worker 回执，线上版本不能提前视为包含本轮改动。下一步先提交推送，再重试并独立核验线上 HTML、robots、Sitemap 和结构化数据。
+- 外部未完成项仍是 GSC URL Inspection/查询回流、AI 引用基线、真实外部提及/链接和真实 `$29` 付款证据；不以部署、sitemap 提交或内部测试替代这些证据。
+
 ## 2026-09-15 GEO 增量：首页问题导航
 
 - 首页新增 “Start with the question” 区域，使用 4 个用户问题连接到已有的转化诊断、SaaS 首页、AI Audit vs SEO Checker 和 Landing Page Review 页面；没有新增薄内容页或修改分析/支付逻辑。

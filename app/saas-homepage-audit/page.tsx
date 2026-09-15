@@ -15,6 +15,7 @@ export default function SaasHomepageAuditPage() {
     emphasis: "credible move.",
     description: "Run a focused SaaS homepage audit for product clarity, customer proof, CTA friction, and the next page change.",
     intro: "A SaaS homepage has to sell a decision before it sells a subscription. This audit checks the order of that decision: category, customer, outcome, proof, and action.",
+    answer: "A SaaS homepage audit checks whether a buyer can place the product, understand the outcome, verify the promise, and choose a CTA that matches their readiness. The best first change is the earliest unclear decision, not automatically more features or more traffic.",
     checks: [
       { label: "01 / POSITIONING", title: "Can a buyer place the product?", copy: "The audit reads the hero, navigation, and first product explanation together. It looks for a clear category and audience rather than isolated feature language." },
       { label: "02 / PROOF PATH", title: "Does the page answer the buyer's risk?", copy: "The review maps customer logos, case studies, product examples, and security or process details to the doubts they are meant to reduce." },

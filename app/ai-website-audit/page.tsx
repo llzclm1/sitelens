@@ -15,6 +15,7 @@ export default function AiWebsiteAuditPage() {
     emphasis: "homepage fix.",
     description: "Get a free, page-specific AI website audit for homepage positioning, trust, and CTA problems, with evidence and one practical next move.",
     intro: "A free AI website audit reads your public homepage as a first-time visitor would. SiteLens points to the visible evidence behind each finding, then gives you one practical change to make next.",
+    answer: "A useful AI website audit connects a visible page problem to the visitor decision it may slow down. It should identify the evidence, explain the likely business impact, and recommend a specific first change. It complements technical SEO checks and does not replace analytics or experiments.",
     checks: [
       { label: "01 / POSITIONING", title: "What does the page promise?", copy: "The audit identifies what the product appears to do, who it seems to serve, and where the value proposition remains too broad." },
       { label: "02 / PAGE EVIDENCE", title: "What can a visitor verify?", copy: "The review looks for concrete proof, customer context, outcomes, and other details that reduce uncertainty." },

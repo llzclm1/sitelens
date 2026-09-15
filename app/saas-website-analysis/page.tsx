@@ -15,6 +15,7 @@ export default function SaasWebsiteAnalysisPage() {
     emphasis: "first impression.",
     description: "A SaaS website analysis for clearer positioning, product understanding, proof, and conversion paths.",
     intro: "SaaS visitors need to understand the category, the problem, and the outcome before they are ready to start a trial. SiteLens checks those decisions in sequence.",
+    answer: "A SaaS website analysis should make four things easy to verify: what category the product belongs to, who it serves, what outcome it creates, and what supports the claim. The first fix is usually clearer positioning or proof, not another feature section.",
     checks: [
       { label: "01 / CATEGORY", title: "What kind of product is this?", copy: "The review tests whether a visitor can place the product quickly instead of relying on a broad claim or an internal product phrase." },
       { label: "02 / OUTCOME", title: "What changes after using it?", copy: "The analysis looks for a concrete result, workflow, or before-and-after moment that makes the product easier to evaluate." },

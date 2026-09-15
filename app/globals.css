@@ -204,6 +204,14 @@ h1 em, h2 em { color: var(--ink); font-family: inherit; font-style: italic; font
 .teardown-intro { max-width: 620px; margin: 0; color: var(--ink-soft); font-size: 17px; line-height: 1.6; }
 .teardown-source { display: flex; flex-wrap: wrap; gap: 16px 25px; margin-top: 27px; color: var(--ink-soft); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.04em; }
 .teardown-source a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.seo-quick-answer { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 72px; padding: 0 0 78px; }
+.seo-quick-answer-heading { align-self: start; padding-top: 17px; border-top: 2px solid var(--ink); }
+.seo-quick-answer-heading h2 { max-width: 430px; margin: 15px 0 0; font-size: clamp(36px, 4.5vw, 59px); letter-spacing: -0.09em; line-height: 0.96; }
+.seo-quick-answer-body { padding: 20px 0 0; border-top: 1px solid var(--ink); }
+.seo-quick-answer-body > p { max-width: 700px; margin: 0; color: var(--ink); font-size: 19px; letter-spacing: -0.025em; line-height: 1.45; }
+.seo-answer-meta { display: flex; flex-wrap: wrap; gap: 12px 25px; margin-top: 27px; color: var(--ink-soft); font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.08em; line-height: 1.5; }
+.source-notes { padding-top: 0; }
+.source-notes .faq-list a { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
 .teardown-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 72px; padding: 0 0 115px; }
 .teardown-sidebar { align-self: start; padding-top: 17px; border-top: 2px solid var(--ink); }
 .teardown-sidebar h2 { margin: 14px 0 17px; font-size: 28px; letter-spacing: -0.06em; }
@@ -276,7 +284,7 @@ h1 em, h2 em { color: var(--ink); font-family: inherit; font-style: italic; font
   .unlock-section { gap: 55px; }
   .framework-section { padding: 95px 0 100px; }
   .teardown-grid { padding-bottom: 90px; }
-  .review-answer, .review-faq { grid-template-columns: 1fr; gap: 35px; }
+  .review-answer, .review-faq, .seo-quick-answer { grid-template-columns: 1fr; gap: 35px; }
   .review-faq { padding-bottom: 90px; }
 }
 
@@ -331,6 +339,9 @@ h1 em, h2 em { color: var(--ink); font-family: inherit; font-style: italic; font
   .rewrite-block, .teardown-action-plan { grid-template-columns: 1fr; }
   .teardown-header { padding: 65px 0 55px; }
   .teardown-header h1 { font-size: clamp(49px, 14vw, 72px); }
+  .seo-quick-answer { padding-bottom: 60px; }
+  .seo-quick-answer-body { padding-top: 17px; }
+  .seo-quick-answer-body > p { font-size: 17px; }
   .teardown-grid { gap: 55px; }
   .teardown-findings { grid-template-columns: 1fr; }
   .teardown-finding, .teardown-finding:nth-child(even) { min-height: 0; padding: 17px 0 21px; border-left: 0; }

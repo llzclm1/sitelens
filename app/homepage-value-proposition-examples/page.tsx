@@ -15,6 +15,7 @@ export default function HomepageValuePropositionExamplesPage() {
     emphasis: "outcome visible.",
     description: "See what a useful homepage value proposition must explain, with examples for SaaS, services, and product teams.",
     intro: "A value proposition is not a slogan. It is the shortest explanation of who the product helps, what problem it solves, and what changes for the customer.",
+    answer: "A clear homepage value proposition names the customer, problem, outcome, and product category in language a first-time visitor can recognize. The headline can stay short, but the subhead and first proof block should make the promise concrete enough to evaluate.",
     checks: [
       { label: "01 / WHO", title: "Name the customer before the feature.", copy: "“For growing teams” is broad. “For support teams managing high-volume requests” gives the visitor a reason to keep reading and lets the rest of the page become more specific." },
       { label: "02 / OUTCOME", title: "Show the change, not the category alone.", copy: "“Intelligent workflow software” describes a category. “Route every invoice to the right approver without spreadsheet follow-up” describes a result a buyer can picture." },

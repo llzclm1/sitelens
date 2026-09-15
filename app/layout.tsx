@@ -70,6 +70,7 @@ const organizationSchema = {
       url: siteUrlString,
       name: "SiteLens | Evidence-based website reviews",
       description: "Find the first website change worth fixing with page-specific evidence.",
+      dateModified: "2026-09-15",
       isPartOf: { "@id": `${siteUrlString}/#website` },
       about: { "@id": `${siteUrlString}/#organization` },
       inLanguage: "en",

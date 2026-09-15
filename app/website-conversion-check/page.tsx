@@ -15,6 +15,7 @@ export default function WebsiteConversionCheckPage() {
     emphasis: "more traffic.",
     description: "A website conversion check for finding the first clarity, trust, or CTA problem worth fixing.",
     intro: "Before adding more traffic, check whether the page gives a new visitor a clear reason to stay, trust the offer, and take the next step.",
+    answer: "A website conversion check starts with visitor understanding, not button color. Review the first screen, offer clarity, trust evidence, CTA path, and decision load. Then choose one page change that can be measured with your own analytics or experiment.",
     checks: [
       { label: "01 / CLARITY", title: "Does the visitor know what to do?", copy: "The check looks at the first screen, headings, product description, and CTA language for avoidable ambiguity." },
       { label: "02 / FRICTION", title: "Where does the decision slow down?", copy: "The review follows the visible path and points to late, competing, or unsupported decisions that may make action harder." },

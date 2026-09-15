@@ -9,11 +9,19 @@ export type SeoIntentPageConfig = {
   emphasis: string;
   description: string;
   intro: string;
+  answer: string;
   checks: ReadonlyArray<{ label: string; title: string; copy: string }>;
   faq: ReadonlyArray<{ question: string; answer: string }>;
   evidenceExample?: { label: string; title: string; copy: string; source: string; href: string; linkLabel: string };
   relatedLinks?: ReadonlyArray<{ label: string; title: string; copy: string; href: string; linkLabel: string }>;
+  sources?: ReadonlyArray<{ label: string; href: string; note: string }>;
 };
+
+const defaultRelatedLinks = [
+  { label: "METHOD / WEBSITE REVIEW", title: "See the evidence boundary", copy: "Understand what a public-page review can show and what still needs analytics or experiments.", href: "/website-review", linkLabel: "Read the website review" },
+  { label: "PUBLIC CASE / TEARDOWNS", title: "Read a concrete example", copy: "See how a visible page detail becomes a specific interpretation and next move.", href: "/teardowns", linkLabel: "Browse public teardowns" },
+  { label: "NEXT STEP / FREE REVIEW", title: "Check your own homepage", copy: "Submit a public URL and get three findings tied to the page visitors can see.", href: "/#analyze", linkLabel: "Review your homepage" },
+] as const;
 
 export function SeoIntentPage({ config }: { config: SeoIntentPageConfig }) {
   const structuredData = {
@@ -25,6 +33,7 @@ export function SeoIntentPage({ config }: { config: SeoIntentPageConfig }) {
         url: `${siteUrl}/${config.slug}`,
         name: config.title,
         description: config.description,
+        dateModified: "2026-09-15",
         isPartOf: { "@id": `${siteUrl}/#website` },
         inLanguage: "en",
       },
@@ -66,6 +75,20 @@ export function SeoIntentPage({ config }: { config: SeoIntentPageConfig }) {
         <p className="teardown-intro">{config.intro}</p>
         <div className="teardown-source"><span>Free review: three page-specific findings</span><span>Deep Growth Report: $29 one time</span></div>
       </header>
+
+      <section className="seo-quick-answer shell" aria-labelledby={`${config.slug}-answer`}>
+        <div className="seo-quick-answer-heading">
+          <p className="eyebrow">SHORT ANSWER</p>
+          <h2 id={`${config.slug}-answer`}>Start with the decision, not the <em>checklist.</em></h2>
+        </div>
+        <div className="seo-quick-answer-body">
+          <p>{config.answer}</p>
+          <div className="seo-answer-meta">
+            <span>PUBLIC PAGE REVIEW</span>
+            <span>REVIEWED 2026-09-15</span>
+          </div>
+        </div>
+      </section>
 
       <section className="teardown-grid shell" aria-labelledby={`${config.slug}-checks`}>
         <aside className="teardown-sidebar">
@@ -117,9 +140,9 @@ export function SeoIntentPage({ config }: { config: SeoIntentPageConfig }) {
         </div>
       </section>
 
-      {config.relatedLinks ? (
+      {(config.relatedLinks ?? defaultRelatedLinks) ? (
         <section className="teardown-action-plan shell" aria-label="Related SiteLens pages">
-          {config.relatedLinks.map((item) => (
+          {(config.relatedLinks ?? defaultRelatedLinks).map((item) => (
             <article key={item.href}>
               <span>{item.label}</span>
               <h3>{item.title}</h3>
@@ -127,6 +150,23 @@ export function SeoIntentPage({ config }: { config: SeoIntentPageConfig }) {
               <Link className="text-link" href={item.href}>{item.linkLabel} <span aria-hidden="true">↗</span></Link>
             </article>
           ))}
+        </section>
+      ) : null}
+
+      {config.sources ? (
+        <section className="review-faq shell source-notes" aria-labelledby={`${config.slug}-sources`}>
+          <div>
+            <p className="eyebrow">REFERENCE NOTES</p>
+            <h2 id={`${config.slug}-sources`}>The external guidance behind this <em>distinction.</em></h2>
+          </div>
+          <div className="faq-list">
+            {config.sources.map((source) => (
+              <article key={source.href}>
+                <h3><a href={source.href} target="_blank" rel="noreferrer">{source.label} ↗</a></h3>
+                <p>{source.note}</p>
+              </article>
+            ))}
+          </div>
         </section>
       ) : null}
 

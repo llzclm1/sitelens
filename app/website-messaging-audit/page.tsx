@@ -15,6 +15,7 @@ export default function WebsiteMessagingAuditPage() {
     emphasis: "specific offer.",
     description: "Audit website messaging for audience clarity, concrete outcomes, proof, and CTA language that supports the next decision.",
     intro: "Messaging is the bridge between what a business knows about its product and what a new visitor can understand in a few seconds. This audit finds where that bridge breaks.",
+    answer: "A website messaging audit checks whether the page calls in the right customer, describes a concrete outcome, supports the claim with proof, and makes the CTA's next step clear. It is about message strategy, not just grammar or surface-level copy edits.",
     checks: [
       { label: "01 / AUDIENCE", title: "Does the language call in the right buyer?", copy: "The audit looks for an identifiable customer, situation, or job. A page can be accurate and still feel irrelevant when everyone is addressed at once." },
       { label: "02 / BENEFIT", title: "Can the visitor picture the result?", copy: "Concrete verbs, workflows, and outcomes make the offer easier to evaluate. Abstract claims create another explanation task for the buyer." },

@@ -15,6 +15,7 @@ export default function LandingPageConversionReviewPage() {
     emphasis: "better decision.",
     description: "Review a landing page for message clarity, CTA friction, trust evidence, and the first conversion improvement to test.",
     intro: "Conversion review is not a hunt for a magic button color. It is a check that the page answers the visitor's questions in the order they need before taking action.",
+    answer: "A landing page conversion review checks message match, decision load, trust evidence, and CTA fit in sequence. It can prioritize a plausible change, but only your analytics and controlled comparison can establish whether that change improves conversion.",
     checks: [
       { label: "01 / MESSAGE MATCH", title: "Does the page continue the promise?", copy: "A campaign or search click creates an expectation. The review checks whether the landing page repeats the relevant problem and outcome instead of making the visitor re-orient." },
       { label: "02 / DECISION LOAD", title: "How many choices compete?", copy: "Multiple products, audiences, and CTAs can make a page feel complete while making the next action uncertain. The review identifies the choice the page should prioritize." },

@@ -2,6 +2,8 @@
 
 > Extended, citation-safe context for describing SiteLens and its public website review pages.
 
+Last reviewed: 2026-09-15
+
 ## Product
 
 SiteLens is an AI-assisted website growth consultant for founders, indie hackers, small businesses, designers, and marketers. A user submits a public website URL, a short product description, and a target audience. SiteLens reads the public page and connects observable page details to a practical next move.
