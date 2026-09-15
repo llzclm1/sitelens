@@ -67,6 +67,48 @@ const capabilitySteps = [
   },
 ];
 
+const questionGuides = [
+  {
+    label: "IF YOU ARE NOT SURE WHAT IS WRONG",
+    question: "Why does my website lose visitors?",
+    copy: "Separate positioning, trust, and next-step gaps before you spend more on traffic.",
+    href: "/why-websites-dont-convert",
+  },
+  {
+    label: "IF YOU ARE RUNNING A SAAS",
+    question: "Is my SaaS homepage clear?",
+    copy: "Check category clarity, product outcome, proof, and the first workflow a visitor can choose.",
+    href: "/saas-homepage-audit",
+  },
+  {
+    label: "IF YOU ARE COMPARING AUDITS",
+    question: "Do I need an AI audit or an SEO checker?",
+    copy: "Decide whether the next issue is discoverability, visitor understanding, or both.",
+    href: "/ai-website-audit-vs-seo-checker",
+  },
+  {
+    label: "IF YOU ARE FIXING A LANDING PAGE",
+    question: "What should a visitor do next?",
+    copy: "Review the first screen, CTA path, and trust signals in the order a new visitor experiences them.",
+    href: "/landing-page-review",
+  },
+];
+
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://sitelens.win").replace(/\/$/, "");
+
+const questionGuideSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": `${siteUrl}/#question-guides`,
+  name: "SiteLens website growth question guides",
+  itemListElement: questionGuides.map((guide, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: guide.question,
+    url: `${siteUrl}${guide.href}`,
+  })),
+};
+
 export default function HomePage() {
   const router = useRouter();
   const [url, setUrl] = useState("");
@@ -135,6 +177,7 @@ export default function HomePage() {
 
   return (
     <main className="landing-page">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(questionGuideSchema) }} />
       <nav className="topbar shell" aria-label="Primary navigation">
         <a className="wordmark" href="/" aria-label="SiteLens home">
           <span className="wordmark-mark">S</span>
@@ -330,6 +373,24 @@ export default function HomePage() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="question-section shell" aria-labelledby="question-title">
+        <div className="question-heading">
+          <p className="eyebrow">START WITH THE QUESTION</p>
+          <h2 id="question-title">Find the page that matches your <em>problem.</em></h2>
+          <p>These guides explain the decision first, then point to the review or evidence that can help you act.</p>
+        </div>
+        <div className="question-grid">
+          {questionGuides.map((guide) => (
+            <article key={guide.href}>
+              <p className="evidence-label">{guide.label}</p>
+              <h3><a href={guide.href}>{guide.question}</a></h3>
+              <p>{guide.copy}</p>
+              <a className="text-link" href={guide.href}>Read the guide <span aria-hidden="true">↗</span></a>
+            </article>
+          ))}
         </div>
       </section>
 

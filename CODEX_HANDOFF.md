@@ -1,5 +1,12 @@
 # Codex 交接说明
 
+## 2026-09-15 GEO 增量：首页问题导航
+
+- 首页新增 “Start with the question” 区域，使用 4 个用户问题连接到已有的转化诊断、SaaS 首页、AI Audit vs SEO Checker 和 Landing Page Review 页面；没有新增薄内容页或修改分析/支付逻辑。
+- 首页同步输出 `ItemList` JSON-LD，链接使用 `NEXT_PUBLIC_SITE_URL`，结构化数据只描述站内真实存在的指南。
+- 已通过 `git diff --check`、`npm run typecheck`、`npm run build`、`npm run open:build` 和本地 Chromium QA；QA 检查 26 个公开页面、关键分析/导航流程和 390px 移动布局，0 findings、2 条既有 networkidle warning。
+- 本轮只完成代码、GitHub 推送和 CI QA 触发；Cloudflare 发布仍待明确的发布动作，GSC 展示、查询和 CTR 仍需异步观察。
+
 ## 2026-09-13 SEO/GEO 审计问题修复
 
 - 修复共享 SEO 意图页 H1 的显式空格，`/why-websites-dont-convert` 和 `/ai-website-audit-vs-seo-checker` 不再把两个词连在一起。
