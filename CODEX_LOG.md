@@ -1,5 +1,14 @@
 # SiteLens 修改日志
 
+## 2026-09-19 其他搜索引擎提交与验证
+
+- 在 `app/layout.tsx` 增加生产 Bing `msvalidate.01` 和 Yandex `yandex-verification` 标签；保留环境变量覆盖能力，不改业务逻辑、支付或分析事件。
+- `npm run typecheck`、`npm run build`、`npm run open:build` 通过；线上首页、`robots.txt` 和 `sitemap.xml` 均返回 HTTP 200，首页 HTML 已包含 Google、Bing 和 Yandex 三组验证标签。
+- Cloudflare Worker 发布版本为 `94b4283f-bd65-42e6-9410-dc553c8574b8`。
+- Bing 站点所有权验证成功，`https://sitelens.win/sitemap.xml` 已提交并显示 `Submitted - Processing`。
+- Yandex 站点所有权验证成功，账号显示 Owner；同一 sitemap 已进入 `Processing queue`，平台提示处理可能需要 1–2 周。
+- 以上是平台提交与验证证据，不代表 Bing/Yandex 已完成页面收录或已经产生搜索流量。
+
 ## 2026-09-15
 
 - 按 SEO/GEO 增量方案，给 11 个意图页加入独立短答案区块、复核日期和 `WebPage.dateModified`，提高首段可引用性并明确内容新鲜度。

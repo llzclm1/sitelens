@@ -1,5 +1,13 @@
 # Codex 交接说明
 
+## 2026-09-19 其他搜索引擎提交与验证
+
+- `app/layout.tsx` 现在包含生产 Bing `msvalidate.01` 与 Yandex `yandex-verification` 标签；本轮没有改变业务、支付、GA4 或 D1 逻辑。
+- 类型检查、Next 构建和 OpenNext Cloudflare 构建均通过；Worker 版本 `94b4283f-bd65-42e6-9410-dc553c8574b8` 已发布。
+- 线上核验：`https://sitelens.win/`、`/robots.txt`、`/sitemap.xml` 返回 200，首页 HTML 含三组搜索引擎验证标签。
+- Bing 已完成站点验证，Sitemap 状态为 `Submitted - Processing`；Yandex 已完成 Owner 验证，Sitemap 已进入处理队列，平台提示 1–2 周。
+- 下一步只需观察 Bing/Yandex 异步抓取和收录，不要重复提交；收录和搜索流量仍需单独证据。
+
 ## 2026-09-15 SEO/GEO 增量：答案、证据与抓取入口
 
 - 11 个可索引意图页现在都有独立的 `SHORT ANSWER` 区块、页面复核日期和 `WebPage.dateModified`；答案围绕页面可观察证据、访客决策和测量边界撰写，没有新增效果承诺。

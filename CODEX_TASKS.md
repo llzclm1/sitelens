@@ -1,5 +1,14 @@
 # SiteLens 任务状态
 
+## 2026-09-19 其他搜索引擎提交与验证
+
+- [x] 在根布局加入 Bing `msvalidate.01` 与 Yandex `yandex-verification` 生产验证标签
+- [x] 通过类型检查、Next 生产构建和 OpenNext Cloudflare 构建
+- [x] 发布 Cloudflare Worker `94b4283f-bd65-42e6-9410-dc553c8574b8`
+- [x] Bing 站点所有权验证成功，提交 `https://sitelens.win/sitemap.xml`，状态为 `Submitted - Processing`
+- [x] Yandex 站点所有权验证成功，提交 `https://sitelens.win/sitemap.xml`，进入处理队列
+- [ ] 等待 Bing/Yandex 异步抓取并复核 URL/页面收录；提交或验证成功不等于已收录
+
 ## 2026-09-15 SEO/GEO 增量：答案、证据与抓取入口
 
 - [x] 为 11 个高意图页面增加独立短答案、复核日期和 `dateModified`，让页面首屏直接回答搜索问题。

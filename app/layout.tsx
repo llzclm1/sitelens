@@ -9,8 +9,12 @@ const siteUrlString = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://sitelens.win
 const siteUrl = new URL(siteUrlString);
 const productionGaMeasurementId = "G-YNQ8J06W7D";
 const productionGoogleSiteVerification = "G0fGVxpzCXqA8jnCV35SO76-hjApPFKsSOXbZCdNQVc";
+const productionBingSiteVerification = "DF115190309B77207D02630F548690C8";
+const productionYandexSiteVerification = "08d2e2c940186d98";
 const gaMeasurementId = process.env.GA_MEASUREMENT_ID?.match(/^G-[A-Z0-9]+$/)?.[0] ?? (process.env.NODE_ENV === "production" ? productionGaMeasurementId : undefined);
 const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION?.match(/^[A-Za-z0-9_-]+$/)?.[0] ?? (process.env.NODE_ENV === "production" ? productionGoogleSiteVerification : undefined);
+const bingSiteVerification = process.env.BING_SITE_VERIFICATION?.match(/^[A-Za-z0-9]+$/)?.[0] ?? (process.env.NODE_ENV === "production" ? productionBingSiteVerification : undefined);
+const yandexSiteVerification = process.env.YANDEX_SITE_VERIFICATION?.match(/^[A-Za-z0-9]+$/)?.[0] ?? (process.env.NODE_ENV === "production" ? productionYandexSiteVerification : undefined);
 
 export const metadata: Metadata = {
   metadataBase: siteUrl,
@@ -119,6 +123,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {googleSiteVerification ? (
           <meta name="google-site-verification" content={googleSiteVerification} />
         ) : null}
+        {bingSiteVerification ? <meta name="msvalidate.01" content={bingSiteVerification} /> : null}
+        {yandexSiteVerification ? <meta name="yandex-verification" content={yandexSiteVerification} /> : null}
         {gaMeasurementId ? (
           <>
             <Script async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`} strategy="afterInteractive" />
