@@ -95,6 +95,8 @@ h1 em, h2 em { color: var(--ink); font-family: inherit; font-style: italic; font
 .hero-evidence-read > p:last-child { max-width: 385px; margin: 9px 0 0; color: color-mix(in srgb, var(--panel-ink) 68%, transparent); font-size: 12.5px; line-height: 1.45; }
 .hero-evidence-next { display: grid; gap: 8px; margin-top: auto; padding-top: 14px; border-top: 1px solid var(--panel-line); }
 .hero-evidence-next strong { max-width: 390px; color: var(--panel-ink); font-size: 13.2px; line-height: 1.25; }
+.hero-proof-link { display: flex; align-items: center; flex-wrap: wrap; gap: 15px; margin-top: 21px; color: var(--ink-soft); font-size: 12px; }
+.hero-proof-link .text-link { margin-top: 0; }
 .hero-visual figcaption { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 22px; margin-top: 28px; padding-top: 14px; border-top: 1px solid var(--line); }
 .hero-visual figcaption span { color: var(--ink-soft); font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.12em; line-height: 1.5; text-transform: uppercase; }
 .hero-visual figcaption strong { max-width: 290px; font-size: 14px; line-height: 1.3; }

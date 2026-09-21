@@ -13,6 +13,7 @@
 - 按目录与社区分发规范新增 `outputs/SiteLens-launch-kit.md`，为 X、LinkedIn、Indie Hackers、Reddit 和 Product Hunt 分别准备不同文案及 UTM；同步在 README 增加 live product 和公开案例入口。未执行外部发送，不把草稿当成获客结果。
 - 将公开 Teardown 的顶部/底部分析入口改为带 `utm_source=teardown` 或 `teardown_library`、`utm_campaign=public_library` 和案例 `utm_content` 的链接，保持页面结构不变，用于区分案例内容的真实获客效果。
 - 复核发现 Stripe 是独立手写页面，底部 CTA 未复用共享组件；补齐 `utm_content=stripe`，避免 8 个公开案例中有 1 个无法归因。
+- 根据服务端漏斗停滞证据，在首页表单下增加“Read a real teardown”样例入口，带 `hero_sample` UTM；QA 同步检查该入口可见。
 
 ## 2026-09-19 其他搜索引擎提交与验证
 

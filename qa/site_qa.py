@@ -156,6 +156,8 @@ class SiteQA:
         try:
             page.goto(f"{self.base_url}/?debug_mode=1", wait_until="domcontentloaded", timeout=15000)
             self.wait_for_ready(page)
+            if page.get_by_role("link", name=re.compile("Read a real teardown")).count() != 1:
+                self.fail("interaction", "homepage is missing the real teardown sample entry", "/")
 
             page.locator("#url").focus()
             page.wait_for_timeout(16000)

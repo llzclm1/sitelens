@@ -270,6 +270,10 @@ export default function HomePage() {
               </div>
             ) : null}
           </form>
+          <div className="hero-proof-link">
+            <span>Want to see the output first?</span>
+            <a className="text-link" href="/teardowns/stripe?utm_source=homepage&utm_medium=content&utm_campaign=hero_sample">Read a real teardown <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
 
         <figure className="hero-visual">
