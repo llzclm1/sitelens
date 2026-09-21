@@ -66,6 +66,7 @@ export default function ReportClient({ report }: { report: PublicReport }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [upgradeMessage, setUpgradeMessage] = useState("");
   const [upgradeError, setUpgradeError] = useState("");
+  const [shareMessage, setShareMessage] = useState("");
   const [paymentStatus, setPaymentStatus] = useState<"pending" | "paid" | "failed" | null>(null);
   const [deepReport, setDeepReport] = useState<DeepReport | null>(null);
   const trackedReportId = useRef<string | null>(null);
@@ -113,6 +114,30 @@ export default function ReportClient({ report }: { report: PublicReport }) {
     void checkPayment();
     return () => { cancelled = true; };
   }, [intentId, paymentReturned]);
+
+  async function shareReport() {
+    const shareUrl = `${window.location.origin}/report/${encodeURIComponent(report.id)}?utm_source=share&utm_medium=referral&utm_campaign=report_share`;
+    const shareData = {
+      title: `${report.host} website review | SiteLens`,
+      text: `SiteLens found a ${report.score}/100 website review for ${report.host}.`,
+      url: shareUrl,
+    };
+
+    try {
+      if (typeof navigator.share === "function") {
+        await navigator.share(shareData);
+        trackEvent("report_shared", { share_method: "native" });
+        setShareMessage("Review shared.");
+        return;
+      }
+
+      await navigator.clipboard.writeText(shareUrl);
+      trackEvent("report_shared", { share_method: "clipboard" });
+      setShareMessage("Share link copied.");
+    } catch {
+      setShareMessage("Copy was cancelled. The report link is still in your address bar.");
+    }
+  }
 
   async function requestDeepReport(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -225,6 +250,17 @@ export default function ReportClient({ report }: { report: PublicReport }) {
         <div><span>H1 headings</span><strong>{report.snapshot.h1.length}</strong></div>
         <div><span>Signup signals</span><strong>{report.snapshot.ctaCount}</strong></div>
         <div><span>Proof signals</span><strong>{report.snapshot.proofSignals.length}</strong></div>
+      </section>
+
+      <section className="report-share-strip shell" aria-label="Share this review">
+        <div>
+          <p className="eyebrow">MAKE THE EVIDENCE USEFUL</p>
+          <p>Send this page to a teammate, designer, or founder who needs to see the same first fix.</p>
+        </div>
+        <div className="report-share-action">
+          <button type="button" className="share-button" onClick={shareReport}>Share this review <span aria-hidden="true">↗</span></button>
+          {shareMessage ? <span className="share-message" role="status">{shareMessage}</span> : null}
+        </div>
       </section>
 
       <section className="security-signals shell" aria-labelledby="security-signals-title">

@@ -178,6 +178,8 @@ class SiteQA:
                     self.fail("interaction", "report page rendered without the expected heading", page.url)
                 if page.get_by_role("heading", name=re.compile("baseline read of what the public page")).count() != 1:
                     self.fail("interaction", "report page is missing the public security signals section", page.url)
+                if page.get_by_role("button", name=re.compile("Share this review")).count() != 1:
+                    self.fail("interaction", "report page is missing the share entry point", page.url)
             except PlaywrightTimeoutError:
                 self.fail("interaction", f"analysis submission did not navigate to report: {page.url}", "/")
             self.screenshot(page, "flow-report-navigation")

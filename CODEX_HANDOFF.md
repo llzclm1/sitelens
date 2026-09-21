@@ -1,5 +1,13 @@
 # Codex 交接说明
 
+## 2026-09-22 30 天真实用户增长启动
+
+- 已将目标定义为 30 天内达到至少 1,000 名 GA4 去重后的真实活跃用户；Cloudflare 边缘请求、缓存命中、Debug/内部测试和机器人探测不计入用户。
+- 新增 `outputs/SiteLens-30-day-growth-plan.md`，按 Founder-led 内容/社群、定向合作、搜索/GEO、报告分享和目录发布拆分目标，默认零广告预算、不刷量、不垃圾群发。
+- 报告页新增 `Share this review`：原生分享或复制带 `utm_source=share&utm_medium=referral&utm_campaign=report_share` 的链接，并发送 `report_shared` 事件；报告页动态补充 Open Graph/Twitter 分享标题和摘要，同时继续 `noindex`。
+- 本地验证通过：`npm run typecheck`、`npm run build`、`npm run open:build`、`npm run security:review`（8/8）、`npm run security:supply-chain`、Chromium QA（26 页面，0 findings，0 warnings）。QA 另检查报告页存在分享入口。
+- 下一步按日复核 GA4 来源与事件，准备带 UTM 的内容/合作分发；第三方发帖、私信、目录提交和付费投放必须保留平台证据，不能把计划配额当成已获得用户。
+
 ## 2026-09-19 其他搜索引擎提交与验证
 
 - `app/layout.tsx` 现在包含生产 Bing `msvalidate.01` 与 Yandex `yandex-verification` 标签；本轮没有改变业务、支付、GA4 或 D1 逻辑。

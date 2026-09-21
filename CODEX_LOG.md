@@ -1,5 +1,15 @@
 # SiteLens 修改日志
 
+## 2026-09-22 30 天真实用户增长启动
+
+- 根据 30 天 1,000 用户目标，新增 `outputs/SiteLens-30-day-growth-plan.md`，将增长拆为内容/社群、定向合作、搜索/GEO、报告分享和目录发布五类来源。
+- 明确 GA4 Active users 是主口径；Cloudflare 请求、边缘 unique、Debug 流量和机器人探测只用于健康检查，不作为用户数。
+- `components/ReportClient.tsx` 新增报告分享动作：优先调用原生分享，否则复制带 `share` UTM 的报告链接；成功时发送 `report_shared`，不发送邮箱、完整 URL 或支付敏感信息。
+- `app/report/[id]/page.tsx` 新增动态 Open Graph/Twitter 标题与摘要，报告仍保持 noindex。
+- `qa/site_qa.py` 新增报告页分享入口存在性检查。
+- `npm run typecheck`、`npm run build`、`npm run open:build`、`npm run security:review`（8/8）、`npm run security:supply-chain` 通过；Chromium QA 26 页面，0 findings、0 warnings。
+- 本轮是站内增长基础和执行计划，不代表已获得 1,000 名用户；后续需用真实 GA4/GSC/Cloudflare 数据和第三方平台证据逐日复核。
+
 ## 2026-09-19 其他搜索引擎提交与验证
 
 - 在 `app/layout.tsx` 增加生产 Bing `msvalidate.01` 和 Yandex `yandex-verification` 标签；保留环境变量覆盖能力，不改业务逻辑、支付或分析事件。
