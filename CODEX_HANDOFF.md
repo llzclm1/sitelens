@@ -8,6 +8,7 @@
 - 本地验证通过：`npm run typecheck`、`npm run build`、`npm run open:build`、`npm run security:review`（8/8）、`npm run security:supply-chain`、Chromium QA（26 页面，0 findings，0 warnings）。QA 另检查报告页存在分享入口。
 - 已发布 Cloudflare Worker `e12b9f90-5b20-461e-9f07-144fff2318b8`；只读线上检查确认 `/`、`/robots.txt`、`/sitemap.xml` 返回 200，报告不存在路由返回 404，报告页静态包含分享事件和分享来源标记。
 - 下一步按日复核 GA4 来源与事件，准备带 UTM 的内容/合作分发；第三方发帖、私信、目录提交和付费投放必须保留平台证据，不能把计划配额当成已获得用户。
+- 新增 `outputs/SiteLens-launch-kit.md` 与 README live-product 入口，包含 X、LinkedIn、Indie Hackers、Reddit、Product Hunt 的差异化草稿和 UTM 规则；这些是可发布素材，不是已发送或已获客证据。
 
 ## 2026-09-19 其他搜索引擎提交与验证
 
