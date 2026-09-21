@@ -9,6 +9,7 @@
 - 已发布 Cloudflare Worker `e12b9f90-5b20-461e-9f07-144fff2318b8`；只读线上检查确认 `/`、`/robots.txt`、`/sitemap.xml` 返回 200，报告不存在路由返回 404，报告页静态包含分享事件和分享来源标记。
 - 下一步按日复核 GA4 来源与事件，准备带 UTM 的内容/合作分发；第三方发帖、私信、目录提交和付费投放必须保留平台证据，不能把计划配额当成已获得用户。
 - 新增 `outputs/SiteLens-launch-kit.md` 与 README live-product 入口，包含 X、LinkedIn、Indie Hackers、Reddit、Product Hunt 的差异化草稿和 UTM 规则；这些是可发布素材，不是已发送或已获客证据。
+- 8 个公开 Teardown 的“Analyze a site”入口现在带 `teardown`/`public_library` UTM，并按案例 slug 区分 `utm_content`，用于判断案例库是否真的带来分析开始和完成。
 
 ## 2026-09-19 其他搜索引擎提交与验证
 

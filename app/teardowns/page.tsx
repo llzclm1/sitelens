@@ -110,7 +110,7 @@ export default function TeardownsPage() {
 
       <nav className="topbar shell" aria-label="Primary navigation">
         <Link className="wordmark" href="/" aria-label="SiteLens home"><span className="wordmark-mark">S</span><span>SiteLens</span></Link>
-        <Link className="nav-cta" href="/">Analyze a site <span aria-hidden="true">↗</span></Link>
+        <Link className="nav-cta" href="/?utm_source=teardown_library&utm_medium=content&utm_campaign=public_library&utm_content=header">Analyze a site <span aria-hidden="true">↗</span></Link>
       </nav>
 
       <header className="teardown-header shell">
