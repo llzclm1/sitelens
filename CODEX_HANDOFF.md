@@ -14,6 +14,7 @@
 - 首页首屏新增“先看真实案例”入口，指向带 `hero_sample` UTM 的 Stripe Teardown；用于降低首次提交门槛，并让案例回到分析入口时保留公开库归因。
 - 11 个 SEO 意图页的导航和默认“Review your homepage”入口现在带 `seo_intent` 与页面 slug UTM，便于把搜索/AI 访问和分析开始、完成事件对应起来。
 - 已新增 IndexNow 根目录 key 文件；部署后提交当前 Sitemap，平台返回只作为“已接收”证据，不当作收录或用户增长证据。
+- IndexNow 线上验收完成：key 文件返回 200 且内容匹配，Sitemap 解析出 26 个 URL，`https://api.indexnow.org/indexnow` 返回 202；等待搜索引擎异步抓取和流量数据。
 
 ## 2026-09-19 其他搜索引擎提交与验证
 

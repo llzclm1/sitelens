@@ -17,7 +17,8 @@
 - [x] 首页首屏增加真实 Teardown 样例入口并加入 `hero_sample` 归因
 - [x] 为 SEO 意图页的分析入口增加按页面 slug 区分的 `seo_intent` 归因
 - [x] 增加 IndexNow 根目录 key 文件
-- [ ] 提交当前 Sitemap 到 IndexNow 并记录 200/202 接收结果；等待搜索引擎异步收录
+- [x] 提交当前 Sitemap 到 IndexNow：26 个 URL，key 200 匹配，API 返回 202
+- [ ] 等待 IndexNow 参与搜索引擎异步抓取，并用 GSC/GA4 验证实际展示和用户
 - [ ] 真实用户达到 1,000，或在 30 天结束时输出真实结果、有效渠道、失败渠道和下一轮预算建议
 
 ## 2026-09-19 其他搜索引擎提交与验证

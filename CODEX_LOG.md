@@ -16,6 +16,7 @@
 - 根据服务端漏斗停滞证据，在首页表单下增加“Read a real teardown”样例入口，带 `hero_sample` UTM；QA 同步检查该入口可见。
 - 将 SEO 意图页的顶部和默认免费分析入口统一改为 `seo_intent` + 页面 slug UTM；不新增页面，只补搜索访问到分析漏斗的可观测性。
 - 根据 IndexNow 官方协议新增根目录 key 文件，待发布后批量通知当前公开 Sitemap；明确区分通知接收、收录、搜索流量和真实用户。
+- 发布后验证 key 文件为 HTTP 200 且内容匹配；从线上 Sitemap 读取 26 个公开 URL，批量提交 IndexNow，API 返回 HTTP 202 Accepted。未把该响应当作收录或用户增长。
 
 ## 2026-09-19 其他搜索引擎提交与验证
 
