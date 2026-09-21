@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://sitelens.win").replace(/\/$/, "");
+const analyzeUrl = "/?utm_source=teardown&utm_medium=content&utm_campaign=public_library&utm_content=stripe";
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -96,7 +97,7 @@ export default function StripeTeardownPage() {
 
       <p className="teardown-disclaimer shell">We only used the public page. SiteLens has no access to Stripe&apos;s analytics, experiments, or conversion data. This is an interpretation, not a measured performance claim.</p>
 
-      <footer className="footer shell"><Link className="wordmark" href="/"><span className="wordmark-mark">S</span><span>SiteLens</span></Link><span>Public reviews with the evidence shown.</span><Link href="/">Analyze your own site ↗</Link></footer>
+      <footer className="footer shell"><Link className="wordmark" href="/"><span className="wordmark-mark">S</span><span>SiteLens</span></Link><span>Public reviews with the evidence shown.</span><Link href={analyzeUrl}>Analyze your own site ↗</Link></footer>
     </main>
   );
 }
