@@ -9,6 +9,7 @@
 - `qa/site_qa.py` 新增报告页分享入口存在性检查。
 - `npm run typecheck`、`npm run build`、`npm run open:build`、`npm run security:review`（8/8）、`npm run security:supply-chain` 通过；Chromium QA 26 页面，0 findings、0 warnings。
 - 本轮是站内增长基础和执行计划，不代表已获得 1,000 名用户；后续需用真实 GA4/GSC/Cloudflare 数据和第三方平台证据逐日复核。
+- 已推送 GitHub 提交 `011bd46`，并发布 Cloudflare Worker `e12b9f90-5b20-461e-9f07-144fff2318b8`；线上只读检查确认首页、robots、Sitemap 为 200，报告不存在路由为 404，报告静态包包含分享事件和来源标记。
 
 ## 2026-09-19 其他搜索引擎提交与验证
 
