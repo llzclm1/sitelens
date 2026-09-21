@@ -18,6 +18,7 @@
 - 根据 IndexNow 官方协议新增根目录 key 文件，待发布后批量通知当前公开 Sitemap；明确区分通知接收、收录、搜索流量和真实用户。
 - 发布后验证 key 文件为 HTTP 200 且内容匹配；从线上 Sitemap 读取 26 个公开 URL，批量提交 IndexNow，API 返回 HTTP 202 Accepted。未把该响应当作收录或用户增长。
 - 根据首屏漏斗目标降低首次分析摩擦：产品描述和目标用户不再阻塞提交，服务端为空值时使用 `this product` / `the intended customer` 作为分析上下文；QA 改为走 URL-only 分析流程。
+- Cloudflare 发布后用 `example.com` 进行生产 URL-only 回归，API 返回 HTTP 201、`mode=heuristic`；该请求仅验证生产边界，不进入 GA4 活跃用户口径。
 
 ## 2026-09-19 其他搜索引擎提交与验证
 
