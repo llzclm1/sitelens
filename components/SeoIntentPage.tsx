@@ -24,6 +24,8 @@ const defaultRelatedLinks = [
 ] as const;
 
 export function SeoIntentPage({ config }: { config: SeoIntentPageConfig }) {
+  const seoReviewUrl = `/?utm_source=seo_intent&utm_medium=content&utm_campaign=${encodeURIComponent(config.slug)}#analyze`;
+  const relatedLinks = config.relatedLinks ?? defaultRelatedLinks;
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -65,7 +67,7 @@ export function SeoIntentPage({ config }: { config: SeoIntentPageConfig }) {
         <div className="nav-actions">
           <Link className="nav-link" href="/website-review">Website review</Link>
           <Link className="nav-link" href="/teardowns">Teardowns</Link>
-          <Link className="nav-cta" href="/#analyze">Review a site <span aria-hidden="true">↗</span></Link>
+          <Link className="nav-cta" href={seoReviewUrl}>Review a site <span aria-hidden="true">↗</span></Link>
         </div>
       </nav>
 
@@ -140,14 +142,14 @@ export function SeoIntentPage({ config }: { config: SeoIntentPageConfig }) {
         </div>
       </section>
 
-      {(config.relatedLinks ?? defaultRelatedLinks) ? (
+      {relatedLinks ? (
         <section className="teardown-action-plan shell" aria-label="Related SiteLens pages">
-          {(config.relatedLinks ?? defaultRelatedLinks).map((item) => (
+          {relatedLinks.map((item) => (
             <article key={item.href}>
               <span>{item.label}</span>
               <h3>{item.title}</h3>
               <p>{item.copy}</p>
-              <Link className="text-link" href={item.href}>{item.linkLabel} <span aria-hidden="true">↗</span></Link>
+              <Link className="text-link" href={item.href === "/#analyze" ? seoReviewUrl : item.href}>{item.linkLabel} <span aria-hidden="true">↗</span></Link>
             </article>
           ))}
         </section>
