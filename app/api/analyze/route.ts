@@ -22,12 +22,8 @@ export async function POST(request: Request) {
 
     const body = await readJsonBody<{ url?: unknown; product?: unknown; audience?: unknown }>(request);
     const url = normalizeUrl(typeof body.url === "string" ? body.url : "");
-    const product = typeof body.product === "string" ? body.product.trim().slice(0, 300) : "";
-    const audience = typeof body.audience === "string" ? body.audience.trim().slice(0, 200) : "";
-
-    if (!product || !audience) {
-      return NextResponse.json({ error: "Tell us what the product does and who it is for." }, { status: 400 });
-    }
+    const product = (typeof body.product === "string" ? body.product.trim().slice(0, 300) : "") || "this product";
+    const audience = (typeof body.audience === "string" ? body.audience.trim().slice(0, 200) : "") || "the intended customer";
 
     await recordAnalyticsEvent({ eventName: "analyze_started" });
     const page = process.env.SITELENS_QA === "1"

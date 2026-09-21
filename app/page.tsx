@@ -41,7 +41,7 @@ const capabilitySteps = [
     number: "01",
     label: "SUBMIT",
     title: "Start with one public homepage",
-    copy: "Share the URL, what the product does, and who it is for. No login or private account access is needed.",
+    copy: "Share a public URL first. Add the product and audience if you want a more specific read; no login or private account access is needed.",
     output: "URL + context",
   },
   {
@@ -221,7 +221,7 @@ export default function HomePage() {
             </div>
             <div className="context-row">
               <div>
-                <label htmlFor="product">What does it do?</label>
+                <label htmlFor="product">What does it do? <span>(optional)</span></label>
                 <input
                   id="product"
                   name="product"
@@ -230,12 +230,11 @@ export default function HomePage() {
                   value={product}
                   onChange={(event) => setProduct(event.target.value)}
                   aria-describedby="form-note"
-                  required
                   disabled={isSubmitting}
                 />
               </div>
               <div>
-                <label htmlFor="audience">Who is it for?</label>
+                <label htmlFor="audience">Who is it for? <span>(optional)</span></label>
                 <input
                   id="audience"
                   name="audience"
@@ -244,14 +243,13 @@ export default function HomePage() {
                   value={audience}
                   onChange={(event) => setAudience(event.target.value)}
                   aria-describedby="form-note"
-                  required
                   disabled={isSubmitting}
                 />
               </div>
             </div>
             {error ? <p className="form-error" role="alert">{error}</p> : null}
             <p className="form-note" id="form-note">
-              {isSubmitting ? "Reading the page structure, copy, and calls to action." : "Free review: 3 page-specific findings. Public pages only. Deep Growth Report: $29 one time."}
+              {isSubmitting ? "Reading the page structure, copy, and calls to action." : "Free review: 3 page-specific findings. URL required; context is optional. Deep Growth Report: $29 one time."}
             </p>
             {isSubmitting ? (
               <div className="analysis-process" aria-live="polite" aria-label="Analysis progress">

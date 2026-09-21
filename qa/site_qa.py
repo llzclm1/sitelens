@@ -158,6 +158,9 @@ class SiteQA:
             self.wait_for_ready(page)
             if page.get_by_role("link", name=re.compile("Read a real teardown")).count() != 1:
                 self.fail("interaction", "homepage is missing the real teardown sample entry", "/")
+            for field_id in ("product", "audience"):
+                if page.locator(f"#{field_id}").get_attribute("required") is not None:
+                    self.fail("interaction", f"{field_id} should be optional for the first analysis", "/")
 
             page.locator("#url").focus()
             page.wait_for_timeout(16000)
@@ -171,8 +174,6 @@ class SiteQA:
                     self.fail("analytics", f"missing client event: {expected_event}", "/")
 
             page.locator("#url").fill("https://sitelens.win")
-            page.locator("#product").fill("turn support tickets into searchable docs")
-            page.locator("#audience").fill("small SaaS teams")
             page.get_by_role("button", name=re.compile("Analyze a site")).click()
             try:
                 page.wait_for_url("**/report/*", timeout=15000)
