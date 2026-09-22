@@ -11,6 +11,7 @@
 - 新增 `scripts/record-launch-demo.py`，可在本地 QA 服务器录制首页到报告的 MP4 演示；已将素材包扩展为截图 + 视频，未执行外部发布。
 - 已在自有 GitHub 仓库创建公开 Release `v0.1.0`：https://github.com/llzclm1/sitelens/releases/tag/v0.1.0，并上传 `sitelens-demo.mp4`；Release 下载量当前为 0，不作为用户增长证据。
 - README 顶部已补充 Phase 0 Release 链接，形成“live product → 案例库 → 演示下载”的自有仓库路径。
+- GitHub Discussions 已发布一条真实反馈帖 `#1`：https://github.com/llzclm1/sitelens/discussions/1；使用 `utm_source=github` 入口，未请求点赞或批量互动。
 - 报告页分享区新增接收者 CTA：`Analyze your own site` 指向带 `report`/`referral`/`report_recipient` UTM 的首页，并发送 `report_recipient_cta`；QA 覆盖该二次获客入口。
 - 已将目标定义为 30 天内达到至少 1,000 名 GA4 去重后的真实活跃用户；Cloudflare 边缘请求、缓存命中、Debug/内部测试和机器人探测不计入用户。
 - 新增 `outputs/SiteLens-30-day-growth-plan.md`，按 Founder-led 内容/社群、定向合作、搜索/GEO、报告分享和目录发布拆分目标，默认零广告预算、不刷量、不垃圾群发。

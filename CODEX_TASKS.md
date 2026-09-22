@@ -9,6 +9,7 @@
 - [x] 录制首页到报告的真实操作演示视频
 - [x] 在自有 GitHub 仓库创建带演示附件的公开 Phase 0 Release
 - [x] 在 README 顶部链接公开 Phase 0 Release
+- [x] 在自有 GitHub Discussions 发布一条真实反馈帖并记录公开 URL
 - [x] 在分享报告中增加接收者分析 CTA，并单独归因二次获客
 - [x] 冻结 1,000 名真实 GA4 活跃用户的 30 天口径，排除机器人、Debug 和内部测试流量
 - [x] 输出 `outputs/SiteLens-30-day-growth-plan.md`，明确渠道目标、每日执行循环、决策门和第三方动作边界
