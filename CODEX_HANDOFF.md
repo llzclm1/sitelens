@@ -7,7 +7,8 @@
 - `/pricing` 已改为免费访问说明页；隐私、条款、README、`llms.txt`、`llms-full.txt`、增长计划和 GA4 追踪计划已同步当前口径。
 - 配置与依赖已清理：`.env.example`、`wrangler.jsonc`、`worker-configuration.d.ts` 不再声明 Waffo/Qwen/Browser Run，`@waffo/pancake-ts` 已从依赖中移除。
 - 本地证据：typecheck、Next build、OpenNext build、安全审计 8/8、供应链审计、生产依赖审计 0 vulnerabilities、Chromium QA 26 页面 0 findings；URL-only 分析返回 HTTP 201、`mode=heuristic`、3 个规则问题；旧支付路径返回 404。
-- 待完成：推送后发布 Cloudflare，并对线上首页、`/pricing`、`/api/upgrade`（404）和线上分析 `mode=heuristic` 做只读回归。
+- 已完成线上发布：Cloudflare Worker `e86c56b9-c8e0-4125-adf0-7e7d74063a8a`；只读核验首页与 `/pricing` 的免费口径、`/api/upgrade`/`/api/payments/*`/`/api/webhooks/waffo` 的 404 边界，以及 `/api/analyze` 返回 HTTP 201、`mode=heuristic`、3 个规则问题。
+- 下一步：观察 GA4 的分析完成、报告查看、分享和复访数据；不再观察支付漏斗。
 
 ## 2026-09-22 30 天真实用户增长启动
 

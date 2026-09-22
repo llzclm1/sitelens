@@ -6,7 +6,9 @@
 - 将分析收敛为确定性规则报告，移除 Qwen、DeepSeek、截图和相关配置/依赖；新报告返回 `mode=heuristic`。
 - 将报告页、Pricing、隐私、条款、README、llms 与分析追踪计划改为公共 Beta 免费口径，不再要求账号、邮箱或付款。
 - 验证通过：`npm run typecheck`、`npm run build`、`npm run open:build`、`npm run security:review`（8/8）、`npm run security:supply-chain`、`npm audit --omit=dev --audit-level=high`（0 vulnerabilities）、Chromium QA（26 页面，0 findings）。
-- 下一步：提交并发布 Cloudflare，在线验证规则模式、旧支付路由 404、报告查看和分享事件。
+- 已推送 GitHub `main`，提交 `0e1fa84`；Cloudflare Worker `e86c56b9-c8e0-4125-adf0-7e7d74063a8a` 发布成功。
+- 线上只读回归通过：首页与 `/pricing` 为免费公共 Beta，旧支付接口返回 404，`/api/analyze` 返回 HTTP 201、`mode=heuristic` 和 3 个规则问题。
+- 下一步：观察 GA4 的分析完成、报告查看、分享和复访数据，不再使用支付漏斗作为当前指标。
 
 ## 2026-09-22 30 天真实用户增长启动
 
