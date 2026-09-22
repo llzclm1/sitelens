@@ -259,6 +259,13 @@ export default function ReportClient({ report }: { report: PublicReport }) {
         </div>
         <div className="report-share-action">
           <button type="button" className="share-button" onClick={shareReport}>Share this review <span aria-hidden="true">↗</span></button>
+          <Link
+            className="report-recipient-link"
+            href="/?utm_source=report&utm_medium=referral&utm_campaign=report_recipient#analyze"
+            onClick={() => trackEvent("report_recipient_cta")}
+          >
+            Analyze your own site <span aria-hidden="true">↗</span>
+          </Link>
           <a className="text-link report-feedback-link" href="https://github.com/llzclm1/sitelens/discussions?utm_source=report&utm_medium=community&utm_campaign=feedback" target="_blank" rel="noreferrer">Tell us what was useful <span aria-hidden="true">↗</span></a>
           {shareMessage ? <span className="share-message" role="status">{shareMessage}</span> : null}
         </div>

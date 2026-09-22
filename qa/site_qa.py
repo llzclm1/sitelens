@@ -183,6 +183,8 @@ class SiteQA:
                     self.fail("interaction", "report page is missing the public security signals section", page.url)
                 if page.get_by_role("button", name=re.compile("Share this review")).count() != 1:
                     self.fail("interaction", "report page is missing the share entry point", page.url)
+                if page.get_by_role("link", name=re.compile("Analyze your own site")).count() != 1:
+                    self.fail("interaction", "report page is missing the recipient analysis CTA", page.url)
                 if page.get_by_role("link", name=re.compile("Tell us what was useful")).count() != 1:
                     self.fail("interaction", "report page is missing the feedback community entry point", page.url)
             except PlaywrightTimeoutError:
