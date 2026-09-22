@@ -9,6 +9,7 @@
 - 从已通过 QA 的页面产出 `outputs/launch-assets/` 五张 1440×1200 截图和证据边界说明，供后续人工分发使用；没有把截图当作平台发布或用户增长证据。
 - README 新增三张产品预览图和截图包链接，让 GitHub 仓库访问者能直接看到产品能力并进入 live product。
 - 新增可复现的本地 Playwright 录制脚本，并生成 `outputs/launch-assets/sitelens-demo.mp4`；视频是产品演示证据，不是用户增长证据。
+- 在自有仓库创建 GitHub Release `v0.1.0` 并上传 MP4 演示；页面返回公开 Release URL，附件状态为 `uploaded`，下载量为 0。
 - 报告页分享区新增 `Analyze your own site` 接收者 CTA，使用 `report`/`referral`/`report_recipient` 归因并发送 `report_recipient_cta`，用于验证分享带来的二次分析。
 - 根据 30 天 1,000 用户目标，新增 `outputs/SiteLens-30-day-growth-plan.md`，将增长拆为内容/社群、定向合作、搜索/GEO、报告分享和目录发布五类来源。
 - 明确 GA4 Active users 是主口径；Cloudflare 请求、边缘 unique、Debug 流量和机器人探测只用于健康检查，不作为用户数。
