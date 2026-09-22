@@ -2,6 +2,7 @@
 
 ## 2026-09-22 30 天真实用户增长启动
 
+- 报告页新增静态品牌 `report-share-card.svg` 分享预览；Twitter 卡片升级为大图，报告标题/描述保留 host 和分数，并加入报告页元数据回归检查。
 - 报告页分享区新增 `Analyze your own site` 接收者 CTA，使用 `report`/`referral`/`report_recipient` 归因并发送 `report_recipient_cta`，用于验证分享带来的二次分析。
 - 根据 30 天 1,000 用户目标，新增 `outputs/SiteLens-30-day-growth-plan.md`，将增长拆为内容/社群、定向合作、搜索/GEO、报告分享和目录发布五类来源。
 - 明确 GA4 Active users 是主口径；Cloudflare 请求、边缘 unique、Debug 流量和机器人探测只用于健康检查，不作为用户数。

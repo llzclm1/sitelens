@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">SiteLens public website review</title>
+  <desc id="desc">Evidence-based website review from SiteLens</desc>
+  <rect width="1200" height="630" fill="#101510"/>
+  <rect x="70" y="64" width="44" height="44" fill="#d5ff3f"/>
+  <text x="83" y="96" fill="#101510" font-family="Arial, sans-serif" font-size="28" font-weight="700">S</text>
+  <text x="136" y="96" fill="#d5ff3f" font-family="Arial, sans-serif" font-size="28" font-weight="700">SiteLens</text>
+  <text x="350" y="95" fill="#9ca69b" font-family="Arial, sans-serif" font-size="16" letter-spacing="3">PUBLIC HOMEPAGE REVIEW</text>
+  <line x1="70" y1="510" x2="1130" y2="510" stroke="#3d463d" stroke-width="2"/>
+  <text x="70" y="275" fill="#f3f5ed" font-family="Arial, sans-serif" font-size="66" font-weight="700">Find the first website</text>
+  <text x="70" y="352" fill="#d5ff3f" font-family="Arial, sans-serif" font-size="66" font-weight="700">change worth fixing.</text>
+  <text x="70" y="560" fill="#9ca69b" font-family="Arial, sans-serif" font-size="19">Evidence → impact → first fix</text>
+  <text x="1130" y="560" fill="#9ca69b" font-family="Arial, sans-serif" font-size="19" text-anchor="end">sitelens.win</text>
+</svg>

@@ -2,6 +2,7 @@
 
 ## 2026-09-22 30 天真实用户增长启动
 
+- 报告分享元数据新增静态品牌 OG 图片，并将 Twitter 卡片升级为 `summary_large_image`；报告标题与描述继续携带网站和分数，QA 检查报告页存在 `og:image`。
 - 报告页分享区新增接收者 CTA：`Analyze your own site` 指向带 `report`/`referral`/`report_recipient` UTM 的首页，并发送 `report_recipient_cta`；QA 覆盖该二次获客入口。
 - 已将目标定义为 30 天内达到至少 1,000 名 GA4 去重后的真实活跃用户；Cloudflare 边缘请求、缓存命中、Debug/内部测试和机器人探测不计入用户。
 - 新增 `outputs/SiteLens-30-day-growth-plan.md`，按 Founder-led 内容/社群、定向合作、搜索/GEO、报告分享和目录发布拆分目标，默认零广告预算、不刷量、不垃圾群发。

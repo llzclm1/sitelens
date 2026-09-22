@@ -24,11 +24,13 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
       description: `Score ${report.score}/100. See the page evidence and first conversion fix.`,
       url: `/report/${report.id}`,
       siteName: "SiteLens",
+      images: [{ url: "/report-share-card.svg", width: 1200, height: 630, alt: `${report.host} SiteLens website review` }],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: `${report.host} website review | SiteLens`,
       description: `Score ${report.score}/100. See the page evidence and first conversion fix.`,
+      images: ["/report-share-card.svg"],
     },
   };
 }
