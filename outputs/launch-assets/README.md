@@ -11,12 +11,14 @@
 | `03-public-teardowns.png` | 公开 Teardown 案例库 |
 | `04-website-review.png` | 分析方法、证据边界和 FAQ |
 | `05-pricing.png` | Free Review 与 $29 Deep Growth Report |
+| `sitelens-demo.mp4` | 首页提交到证据型报告的真实操作演示 |
 
 ## 证据边界
 
 - 截图来自本地生产构建的 Chromium QA 页面，尺寸为 1440 × 1200。
 - 内容使用公开页面和示例输入，不包含用户邮箱、支付信息或私有数据。
 - 截图只证明页面在生成时可渲染，不证明外部平台已发布、获得收录或带来用户。
+- 演示视频使用本地 QA 服务器和示例 URL 录制，不包含真实用户操作或 GA4 用户数据。
 - 对外发布时应保留产品边界：SiteLens 是定性网站审查，不承诺转化提升或收入结果。
 
 ## 发布前检查
