@@ -25,7 +25,7 @@ export default function WebsiteMessagingAuditPage() {
       { question: "What is included in a website messaging audit?", answer: "The audit reviews the hero, subhead, headings, product description, proof language, and calls to action. It connects unclear wording to the visitor decision it may slow down." },
       { question: "Is messaging the same as copy editing?", answer: "No. Copy editing improves wording and correctness. Messaging decides what the page should make clear about the customer, problem, outcome, proof, and next step." },
       { question: "Should the homepage use industry jargon?", answer: "Use a specialized term when the target customer recognizes it and it adds precision. Explain or replace it when a first-time visitor would need insider knowledge to understand the offer." },
-      { question: "Can SiteLens suggest a rewrite?", answer: "The free review points to the first messaging issue. The Deep Growth Report adds hero and CTA rewrite direction grounded in the page's existing offer." },
+      { question: "Can SiteLens suggest a rewrite?", answer: "Yes. The rule-based review points to the first messaging issue and includes a suggested direction grounded in the page's existing offer." },
     ],
     relatedLinks: [
       { label: "METHOD / VALUE PROPOSITION", title: "Make the outcome visible", copy: "Use customer, problem, outcome, and proof as the minimum structure for a useful homepage message.", href: "/homepage-value-proposition-examples", linkLabel: "See value proposition examples" },

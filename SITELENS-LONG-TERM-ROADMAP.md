@@ -2,6 +2,8 @@
 
 这份路线图定义 SiteLens 从一次性网站诊断到 AI Website Growth Consultant 的长期方向。它用于指导产品决策，不等于一次性开发清单；每个阶段都必须先达到前一阶段的结果闸门，再进入下一阶段。
 
+> 当前决策（2026-09-22）：SiteLens 暂停收费，Phase 0 运行完整免费的规则诊断。下文的付费报告、订阅和商业化内容均是未启用的未来假设，不能当作当前功能或当前验收标准。
+
 ## 文档状态
 
 | 项目 | 内容 |
@@ -9,7 +11,7 @@
 | 产品名 | SiteLens |
 | 长期定位 | AI Website Growth Consultant（AI 网站增长顾问） |
 | 当前 MVP 研究名 | AI Website Critic |
-| 当前阶段 | Phase 0：付费验证前 |
+| 当前阶段 | Phase 0：免费规则 Beta 验证 |
 | 版本 | V1.0 |
 | 日期 | 2026-08-10 |
 
@@ -20,7 +22,7 @@
 执行原则：
 
 1. 先读取本路线图，以及 `research/competitor-scan.md`、`research/prd-review.md`、`research/technical-decision.md` 和 `research/decision-memo.md`。
-2. 当前只允许推进 Phase 0：验证用户是否愿意为网站增长分析付费。
+2. 当前只允许推进 Phase 0：验证免费规则诊断能否带来真实分析完成、复访和分享。
 3. 若用户没有明确说“开始开发 Phase 0”，不要写应用代码、搭页面、安装依赖或创建第三方账号。
 4. Phase 1–5 只作为产品上下文，不作为当前 Sprint backlog。
 5. 每次提出功能时，先写清楚它要改变的用户行为、业务指标和进入条件；无法说明结果的功能暂缓。

@@ -145,7 +145,6 @@ h1 em, h2 em { color: var(--ink); font-family: inherit; font-style: italic; font
 .footer a { overflow-wrap: anywhere; }
 .footer .wordmark { color: var(--ink); }
 
-.payment-banner { margin-top: 24px; padding: 14px 16px; color: var(--ink); border: 1px solid var(--line); font-size: 13px; line-height: 1.4; }.payment-paid { background: color-mix(in srgb, var(--accent) 35%, transparent); }.payment-pending { background: var(--error-bg); }.payment-failed { color: var(--error); background: var(--error-bg); }
 
 /* Report */
 .report-share-strip { display: flex; align-items: center; justify-content: space-between; gap: 28px; margin-top: 26px; padding: 18px 20px; background: var(--paper-deep); }

@@ -75,7 +75,7 @@ export function SeoIntentPage({ config }: { config: SeoIntentPageConfig }) {
         <p className="eyebrow">{config.eyebrow}</p>
         <h1>{config.title}{" "}<em>{config.emphasis}</em></h1>
         <p className="teardown-intro">{config.intro}</p>
-        <div className="teardown-source"><span>Free review: three page-specific findings</span><span>Deep Growth Report: $29 one time</span></div>
+        <div className="teardown-source"><span>Rule-based review: three page-specific findings</span><span>Public beta: free access</span></div>
       </header>
 
       <section className="seo-quick-answer shell" aria-labelledby={`${config.slug}-answer`}>
@@ -176,7 +176,7 @@ export function SeoIntentPage({ config }: { config: SeoIntentPageConfig }) {
 
       <footer className="footer shell">
         <Link className="wordmark" href="/"><span className="wordmark-mark">S</span><span>SiteLens</span></Link>
-        <span><Link href="/website-review">Website review</Link> · <Link href="/teardowns">Teardowns</Link> · <Link href="/pricing">Pricing</Link> · <Link href="/privacy">Privacy</Link></span>
+        <span><Link href="/website-review">Website review</Link> · <Link href="/teardowns">Teardowns</Link> · <Link href="/pricing">Free access</Link> · <Link href="/privacy">Privacy</Link></span>
       </footer>
     </main>
   );

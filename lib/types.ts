@@ -57,24 +57,6 @@ export type FullReport = {
   issues: ReportIssue[];
 };
 
-export type DeepReport = {
-  id: string;
-  reportId: string;
-  paymentIntentId: string;
-  createdAt: string;
-  executiveSummary: string;
-  heroRewrite: { before: string; after: string };
-  ctaRewrite: { before: string; after: string };
-  homepageBlueprint: Array<{
-    order: number;
-    section: string;
-    purpose: string;
-    guidance: string;
-    evidence: string;
-  }>;
-  actionPlan: Array<{ week: number; focus: string; action: string; evidence: string }>;
-};
-
 export type PublicReport = Omit<FullReport, "product" | "audience" | "issues"> & {
   issues: Array<Pick<ReportIssue, "id" | "category" | "title" | "severity" | "evidence" | "whyItMatters" | "firstFix" | "rewrite" | "confidence">>;
 };

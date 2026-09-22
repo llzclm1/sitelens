@@ -17,8 +17,8 @@ const faqItems = [
     answer: "No. SiteLens reviews public page content and structure, but it does not access private analytics or run experiments. The score and recommendations are qualitative signals, not a measured conversion forecast.",
   },
   {
-    question: "What does the $29 Deep Growth Report include?",
-    answer: "The one-time Deep Growth Report adds a prioritized diagnosis, homepage structure guidance, hero and CTA rewrite directions, and a three-week action plan. It is unlocked on the original report page after payment confirmation.",
+    question: "What does a SiteLens review include?",
+    answer: "Every public-beta review includes a score, three page-specific findings, the visible evidence, why it matters, and a suggested first change. There is no payment or email gate.",
   },
 ];
 
@@ -77,7 +77,7 @@ export default function WebsiteReviewPage() {
         <p className="eyebrow">WEBSITE REVIEW / CONVERSION CLARITY</p>
         <h1>Understand why your website <em>loses visitors.</em></h1>
         <p className="teardown-intro">SiteLens reads the public page itself and explains what a first-time visitor can understand, trust, and do next. The result is a focused review, not a generic checklist.</p>
-        <div className="teardown-source"><span>Free review: 3 page-specific findings</span><span>Deep Growth Report: $29 one time</span></div>
+        <div className="teardown-source"><span>Rule-based review: 3 page-specific findings</span><span>Public beta: free access</span></div>
       </header>
 
       <section className="review-answer shell" aria-labelledby="review-definition">
@@ -128,7 +128,7 @@ export default function WebsiteReviewPage() {
       </section>
 
       <section className="teardown-action-plan shell" aria-label="Related SiteLens reviews">
-        <article><span>AI WEBSITE AUDIT</span><h3>Find the page evidence first</h3><p>See how an AI-assisted audit connects positioning, proof, and the first change.</p><Link className="text-link" href="/ai-website-audit">Read the AI audit guide ↗</Link></article>
+        <article><span>WEBSITE AUDIT</span><h3>Find the page evidence first</h3><p>See how the rule-based audit connects positioning, proof, and the first change.</p><Link className="text-link" href="/ai-website-audit">Read the website audit guide ↗</Link></article>
         <article><span>LANDING PAGE REVIEW</span><h3>Follow the next decision</h3><p>Review the first screen, CTA path, and trust signals visitors can see.</p><Link className="text-link" href="/landing-page-review">Read the landing page guide ↗</Link></article>
         <article><span>SAAS ANALYSIS</span><h3>Make the product easier to place</h3><p>Check category clarity, product outcome, and proof before adding more traffic.</p><Link className="text-link" href="/saas-website-analysis">Read the SaaS analysis guide ↗</Link></article>
         <article><span>CONVERSION CHECK</span><h3>Choose one useful fix</h3><p>Use a focused check to find the first clarity, trust, or CTA problem worth changing.</p><Link className="text-link" href="/website-conversion-check">Read the conversion guide ↗</Link></article>
@@ -144,7 +144,7 @@ export default function WebsiteReviewPage() {
 
       <footer className="footer shell">
         <Link className="wordmark" href="/"><span className="wordmark-mark">S</span><span>SiteLens</span></Link>
-        <span><Link href="/pricing">Pricing</Link> · <Link href="/teardowns">Teardowns</Link> · <Link href="/privacy">Privacy</Link> · <Link href="/terms">Terms</Link></span>
+        <span><Link href="/pricing">Free access</Link> · <Link href="/teardowns">Teardowns</Link> · <Link href="/privacy">Privacy</Link> · <Link href="/terms">Terms</Link></span>
       </footer>
     </main>
   );

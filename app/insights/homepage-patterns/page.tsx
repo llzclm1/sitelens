@@ -163,7 +163,7 @@ export default function HomepagePatternsPage() {
 
       <footer className="footer shell">
         <Link className="wordmark" href="/"><span className="wordmark-mark">S</span><span>SiteLens</span></Link>
-        <span><Link href="/website-review">Website review</Link> · <Link href="/ai-website-audit">AI website audit</Link> · <Link href="/pricing">Pricing</Link></span>
+        <span><Link href="/website-review">Website review</Link> · <Link href="/ai-website-audit">Website audit</Link> · <Link href="/pricing">Free access</Link></span>
       </footer>
     </main>
   );

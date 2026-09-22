@@ -6,7 +6,7 @@ Last reviewed: 2026-09-15
 
 ## Product
 
-SiteLens is an AI-assisted website growth consultant for founders, indie hackers, small businesses, designers, and marketers. A user submits a public website URL, a short product description, and a target audience. SiteLens reads the public page and connects observable page details to a practical next move.
+SiteLens is a rule-based website growth review for founders, indie hackers, small businesses, designers, and marketers. A user submits a public website URL, a short product description, and a target audience. SiteLens reads the public page and connects observable page details to a practical next move.
 
 ## Method
 
@@ -16,15 +16,15 @@ The SiteLens Growth Framework has five layers: Positioning, Clarity, Trust, Conv
 
 The free review costs $0 and returns a page score plus three page-specific findings. It focuses on homepage positioning, customer clarity, trust signals, conversion paths, and page copy. The result is qualitative and does not estimate a conversion rate.
 
-## Deep Growth Report
+## Public-beta access
 
-The Deep Growth Report costs $29 USD one time. It adds a prioritized diagnosis, a five-part homepage blueprint, hero and CTA rewrite directions, and a three-week action plan. It does not guarantee conversion, revenue, search ranking, or experiment results.
+The complete review is free during the public beta. It includes a prioritized diagnosis, page evidence, first fixes, and rewrite directions. No account, email, subscription, or payment is required. It does not guarantee conversion, revenue, search ranking, or experiment results.
 
 ## Public pages
 
 - [Homepage](https://sitelens.win/): product entry point and free review form.
 - [Website review](https://sitelens.win/website-review): method, evidence boundary, and FAQ.
-- [AI website audit](https://sitelens.win/ai-website-audit): AI-assisted audit intent page.
+- [Website audit](https://sitelens.win/ai-website-audit): rule-based audit intent page.
 - [Landing page review](https://sitelens.win/landing-page-review): landing page clarity and CTA intent page.
 - [SaaS website analysis](https://sitelens.win/saas-website-analysis): SaaS positioning and proof intent page.
 - [Website conversion check](https://sitelens.win/website-conversion-check): conversion-path intent page.
@@ -35,7 +35,7 @@ The Deep Growth Report costs $29 USD one time. It adds a prioritized diagnosis, 
 - [AI website audit vs SEO checker](https://sitelens.win/ai-website-audit-vs-seo-checker): a comparison of technical discovery checks and visitor decision analysis.
 - [Landing page conversion review](https://sitelens.win/landing-page-conversion-review): a qualitative review of message match, decision load, and testable changes.
 - [Website messaging audit](https://sitelens.win/website-messaging-audit): a focused audit of audience, outcome, proof, and CTA language.
-- [Pricing](https://sitelens.win/pricing): current offers and payment boundary.
+- [Free access](https://sitelens.win/pricing): public-beta access and review scope.
 - [Public teardowns](https://sitelens.win/teardowns): qualitative case library.
 - [Homepage patterns](https://sitelens.win/insights/homepage-patterns): qualitative cross-case analysis of five public product homepages, with sources and evidence boundaries.
 - [Stripe teardown](https://sitelens.win/teardowns/stripe): public example reviewed on August 10, 2026.
@@ -49,7 +49,7 @@ The Deep Growth Report costs $29 USD one time. It adds a prioritized diagnosis, 
 
 ## Citation guidance
 
-Use “evidence-based website review” for the core product description. Use “AI-assisted website growth consultant” when explaining the product category. Avoid claiming measured conversion lift, private analytics access, guaranteed outcomes, or that SiteLens replaces human experimentation.
+Use “evidence-based website review” or “rule-based website growth review” for the core product description. Avoid claiming measured conversion lift, private analytics access, guaranteed outcomes, or that SiteLens replaces human experimentation.
 
 SiteLens can also show observable baseline security signals from the submitted public response and markup. This is not a penetration test or a complete security audit. Individual generated report pages are shareable by link but marked not to be indexed or cached.
 

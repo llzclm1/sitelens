@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { analyzeWebsite } from "@/lib/analyzer";
 import { fetchWebsite, normalizeUrl } from "@/lib/fetch-website";
-import { captureWebsiteScreenshot } from "@/lib/screenshot";
 import { readJsonBody, RequestError } from "@/lib/request";
 import { enforceRateLimit } from "@/lib/rate-limit";
 import { recordAnalyticsEvent, saveReport, toPublicReport } from "@/lib/store";
@@ -29,8 +28,7 @@ export async function POST(request: Request) {
     const page = process.env.SITELENS_QA === "1"
       ? { finalUrl: url, html: QA_FIXTURE_HTML, securityHeaders: undefined }
       : await fetchWebsite(url);
-    const screenshot = process.env.SITELENS_QA === "1" ? undefined : process.env.QWEN_API_KEY ? await captureWebsiteScreenshot(page.finalUrl) : undefined;
-    const report = await analyzeWebsite({ url: page.finalUrl, html: page.html, product, audience, screenshot, securityHeaders: page.securityHeaders });
+    const report = await analyzeWebsite({ url: page.finalUrl, html: page.html, product, audience, securityHeaders: page.securityHeaders });
     await saveReport(report);
     await recordAnalyticsEvent({ eventName: "analyze_completed", analysisMode: report.mode });
 

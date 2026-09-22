@@ -17,7 +17,7 @@ function read(relativePath) {
 const committedEnvFiles = trackedFiles.filter((file) => /^\.env(?:\.|$)/.test(file) && file !== ".env.example");
 check("Committed environment files", committedEnvFiles.length === 0, committedEnvFiles.length ? committedEnvFiles.join(", ") : "Only .env.example is tracked");
 
-const sourceFiles = trackedFiles.filter((file) => /^(app|components|lib)\/|^(next\.config\.ts|wrangler\.jsonc)$/.test(file));
+const sourceFiles = trackedFiles.filter((file) => /^(app|components|lib)\/|^(next\.config\.ts|wrangler\.jsonc)$/.test(file) && fs.existsSync(path.join(root, file)));
 const sourceText = sourceFiles.map((file) => read(file)).join("\n");
 const secretPatterns = [
   /\b(?:sk-[A-Za-z0-9_-]{20,}|gh[pousr]_[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16})\b/,

@@ -25,7 +25,7 @@ export default function HomepageValuePropositionExamplesPage() {
       { question: "What makes a homepage value proposition clear?", answer: "It makes the target customer, problem, outcome, and product category recognizable without requiring a visitor to read the full page. Clarity is specific, not merely short." },
       { question: "Can a value proposition be one sentence?", answer: "Yes, but a single sentence does not have to carry every detail. The headline can state the promise, while the subhead and first proof block add context and credibility." },
       { question: "What is a weak value proposition example?", answer: "A phrase such as “Build smarter workflows” is weak when it does not identify the workflow, customer, or result. It can become useful after those missing details are made explicit." },
-      { question: "Will SiteLens rewrite my value proposition?", answer: "The free review identifies the first clarity problem. The one-time Deep Growth Report adds hero and CTA rewrite direction based on the submitted page." },
+      { question: "Will SiteLens rewrite my value proposition?", answer: "The rule-based review identifies the first clarity problem and includes a suggested rewrite direction based on the submitted page." },
     ],
     relatedLinks: [
       { label: "METHOD / COPY REVIEW", title: "Audit your page language", copy: "Review the hero, headings, product explanation, and CTA as a connected decision path.", href: "/website-messaging-audit", linkLabel: "Read the messaging audit" },

@@ -24,7 +24,7 @@ export default function LandingPageReviewPage() {
     faq: [
       { question: "What makes this different from a design critique?", answer: "The review focuses on what the page helps a visitor understand and decide. Visual polish matters, but each recommendation starts with a page detail and a business reason." },
       { question: "Can I review a page before launch?", answer: "Yes, if the page is publicly accessible. SiteLens needs a public URL and a short description of the product and target audience." },
-      { question: "Will the review rewrite the whole page?", answer: "The free review identifies the first issues. The one-time Deep Growth Report adds hero and CTA rewrite directions and a prioritized action plan." },
+      { question: "Will the review rewrite the whole page?", answer: "No. It identifies the first issues and includes a focused rewrite direction so you can make the next edit yourself." },
     ],
   }} />;
 }

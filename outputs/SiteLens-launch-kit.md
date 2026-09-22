@@ -117,7 +117,7 @@ Try it: https://sitelens.win/?utm_source=reddit&utm_medium=community&utm_campaig
 **Description:**
 
 ```text
-SiteLens reviews a public homepage for positioning, clarity, trust, and conversion friction. It connects visible page evidence to a practical next move, so founders can decide what to fix before adding more traffic or features. Start with a free review and three page-specific findings. A one-time Deep Growth Report adds hero and CTA rewrite directions plus a three-week action plan. SiteLens does not access private analytics, predict conversion rates, or promise a lift.
+SiteLens reviews a public homepage for positioning, clarity, trust, and conversion friction. It connects visible page evidence to a practical next move, so founders can decide what to fix before adding more traffic or features. The public beta is free and returns a complete rule-based review with page-specific findings. SiteLens does not access private analytics, predict conversion rates, or promise a lift.
 ```
 
 **First comment:**

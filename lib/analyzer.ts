@@ -1,5 +1,4 @@
 import crypto from "node:crypto";
-import { refineWithQwen } from "@/lib/qwen";
 import type { FullReport, ReportIssue, SecurityHeaderPresence, SecuritySignals, WebsiteSnapshot } from "@/lib/types";
 
 function decodeEntities(value: string) {
@@ -200,48 +199,7 @@ function buildIssues(snapshot: WebsiteSnapshot, product: string, audience: strin
   return issues.sort((a, b) => ({ high: 0, medium: 1, low: 2 }[a.severity] - { high: 0, medium: 1, low: 2 }[b.severity])).slice(0, 3);
 }
 
-async function refineWithDeepSeek(report: FullReport) {
-  const apiKey = process.env.DEEPSEEK_API_KEY;
-  if (!apiKey) return report;
-
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 9_000);
-
-  try {
-    const response = await fetch("https://api.deepseek.com/chat/completions", {
-      method: "POST",
-      signal: controller.signal,
-      headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
-      body: JSON.stringify({
-        model: process.env.DEEPSEEK_MODEL || "deepseek-chat",
-        temperature: 0.2,
-        response_format: { type: "json_object" },
-        messages: [
-          { role: "system", content: "You are a conversion consultant. Return JSON only with an issues array of exactly three objects. Use only the supplied evidence. Never claim a measured conversion lift." },
-          { role: "user", content: JSON.stringify({ product: report.product, audience: report.audience, snapshot: report.snapshot, currentIssues: report.issues.map(({ id, category, title, evidence }) => ({ id, category, title, evidence })) }) },
-        ],
-      }),
-    });
-    if (!response.ok) return report;
-    const body = await response.json() as { choices?: Array<{ message?: { content?: unknown } }> };
-    const content = body.choices?.[0]?.message?.content;
-    const parsed = JSON.parse(typeof content === "string" ? content.replace(/^```json\s*|\s*```$/g, "") : "{}");
-    if (!Array.isArray(parsed.issues) || parsed.issues.length !== 3) return report;
-
-    const refinedIssues = report.issues.map((issue, index) => {
-      const candidate = parsed.issues[index];
-      if (!candidate || typeof candidate.title !== "string" || typeof candidate.whyItMatters !== "string" || typeof candidate.firstFix !== "string") return issue;
-      return { ...issue, title: candidate.title.slice(0, 180), whyItMatters: candidate.whyItMatters.slice(0, 500), firstFix: candidate.firstFix.slice(0, 500), rewrite: candidate.rewrite && typeof candidate.rewrite.before === "string" && typeof candidate.rewrite.after === "string" ? { before: candidate.rewrite.before.slice(0, 200), after: candidate.rewrite.after.slice(0, 300) } : issue.rewrite };
-    });
-    return { ...report, mode: "ai" as const, issues: refinedIssues };
-  } catch {
-    return report;
-  } finally {
-    clearTimeout(timeout);
-  }
-}
-
-export async function analyzeWebsite({ url, html, product, audience, screenshot, securityHeaders }: { url: string; html: string; product: string; audience: string; screenshot?: string; securityHeaders?: SecurityHeaderPresence }): Promise<FullReport> {
+export async function analyzeWebsite({ url, html, product, audience, securityHeaders }: { url: string; html: string; product: string; audience: string; securityHeaders?: SecurityHeaderPresence }): Promise<FullReport> {
   const snapshot = collectSnapshot(html, url, securityHeaders);
   const issues = buildIssues(snapshot, product, audience);
   const score = Math.max(18, Math.min(96, 100 - issues.reduce((total, issue) => total + ({ high: 25, medium: 13, low: 6 }[issue.severity]), 0) - (snapshot.textLength < 160 ? 8 : 0)));
@@ -259,8 +217,5 @@ export async function analyzeWebsite({ url, html, product, audience, screenshot,
     snapshot,
     issues,
   };
-  if (process.env.SITELENS_QA === "1") return report;
-  const qwenReport = await refineWithQwen(report, screenshot);
-  if (qwenReport.mode === "ai") return qwenReport;
-  return refineWithDeepSeek(report);
+  return report;
 }

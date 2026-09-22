@@ -60,10 +60,10 @@ const capabilitySteps = [
   },
   {
     number: "04",
-    label: "PLAN",
-    title: "Unlock the next three weeks",
-    copy: "The $29 Deep Growth Report adds hero and CTA rewrite directions plus a prioritized action plan on the original report page.",
-    output: "Deep report",
+    label: "ACT",
+    title: "Use the evidence to choose one fix",
+    copy: "The complete report ranks the visible problem, explains its impact, and gives you a specific first change to make.",
+    output: "First fix",
   },
 ];
 
@@ -249,7 +249,7 @@ export default function HomePage() {
             </div>
             {error ? <p className="form-error" role="alert">{error}</p> : null}
             <p className="form-note" id="form-note">
-              {isSubmitting ? "Reading the page structure, copy, and calls to action." : "Free review: 3 page-specific findings. URL required; context is optional. Deep Growth Report: $29 one time."}
+              {isSubmitting ? "Reading the page structure, copy, and calls to action." : "Free rule-based review: 3 page-specific findings. URL required; context is optional. No account or payment required."}
             </p>
             {isSubmitting ? (
               <div className="analysis-process" aria-live="polite" aria-label="Analysis progress">
@@ -418,7 +418,7 @@ export default function HomePage() {
 
       <footer className="footer shell">
         <span className="wordmark"><span className="wordmark-mark">S</span><span>SiteLens</span></span>
-        <span>Reviews based on the page itself. · <a href="/website-review">Website review</a> · <a href="/pricing">Pricing</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
+        <span>Reviews based on the page itself. · <a href="/website-review">Website review</a> · <a href="/pricing">Free access</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
       </footer>
     </main>
   );

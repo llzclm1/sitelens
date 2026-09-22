@@ -57,7 +57,7 @@ const organizationSchema = {
         "trust signals",
         "conversion paths",
         "landing page reviews",
-        "AI-assisted website analysis",
+        "rule-based website analysis",
       ],
     },
     {
@@ -84,7 +84,7 @@ const organizationSchema = {
       "@id": `${siteUrlString}/#software`,
       name: "SiteLens",
       url: siteUrlString,
-      description: "An AI-assisted website growth consultant that connects page evidence to a practical next move.",
+      description: "A rule-based website growth review that connects page evidence to a practical next move.",
       applicationCategory: "BusinessApplication",
       operatingSystem: "Web",
       featureList: [
@@ -94,23 +94,14 @@ const organizationSchema = {
         "Page-specific action plan",
       ],
       provider: { "@id": `${siteUrlString}/#organization` },
-      offers: [
-        {
-          "@type": "Offer",
-          price: "0",
-          priceCurrency: "USD",
-          url: siteUrlString,
-          name: "Free website review",
-        },
-        {
-          "@type": "Offer",
-          price: "29",
-          priceCurrency: "USD",
-          url: `${siteUrlString}/pricing`,
-          name: "Deep Growth Report",
-          description: "A one-time prioritized website growth report.",
-        },
-      ],
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+        url: `${siteUrlString}/pricing`,
+        name: "SiteLens public-beta review",
+        description: "A complete rule-based website review with page evidence and first fixes.",
+      },
     },
   ],
 };

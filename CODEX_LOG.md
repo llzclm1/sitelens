@@ -1,5 +1,13 @@
 # SiteLens 修改日志
 
+## 2026-09-22 取消收费，基础判断改为规则
+
+- 删除收费、Checkout、Waffo webhook、深度报告和外部模型运行路径；历史支付数据保留但不再参与当前产品流程。
+- 将分析收敛为确定性规则报告，移除 Qwen、DeepSeek、截图和相关配置/依赖；新报告返回 `mode=heuristic`。
+- 将报告页、Pricing、隐私、条款、README、llms 与分析追踪计划改为公共 Beta 免费口径，不再要求账号、邮箱或付款。
+- 验证通过：`npm run typecheck`、`npm run build`、`npm run open:build`、`npm run security:review`（8/8）、`npm run security:supply-chain`、`npm audit --omit=dev --audit-level=high`（0 vulnerabilities）、Chromium QA（26 页面，0 findings）。
+- 下一步：提交并发布 Cloudflare，在线验证规则模式、旧支付路由 404、报告查看和分享事件。
+
 ## 2026-09-22 30 天真实用户增长启动
 
 - 报告页新增静态品牌 `report-share-card.svg` 分享预览；Twitter 卡片升级为大图，报告标题/描述保留 host 和分数，并加入报告页元数据回归检查。

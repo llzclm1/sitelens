@@ -5,24 +5,16 @@ const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://sitelens.win").rep
 
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "@id": `${siteUrl}/pricing#deep-growth-report`,
-  name: "SiteLens Deep Growth Report",
-  description: "A one-time, page-specific website growth report with prioritized diagnosis, rewrite directions, and an action plan.",
-  brand: { "@type": "Brand", name: "SiteLens" },
-  category: "Website conversion review",
-  offers: {
-    "@type": "Offer",
-    url: `${siteUrl}/pricing`,
-    priceCurrency: "USD",
-    price: "29",
-    availability: "https://schema.org/InStock",
-  },
+  "@type": "WebPage",
+  "@id": `${siteUrl}/pricing#webpage`,
+  name: "SiteLens free access",
+  description: "SiteLens provides a complete rule-based website review at no cost during the public beta.",
+  url: `${siteUrl}/pricing`,
 };
 
 export const metadata: Metadata = {
-  title: "Pricing",
-  description: "SiteLens pricing: a free website review and a $29 one-time Deep Growth Report.",
+  title: "Free Access",
+  description: "SiteLens is free during the public beta. Every website review includes the page evidence, score, and first fixes.",
   alternates: { canonical: "/pricing" },
 };
 
@@ -37,38 +29,38 @@ export default function PricingPage() {
       </nav>
 
       <header className="teardown-header shell">
-        <p className="eyebrow">PRICING / DEEP GROWTH REPORT</p>
-        <h1>A report that tells you what to change <em>first.</em></h1>
-        <p className="teardown-intro">Start with a free page-specific review. If you need a more complete homepage direction, unlock the Deep Growth Report once for $29.</p>
+        <p className="eyebrow">ACCESS / PUBLIC BETA</p>
+        <h1>Every useful finding is <em>included.</em></h1>
+        <p className="teardown-intro">SiteLens is free during the public beta. There is no checkout, subscription, account, or email gate between a public URL and its rule-based review.</p>
       </header>
 
-      <section className="evidence-strip shell" aria-label="SiteLens pricing summary">
-        <div><span>FREE REVIEW</span><strong>$0</strong></div>
-        <div><span>DEEP REPORT</span><strong>$29 one time</strong></div>
-        <div><span>DELIVERY</span><strong>On the report page</strong></div>
-        <div><span>GUARANTEE</span><strong>No outcome promise</strong></div>
+      <section className="evidence-strip shell" aria-label="SiteLens access summary">
+        <div><span>REVIEW</span><strong>Free</strong></div>
+        <div><span>INPUT</span><strong>One public URL</strong></div>
+        <div><span>OUTPUT</span><strong>Score + 3 findings</strong></div>
+        <div><span>METHOD</span><strong>Observable rules</strong></div>
       </section>
 
-      <section className="unlock-section shell" aria-labelledby="deep-report-title">
+      <section className="unlock-section shell" aria-labelledby="included-title">
         <div className="unlock-copy">
-          <p className="eyebrow">DEEP GROWTH REPORT</p>
-          <h2 id="deep-report-title">Specific changes for <em>this page.</em></h2>
-          <p>The paid report turns the free findings into a prioritized homepage direction. It stays tied to the evidence SiteLens found on the submitted page.</p>
+          <p className="eyebrow">WHAT IS INCLUDED</p>
+          <h2 id="included-title">A complete first read of <em>the page.</em></h2>
+          <p>The report checks positioning, clarity, trust, conversion path, page structure, metadata, image accessibility, and public security signals. Each finding includes the evidence, why it matters, and a first fix.</p>
           <ul className="pricing-list">
-            <li><span>01</span><strong>Prioritized diagnosis</strong></li>
-            <li><span>02</span><strong>Hero and CTA rewrite directions</strong></li>
-            <li><span>03</span><strong>Three-week action plan</strong></li>
+            <li><span>01</span><strong>Page-specific score and priority</strong></li>
+            <li><span>02</span><strong>Evidence and business impact</strong></li>
+            <li><span>03</span><strong>Suggested change and rewrite direction</strong></li>
           </ul>
         </div>
         <article className="upgrade-card pricing-card">
-          <div className="upgrade-price"><span>ONE-TIME REPORT</span><strong>$29</strong></div>
-          <p>One homepage and one evidence-based growth diagnosis, unlocked after secure payment confirmation.</p>
-          <Link className="nav-cta" href="/">Start with a free review <span aria-hidden="true">↗</span></Link>
-          <small>No subscription required. SiteLens does not access private analytics or guarantee conversion, search ranking, or revenue results.</small>
+          <div className="upgrade-price"><span>PUBLIC BETA</span><strong>FREE</strong></div>
+          <p>Use the complete report immediately. SiteLens does not collect an email or ask for payment to reveal the findings.</p>
+          <Link className="nav-cta" href="/#analyze">Review your site <span aria-hidden="true">↗</span></Link>
+          <small>The review is qualitative. It does not access private analytics, run experiments, or guarantee conversion, search ranking, or revenue results.</small>
         </article>
       </section>
 
-      <p className="teardown-disclaimer shell">Payment is handled by Waffo Pancake through the SiteLens checkout flow. The paid report is unlocked on the original report page after the payment provider confirms the order. <Link href="/pricing.md">Machine-readable pricing ↗</Link></p>
+      <p className="teardown-disclaimer shell">Rule-based means the same observable page signals are evaluated consistently. SiteLens shows its evidence and limits so you can decide what to test next.</p>
 
       <footer className="footer shell">
         <Link className="wordmark" href="/"><span className="wordmark-mark">S</span><span>SiteLens</span></Link>

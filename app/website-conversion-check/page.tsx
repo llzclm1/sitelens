@@ -24,7 +24,7 @@ export default function WebsiteConversionCheckPage() {
     faq: [
       { question: "Is this a guaranteed conversion audit?", answer: "No. It is a qualitative page review and does not promise a conversion lift. Use private analytics and controlled tests to measure outcomes." },
       { question: "What types of websites can I check?", answer: "The first version is most useful for SaaS, tools, services, and small business websites with a public homepage and a clear action they want visitors to take." },
-      { question: "What do I receive for free?", answer: "The free review returns a score and three page-specific findings. The Deep Growth Report adds rewrite directions and a prioritized action plan for $29 one time." },
+      { question: "What do I receive?", answer: "The public-beta review returns a score and three page-specific findings, including evidence, impact, and a suggested first change. There is no payment or email gate." },
     ],
   }} />;
 }

@@ -1,5 +1,14 @@
 # Codex 交接说明
 
+## 2026-09-22 取消收费与规则分析
+
+- 当前公共 Beta 完全免费：移除了收费 CTA、邮箱收集、Checkout、支付轮询、支付 API、Waffo webhook 和深度报告解锁接口；历史 D1 支付表与记录未删除，但不再被运行路径读取或写入。
+- `lib/analyzer.ts` 现在只使用页面事实和确定性规则生成报告，报告模式为 `heuristic`；已移除截图、Qwen、DeepSeek 和外部模型调用。
+- `/pricing` 已改为免费访问说明页；隐私、条款、README、`llms.txt`、`llms-full.txt`、增长计划和 GA4 追踪计划已同步当前口径。
+- 配置与依赖已清理：`.env.example`、`wrangler.jsonc`、`worker-configuration.d.ts` 不再声明 Waffo/Qwen/Browser Run，`@waffo/pancake-ts` 已从依赖中移除。
+- 本地证据：typecheck、Next build、OpenNext build、安全审计 8/8、供应链审计、生产依赖审计 0 vulnerabilities、Chromium QA 26 页面 0 findings；URL-only 分析返回 HTTP 201、`mode=heuristic`、3 个规则问题；旧支付路径返回 404。
+- 待完成：推送后发布 Cloudflare，并对线上首页、`/pricing`、`/api/upgrade`（404）和线上分析 `mode=heuristic` 做只读回归。
+
 ## 2026-09-22 30 天真实用户增长启动
 
 - 报告分享元数据新增静态品牌 OG 图片，并将 Twitter 卡片升级为 `summary_large_image`；报告标题与描述继续携带网站和分数，QA 检查报告页存在 `og:image`。
