@@ -7,6 +7,7 @@
 - 桌面端报告分享现在复制“评分短句 + 带 UTM 的证据链接”，并记录 `share_payload=note_and_link`；减少用户在聊天/社区中补写上下文的步骤。
 - 该分享复制优化已发布到 Cloudflare Worker `a23b30a5-c00d-4338-bacd-3d120162cd46`，线上前端包已核验包含新事件和提示文案。
 - 已从 Chromium QA 产出 `outputs/launch-assets/` 截图包（首页、报告、Teardown、方法论、价格五张）和中文证据说明，补齐第三方发布素材缺口；未执行外部发布。
+- README 已加入首页、报告和 Teardown 三张产品预览图，并链接完整截图包，改善 GitHub 访问者到 live product 的转化路径。
 - 报告页分享区新增接收者 CTA：`Analyze your own site` 指向带 `report`/`referral`/`report_recipient` UTM 的首页，并发送 `report_recipient_cta`；QA 覆盖该二次获客入口。
 - 已将目标定义为 30 天内达到至少 1,000 名 GA4 去重后的真实活跃用户；Cloudflare 边缘请求、缓存命中、Debug/内部测试和机器人探测不计入用户。
 - 新增 `outputs/SiteLens-30-day-growth-plan.md`，按 Founder-led 内容/社群、定向合作、搜索/GEO、报告分享和目录发布拆分目标，默认零广告预算、不刷量、不垃圾群发。

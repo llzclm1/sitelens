@@ -6,6 +6,16 @@ SiteLens Phase 0 是一个面向 Indie Hacker 和小型 SaaS 创始人的网站�
 
 SiteLens reads one public homepage and connects visible evidence to the first website change worth fixing. It is a qualitative review, not a conversion-rate forecast or a replacement for private analytics and experiments.
 
+## 产品预览
+
+![SiteLens homepage preview](outputs/launch-assets/01-homepage.png)
+
+![SiteLens evidence report preview](outputs/launch-assets/02-report-flow.png)
+
+![SiteLens public teardown library](outputs/launch-assets/03-public-teardowns.png)
+
+[查看完整发布截图包与证据边界](outputs/launch-assets/README.md)
+
 ## 本次实现
 
 - URL + 产品一句话 + 目标用户提交

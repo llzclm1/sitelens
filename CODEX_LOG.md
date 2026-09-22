@@ -7,6 +7,7 @@
 - 桌面端分享改为复制“评分短句 + 带 UTM 的报告链接”，发送 `share_payload=note_and_link`，用于降低真实分享者的转发阻力。
 - Cloudflare 发布版本为 `a23b30a5-c00d-4338-bacd-3d120162cd46`；线上 chunk 已读回 `note_and_link`、`Share note copied` 和 `report_recipient_cta`。
 - 从已通过 QA 的页面产出 `outputs/launch-assets/` 五张 1440×1200 截图和证据边界说明，供后续人工分发使用；没有把截图当作平台发布或用户增长证据。
+- README 新增三张产品预览图和截图包链接，让 GitHub 仓库访问者能直接看到产品能力并进入 live product。
 - 报告页分享区新增 `Analyze your own site` 接收者 CTA，使用 `report`/`referral`/`report_recipient` 归因并发送 `report_recipient_cta`，用于验证分享带来的二次分析。
 - 根据 30 天 1,000 用户目标，新增 `outputs/SiteLens-30-day-growth-plan.md`，将增长拆为内容/社群、定向合作、搜索/GEO、报告分享和目录发布五类来源。
 - 明确 GA4 Active users 是主口径；Cloudflare 请求、边缘 unique、Debug 流量和机器人探测只用于健康检查，不作为用户数。
