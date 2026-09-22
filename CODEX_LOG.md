@@ -21,6 +21,7 @@
 - Cloudflare 发布后用 `example.com` 进行生产 URL-only 回归，API 返回 HTTP 201、`mode=heuristic`；该请求仅验证生产边界，不进入 GA4 活跃用户口径。
 - 使用已登录 GitHub 管理权限更新仓库元数据：描述、Homepage 和 8 个 topics；读回结果确认生效，保持不发帖、不私信、不投放边界。
 - 启用 GitHub Discussions，并在 README 增加反馈/讨论链接；未创建虚假讨论或伪造用户互动。
+- 报告页分享区增加 GitHub Discussions 反馈入口，使用 `report`/`community`/`feedback` 标记并由 QA 检查存在，形成真实分析后的反馈路径。
 
 ## 2026-09-19 其他搜索引擎提交与验证
 
