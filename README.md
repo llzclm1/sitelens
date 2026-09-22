@@ -2,7 +2,7 @@
 
 SiteLens Phase 0 是一个面向 Indie Hacker 和小型 SaaS 创始人的网站增长诊断原型。它只验证一件事：用户提交首页后，是否愿意为一份具体、可执行的深度报告付费。
 
-**Live product:** https://sitelens.win · **Public teardown library:** https://sitelens.win/teardowns · **Feedback & discussions:** https://github.com/llzclm1/sitelens/discussions
+**Live product:** https://sitelens.win · **Public teardown library:** https://sitelens.win/teardowns · **Phase 0 release:** https://github.com/llzclm1/sitelens/releases/tag/v0.1.0 · **Feedback & discussions:** https://github.com/llzclm1/sitelens/discussions
 
 SiteLens reads one public homepage and connects visible evidence to the first website change worth fixing. It is a qualitative review, not a conversion-rate forecast or a replacement for private analytics and experiments.
 
