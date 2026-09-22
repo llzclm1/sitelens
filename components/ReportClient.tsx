@@ -131,9 +131,9 @@ export default function ReportClient({ report }: { report: PublicReport }) {
         return;
       }
 
-      await navigator.clipboard.writeText(shareUrl);
-      trackEvent("report_shared", { share_method: "clipboard" });
-      setShareMessage("Share link copied.");
+      await navigator.clipboard.writeText(`${shareData.text}\nSee the evidence and first fix: ${shareUrl}`);
+      trackEvent("report_shared", { share_method: "clipboard", share_payload: "note_and_link" });
+      setShareMessage("Share note copied.");
     } catch {
       setShareMessage("Copy was cancelled. The report link is still in your address bar.");
     }
