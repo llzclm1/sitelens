@@ -19,6 +19,7 @@
 - 发布后验证 key 文件为 HTTP 200 且内容匹配；从线上 Sitemap 读取 26 个公开 URL，批量提交 IndexNow，API 返回 HTTP 202 Accepted。未把该响应当作收录或用户增长。
 - 根据首屏漏斗目标降低首次分析摩擦：产品描述和目标用户不再阻塞提交，服务端为空值时使用 `this product` / `the intended customer` 作为分析上下文；QA 改为走 URL-only 分析流程。
 - Cloudflare 发布后用 `example.com` 进行生产 URL-only 回归，API 返回 HTTP 201、`mode=heuristic`；该请求仅验证生产边界，不进入 GA4 活跃用户口径。
+- 使用已登录 GitHub 管理权限更新仓库元数据：描述、Homepage 和 8 个 topics；读回结果确认生效，保持不发帖、不私信、不投放边界。
 
 ## 2026-09-19 其他搜索引擎提交与验证
 

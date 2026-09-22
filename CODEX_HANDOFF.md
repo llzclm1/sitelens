@@ -17,6 +17,7 @@
 - IndexNow 线上验收完成：key 文件返回 200 且内容匹配，Sitemap 解析出 26 个 URL，`https://api.indexnow.org/indexnow` 返回 202；等待搜索引擎异步抓取和流量数据。
 - 首页分析表单改为 URL 必填、产品描述和目标用户可选；后端对空上下文使用明确的通用兜底，降低首次分析门槛并保留有上下文时的具体分析能力。
 - 线上 URL-only 回归使用 `example.com` 返回 HTTP 201、生成规则报告；该请求是内部验证，明确排除在 GA4 用户和增长结论之外。
+- GitHub 公共仓库 `llzclm1/sitelens` 已补齐项目描述、`https://sitelens.win` Homepage 和 8 个发现 topics；已用 GitHub CLI 读回核验，未执行社交平台发帖。
 
 ## 2026-09-19 其他搜索引擎提交与验证
 
