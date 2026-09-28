@@ -1,5 +1,13 @@
 # SiteLens 任务状态
 
+## 2026-09-28 首页内部链接增量
+
+- [x] 在首页问题导向入口增加 `/homepage-value-proposition-examples` 和 `/website-messaging-audit` 的直接链接。
+- [x] 将首页 Sitemap `lastmod` 更新为 `2026-09-28`，线上首页和 Sitemap 已验收。
+- [x] 通过 `npm run typecheck`、`npm run build`、`npm run open:build` 和 `git diff --check`，发布 Worker `942bdbdb-ce52-4791-a0a6-94b64f3ff532`。
+- [x] GSC 确认首页已收录；更新抓取请求因 Google 当日配额用尽未接受。
+- [ ] 明天重试首页更新抓取请求，并继续观察 GSC 展示与 GA4 活跃用户；不重复消耗当天配额。
+
 ## 2026-09-28 GSC 高意图页面提交
 
 - [x] URL Inspection 确认 `/saas-website-analysis` 与 `/ai-website-audit-vs-seo-checker` 已收录，不重复提交。

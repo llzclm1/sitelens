@@ -92,6 +92,18 @@ const questionGuides = [
     copy: "Review the first screen, CTA path, and trust signals in the order a new visitor experiences them.",
     href: "/landing-page-review",
   },
+  {
+    label: "IF YOUR VALUE PROPOSITION FEELS BROAD",
+    question: "Can visitors see the outcome?",
+    copy: "Use customer, problem, outcome, and proof to turn an abstract homepage claim into a useful first sentence.",
+    href: "/homepage-value-proposition-examples",
+  },
+  {
+    label: "IF YOUR COPY FEELS VAGUE",
+    question: "Does the page say what matters?",
+    copy: "Separate messaging strategy from copy editing and find the wording that makes the next decision harder than it needs to be.",
+    href: "/website-messaging-audit",
+  },
 ];
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://sitelens.win").replace(/\/$/, "");

@@ -1,5 +1,11 @@
 # Codex 交接说明
 
+## 2026-09-28 首页内部链接增量
+
+- 首页新增两个问题导向入口：`/homepage-value-proposition-examples` 与 `/website-messaging-audit`，帮助用户和搜索引擎从首页发现此前未被 Google 识别的公开页面。
+- Sitemap 首页 `lastmod` 已更新为 `2026-09-28`；线上首页和 Sitemap 已验收，Worker 为 `942bdbdb-ce52-4791-a0a6-94b64f3ff532`。
+- 首页已收录，但本次更新后的 URL Inspection 请求因 Google 当日配额用尽而未接受；明天重试一次即可。当前继续等待三个已提交页面的异步收录与展示回流。
+
 ## 2026-09-28 GSC 高意图页面提交
 
 - 已确认 `/saas-website-analysis` 与 `/ai-website-audit-vs-seo-checker` 已收录。

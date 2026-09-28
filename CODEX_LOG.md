@@ -1,5 +1,12 @@
 # SiteLens 修改日志
 
+## 2026-09-28 首页内部链接与 GSC 配额
+
+- 根据 GSC 未发现页面缺少引荐来源的证据，在首页“Start with the question”入口增加 `/homepage-value-proposition-examples` 和 `/website-messaging-audit` 两个直接入口；保留既有页面结构，不批量新增内容。
+- 首页 Sitemap `lastmod` 更新为 `2026-09-28`，线上 Googlebot 验证首页包含两个新入口，Sitemap XML 返回首页对应日期。
+- 顺序验证通过 `npm run typecheck`、`npm run build`、`npm run open:build` 和 `git diff --check`；Cloudflare Worker `942bdbdb-ce52-4791-a0a6-94b64f3ff532` 已发布。
+- 首页 URL Inspection 已确认页面已收录；更新抓取请求到达 GSC 后返回“超出了每日配额”，明天再重试，不把配额错误或部署结果当作用户增长。
+
 ## 2026-09-28 GSC 高意图页面发现与提交
 
 - URL Inspection 确认 `/saas-website-analysis` 与 `/ai-website-audit-vs-seo-checker` 已收录，不重复提交。

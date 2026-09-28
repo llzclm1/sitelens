@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://sitelens.win").replace(/\/$/, "");
 
-const homepageUpdated = "2026-09-15";
+const homepageUpdated = "2026-09-28";
 const methodUpdated = "2026-09-11";
 const editorialUpdated = "2026-09-07";
 const conversionGuideUpdated = "2026-09-15";
