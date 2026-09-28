@@ -22,6 +22,8 @@
 - 针对 GSC 已有查询 `why b2b saas websites dont convert`，更新 `app/why-saas-websites-dont-convert/page.tsx` 的 Title、Description、H1、首段和短答案，保持原有页面结构与内链。
 - `npm run build` 通过；并发执行导致的 typecheck `.next/types` 短暂缺失已顺序复跑，`npm run typecheck` 通过。
 - 本轮尚未推送或部署，后续需要独立验证线上 HTML 与 GSC 抓取请求。
+- 已推送 GitHub `4d28e88`，发布 Cloudflare Worker `0e84c14d-ae65-49f1-a5f6-545225c3d602`；公网验收确认 B2B SaaS Title、Description、H1 和 Googlebot Sitemap 正常。
+- GSC URL Inspection 确认该页面已收录，并成功显示“已请求编入索引”，进入优先抓取队列；不将该状态视为排名或用户增长。
 
 ## 2026-09-22 取消收费，基础判断改为规则
 

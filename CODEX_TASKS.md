@@ -24,7 +24,9 @@
 - [x] 根据 GSC 查询 `why b2b saas websites dont convert` 的已有展示，优化 `/why-saas-websites-dont-convert` 的 Title、Description、H1 和短答案。
 - [x] 保持原页面和内部链接，不新增薄页面。
 - [x] 顺序通过 `npm run build`、`npm run typecheck`；并发测试产生的 `.next/types` 短暂缺失已复跑通过。
-- [ ] 推送、发布并请求页面重新抓取，等待 GSC CTR 与分析漏斗数据。
+- [x] 推送提交 `4d28e88`，发布 Cloudflare Worker `0e84c14d-ae65-49f1-a5f6-545225c3d602`，线上 HTML 已返回 B2B SaaS 新标题、描述和 H1。
+- [x] GSC URL Inspection 确认页面已收录，并成功请求重新编入索引。
+- [ ] 等待 GSC CTR 与分析漏斗数据回流。
 
 ## 2026-09-22 免费规则版当前状态
 

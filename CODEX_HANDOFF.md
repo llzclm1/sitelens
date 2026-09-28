@@ -21,6 +21,8 @@
 - 已修改 `app/why-saas-websites-dont-convert/page.tsx`，把已有搜索需求中的 B2B SaaS 语义补到 Title、Description、H1 和短答案；没有新建薄内容页。
 - `npm run build` 通过；并发触发的 typecheck 类型文件缺失已顺序复跑，`npm run typecheck` 通过。
 - 当前待完成：推送、Cloudflare 发布、公网验收和 GSC 重新抓取请求。
+- 已完成 GitHub 推送 `4d28e88`，发布 Cloudflare Worker `0e84c14d-ae65-49f1-a5f6-545225c3d602`；公网 B2B SaaS 页面标题、描述和 H1 已生效。
+- GSC URL Inspection 显示页面已收录，并已成功加入优先抓取队列；下一步只等待展示、CTR 和 GA4 分析事件回流。
 
 ## 2026-09-22 取消收费与规则分析
 
