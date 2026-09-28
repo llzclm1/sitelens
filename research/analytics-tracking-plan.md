@@ -48,9 +48,9 @@
 4. 在分析等待过程中点击 `Stop waiting`，确认出现 `analyze_cancelled`，且不会被记录为付款 CTA。
 5. 在报告页复制或原生分享，确认出现 `report_shared`，且不发送邮箱、完整 URL 或支付参数。
 6. 用一个不可访问的网站验证 `analyze_failed` 和 `status_code`。
-7. 在 Realtime 报告确认事件用户数与 DebugView 一致。
-8. 使用带 `?debug_mode=1` 或 `?sitelens_test=1` 的测试链接时，确认服务端事件 `traffic_class=test`；测试事件不得写入业务转化结论。
-9. 用明显的机器人 User-Agent 做只读 QA 请求，确认服务端事件分类为 `bot`，不把它算入真人候选漏斗。
+7. 在不带测试参数的受控会话中，按正常用户路径确认客户端事件与服务端事件顺序一致。
+8. 使用带 `?debug_mode=1` 或 `?sitelens_test=1` 的测试链接时，确认客户端 `trackEvent` 直接跳过、服务端事件 `traffic_class=test`；测试事件不得写入业务转化结论。
+9. 用明显的机器人 User-Agent 做只读代码/QA验证，确认服务端分类规则为 `bot`，不把它算入真人候选漏斗。
 
 ## 解释边界
 

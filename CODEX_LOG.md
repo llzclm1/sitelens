@@ -1,5 +1,11 @@
 # SiteLens 修改日志
 
+## 2026-09-28 客户端测试埋点隔离收口
+
+- 发现首页提交函数会直接调用 `trackEvent`；虽然 `ga-disable` 会阻断 GA4，但事件仍可能先进入 `dataLayer`。
+- `trackEvent` 现对 `debug_mode=1` 和 `sitelens_test=1` 直接返回，测试页不再写入客户端事件队列；服务端仍用 `traffic_class=test` 记录可审计的 QA 事实。
+- 顺序验证通过 `npm run typecheck`、`npm run build`、`npm run open:build` 和 `git diff --check`；Cloudflare Worker `6211262f-a604-4c53-8abf-8f0ef1132366` 已发布。
+
 ## 2026-09-28 IndexNow 首页更新通知
 
 - 首页内部链接和 Sitemap `lastmod` 更新后，向 IndexNow 提交 `https://sitelens.win/`；API 返回 HTTP 200，key 文件返回 HTTP 200。

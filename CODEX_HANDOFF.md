@@ -1,5 +1,10 @@
 # Codex 交接说明
 
+## 2026-09-28 客户端测试埋点隔离
+
+- `trackEvent` 已在 `debug_mode=1` / `sitelens_test=1` 下直接返回，避免测试事件进入 `dataLayer`；服务端 QA 仍保留 `traffic_class=test` 证据。
+- 已通过 typecheck、Next 构建、OpenNext 构建和 diff 检查；Worker `6211262f-a604-4c53-8abf-8f0ef1132366` 已发布。
+
 ## 2026-09-28 IndexNow 通知
 
 - 首页内部链接更新后已向 IndexNow 提交首页 URL；API 和 key 文件均返回 HTTP 200。

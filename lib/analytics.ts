@@ -76,6 +76,10 @@ function analyticsContext(): AnalyticsEventParams {
 
 export function trackEvent(eventName: string, params?: AnalyticsEventParams) {
   if (typeof window === "undefined") return;
+  const currentUrl = new URL(window.location.href);
+  const isTestTraffic = currentUrl.searchParams.get("debug_mode") === "1" || currentUrl.searchParams.get("sitelens_test") === "1";
+  if (isTestTraffic) return;
+
   window.dataLayer = window.dataLayer ?? [];
   if (typeof window.gtag !== "function") window.gtag = (...args: unknown[]) => {
     window.dataLayer?.push(args);
@@ -86,6 +90,5 @@ export function trackEvent(eventName: string, params?: AnalyticsEventParams) {
     ...params,
     page_path: window.location.pathname,
   };
-  if (new URL(window.location.href).searchParams.get("debug_mode") === "1") eventParams.debug_mode = true;
   window.gtag("event", eventName, eventParams);
 }

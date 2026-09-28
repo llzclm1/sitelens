@@ -1,5 +1,12 @@
 # SiteLens 任务状态
 
+## 2026-09-28 客户端测试埋点隔离
+
+- [x] 让 `trackEvent` 在 `debug_mode=1` / `sitelens_test=1` 下直接跳过，不再写入客户端 `dataLayer`。
+- [x] 通过 `npm run typecheck`、`npm run build`、`npm run open:build` 和 `git diff --check`。
+- [x] 发布 Worker `6211262f-a604-4c53-8abf-8f0ef1132366`。
+- [ ] 等待下一次真实会话，确认 GA4 去重活跃用户仍只反映正常访问。
+
 ## 2026-09-28 IndexNow 首页通知
 
 - [x] 首页内部链接更新后提交 IndexNow 首页 URL。
