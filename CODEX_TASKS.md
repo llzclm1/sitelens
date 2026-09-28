@@ -22,7 +22,8 @@
 ## 2026-09-28 SEO 结构化数据日期校正
 
 - [x] 为近期实际更新的 AI Audit、B2B SaaS 和 Landing Page 页面补充真实 `dateModified`，保留其他页面原有日期，不制造全站更新信号。
-- [ ] 完成测试、发布和线上 JSON-LD 验收。
+- [x] 顺序通过 `npm run build`、`npm run typecheck`、`npm run open:build` 和 `git diff --check`；提交 `45e40f9` 已推送，发布 Cloudflare Worker `523397c2-9b49-45c8-9921-e456c5231898`。
+- [x] 公网 Googlebot HTML 验证三页各包含一个 `dateModified: 2026-09-28` 的页面级 JSON-LD；全局旧日期保持不动。
 
 ## 2026-09-28 AI Audit 搜索片段增量
 

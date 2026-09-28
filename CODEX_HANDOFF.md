@@ -18,7 +18,8 @@
 ## 2026-09-28 SEO 结构化数据日期校正
 
 - 已为近期实际更新的 AI Audit、B2B SaaS 和 Landing Page 页面增加可选 `dateModified` 配置；未更新的 SEO 页面继续使用原日期。
-- 当前待完成：测试、发布并在线确认三页 JSON-LD 的日期值。
+- 已顺序通过 `npm run build`、`npm run typecheck`、`npm run open:build` 和 `git diff --check`；提交 `45e40f9` 已推送，Cloudflare Worker `523397c2-9b49-45c8-9921-e456c5231898` 已发布。
+- Googlebot 公网 HTML 已确认三页各含一个 `dateModified: 2026-09-28` 的页面级 JSON-LD；全局旧日期保留，避免把未更新页面伪装成新内容。
 - 该改动只优化已有搜索需求的承接，不代表已经获得点击、用户或转化。
 
 ## 2026-09-28 AI Audit 页面增量
