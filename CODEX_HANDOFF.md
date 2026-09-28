@@ -11,7 +11,9 @@
 ## 2026-09-28 Landing Page 搜索片段增量
 
 - 已根据 GSC 已有 `landing pages don't convert` 展示，更新 `app/landing-page-review/page.tsx` 的 Title、Description、H1、短答案和 FAQ；保留原页面结构、内链和证据边界。
-- 当前待完成：顺序构建、类型检查、OpenNext 构建、推送、Cloudflare 发布、公网验收，以及 GSC 优先抓取请求。
+- 已顺序通过 `npm run build`、`npm run typecheck`、`npm run open:build` 和 `git diff --check`；提交 `36bcb5a` 已推送 GitHub，Cloudflare Worker `5fd20fad-f674-482c-99c0-8a5042071146` 已发布。
+- 公网 HTML 已返回新 Title、Description、H1；Googlebot 访问 Sitemap 返回 HTTP 200 且 XML 可解析。GSC URL Inspection 确认页面已收录，并成功加入优先抓取队列。
+- 当前只等待展示、CTR 和 `analysis_form_started` 回流；该状态不代表已经获得用户或转化。
 - 该改动只优化已有搜索需求的承接，不代表已经获得点击、用户或转化。
 
 ## 2026-09-28 AI Audit 页面增量

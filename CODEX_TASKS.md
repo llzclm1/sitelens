@@ -14,8 +14,10 @@
 
 - [x] 根据 GSC 已有 `landing pages don't convert` 展示，优化既有 `/landing-page-review` 的 Title、Description、H1、短答案和 FAQ。
 - [x] 保持原页面结构和内部链接，不新增薄内容页；明确公开页面分析不能证明转化原因或提升。
-- [ ] 顺序完成构建、类型检查、OpenNext 构建、线上发布和公网 HTML 验收。
-- [ ] GSC URL Inspection 请求重新编入索引，并等待展示、CTR 与 `analysis_form_started` 回流。
+- [x] 顺序通过 `npm run build`、`npm run typecheck`、`npm run open:build` 和 `git diff --check`。
+- [x] 推送提交 `36bcb5a`，发布 Cloudflare Worker `5fd20fad-f674-482c-99c0-8a5042071146`；线上 HTML 返回新标题、描述和 H1，Googlebot Sitemap 仍 HTTP 200 且 XML 可解析。
+- [x] GSC URL Inspection 确认页面已收录，并成功请求重新编入索引，进入优先抓取队列。
+- [ ] 等待展示、CTR 与 `analysis_form_started` 回流；部署和抓取请求不等同于用户增长。
 
 ## 2026-09-28 AI Audit 搜索片段增量
 

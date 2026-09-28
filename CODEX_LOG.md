@@ -13,7 +13,8 @@
 
 - 根据 GSC 已有 `landing pages don't convert` 展示，更新 `app/landing-page-review/page.tsx` 的 Title、Description、H1、短答案和 FAQ。
 - 继续使用证据优先口径：页面说明可能的可见摩擦，不宣称公开审查能够证明转化原因或带来提升；没有新增薄内容页或外部平台发布。
-- 后续验证：顺序执行测试，发布到 Cloudflare，确认线上 HTML，再向 GSC 请求重新编入索引。
+- 顺序验证通过：`npm run build`、`npm run typecheck`、`npm run open:build`、`git diff --check`；提交 `36bcb5a` 已推送，Cloudflare Worker `5fd20fad-f674-482c-99c0-8a5042071146` 已发布。
+- 公网 HTML 的新 Title、Description、H1 已生效，Googlebot Sitemap HTTP 200 且 XML 可解析；GSC 已确认页面收录并成功加入优先抓取队列。展示、CTR 和 GA4 漏斗数据仍待异步回流。
 
 ## 2026-09-28 AI Audit 搜索片段增量
 
