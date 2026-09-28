@@ -1,5 +1,10 @@
 # Codex 交接说明
 
+## 2026-09-28 GEO 更新通知
+
+- 主页 GEO 日期校正发布后，已向 IndexNow 重新通知 `https://sitelens.win/`；API 和 key 文件均返回 HTTP 200。
+- 该通知只代表接收，不代表收录、排名、点击或 GA4 真人用户增长；继续以 GSC/GA4 为证据。
+
 ## 2026-09-28 GEO 机器可读内容新鲜度
 
 - 主页实际内容已更新至 2026-09-28；全局 WebPage JSON-LD、`/llms.txt` 和 `/llms-full.txt` 已同步真实复核日期。
