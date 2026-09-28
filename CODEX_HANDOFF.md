@@ -25,7 +25,9 @@
 
 - GA4 近 7 天显示 Public Teardowns 为 15 次浏览量最高的页面入口；已在 `components/TeardownReview.tsx` 首屏增加指向分析表单的 UTM CTA。
 - 复用既有 `cta_clicked` 和 `analysis_form_started` 事件，不把 CTA 点击当作活跃用户或完成分析。
-- 当前待完成：测试、Cloudflare 发布、公网验收，并观察 teardown 到分析表单的实际回流。
+- 已顺序通过 `npm run build`、`npm run typecheck`、`npm run open:build` 和 `git diff --check`；提交 `5ddd0c2` 已推送，Cloudflare Worker `f1360856-9581-4b33-a6e4-dfe9f9f00124` 已发布。
+- 公网验收确认通用 teardown 详情页（如 Linear）首屏 CTA 已生效；Stripe 的独立旧页面不使用该组件，保持原状。
+- 当前只等待 teardown 到分析表单的真实事件回流。
 - 该改动只优化已有搜索需求的承接，不代表已经获得点击、用户或转化。
 
 ## 2026-09-28 AI Audit 页面增量

@@ -29,7 +29,9 @@
 
 - [x] 根据 GA4 近 7 天 Public Teardowns 为 15 次浏览量最高内容入口的证据，在 teardown 详情页首屏增加“Apply the same read to your site”链接。
 - [x] 复用现有 UTM、`cta_clicked` 追踪和分析表单，不增加新事件、不发布外部平台内容。
-- [ ] 完成测试、发布和线上页面验收，随后观察 teardown → 分析表单启动率。
+- [x] 顺序通过 `npm run build`、`npm run typecheck`、`npm run open:build` 和 `git diff --check`；提交 `5ddd0c2` 已推送，发布 Cloudflare Worker `f1360856-9581-4b33-a6e4-dfe9f9f00124`。
+- [x] 公网验收确认通用 teardown 详情页（如 Linear）首屏出现 CTA，且保留原有页脚 CTA；Stripe 的独立旧页面不受此组件改动影响。
+- [ ] 观察 teardown → 分析表单启动率；CTA 点击不等同于活跃用户或完成分析。
 
 ## 2026-09-28 AI Audit 搜索片段增量
 
