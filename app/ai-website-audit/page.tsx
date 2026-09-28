@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { SeoIntentPage } from "@/components/SeoIntentPage";
 
 export const metadata: Metadata = {
-  title: "AI Website Audit Alternative: Find Your First Conversion Fix",
-  description: "Looking for an AI website audit? SiteLens is a free, rule-based alternative that connects homepage evidence to one practical conversion fix.",
+  title: "AI Website Audit Alternative (Free)",
+  description: "Looking for a free AI website audit? SiteLens reviews a public homepage with transparent rules and returns three page-specific findings you can check and act on.",
   alternates: { canonical: "/ai-website-audit" },
 };
 
@@ -12,10 +12,10 @@ export default function AiWebsiteAuditPage() {
     slug: "ai-website-audit",
     dateModified: "2026-09-28",
     eyebrow: "AI AUDIT ALTERNATIVE / PAGE EVIDENCE",
-    title: "An evidence-based alternative to an AI website audit",
-    emphasis: "homepage fix.",
-    description: "Looking for an AI website audit? SiteLens is a free, rule-based alternative that connects homepage evidence to one practical conversion fix.",
-    intro: "If you are comparing AI website audit tools, SiteLens offers a transparent rule-based alternative. It reads your public homepage as a first-time visitor would, points to the visible evidence behind each finding, and gives you one practical change to make next.",
+    title: "A free alternative to an AI website audit",
+    emphasis: "with evidence.",
+    description: "Looking for a free AI website audit? SiteLens reviews a public homepage with transparent rules and returns three page-specific findings you can check and act on.",
+    intro: "Paste a public homepage URL and get three page-specific findings without an account or payment. SiteLens uses transparent rules to show what the page communicates, where a visitor may hesitate, and which change is worth making first.",
     answer: "An AI website audit can summarize a page, but a useful review should show why a visible problem may slow a visitor down. SiteLens uses consistent HTML, metadata, copy, CTA, trust, and security rules, so each finding can be checked against the page. It complements technical SEO checks and does not replace analytics or experiments.",
     checks: [
       { label: "01 / POSITIONING", title: "What does the page promise?", copy: "The audit identifies what the product appears to do, who it seems to serve, and where the value proposition remains too broad." },

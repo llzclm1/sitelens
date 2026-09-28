@@ -1,5 +1,12 @@
 # Codex 交接说明
 
+## 2026-09-28 AI Audit 摘要优化
+
+- GSC 28 天页面数据为 `/ai-website-audit` 23 次展示、0 次点击；已将页面标题、描述、H1 和首段改成更直接的免费规则型替代方案表达。
+- 首次线上验收发现页面级 Title 重复追加站点名；已修复并重新发布，最终 Worker 为 `a9a14022-162d-4cfe-bdf6-3db8ab7c7181`。
+- 线上 Title 已确认是 `AI Website Audit Alternative (Free) | SiteLens`，GSC 已确认页面收录并接受更新后的优先抓取请求。
+- 目前仍没有新增点击或真人用户证据；下一次比较 GSC CTR、GA4 活跃用户和分析表单启动事件。
+
 ## 2026-09-28 GSC Teardown 抓取结果
 
 - GSC URL Inspection 已确认 `/teardowns` “网址已收录到 Google”。

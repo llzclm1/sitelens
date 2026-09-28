@@ -1,5 +1,14 @@
 # SiteLens 任务状态
 
+## 2026-09-28 AI Audit 摘要优化
+
+- [x] 根据 GSC `/ai-website-audit` 28 天 23 次展示、0 次点击的证据，收紧 Title、Description、H1 和首段。
+- [x] 修复页面级 Title 与根布局模板重复追加站点名的问题。
+- [x] 通过 `npm run typecheck`、`npm run build`、`npm run open:build` 和 `git diff --check`。
+- [x] 发布最终 Cloudflare Worker `a9a14022-162d-4cfe-bdf6-3db8ab7c7181`，线上 Title、Description 和 H1 已验证。
+- [x] GSC 确认页面已收录，并将更新后的 URL 加入优先抓取队列。
+- [ ] 等待 GSC CTR、GA4 活跃用户和 `analysis_form_started` 回流；不把部署或抓取请求当作增长。
+
 ## 2026-09-28 增长证据与 GSC 恢复
 
 - [x] 读取 GA4 SiteLens 属性：近 28 天 44 名活跃用户、229 个事件；`analyze_completed` 1 人，`qualified_session` 2 人。

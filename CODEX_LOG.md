@@ -1,5 +1,13 @@
 # SiteLens 修改日志
 
+## 2026-09-28 AI Audit 搜索摘要收口
+
+- GSC 28 天页面数据显示 `/ai-website-audit` 有 23 次展示、0 次点击；据此收紧页面 Title、Description、H1 和首段，突出免费、规则透明、三个页面级发现。
+- 首次发布验收发现页面级 Title 与根布局模板重复追加 `SiteLens`；已立即移除页面级后缀并重新构建，避免生产标题出现 `SiteLens | SiteLens`。
+- 顺序验证通过 `npm run typecheck`、`npm run build`、`npm run open:build` 和 `git diff --check`；最终 Cloudflare Worker 版本为 `a9a14022-162d-4cfe-bdf6-3db8ab7c7181`。
+- 公网验收确认 Title 为 `AI Website Audit Alternative (Free) | SiteLens`，Description 与 H1 已生效；GSC 确认页面已收录，并成功将更新后的 URL 加入优先抓取队列。
+- 该优化尚未产生新的点击或真人用户证据，后续以 GSC CTR、GA4 活跃用户和 `analysis_form_started` 回流评估。
+
 ## 2026-09-28 GSC Teardown 更新抓取
 
 - GSC URL Inspection 确认 `https://sitelens.win/teardowns` 已收录，可显示在 Google 搜索结果中。
