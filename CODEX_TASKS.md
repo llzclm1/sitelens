@@ -47,6 +47,12 @@
 - [x] 公网 HTML 已确认列表页正文出现 CTA，并包含 `teardown_library` / `intro` UTM。
 - [ ] 观察列表页 CTA → 分析表单启动率；点击不等同于活跃用户或完成分析。
 
+## 2026-09-28 Teardown 列表页搜索入口
+
+- [x] 将 `/teardowns` 的泛化 Title 改为 `Website Teardowns: Public Homepage Reviews`，描述和 CollectionPage 名称同步现有 8 个公开案例。
+- [x] 将该列表页 Sitemap `lastModified` 改为 `2026-09-28`，不新增页面、不改变案例内容。
+- [ ] 完成测试、发布、线上 Title/JSON-LD/Sitemap 验收。
+
 ## 2026-09-28 AI Audit 搜索片段增量
 
 - [x] 根据 GSC 已有 `ai website audit` / `website audit ai` 展示但 0 点击的证据，优化 `/ai-website-audit` 的标题、描述、首屏定位和 FAQ。

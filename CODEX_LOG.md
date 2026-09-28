@@ -41,6 +41,11 @@
 - 顺序验证通过：`npm run build`、`npm run typecheck`、`npm run open:build`、`git diff --check`；提交 `fb5debb` 已推送，Cloudflare Worker `3b9c3564-1be5-4ea1-8ba2-c92231190f79` 已发布。
 - 公网检查确认列表页正文 CTA 与 `teardown_library` / `intro` UTM 生效；后续比较列表页 CTA → 表单启动 → 分析完成事件链。
 
+## 2026-09-28 Teardown 列表页搜索入口
+
+- 将 `/teardowns` 的泛化 Title 改为 `Website Teardowns: Public Homepage Reviews`，描述和 CollectionPage JSON-LD 同步已有 8 个公开案例。
+- Sitemap 中该页 `lastmod` 改为 `2026-09-28`；后续验证线上 Title、JSON-LD 和 Sitemap，不把元数据上线当作搜索流量增长。
+
 ## 2026-09-28 AI Audit 搜索片段增量
 
 - 根据 GSC 28 天查询中 `ai website audit` 与 `website audit ai` 有展示但 0 点击，更新 `app/ai-website-audit/page.tsx` 的 Title、Description、H1、首段和 FAQ。

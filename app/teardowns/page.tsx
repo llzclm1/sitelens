@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Public Teardowns",
-  description: "Public SiteLens website reviews that show the page evidence behind each recommendation.",
+  title: "Website Teardowns: Public Homepage Reviews",
+  description: "Read public website teardowns of Stripe, Linear, Notion, and more, with the page evidence behind each homepage recommendation.",
   alternates: { canonical: "/teardowns" },
 };
 
@@ -83,8 +83,8 @@ const structuredData = {
       "@type": "CollectionPage",
       "@id": `${siteUrl}/teardowns#collection`,
       url: `${siteUrl}/teardowns`,
-      name: "Public Teardowns",
-      description: "Public SiteLens website reviews that show the page evidence behind each recommendation.",
+      name: "Website Teardowns: Public Homepage Reviews",
+      description: "Read public website teardowns of Stripe, Linear, Notion, and more, with the page evidence behind each homepage recommendation.",
       isPartOf: { "@id": `${siteUrl}/#website` },
       inLanguage: "en",
     },

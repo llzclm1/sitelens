@@ -40,6 +40,11 @@
 - 在 `/teardowns` 首屏正文增加“Apply the framework to your site”CTA，使用 `teardown_library` / `intro` UTM；复用现有 `cta_clicked` 与 `analysis_form_started` 事件。
 - 已顺序通过 `npm run build`、`npm run typecheck`、`npm run open:build` 和 `git diff --check`；提交 `fb5debb` 已推送，Cloudflare Worker `3b9c3564-1be5-4ea1-8ba2-c92231190f79` 已发布。
 - 公网 HTML 已确认列表页正文 CTA 与 `teardown_library` / `intro` UTM 生效；当前只等待列表页到分析表单的真实事件回流。
+
+## 2026-09-28 Teardown 列表页搜索入口
+
+- 已将 `/teardowns` Title 改为 `Website Teardowns: Public Homepage Reviews`，描述和 CollectionPage 名称与现有 8 个公开案例一致；未新增薄页面。
+- 已将该页 Sitemap `lastModified` 改为 `2026-09-28`。当前待完成：测试、发布和线上元数据验收。
 - 该改动只优化已有搜索需求的承接，不代表已经获得点击、用户或转化。
 
 ## 2026-09-28 AI Audit 页面增量

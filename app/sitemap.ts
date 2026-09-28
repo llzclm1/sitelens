@@ -9,6 +9,7 @@ const conversionGuideUpdated = "2026-09-15";
 const legalUpdated = "2026-09-11";
 const intentUpdated = "2026-09-15";
 const recentlyUpdatedIntent = "2026-09-28";
+const recentlyUpdatedEditorial = "2026-09-28";
 
 const pages: Array<{ path: string; lastModified: string }> = [
   { path: "/", lastModified: homepageUpdated },
@@ -26,7 +27,7 @@ const pages: Array<{ path: string; lastModified: string }> = [
   { path: "/website-messaging-audit", lastModified: intentUpdated },
   { path: "/insights/homepage-patterns", lastModified: editorialUpdated },
   { path: "/pricing", lastModified: methodUpdated },
-  { path: "/teardowns", lastModified: editorialUpdated },
+  { path: "/teardowns", lastModified: recentlyUpdatedEditorial },
   { path: "/teardowns/stripe", lastModified: editorialUpdated },
   { path: "/teardowns/linear", lastModified: editorialUpdated },
   { path: "/teardowns/notion", lastModified: editorialUpdated },
