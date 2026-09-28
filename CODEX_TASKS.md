@@ -33,6 +33,11 @@
 - [x] 公网验收确认通用 teardown 详情页（如 Linear）首屏出现 CTA，且保留原有页脚 CTA；Stripe 的独立旧页面不受此组件改动影响。
 - [ ] 观察 teardown → 分析表单启动率；CTA 点击不等同于活跃用户或完成分析。
 
+## 2026-09-28 Sitemap 更新时间校正
+
+- [x] 将近期实际更新的 AI Audit、Landing Page Review 和 B2B SaaS 页面 `lastModified` 改为 `2026-09-28`，未更新页面保持原值。
+- [ ] 完成构建、线上 Sitemap 验收，并通知 IndexNow 重新抓取这三个已变更 URL。
+
 ## 2026-09-28 AI Audit 搜索片段增量
 
 - [x] 根据 GSC 已有 `ai website audit` / `website audit ai` 展示但 0 点击的证据，优化 `/ai-website-audit` 的标题、描述、首屏定位和 FAQ。

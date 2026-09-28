@@ -29,6 +29,11 @@
 - 顺序验证通过：`npm run build`、`npm run typecheck`、`npm run open:build`、`git diff --check`；提交 `5ddd0c2` 已推送，Cloudflare Worker `f1360856-9581-4b33-a6e4-dfe9f9f00124` 已发布。
 - 公网检查确认 Linear 等通用 teardown 详情页首屏 CTA 已生效；Stripe 独立页面未被误改。后续比较 teardown → 表单启动 → 分析完成的真实事件链。
 
+## 2026-09-28 Sitemap 更新时间校正
+
+- 发现 AI Audit、Landing Page Review 和 B2B SaaS 三页内容已更新，但 Sitemap 的 `lastmod` 仍为 `2026-09-15`；修正为 `2026-09-28`，其他页面日期不变。
+- 后续验证：顺序运行测试、发布并检查线上 Sitemap，然后只通知 IndexNow 这三个公开 URL。
+
 ## 2026-09-28 AI Audit 搜索片段增量
 
 - 根据 GSC 28 天查询中 `ai website audit` 与 `website audit ai` 有展示但 0 点击，更新 `app/ai-website-audit/page.tsx` 的 Title、Description、H1、首段和 FAQ。

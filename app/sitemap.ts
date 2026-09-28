@@ -8,15 +8,16 @@ const editorialUpdated = "2026-09-07";
 const conversionGuideUpdated = "2026-09-15";
 const legalUpdated = "2026-09-11";
 const intentUpdated = "2026-09-15";
+const recentlyUpdatedIntent = "2026-09-28";
 
 const pages: Array<{ path: string; lastModified: string }> = [
   { path: "/", lastModified: homepageUpdated },
   { path: "/website-review", lastModified: methodUpdated },
-  { path: "/ai-website-audit", lastModified: intentUpdated },
-  { path: "/landing-page-review", lastModified: intentUpdated },
+  { path: "/ai-website-audit", lastModified: recentlyUpdatedIntent },
+  { path: "/landing-page-review", lastModified: recentlyUpdatedIntent },
   { path: "/saas-website-analysis", lastModified: intentUpdated },
   { path: "/website-conversion-check", lastModified: intentUpdated },
-  { path: "/why-saas-websites-dont-convert", lastModified: intentUpdated },
+  { path: "/why-saas-websites-dont-convert", lastModified: recentlyUpdatedIntent },
   { path: "/why-websites-dont-convert", lastModified: conversionGuideUpdated },
   { path: "/homepage-value-proposition-examples", lastModified: intentUpdated },
   { path: "/saas-homepage-audit", lastModified: intentUpdated },

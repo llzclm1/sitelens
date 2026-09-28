@@ -28,6 +28,11 @@
 - 已顺序通过 `npm run build`、`npm run typecheck`、`npm run open:build` 和 `git diff --check`；提交 `5ddd0c2` 已推送，Cloudflare Worker `f1360856-9581-4b33-a6e4-dfe9f9f00124` 已发布。
 - 公网验收确认通用 teardown 详情页（如 Linear）首屏 CTA 已生效；Stripe 的独立旧页面不使用该组件，保持原状。
 - 当前只等待 teardown 到分析表单的真实事件回流。
+
+## 2026-09-28 Sitemap 更新时间校正
+
+- 检查发现三页近期内容已更新，但 Sitemap 仍使用旧的 `2026-09-15`；已仅将 AI Audit、Landing Page Review 和 B2B SaaS 页面改为 `2026-09-28`。
+- 当前待完成：测试、线上 Sitemap 验收，并向 IndexNow 通知这三个已变更 URL；不把通知接收当作收录或用户增长。
 - 该改动只优化已有搜索需求的承接，不代表已经获得点击、用户或转化。
 
 ## 2026-09-28 AI Audit 页面增量
