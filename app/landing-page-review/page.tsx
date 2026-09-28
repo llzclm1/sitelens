@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 export default function LandingPageReviewPage() {
   return <SeoIntentPage config={{
     slug: "landing-page-review",
+    dateModified: "2026-09-28",
     eyebrow: "LANDING PAGE / CONVERSION REVIEW",
     title: "Why landing pages lose visitors before the",
     emphasis: "next decision.",

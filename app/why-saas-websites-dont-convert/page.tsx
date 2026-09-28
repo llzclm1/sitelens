@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 export default function WhySaasWebsitesDontConvertPage() {
   return <SeoIntentPage config={{
     slug: "why-saas-websites-dont-convert",
+    dateModified: "2026-09-28",
     eyebrow: "SAAS CONVERSION / HOMEPAGE DIAGNOSIS",
     title: "Why B2B SaaS websites lose people before they",
     emphasis: "start.",

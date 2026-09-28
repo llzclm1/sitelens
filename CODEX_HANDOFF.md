@@ -14,6 +14,11 @@
 - 已顺序通过 `npm run build`、`npm run typecheck`、`npm run open:build` 和 `git diff --check`；提交 `36bcb5a` 已推送 GitHub，Cloudflare Worker `5fd20fad-f674-482c-99c0-8a5042071146` 已发布。
 - 公网 HTML 已返回新 Title、Description、H1；Googlebot 访问 Sitemap 返回 HTTP 200 且 XML 可解析。GSC URL Inspection 确认页面已收录，并成功加入优先抓取队列。
 - 当前只等待展示、CTR 和 `analysis_form_started` 回流；该状态不代表已经获得用户或转化。
+
+## 2026-09-28 SEO 结构化数据日期校正
+
+- 已为近期实际更新的 AI Audit、B2B SaaS 和 Landing Page 页面增加可选 `dateModified` 配置；未更新的 SEO 页面继续使用原日期。
+- 当前待完成：测试、发布并在线确认三页 JSON-LD 的日期值。
 - 该改动只优化已有搜索需求的承接，不代表已经获得点击、用户或转化。
 
 ## 2026-09-28 AI Audit 页面增量

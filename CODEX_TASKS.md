@@ -19,6 +19,11 @@
 - [x] GSC URL Inspection 确认页面已收录，并成功请求重新编入索引，进入优先抓取队列。
 - [ ] 等待展示、CTR 与 `analysis_form_started` 回流；部署和抓取请求不等同于用户增长。
 
+## 2026-09-28 SEO 结构化数据日期校正
+
+- [x] 为近期实际更新的 AI Audit、B2B SaaS 和 Landing Page 页面补充真实 `dateModified`，保留其他页面原有日期，不制造全站更新信号。
+- [ ] 完成测试、发布和线上 JSON-LD 验收。
+
 ## 2026-09-28 AI Audit 搜索片段增量
 
 - [x] 根据 GSC 已有 `ai website audit` / `website audit ai` 展示但 0 点击的证据，优化 `/ai-website-audit` 的标题、描述、首屏定位和 FAQ。

@@ -4,6 +4,7 @@ const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://sitelens.win").rep
 
 export type SeoIntentPageConfig = {
   slug: string;
+  dateModified?: string;
   eyebrow: string;
   title: string;
   emphasis: string;
@@ -35,7 +36,7 @@ export function SeoIntentPage({ config }: { config: SeoIntentPageConfig }) {
         url: `${siteUrl}/${config.slug}`,
         name: config.title,
         description: config.description,
-        dateModified: "2026-09-15",
+        dateModified: config.dateModified ?? "2026-09-15",
         isPartOf: { "@id": `${siteUrl}/#website` },
         inLanguage: "en",
       },

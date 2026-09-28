@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 export default function AiWebsiteAuditPage() {
   return <SeoIntentPage config={{
     slug: "ai-website-audit",
+    dateModified: "2026-09-28",
     eyebrow: "AI AUDIT ALTERNATIVE / PAGE EVIDENCE",
     title: "An evidence-based alternative to an AI website audit",
     emphasis: "homepage fix.",

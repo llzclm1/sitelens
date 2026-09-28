@@ -16,6 +16,11 @@
 - 顺序验证通过：`npm run build`、`npm run typecheck`、`npm run open:build`、`git diff --check`；提交 `36bcb5a` 已推送，Cloudflare Worker `5fd20fad-f674-482c-99c0-8a5042071146` 已发布。
 - 公网 HTML 的新 Title、Description、H1 已生效，Googlebot Sitemap HTTP 200 且 XML 可解析；GSC 已确认页面收录并成功加入优先抓取队列。展示、CTR 和 GA4 漏斗数据仍待异步回流。
 
+## 2026-09-28 SEO 结构化数据日期校正
+
+- 为近期实际更新的 AI Audit、B2B SaaS 和 Landing Page 页面增加 `dateModified: 2026-09-28`，其他页面保留既有日期，避免结构化数据与内容更新不一致。
+- 后续验证：顺序运行测试，发布 Cloudflare，并检查线上 JSON-LD。
+
 ## 2026-09-28 AI Audit 搜索片段增量
 
 - 根据 GSC 28 天查询中 `ai website audit` 与 `website audit ai` 有展示但 0 点击，更新 `app/ai-website-audit/page.tsx` 的 Title、Description、H1、首段和 FAQ。
