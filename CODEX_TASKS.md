@@ -40,6 +40,11 @@
 - [x] 线上 Googlebot Sitemap XML 可解析，三个页面 `lastmod` 均为 `2026-09-28`；IndexNow key 返回 200 且匹配，三个 URL 通知返回 HTTP 200。
 - [ ] 等待搜索引擎异步抓取、收录和 GA4/GSC 用户回流；通知接收不等于增长。
 
+## 2026-09-28 Teardown 列表页激活入口
+
+- [x] 根据 GA4 `/teardowns` 为高浏览量内容入口的证据，在列表页首屏正文增加自有分析 CTA，并使用独立 `utm_content=intro` 归因。
+- [ ] 完成测试、发布和线上页面验收；随后观察列表页 CTA → 分析表单启动率。
+
 ## 2026-09-28 AI Audit 搜索片段增量
 
 - [x] 根据 GSC 已有 `ai website audit` / `website audit ai` 展示但 0 点击的证据，优化 `/ai-website-audit` 的标题、描述、首屏定位和 FAQ。

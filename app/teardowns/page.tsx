@@ -117,6 +117,7 @@ export default function TeardownsPage() {
         <p className="eyebrow">PUBLIC TEARDOWN LIBRARY</p>
         <h1>Public website <em>reviews.</em></h1>
         <p className="teardown-intro">These are qualitative page reviews. They do not claim measured conversion lift. Each one connects something visible on the page to a next move.</p>
+        <Link className="text-link" href="/?utm_source=teardown_library&utm_medium=content&utm_campaign=public_library&utm_content=intro#analyze">Apply the framework to your site <span aria-hidden="true">↗</span></Link>
       </header>
 
       <section className="teardown-grid shell" aria-labelledby="teardown-library-title">

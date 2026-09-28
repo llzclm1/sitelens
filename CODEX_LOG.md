@@ -35,6 +35,11 @@
 - 顺序验证通过：`npm run build`、`npm run typecheck`、`npm run open:build`、`git diff --check`；提交 `f922556` 已推送，Cloudflare Worker `bcdacb2a-5a46-4240-b319-f42aac5913d4` 已发布。
 - 公网 Googlebot Sitemap XML 可解析，三页 `lastmod` 均为 `2026-09-28`；IndexNow key 匹配且三个 URL 通知返回 HTTP 200。该响应只证明通知接收，不证明收录、点击或真实用户增长。
 
+## 2026-09-28 Teardown 列表页激活入口
+
+- 根据 GA4 `/teardowns` 的高浏览量证据，在列表页首屏正文增加自有分析 CTA，使用 `utm_source=teardown_library`、`utm_content=intro` 归因。
+- 后续验证：顺序测试、发布、公网验收，再比较列表页 CTA → 表单启动 → 分析完成事件链。
+
 ## 2026-09-28 AI Audit 搜索片段增量
 
 - 根据 GSC 28 天查询中 `ai website audit` 与 `website audit ai` 有展示但 0 点击，更新 `app/ai-website-audit/page.tsx` 的 Title、Description、H1、首段和 FAQ。
