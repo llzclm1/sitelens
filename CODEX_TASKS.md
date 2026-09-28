@@ -19,6 +19,13 @@
 - [x] GSC URL Inspection 确认 `/ai-website-audit` 已收录，并成功请求重新编入索引，进入优先抓取队列。
 - [ ] 等待新页面进入下一轮 GSC 展示，比较 CTR 和 `analysis_form_started` / `analyze_completed`。
 
+## 2026-09-28 B2B SaaS 搜索片段增量
+
+- [x] 根据 GSC 查询 `why b2b saas websites dont convert` 的已有展示，优化 `/why-saas-websites-dont-convert` 的 Title、Description、H1 和短答案。
+- [x] 保持原页面和内部链接，不新增薄页面。
+- [x] 顺序通过 `npm run build`、`npm run typecheck`；并发测试产生的 `.next/types` 短暂缺失已复跑通过。
+- [ ] 推送、发布并请求页面重新抓取，等待 GSC CTR 与分析漏斗数据。
+
 ## 2026-09-22 免费规则版当前状态
 
 - [x] 移除收费入口、Checkout、支付确认和 Waffo webhook 运行路径；保留历史数据，不删除旧表。

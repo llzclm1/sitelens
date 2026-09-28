@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { SeoIntentPage } from "@/components/SeoIntentPage";
 
 export const metadata: Metadata = {
-  title: "Why SaaS Websites Don't Convert: 5 Homepage Problems",
-  description: "Learn why SaaS websites fail to convert visitors and how to find the first homepage problem worth fixing.",
+  title: "Why B2B SaaS Websites Don't Convert: 5 Homepage Problems",
+  description: "Learn why B2B SaaS websites lose visitors before the first decision and how to find the homepage problem worth fixing first.",
   alternates: { canonical: "/why-saas-websites-dont-convert" },
 };
 
@@ -11,11 +11,11 @@ export default function WhySaasWebsitesDontConvertPage() {
   return <SeoIntentPage config={{
     slug: "why-saas-websites-dont-convert",
     eyebrow: "SAAS CONVERSION / HOMEPAGE DIAGNOSIS",
-    title: "Why SaaS websites lose people before they",
+    title: "Why B2B SaaS websites lose people before they",
     emphasis: "start.",
-    description: "Learn why SaaS websites fail to convert visitors and how to find the first homepage problem worth fixing.",
-    intro: "Most SaaS homepages do not fail because they lack features. They lose the first decision because the visitor cannot place the product, verify the promise, or choose a useful next step.",
-    answer: "SaaS websites commonly lose visitors when the homepage leads with features or abstract language before explaining the product category, customer, outcome, and proof. Fix the earliest unclear decision first, then use analytics and experiments to measure whether the change works.",
+    description: "Learn why B2B SaaS websites lose visitors before the first decision and how to find the homepage problem worth fixing first.",
+    intro: "Most B2B SaaS homepages do not fail because they lack features. They lose the first decision because the visitor cannot place the product, verify the promise, or choose a useful next step.",
+    answer: "B2B SaaS websites commonly lose visitors when the homepage leads with features or abstract language before explaining the product category, customer, outcome, and proof. Fix the earliest unclear decision first, then use analytics and experiments to measure whether the change works.",
     checks: [
       { label: "01 / CATEGORY GAP", title: "The page describes a product, not a situation.", copy: "A visitor needs a category, a target customer, and a recognizable problem. Feature names and abstract claims make them do the positioning work themselves." },
       { label: "02 / PROOF GAP", title: "The promise arrives before the evidence.", copy: "A polished hero is not enough when the page never shows who uses the product, what changed, or why the claim is credible. Proof should appear near the decision it supports." },

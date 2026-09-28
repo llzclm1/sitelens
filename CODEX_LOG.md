@@ -17,6 +17,12 @@
 - 公网验收：`/ai-website-audit` 返回新 Title、Description、H1；Googlebot 访问 `/sitemap.xml` 返回 HTTP 200，`xmllint` 解析通过。GSC CTR 和真实用户仍待异步数据回流。
 - GSC URL Inspection 复核该页面已收录，并成功显示“已请求编入索引”，Google 已将其加入优先抓取队列；该状态不等同于排名、点击或用户增长。
 
+## 2026-09-28 B2B SaaS 搜索片段增量
+
+- 针对 GSC 已有查询 `why b2b saas websites dont convert`，更新 `app/why-saas-websites-dont-convert/page.tsx` 的 Title、Description、H1、首段和短答案，保持原有页面结构与内链。
+- `npm run build` 通过；并发执行导致的 typecheck `.next/types` 短暂缺失已顺序复跑，`npm run typecheck` 通过。
+- 本轮尚未推送或部署，后续需要独立验证线上 HTML 与 GSC 抓取请求。
+
 ## 2026-09-22 取消收费，基础判断改为规则
 
 - 删除收费、Checkout、Waffo webhook、深度报告和外部模型运行路径；历史支付数据保留但不再参与当前产品流程。

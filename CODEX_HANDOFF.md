@@ -16,6 +16,12 @@
 - GSC URL Inspection 显示该页面已收录，并已成功请求重新编入索引，进入优先抓取队列。
 - 当前待完成：等待新页面进入下一轮 GSC 展示，比较 CTR 与分析漏斗事件；部署和收录不等于已经获得用户。
 
+## 2026-09-28 B2B SaaS 页面增量
+
+- 已修改 `app/why-saas-websites-dont-convert/page.tsx`，把已有搜索需求中的 B2B SaaS 语义补到 Title、Description、H1 和短答案；没有新建薄内容页。
+- `npm run build` 通过；并发触发的 typecheck 类型文件缺失已顺序复跑，`npm run typecheck` 通过。
+- 当前待完成：推送、Cloudflare 发布、公网验收和 GSC 重新抓取请求。
+
 ## 2026-09-22 取消收费与规则分析
 
 - 当前公共 Beta 完全免费：移除了收费 CTA、邮箱收集、Checkout、支付轮询、支付 API、Waffo webhook 和深度报告解锁接口；历史 D1 支付表与记录未删除，但不再被运行路径读取或写入。
