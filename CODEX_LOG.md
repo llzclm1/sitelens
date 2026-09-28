@@ -15,6 +15,7 @@
 - 文案采用“AI audit alternative”定位，明确产品是规则型、可核对证据的替代方案，不把 SiteLens 描述为 AI 审计工具。
 - 验证通过：`npm run typecheck`、`npm run build`、`npm run open:build`、`git diff --check`；GitHub 提交 `309efe2` 已推送，Cloudflare Worker `7c2c3cd0-e6ed-43da-8003-9bcb8f72899b` 已发布。
 - 公网验收：`/ai-website-audit` 返回新 Title、Description、H1；Googlebot 访问 `/sitemap.xml` 返回 HTTP 200，`xmllint` 解析通过。GSC CTR 和真实用户仍待异步数据回流。
+- GSC URL Inspection 复核该页面已收录，并成功显示“已请求编入索引”，Google 已将其加入优先抓取队列；该状态不等同于排名、点击或用户增长。
 
 ## 2026-09-22 取消收费，基础判断改为规则
 
