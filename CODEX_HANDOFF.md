@@ -38,7 +38,8 @@
 ## 2026-09-28 Teardown 列表页激活入口
 
 - 在 `/teardowns` 首屏正文增加“Apply the framework to your site”CTA，使用 `teardown_library` / `intro` UTM；复用现有 `cta_clicked` 与 `analysis_form_started` 事件。
-- 当前待完成：测试、Cloudflare 发布、公网验收，并观察列表页到分析表单的真实事件回流。
+- 已顺序通过 `npm run build`、`npm run typecheck`、`npm run open:build` 和 `git diff --check`；提交 `fb5debb` 已推送，Cloudflare Worker `3b9c3564-1be5-4ea1-8ba2-c92231190f79` 已发布。
+- 公网 HTML 已确认列表页正文 CTA 与 `teardown_library` / `intro` UTM 生效；当前只等待列表页到分析表单的真实事件回流。
 - 该改动只优化已有搜索需求的承接，不代表已经获得点击、用户或转化。
 
 ## 2026-09-28 AI Audit 页面增量

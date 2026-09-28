@@ -38,7 +38,8 @@
 ## 2026-09-28 Teardown 列表页激活入口
 
 - 根据 GA4 `/teardowns` 的高浏览量证据，在列表页首屏正文增加自有分析 CTA，使用 `utm_source=teardown_library`、`utm_content=intro` 归因。
-- 后续验证：顺序测试、发布、公网验收，再比较列表页 CTA → 表单启动 → 分析完成事件链。
+- 顺序验证通过：`npm run build`、`npm run typecheck`、`npm run open:build`、`git diff --check`；提交 `fb5debb` 已推送，Cloudflare Worker `3b9c3564-1be5-4ea1-8ba2-c92231190f79` 已发布。
+- 公网检查确认列表页正文 CTA 与 `teardown_library` / `intro` UTM 生效；后续比较列表页 CTA → 表单启动 → 分析完成事件链。
 
 ## 2026-09-28 AI Audit 搜索片段增量
 
