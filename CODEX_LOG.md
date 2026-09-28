@@ -47,6 +47,11 @@
 - Sitemap 中该页 `lastmod` 改为 `2026-09-28`；顺序验证通过 `npm run build`、`npm run typecheck`、`npm run open:build`、`git diff --check`。提交 `bca3a68` 已推送，Cloudflare Worker `3d2d4a3b-9a69-4670-b45c-d7baa9b6b0fb` 已发布。
 - Googlebot 公网检查确认新 Title、CollectionPage JSON-LD 名称和 Sitemap `lastmod` 生效；不把元数据上线当作搜索流量增长。
 
+## 2026-09-28 GA4 测试流量隔离
+
+- 复查 GA4 仍为 22 名近 7 天活跃用户、Organic Search 0、关键事件 0；修复生产测试参数隔离：`debug_mode=1` 或 `sitelens_test=1` 不发送 GA4，也不运行自定义追踪。
+- 后续验证：顺序测试、发布、用测试/正常 URL 检查线上脚本差异，并继续区分 GA4 真人、测试、机器人和 Cloudflare 边缘请求。
+
 ## 2026-09-28 AI Audit 搜索片段增量
 
 - 根据 GSC 28 天查询中 `ai website audit` 与 `website audit ai` 有展示但 0 点击，更新 `app/ai-website-audit/page.tsx` 的 Title、Description、H1、首段和 FAQ。

@@ -27,6 +27,10 @@ function destinationFor(action: HTMLElement) {
 
 export default function SiteAnalytics() {
   useEffect(() => {
+    const currentUrl = new URL(window.location.href);
+    const isTestTraffic = currentUrl.searchParams.get("debug_mode") === "1" || currentUrl.searchParams.get("sitelens_test") === "1";
+    if (isTestTraffic) return;
+
     let interactionCount = 0;
     let firstInteractionAt: number | null = null;
     let qualifiedSessionSent = Boolean(readSessionMarker("sitelens:qualified-session"));
@@ -76,7 +80,6 @@ export default function SiteAnalytics() {
       });
     }
 
-    const currentUrl = new URL(window.location.href);
     const searchEngine = currentUrl.searchParams.get("utm_medium") === "organic"
       ? "utm"
       : document.referrer.includes("google.")

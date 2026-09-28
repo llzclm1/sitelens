@@ -122,6 +122,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             <Script id="site-lens-ga4" strategy="beforeInteractive">
               {`window.dataLayer = window.dataLayer || [];
 window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
+window['ga-disable-${gaMeasurementId}'] = new URLSearchParams(window.location.search).get('debug_mode') === '1' || new URLSearchParams(window.location.search).get('sitelens_test') === '1';
 gtag('js', new Date());
 gtag('config', '${gaMeasurementId}');`}
             </Script>
