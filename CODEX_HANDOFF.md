@@ -1,5 +1,11 @@
 # Codex 交接说明
 
+## 2026-09-28 Sitemap 缓存可抓取性修复
+
+- 因 GSC 仍显示 `/sitemap.xml` “无法抓取 / 已发现 0 个网页”，已让 Sitemap 采用 1 小时 revalidate，并明确返回 `Cache-Control: public, max-age=3600, s-maxage=3600`。
+- Worker `e09cabb3-6146-449e-807b-3fb994ec0b86` 已发布；公网 Googlebot 获取 HTTP 200、`application/xml`，26 个 URL，XML 解析通过。
+- 已在 GSC 基于修复再次提交，界面返回“已成功提交站点地图”；等待异步读取，不把它当作收录或用户增长。
+
 ## 2026-09-28 GSC 站点地图重提交
 
 - GSC 之前显示 `/sitemap.xml` “无法抓取 / 已发现 0 个网页”；公网 Googlebot 核验为 HTTP 200、`application/xml`，XML 解析正常。

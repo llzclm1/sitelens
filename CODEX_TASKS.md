@@ -1,5 +1,13 @@
 # SiteLens 任务状态
 
+## 2026-09-28 Sitemap 缓存可抓取性修复
+
+- [x] 针对 GSC “无法抓取 / 已发现 0 个网页”增加 Sitemap `revalidate = 3600`，并为 `/sitemap.xml` 设置 `public, max-age=3600, s-maxage=3600`。
+- [x] 通过 `npm run typecheck`、`npm run build`、`npm run open:build` 和 `git diff --check`。
+- [x] 发布 Cloudflare Worker `e09cabb3-6146-449e-807b-3fb994ec0b86`。
+- [x] 公网 Googlebot 验证：HTTP 200、`application/xml`、`Cache-Control` 已生效、26 个 URL、XML 可解析；GSC 已基于修复再次成功提交。
+- [ ] 等待 Google 异步读取并验证已发现网页；不把提交成功或缓存头当作收录/用户增长。
+
 ## 2026-09-28 GSC 站点地图重提交
 
 - [x] 复核 GSC：`/sitemap.xml` 上次读取状态为“无法抓取”、已发现网页 0 个；公网 Googlebot 请求仍返回 HTTP 200、`application/xml` 且 XML 可解析。

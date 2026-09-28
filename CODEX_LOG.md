@@ -1,5 +1,12 @@
 # SiteLens 修改日志
 
+## 2026-09-28 Sitemap 缓存可抓取性修复
+
+- GSC 连续显示 Sitemap “无法抓取 / 已发现 0 个网页”，而公网内容和 XML 本身正常；因此只针对抓取链路增加 `revalidate = 3600` 和 `/sitemap.xml` 的 `Cache-Control: public, max-age=3600, s-maxage=3600`。
+- 顺序通过 `npm run typecheck`、`npm run build`、`npm run open:build` 和 `git diff --check`；发布 Worker `e09cabb3-6146-449e-807b-3fb994ec0b86`。
+- 公网 Googlebot 核验 HTTP 200、`application/xml`、26 个 canonical URL 和 XML 可解析；GSC 基于修复再次返回“已成功提交站点地图”。
+- 这是可抓取性修复，不是收录、排名、点击或真人活跃用户证据；继续等待 GSC/GA4 回流。
+
 ## 2026-09-28 GSC 站点地图重提交
 
 - GSC 当前状态显示 `/sitemap.xml` 上次读取为“无法抓取”、已发现网页 0 个；独立公网核验仍显示 Googlebot 可取到 HTTP 200 的 `application/xml`，且 XML 可解析。
