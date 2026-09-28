@@ -44,7 +44,8 @@
 ## 2026-09-28 Teardown 列表页搜索入口
 
 - 将 `/teardowns` 的泛化 Title 改为 `Website Teardowns: Public Homepage Reviews`，描述和 CollectionPage JSON-LD 同步已有 8 个公开案例。
-- Sitemap 中该页 `lastmod` 改为 `2026-09-28`；后续验证线上 Title、JSON-LD 和 Sitemap，不把元数据上线当作搜索流量增长。
+- Sitemap 中该页 `lastmod` 改为 `2026-09-28`；顺序验证通过 `npm run build`、`npm run typecheck`、`npm run open:build`、`git diff --check`。提交 `bca3a68` 已推送，Cloudflare Worker `3d2d4a3b-9a69-4670-b45c-d7baa9b6b0fb` 已发布。
+- Googlebot 公网检查确认新 Title、CollectionPage JSON-LD 名称和 Sitemap `lastmod` 生效；不把元数据上线当作搜索流量增长。
 
 ## 2026-09-28 AI Audit 搜索片段增量
 

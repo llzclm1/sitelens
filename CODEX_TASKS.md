@@ -51,7 +51,8 @@
 
 - [x] 将 `/teardowns` 的泛化 Title 改为 `Website Teardowns: Public Homepage Reviews`，描述和 CollectionPage 名称同步现有 8 个公开案例。
 - [x] 将该列表页 Sitemap `lastModified` 改为 `2026-09-28`，不新增页面、不改变案例内容。
-- [ ] 完成测试、发布、线上 Title/JSON-LD/Sitemap 验收。
+- [x] 顺序通过 `npm run build`、`npm run typecheck`、`npm run open:build` 和 `git diff --check`；提交 `bca3a68` 已推送，发布 Cloudflare Worker `3d2d4a3b-9a69-4670-b45c-d7baa9b6b0fb`。
+- [x] 公网 Googlebot HTML 已确认新 Title、CollectionPage 名称和 Sitemap `lastmod: 2026-09-28`；Sitemap XML 可解析。
 
 ## 2026-09-28 AI Audit 搜索片段增量
 

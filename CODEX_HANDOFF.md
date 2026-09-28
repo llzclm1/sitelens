@@ -44,7 +44,8 @@
 ## 2026-09-28 Teardown 列表页搜索入口
 
 - 已将 `/teardowns` Title 改为 `Website Teardowns: Public Homepage Reviews`，描述和 CollectionPage 名称与现有 8 个公开案例一致；未新增薄页面。
-- 已将该页 Sitemap `lastModified` 改为 `2026-09-28`。当前待完成：测试、发布和线上元数据验收。
+- 已将该页 Sitemap `lastModified` 改为 `2026-09-28`；顺序验证通过 `npm run build`、`npm run typecheck`、`npm run open:build` 和 `git diff --check`。提交 `bca3a68` 已推送，Cloudflare Worker `3d2d4a3b-9a69-4670-b45c-d7baa9b6b0fb` 已发布。
+- Googlebot 公网 HTML 已确认新 Title、CollectionPage 名称和 Sitemap `lastmod: 2026-09-28`；Sitemap XML 可解析。
 - 该改动只优化已有搜索需求的承接，不代表已经获得点击、用户或转化。
 
 ## 2026-09-28 AI Audit 页面增量
