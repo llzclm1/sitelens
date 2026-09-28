@@ -1,5 +1,11 @@
 # SiteLens 任务状态
 
+## 2026-09-28 GSC 站点地图重提交
+
+- [x] 复核 GSC：`/sitemap.xml` 上次读取状态为“无法抓取”、已发现网页 0 个；公网 Googlebot 请求仍返回 HTTP 200、`application/xml` 且 XML 可解析。
+- [x] 在 GSC 重新提交 `/sitemap.xml`，界面返回“已成功提交站点地图”。
+- [ ] 等待 Google 异步处理并复核已发现网页、收录、展示和点击；不把提交成功当作用户增长。
+
 ## 2026-09-28 GEO 更新通知
 
 - [x] 主页 GEO/机器可读日期修复发布后，向 IndexNow 仅提交首页 URL 一次。

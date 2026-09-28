@@ -1,5 +1,10 @@
 # SiteLens 修改日志
 
+## 2026-09-28 GSC 站点地图重提交
+
+- GSC 当前状态显示 `/sitemap.xml` 上次读取为“无法抓取”、已发现网页 0 个；独立公网核验仍显示 Googlebot 可取到 HTTP 200 的 `application/xml`，且 XML 可解析。
+- 已在 GSC 重新提交 `/sitemap.xml`，界面返回“已成功提交站点地图”。仅记录搜索引擎处理请求，不把它计入收录、点击或 GA4 真人用户。
+
 ## 2026-09-28 GEO 更新通知
 
 - 主页机器可读新鲜度修复上线后，向 IndexNow 仅提交主页 URL 一次；API 返回 HTTP 200，key 文件返回 HTTP 200。

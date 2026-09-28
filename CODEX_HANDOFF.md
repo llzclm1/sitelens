@@ -1,5 +1,10 @@
 # Codex 交接说明
 
+## 2026-09-28 GSC 站点地图重提交
+
+- GSC 之前显示 `/sitemap.xml` “无法抓取 / 已发现 0 个网页”；公网 Googlebot 核验为 HTTP 200、`application/xml`，XML 解析正常。
+- 已通过 GSC 页面重新提交 `/sitemap.xml`，界面返回“已成功提交站点地图”。下一步等异步处理，再看发现、收录、展示、点击与 GA4 用户。
+
 ## 2026-09-28 GEO 更新通知
 
 - 主页 GEO 日期校正发布后，已向 IndexNow 重新通知 `https://sitelens.win/`；API 和 key 文件均返回 HTTP 200。
