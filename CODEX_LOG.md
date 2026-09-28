@@ -1,5 +1,14 @@
 # SiteLens 修改日志
 
+## 2026-09-28 增长数据与 GSC Sitemap 复核
+
+- GA4 SiteLens 属性读取到近 28 天：44 名活跃用户、45 名新用户、229 个事件；事件明细包含 `analysis_form_started` 4 次/1 人、`analyze_started` 2 次/1 人、`analyze_completed` 1 次/1 人、`qualified_session` 3 次/2 人、`report_viewed` 1 次/1 人和 `analyze_failed` 1 次/1 人。数据表明获客与首次激活均未形成规模。
+- GA4 管理页确认 `analyze_completed` 已为关键事件；本轮启用 `qualified_session`，保留 `report_viewed` 为普通事件。
+- Cloudflare HTTP 流量页显示近 30 天边缘独立访问者 1.64k、每日最高 170、最低 42；共享统计卡片显示上月 782 个被阻止或质询的恶意请求。该数据只用于边缘质量诊断，不进入真人用户口径。
+- 线上 `curl -A Googlebot` 验证 `/robots.txt` HTTP 200、允许公开页面且禁止 `/api/`；`/sitemap.xml` HTTP 200、`application/xml`、XML 通过 `xmllint` 解析。
+- GSC `/sitemap.xml` 重新提交成功，更新时间变为 2026-09-28；平台仍暂显示“无法读取此站点地图/已发现 0”，等待异步重读。URL Inspection 已确认 `/` 与 `/ai-website-audit` 收录。
+- 本轮没有改动产品代码、没有部署、没有发布外部平台内容；仅更新 GA4 关键事件配置、重新提交自有 Sitemap 并记录证据。
+
 ## 2026-09-22 取消收费，基础判断改为规则
 
 - 删除收费、Checkout、Waffo webhook、深度报告和外部模型运行路径；历史支付数据保留但不再参与当前产品流程。

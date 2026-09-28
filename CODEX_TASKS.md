@@ -1,5 +1,15 @@
 # SiteLens 任务状态
 
+## 2026-09-28 增长证据与 GSC 恢复
+
+- [x] 读取 GA4 SiteLens 属性：近 28 天 44 名活跃用户、229 个事件；`analyze_completed` 1 人，`qualified_session` 2 人。
+- [x] 将 `qualified_session` 加入 GA4 关键事件；不把 `report_viewed` 误作核心激活。
+- [x] 读取 Cloudflare：近 30 天边缘独立访问者 1.64k，另有 782 个被阻止或质询的恶意请求；不计入 GA4 真人用户。
+- [x] 线上用 Googlebot User-Agent 验证 `/robots.txt` 与 `/sitemap.xml` 均 HTTP 200，Sitemap XML 可解析。
+- [x] 在 GSC 重新提交 `/sitemap.xml`；提交成功，但平台尚未完成下一次读取，当前仍显示“无法抓取/已发现 0 个网页”。
+- [x] URL Inspection 确认首页与 `/ai-website-audit` 已收录。
+- [ ] 等待 GSC 异步复读 Sitemap，随后比较展示、查询、点击和 `organic_landing_view`；不把提交成功当作流量增长。
+
 ## 2026-09-22 免费规则版当前状态
 
 - [x] 移除收费入口、Checkout、支付确认和 Waffo webhook 运行路径；保留历史数据，不删除旧表。

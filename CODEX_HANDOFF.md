@@ -1,5 +1,13 @@
 # Codex 交接说明
 
+## 2026-09-28 增长与索引状态
+
+- 当前主口径仍是 GA4 去重活跃用户；Cloudflare 边缘独立访问者不计入真人用户。GA4 近 28 天为 44 人，完成分析 1 人，有效互动会话 2 人；当前距离 1,000 还差 956 人。
+- GA4 `analyze_completed` 已是关键事件，`qualified_session` 已在 SiteLens 属性中启用为关键事件；`report_viewed` 保持普通事件。
+- Cloudflare 近 30 天显示 1.64k 边缘独立访问者、782 个被阻止或质询的恶意请求；该差异说明边缘请求不能替代用户数。
+- GSC 的 `/sitemap.xml` 已于 2026-09-28 重新提交。线上 Googlebot 请求验证为 HTTP 200 且 XML 可解析，但 GSC 尚未完成重新读取，暂显示“无法抓取/0 个网页”。首页和 `/ai-website-audit` URL Inspection 已显示“网址已收录到 Google”。
+- 下一步：等待 GSC 异步处理，再按页面、查询和来源验证 SEO 增量；不新增虚假流量、不把 Cloudflare 请求或内部回归计入目标。
+
 ## 2026-09-22 取消收费与规则分析
 
 - 当前公共 Beta 完全免费：移除了收费 CTA、邮箱收集、Checkout、支付轮询、支付 API、Waffo webhook 和深度报告解锁接口；历史 D1 支付表与记录未删除，但不再被运行路径读取或写入。
