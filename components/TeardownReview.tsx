@@ -48,6 +48,7 @@ export function TeardownReview({ review }: { review: TeardownReviewData }) {
         <h1>{review.title}</h1>
         <p className="teardown-intro">We read the public {review.company} homepage on {review.reviewed}. This is a qualitative review, not a conversion test.</p>
         <div className="teardown-source"><span>Source: <a href={review.sourceUrl} target="_blank" rel="noreferrer">{new URL(review.sourceUrl).hostname}</a></span><span>Reviewed: {review.reviewed}</span></div>
+        <Link className="text-link" href={analyzeUrl}>Apply the same read to your site <span aria-hidden="true">↗</span></Link>
       </header>
 
       <section className="teardown-grid shell" aria-labelledby={`${review.slug}-read-title`}>

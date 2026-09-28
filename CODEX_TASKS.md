@@ -25,6 +25,12 @@
 - [x] 顺序通过 `npm run build`、`npm run typecheck`、`npm run open:build` 和 `git diff --check`；提交 `45e40f9` 已推送，发布 Cloudflare Worker `523397c2-9b49-45c8-9921-e456c5231898`。
 - [x] 公网 Googlebot HTML 验证三页各包含一个 `dateModified: 2026-09-28` 的页面级 JSON-LD；全局旧日期保持不动。
 
+## 2026-09-28 Teardown 激活入口前移
+
+- [x] 根据 GA4 近 7 天 Public Teardowns 为 15 次浏览量最高内容入口的证据，在 teardown 详情页首屏增加“Apply the same read to your site”链接。
+- [x] 复用现有 UTM、`cta_clicked` 追踪和分析表单，不增加新事件、不发布外部平台内容。
+- [ ] 完成测试、发布和线上页面验收，随后观察 teardown → 分析表单启动率。
+
 ## 2026-09-28 AI Audit 搜索片段增量
 
 - [x] 根据 GSC 已有 `ai website audit` / `website audit ai` 展示但 0 点击的证据，优化 `/ai-website-audit` 的标题、描述、首屏定位和 FAQ。

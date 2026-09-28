@@ -20,6 +20,12 @@
 - 已为近期实际更新的 AI Audit、B2B SaaS 和 Landing Page 页面增加可选 `dateModified` 配置；未更新的 SEO 页面继续使用原日期。
 - 已顺序通过 `npm run build`、`npm run typecheck`、`npm run open:build` 和 `git diff --check`；提交 `45e40f9` 已推送，Cloudflare Worker `523397c2-9b49-45c8-9921-e456c5231898` 已发布。
 - Googlebot 公网 HTML 已确认三页各含一个 `dateModified: 2026-09-28` 的页面级 JSON-LD；全局旧日期保留，避免把未更新页面伪装成新内容。
+
+## 2026-09-28 Teardown 激活入口前移
+
+- GA4 近 7 天显示 Public Teardowns 为 15 次浏览量最高的页面入口；已在 `components/TeardownReview.tsx` 首屏增加指向分析表单的 UTM CTA。
+- 复用既有 `cta_clicked` 和 `analysis_form_started` 事件，不把 CTA 点击当作活跃用户或完成分析。
+- 当前待完成：测试、Cloudflare 发布、公网验收，并观察 teardown 到分析表单的实际回流。
 - 该改动只优化已有搜索需求的承接，不代表已经获得点击、用户或转化。
 
 ## 2026-09-28 AI Audit 页面增量
