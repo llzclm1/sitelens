@@ -1,5 +1,13 @@
 # SiteLens 修改日志
 
+## 2026-09-28 漏斗流量质量分类
+
+- D1 `analytics_events` 新增 `traffic_class`：分析 API 新请求可标记为 `human_candidate`、`test` 或 `bot`；无法追溯的迁移前历史事件保持 `unknown`，不回填为真人。
+- `debug_mode=1` / `sitelens_test=1` 页面会把标记传到 `/api/analyze`；机器人 User-Agent 只做分类规则，不主动制造机器人请求；Cloudflare 边缘请求不写入 D1。
+- 远程迁移 `0004_analytics_traffic_class.sql` 已成功应用；Worker `7254e5d8-733d-4d5f-97d1-95083cb56284` 已发布。
+- 生产 QA 仅发送 1 次带 `sitelens_test=1` 的测试分析，D1 验证 `analyze_started` 和 `analyze_completed` 均为 `traffic_class=test`；这两条记录不进入真人候选漏斗。
+- `research/analytics-funnel.sql` 已扩展为按流量分类统计，并执行通过；GA4 去重活跃用户仍是 1,000 人目标的唯一主口径。
+
 ## 2026-09-28 首页内部链接与 GSC 配额
 
 - 根据 GSC 未发现页面缺少引荐来源的证据，在首页“Start with the question”入口增加 `/homepage-value-proposition-examples` 和 `/website-messaging-audit` 两个直接入口；保留既有页面结构，不批量新增内容。

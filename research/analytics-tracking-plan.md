@@ -16,6 +16,7 @@
 - 客户端上下文：自定义事件附带经过白名单过滤的 UTM、首个落地路径、搜索来源类别和 acquisition channel；不保存完整来源 URL
 - 隐私边界：不发送邮箱、完整 URL、报告 ID、支付凭证或卡信息
 - 服务端事实层：D1 `analytics_events` 记录分析和报告查看，不保存邮箱或完整 URL
+- 服务端质量分类：新的分析 API 事件写入 `traffic_class`（`human_candidate`、`test`、`bot`）；历史迁移前事件为 `unknown`，不回填为真人
 - 质量信号边界：`qualified_session` 只是“页面可见 + 有交互 + 约 15 秒”的方向性信号，不代表已确认的人类用户
 
 ## 漏斗事件
@@ -48,7 +49,8 @@
 5. 在报告页复制或原生分享，确认出现 `report_shared`，且不发送邮箱、完整 URL 或支付参数。
 6. 用一个不可访问的网站验证 `analyze_failed` 和 `status_code`。
 7. 在 Realtime 报告确认事件用户数与 DebugView 一致。
-8. 使用带 `?debug_mode=1` 的测试链接时，在 DebugView 验证事件参数；测试事件不得写入业务转化结论。
+8. 使用带 `?debug_mode=1` 或 `?sitelens_test=1` 的测试链接时，确认服务端事件 `traffic_class=test`；测试事件不得写入业务转化结论。
+9. 用明显的机器人 User-Agent 做只读 QA 请求，确认服务端事件分类为 `bot`，不把它算入真人候选漏斗。
 
 ## 解释边界
 
@@ -62,3 +64,4 @@
 - `qualified_session` 只在可见页面发生交互并持续约 15 秒后发送，帮助将 Cloudflare 的请求/独立访客数据与可观察的页面参与信号对照；它不是机器人识别，也不是唯一用户证明。
 - `organic_landing_view` 用于识别搜索或明确标记为 organic 的落地。当前只新增一个广泛意图页面 `/why-websites-dont-convert` 作为搜索需求实验，不批量生成同义页面。
 - 查询实验的成功标准是：出现非品牌查询、产生自然搜索落地、并至少有一部分落地访问进入 `analysis_form_started` 或 `analyze_started`，而不是只看收录数量。
+- `human_candidate` 只表示请求没有命中测试或机器人规则，不等于已确认真人；GA4 去重活跃用户仍是 1,000 人目标的主口径，Cloudflare 边缘请求不写入 D1 漏斗。

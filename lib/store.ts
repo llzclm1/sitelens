@@ -6,8 +6,10 @@ export type AnalyticsEventName =
   | "analyze_completed"
   | "analyze_failed"
   | "report_viewed";
+export type AnalyticsTrafficClass = "human_candidate" | "test" | "bot" | "unknown";
 type AnalyticsEvent = {
   eventName: AnalyticsEventName;
+  trafficClass?: AnalyticsTrafficClass;
   statusCode?: number;
   analysisMode?: FullReport["mode"];
   value?: number;
@@ -93,14 +95,14 @@ export async function getPublicReport(id: string) {
 }
 
 export async function recordAnalyticsEvent(input: Omit<AnalyticsEvent, "createdAt"> & { createdAt?: string }) {
-  const event = { ...input, createdAt: input.createdAt ?? new Date().toISOString() };
+  const event = { ...input, trafficClass: input.trafficClass ?? "unknown", createdAt: input.createdAt ?? new Date().toISOString() };
 
   try {
     const database = await getDatabase();
     if (database) {
       await database
-        .prepare("INSERT INTO analytics_events (event_name, status_code, analysis_mode, value, currency, created_at) VALUES (?, ?, ?, ?, ?, ?)")
-        .bind(event.eventName, event.statusCode ?? null, event.analysisMode ?? null, event.value ?? null, event.currency ?? null, event.createdAt)
+        .prepare("INSERT INTO analytics_events (event_name, traffic_class, status_code, analysis_mode, value, currency, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)")
+        .bind(event.eventName, event.trafficClass, event.statusCode ?? null, event.analysisMode ?? null, event.value ?? null, event.currency ?? null, event.createdAt)
         .run();
       return;
     }

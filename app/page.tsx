@@ -152,9 +152,13 @@ export default function HomePage() {
     requestController.current = controller;
     trackEvent("analyze_started");
     let statusCode = 0;
+    const currentUrl = new URL(window.location.href);
+    const isTestTraffic = currentUrl.searchParams.get("debug_mode") === "1" || currentUrl.searchParams.get("sitelens_test") === "1";
+    const analyzeEndpoint = new URL("/api/analyze", window.location.origin);
+    if (isTestTraffic) analyzeEndpoint.searchParams.set("sitelens_test", "1");
 
     try {
-      const response = await fetch("/api/analyze", {
+      const response = await fetch(analyzeEndpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url, product, audience }),

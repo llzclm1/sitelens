@@ -1,5 +1,12 @@
 # Codex 交接说明
 
+## 2026-09-28 漏斗质量分类
+
+- D1 `analytics_events` 已增加 `traffic_class`，新分析 API 请求区分 `human_candidate`、`test`、`bot`；历史迁移前事件为 `unknown`，不回填为真人。
+- 测试页面参数已传到分析 API；生产 QA 验证两条事件均为 `test`。没有用机器人 User-Agent 制造流量，Cloudflare 边缘请求仍独立于 D1 和 GA4。
+- 迁移 `0004_analytics_traffic_class.sql` 已应用，Worker `7254e5d8-733d-4d5f-97d1-95083cb56284` 已发布，按分类的漏斗 SQL 执行通过。
+- 后续重点是积累并观察真实 `human_candidate` 与 GA4 去重活跃用户；`human_candidate` 不是人类身份证明。
+
 ## 2026-09-28 首页内部链接增量
 
 - 首页新增两个问题导向入口：`/homepage-value-proposition-examples` 与 `/website-messaging-audit`，帮助用户和搜索引擎从首页发现此前未被 Google 识别的公开页面。

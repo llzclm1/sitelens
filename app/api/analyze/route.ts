@@ -3,6 +3,7 @@ import { analyzeWebsite } from "@/lib/analyzer";
 import { fetchWebsite, normalizeUrl } from "@/lib/fetch-website";
 import { readJsonBody, RequestError } from "@/lib/request";
 import { enforceRateLimit } from "@/lib/rate-limit";
+import { classifyAnalyticsRequest } from "@/lib/analytics-traffic";
 import { recordAnalyticsEvent, saveReport, toPublicReport } from "@/lib/store";
 
 export const runtime = "nodejs";
@@ -10,6 +11,8 @@ export const runtime = "nodejs";
 const QA_FIXTURE_HTML = `<!doctype html><html><head><title>Support docs for SaaS teams</title><meta name="description" content="Turn support tickets into searchable docs."></head><body><main><h1>Turn support tickets into searchable docs</h1><p>Make every answer easier to find for small SaaS teams.</p><a href="/signup">Start free</a><p>Trusted by customer teams.</p></main></body></html>`;
 
 export async function POST(request: Request) {
+  const trafficClass = classifyAnalyticsRequest(request);
+
   try {
     const rate = await enforceRateLimit(request, "analyze", 5);
     if (!rate.allowed) {
@@ -24,19 +27,19 @@ export async function POST(request: Request) {
     const product = (typeof body.product === "string" ? body.product.trim().slice(0, 300) : "") || "this product";
     const audience = (typeof body.audience === "string" ? body.audience.trim().slice(0, 200) : "") || "the intended customer";
 
-    await recordAnalyticsEvent({ eventName: "analyze_started" });
+    await recordAnalyticsEvent({ eventName: "analyze_started", trafficClass });
     const page = process.env.SITELENS_QA === "1"
       ? { finalUrl: url, html: QA_FIXTURE_HTML, securityHeaders: undefined }
       : await fetchWebsite(url);
     const report = await analyzeWebsite({ url: page.finalUrl, html: page.html, product, audience, securityHeaders: page.securityHeaders });
     await saveReport(report);
-    await recordAnalyticsEvent({ eventName: "analyze_completed", analysisMode: report.mode });
+    await recordAnalyticsEvent({ eventName: "analyze_completed", analysisMode: report.mode, trafficClass });
 
     return NextResponse.json(toPublicReport(report), { status: 201 });
   } catch (error) {
     const message = error instanceof Error ? error.message : "The page could not be analyzed.";
     const status = error instanceof RequestError ? error.status : 502;
-    await recordAnalyticsEvent({ eventName: "analyze_failed", statusCode: status });
+    await recordAnalyticsEvent({ eventName: "analyze_failed", statusCode: status, trafficClass });
     return NextResponse.json({ error: message }, { status });
   }
 }

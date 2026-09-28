@@ -1,5 +1,14 @@
 # SiteLens 任务状态
 
+## 2026-09-28 漏斗流量质量分类
+
+- [x] 新增 D1 `analytics_events.traffic_class`，历史迁移前事件保留 `unknown`。
+- [x] 将 `debug_mode=1` / `sitelens_test=1` 传递到分析 API，并按 User-Agent 分类机器人候选请求。
+- [x] 应用远程迁移 `0004_analytics_traffic_class.sql`，发布 Worker `7254e5d8-733d-4d5f-97d1-95083cb56284`。
+- [x] 用一次生产 QA 请求验证 `analyze_started` / `analyze_completed` 均写入 `traffic_class=test`；不计入真人增长。
+- [x] 扩展并执行 `research/analytics-funnel.sql`，支持分类漏斗和失败分布查询。
+- [ ] 等待新的真实请求积累 `human_candidate` 数据，并与 GA4 去重活跃用户交叉核对。
+
 ## 2026-09-28 首页内部链接增量
 
 - [x] 在首页问题导向入口增加 `/homepage-value-proposition-examples` 和 `/website-messaging-audit` 的直接链接。
