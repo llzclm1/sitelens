@@ -1,5 +1,12 @@
 # SiteLens 任务状态
 
+## 2026-09-28 GSC 高意图页面提交
+
+- [x] URL Inspection 确认 `/saas-website-analysis` 与 `/ai-website-audit-vs-seo-checker` 已收录，不重复提交。
+- [x] 确认 `/saas-homepage-audit`、`/homepage-value-proposition-examples`、`/website-messaging-audit` 是公开 Sitemap 页面但尚未被 Google 发现。
+- [x] 三个未发现页面均成功加入 GSC 优先抓取队列。
+- [ ] 等待异步收录、展示和点击回流；不把抓取请求计入真人用户。
+
 ## 2026-09-28 AI Audit 摘要优化
 
 - [x] 根据 GSC `/ai-website-audit` 28 天 23 次展示、0 次点击的证据，收紧 Title、Description、H1 和首段。

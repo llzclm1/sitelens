@@ -1,5 +1,11 @@
 # Codex 交接说明
 
+## 2026-09-28 GSC 高意图页面提交
+
+- 已确认 `/saas-website-analysis` 与 `/ai-website-audit-vs-seo-checker` 已收录。
+- `/saas-homepage-audit`、`/homepage-value-proposition-examples`、`/website-messaging-audit` 原本未被 Google 发现；三页均已通过 URL Inspection 成功加入优先抓取队列。
+- 下一步等待异步抓取，再比较这些页面的展示、CTR、GA4 活跃用户和 `analysis_form_started`；不要把“已请求编入索引”当作增长结果。
+
 ## 2026-09-28 AI Audit 摘要优化
 
 - GSC 28 天页面数据为 `/ai-website-audit` 23 次展示、0 次点击；已将页面标题、描述、H1 和首段改成更直接的免费规则型替代方案表达。
