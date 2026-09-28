@@ -50,7 +50,8 @@
 ## 2026-09-28 GA4 测试流量隔离
 
 - 复查 GA4 仍为 22 名近 7 天活跃用户、Organic Search 0、关键事件 0；修复生产测试参数隔离：`debug_mode=1` 或 `sitelens_test=1` 不发送 GA4，也不运行自定义追踪。
-- 后续验证：顺序测试、发布、用测试/正常 URL 检查线上脚本差异，并继续区分 GA4 真人、测试、机器人和 Cloudflare 边缘请求。
+- 顺序验证通过：`npm run build`、`npm run typecheck`、`npm run open:build`、`git diff --check`；提交 `16d4972` 已推送，Cloudflare Worker `a9194a03-cf2d-47bc-a272-716148a530a8` 已发布。
+- 线上正常/测试 URL 均含生产 GA4 配置与 `ga-disable` 开关；记录为静态配置证据，不把它当作网络发送或真人排除的最终证明。
 
 ## 2026-09-28 AI Audit 搜索片段增量
 

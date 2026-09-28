@@ -58,7 +58,8 @@
 
 - [x] 生产页面带 `debug_mode=1` 或 `sitelens_test=1` 时禁用 GA4 配置，并让 `SiteAnalytics` 跳过所有自定义事件。
 - [x] 保留正常访问、UTM 归因和 GA4 去重活跃用户口径不变；不把测试、机器人或 Cloudflare 边缘请求当作真人。
-- [ ] 完成测试、发布和线上验证测试参数不发送 GA4。
+- [x] 顺序通过 `npm run build`、`npm run typecheck`、`npm run open:build` 和 `git diff --check`；提交 `16d4972` 已推送，发布 Cloudflare Worker `a9194a03-cf2d-47bc-a272-716148a530a8`。
+- [x] 线上正常页与测试页均返回生产 GA4 配置和 `ga-disable` 参数开关；不把静态脚本存在误报成已发送/已排除，最终以 GA4 数据验证。
 
 ## 2026-09-28 AI Audit 搜索片段增量
 

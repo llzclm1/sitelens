@@ -50,7 +50,8 @@
 ## 2026-09-28 GA4 测试流量隔离
 
 - 已让生产页面在 `debug_mode=1` 或 `sitelens_test=1` 下禁用 GA4 配置，并让 `SiteAnalytics` 跳过自定义事件，避免内部回归污染真人用户口径。
-- 当前待完成：构建、发布，并在线检查测试 URL 不向 GA4 发送数据，而正常 URL 保持 GA4。
+- 已顺序通过 `npm run build`、`npm run typecheck`、`npm run open:build` 和 `git diff --check`；提交 `16d4972` 已推送，Cloudflare Worker `a9194a03-cf2d-47bc-a272-716148a530a8` 已发布。
+- 线上正常页与测试页均含生产 GA4 配置和 `ga-disable` 开关；静态验收不等同于网络发送证据，后续继续以 GA4 数据验证。
 - 该改动只优化已有搜索需求的承接，不代表已经获得点击、用户或转化。
 
 ## 2026-09-28 AI Audit 页面增量
