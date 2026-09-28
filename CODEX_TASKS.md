@@ -387,6 +387,7 @@ Phase 0 可运行原型：验证“免费规则报告 → 分析完成、分享�
 - [x] 查询近 30 天 D1 服务端失败分布：当前 1 次 `analyze_failed` 为 400，未发现 504 超时；继续积累真实流量后再判断是否需要优化抓取时限
 - [x] 发布 AI SEO 更新到 Cloudflare
 - [x] 在 Search Console 重新提交 sitemap，并等待新页面抓取
+- [x] 在 GSC URL Inspection 确认 `/teardowns` 已收录并提交更新后的重新抓取请求
 - [ ] 用 10–20 个目标查询记录 Google AI、ChatGPT、Perplexity、Gemini 的品牌/页面引用基线
 - [x] 执行 `research/analytics-funnel.sql` 并建立首个 30 天服务端漏斗基线：1 次分析开始、1 次完成、1 次报告查看、1 次 400 失败，暂无 Checkout/付款事件
 - [ ] 根据真实查询结果补充一个有独立证据的主题内容集群，不批量生成薄页面

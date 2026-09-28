@@ -1,5 +1,11 @@
 # SiteLens 修改日志
 
+## 2026-09-28 GSC Teardown 更新抓取
+
+- GSC URL Inspection 确认 `https://sitelens.win/teardowns` 已收录，可显示在 Google 搜索结果中。
+- 页面更新后的“请求编入索引”操作已完成；GSC 明确提示网址已加入优先抓取队列。
+- 该结果只证明收录与抓取请求，不证明排名、点击、真人活跃用户或 GA4 漏斗增长；继续以 GA4 去重活跃用户为唯一主口径。
+
 ## 2026-09-28 增长数据与 GSC Sitemap 复核
 
 - GA4 SiteLens 属性读取到近 28 天：44 名活跃用户、45 名新用户、229 个事件；事件明细包含 `analysis_form_started` 4 次/1 人、`analyze_started` 2 次/1 人、`analyze_completed` 1 次/1 人、`qualified_session` 3 次/2 人、`report_viewed` 1 次/1 人和 `analyze_failed` 1 次/1 人。数据表明获客与首次激活均未形成规模。

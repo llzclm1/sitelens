@@ -1,5 +1,11 @@
 # Codex 交接说明
 
+## 2026-09-28 GSC Teardown 抓取结果
+
+- GSC URL Inspection 已确认 `/teardowns` “网址已收录到 Google”。
+- 页面更新后的重新抓取请求已成功提交，GSC 显示“已将网址添加到优先抓取队列中”。
+- 这不是流量或用户增长证据；下一步仍需等待 GSC 展示/点击回流，并在 GA4 中观察真实活跃用户与 `analysis_form_started`、`analyze_completed`。
+
 ## 2026-09-28 增长与索引状态
 
 - 当前主口径仍是 GA4 去重活跃用户；Cloudflare 边缘独立访问者不计入真人用户。GA4 近 28 天为 44 人，完成分析 1 人，有效互动会话 2 人；当前距离 1,000 还差 956 人。
