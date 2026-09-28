@@ -1,5 +1,12 @@
 # SiteLens 修改日志
 
+## 2026-09-28 GEO 机器可读内容新鲜度
+
+- 发现主页内容与 Sitemap 已是 `2026-09-28`，但全局 WebPage JSON-LD 和两份公开机器可读说明仍标记 `2026-09-15`。
+- 仅同步真实更新日期：`app/layout.tsx` 的 `dateModified`、`public/llms.txt` 与 `public/llms-full.txt` 的 `Last reviewed` 均改为 `2026-09-28`。
+- 没有新增页面、外部发帖、广告或虚假流量；后续只把公网核验和 GSC/GA4 回流作为效果证据。
+- 已顺序通过 `npm run typecheck`、`npm run build`、`npm run open:build` 和 `git diff --check`。
+
 ## 2026-09-28 报告分享短句增量
 
 - 报告页分享文案从“分数 + 链接”扩展为“分数 + 首个具体修复建议 + 证据链接”，让真实用户转发时能直接说明为什么值得打开。

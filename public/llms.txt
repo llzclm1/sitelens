@@ -2,7 +2,7 @@
 
 > SiteLens is an evidence-based website review for founders and small teams. It reads a public homepage, explains the first clarity, trust, or conversion problem worth fixing, and suggests a concrete next move.
 
-Last reviewed: 2026-09-15
+Last reviewed: 2026-09-28
 
 ## What SiteLens does
 

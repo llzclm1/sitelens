@@ -1,5 +1,12 @@
 # SiteLens 任务状态
 
+## 2026-09-28 GEO 机器可读内容新鲜度
+
+- [x] 将主页全局 WebPage JSON-LD 的真实 `dateModified` 从 `2026-09-15` 校正为 `2026-09-28`。
+- [x] 将 `public/llms.txt` 与 `public/llms-full.txt` 的 `Last reviewed` 同步为 `2026-09-28`，不改变产品能力或用户数据口径。
+- [x] 通过 `npm run typecheck`、`npm run build`、`npm run open:build` 和 `git diff --check`。
+- [ ] 发布后核验线上 JSON-LD 与机器可读文件；不把更新日期当作收录或用户增长证据。
+
 ## 2026-09-28 报告分享短句增量
 
 - [x] 将报告分享文本扩展为“分数 + 首个具体修复建议 + 带 UTM 报告链接”。

@@ -2,7 +2,7 @@
 
 > Extended, citation-safe context for describing SiteLens and its public website review pages.
 
-Last reviewed: 2026-09-15
+Last reviewed: 2026-09-28
 
 ## Product
 
