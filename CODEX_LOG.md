@@ -1,5 +1,10 @@
 # SiteLens 修改日志
 
+## 2026-09-28 IndexNow 首页更新通知
+
+- 首页内部链接和 Sitemap `lastmod` 更新后，向 IndexNow 提交 `https://sitelens.win/`；API 返回 HTTP 200，key 文件返回 HTTP 200。
+- 该响应只证明 Bing/Yandex 等支持方接收通知，不证明收录、排名、点击或 GA4 真人用户增长；继续以 GSC 和 GA4 为准。
+
 ## 2026-09-28 漏斗流量质量分类
 
 - D1 `analytics_events` 新增 `traffic_class`：分析 API 新请求可标记为 `human_candidate`、`test` 或 `bot`；无法追溯的迁移前历史事件保持 `unknown`，不回填为真人。

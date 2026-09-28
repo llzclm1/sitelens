@@ -1,5 +1,10 @@
 # Codex 交接说明
 
+## 2026-09-28 IndexNow 通知
+
+- 首页内部链接更新后已向 IndexNow 提交首页 URL；API 和 key 文件均返回 HTTP 200。
+- 这只是搜索引擎更新通知，不是收录或流量证据；下一步仍看 GSC 展示/点击和 GA4 去重活跃用户。
+
 ## 2026-09-28 漏斗质量分类
 
 - D1 `analytics_events` 已增加 `traffic_class`，新分析 API 请求区分 `human_candidate`、`test`、`bot`；历史迁移前事件为 `unknown`，不回填为真人。

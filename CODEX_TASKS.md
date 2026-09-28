@@ -1,5 +1,11 @@
 # SiteLens 任务状态
 
+## 2026-09-28 IndexNow 首页通知
+
+- [x] 首页内部链接更新后提交 IndexNow 首页 URL。
+- [x] IndexNow API 返回 HTTP 200，key 文件返回 HTTP 200。
+- [ ] 等待搜索引擎异步收录和点击回流；不把通知接收计入真人用户。
+
 ## 2026-09-28 漏斗流量质量分类
 
 - [x] 新增 D1 `analytics_events.traffic_class`，历史迁移前事件保留 `unknown`。
