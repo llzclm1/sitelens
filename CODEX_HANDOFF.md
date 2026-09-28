@@ -32,7 +32,8 @@
 ## 2026-09-28 Sitemap 更新时间校正
 
 - 检查发现三页近期内容已更新，但 Sitemap 仍使用旧的 `2026-09-15`；已仅将 AI Audit、Landing Page Review 和 B2B SaaS 页面改为 `2026-09-28`。
-- 当前待完成：测试、线上 Sitemap 验收，并向 IndexNow 通知这三个已变更 URL；不把通知接收当作收录或用户增长。
+- 已顺序通过 `npm run build`、`npm run typecheck`、`npm run open:build` 和 `git diff --check`；提交 `f922556` 已推送，Cloudflare Worker `bcdacb2a-5a46-4240-b319-f42aac5913d4` 已发布。
+- 线上 Googlebot Sitemap XML 可解析，三页 `lastmod` 均为 `2026-09-28`；IndexNow key 返回 200，三个 URL 通知返回 HTTP 200。后续只等待异步抓取、收录和数据回流。
 - 该改动只优化已有搜索需求的承接，不代表已经获得点击、用户或转化。
 
 ## 2026-09-28 AI Audit 页面增量
