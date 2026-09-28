@@ -9,6 +9,12 @@
 - GSC `/sitemap.xml` 重新提交成功，更新时间变为 2026-09-28；平台仍暂显示“无法读取此站点地图/已发现 0”，等待异步重读。URL Inspection 已确认 `/` 与 `/ai-website-audit` 收录。
 - 本轮没有改动产品代码、没有部署、没有发布外部平台内容；仅更新 GA4 关键事件配置、重新提交自有 Sitemap 并记录证据。
 
+## 2026-09-28 AI Audit 搜索片段增量
+
+- 根据 GSC 28 天查询中 `ai website audit` 与 `website audit ai` 有展示但 0 点击，更新 `app/ai-website-audit/page.tsx` 的 Title、Description、H1、首段和 FAQ。
+- 文案采用“AI audit alternative”定位，明确产品是规则型、可核对证据的替代方案，不把 SiteLens 描述为 AI 审计工具。
+- 验证通过：`npm run typecheck`、`npm run build`、`npm run open:build`、`git diff --check`；尚未推送或部署。
+
 ## 2026-09-22 取消收费，基础判断改为规则
 
 - 删除收费、Checkout、Waffo webhook、深度报告和外部模型运行路径；历史支付数据保留但不再参与当前产品流程。

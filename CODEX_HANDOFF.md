@@ -8,6 +8,12 @@
 - GSC 的 `/sitemap.xml` 已于 2026-09-28 重新提交。线上 Googlebot 请求验证为 HTTP 200 且 XML 可解析，但 GSC 尚未完成重新读取，暂显示“无法抓取/0 个网页”。首页和 `/ai-website-audit` URL Inspection 已显示“网址已收录到 Google”。
 - 下一步：等待 GSC 异步处理，再按页面、查询和来源验证 SEO 增量；不新增虚假流量、不把 Cloudflare 请求或内部回归计入目标。
 
+## 2026-09-28 AI Audit 页面增量
+
+- 已修改 `app/ai-website-audit/page.tsx`：标题和首屏改为“AI Website Audit Alternative”，增加透明规则审计 FAQ；保持 SiteLens 不冒充 AI 产品。
+- 本地验证已通过：`npm run typecheck`、`npm run build`、`npm run open:build`、`git diff --check`。
+- 当前待完成：提交 GitHub、发布 Cloudflare，并线上读取页面标题/描述后再等待 GSC CTR 数据回流。
+
 ## 2026-09-22 取消收费与规则分析
 
 - 当前公共 Beta 完全免费：移除了收费 CTA、邮箱收集、Checkout、支付轮询、支付 API、Waffo webhook 和深度报告解锁接口；历史 D1 支付表与记录未删除，但不再被运行路径读取或写入。

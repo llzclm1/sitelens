@@ -10,6 +10,13 @@
 - [x] URL Inspection 确认首页与 `/ai-website-audit` 已收录。
 - [ ] 等待 GSC 异步复读 Sitemap，随后比较展示、查询、点击和 `organic_landing_view`；不把提交成功当作流量增长。
 
+## 2026-09-28 AI Audit 搜索片段增量
+
+- [x] 根据 GSC 已有 `ai website audit` / `website audit ai` 展示但 0 点击的证据，优化 `/ai-website-audit` 的标题、描述、首屏定位和 FAQ。
+- [x] 明确 SiteLens 是透明的规则型替代方案，不宣称自身是 AI 审计工具。
+- [x] 通过 `npm run typecheck`、`npm run build`、`npm run open:build` 和 `git diff --check`。
+- [ ] 推送并发布后复核线上 HTML、GSC 展示/CTR 和分析开始率。
+
 ## 2026-09-22 免费规则版当前状态
 
 - [x] 移除收费入口、Checkout、支付确认和 Waffo webhook 运行路径；保留历史数据，不删除旧表。
