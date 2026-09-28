@@ -15,7 +15,8 @@
 - [x] 根据 GSC 已有 `ai website audit` / `website audit ai` 展示但 0 点击的证据，优化 `/ai-website-audit` 的标题、描述、首屏定位和 FAQ。
 - [x] 明确 SiteLens 是透明的规则型替代方案，不宣称自身是 AI 审计工具。
 - [x] 通过 `npm run typecheck`、`npm run build`、`npm run open:build` 和 `git diff --check`。
-- [ ] 推送并发布后复核线上 HTML、GSC 展示/CTR 和分析开始率。
+- [x] 推送提交 `309efe2`，发布 Cloudflare Worker `7c2c3cd0-e6ed-43da-8003-9bcb8f72899b`，线上 HTML 已返回新标题、描述和 H1；线上 Googlebot Sitemap 仍 HTTP 200 且 XML 可解析。
+- [ ] 等待新页面进入下一轮 GSC 展示，比较 CTR 和 `analysis_form_started` / `analyze_completed`。
 
 ## 2026-09-22 免费规则版当前状态
 

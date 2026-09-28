@@ -12,7 +12,8 @@
 
 - 已修改 `app/ai-website-audit/page.tsx`：标题和首屏改为“AI Website Audit Alternative”，增加透明规则审计 FAQ；保持 SiteLens 不冒充 AI 产品。
 - 本地验证已通过：`npm run typecheck`、`npm run build`、`npm run open:build`、`git diff --check`。
-- 当前待完成：提交 GitHub、发布 Cloudflare，并线上读取页面标题/描述后再等待 GSC CTR 数据回流。
+- 已提交 GitHub `309efe2` 并发布 Cloudflare Worker `7c2c3cd0-e6ed-43da-8003-9bcb8f72899b`；线上 `/ai-website-audit` 已返回新 Title、Description、H1，Googlebot 访问 `/sitemap.xml` 仍为 HTTP 200 且 XML 可解析。
+- 当前待完成：等待新页面进入下一轮 GSC 展示，比较 CTR 与分析漏斗事件；部署和收录不等于已经获得用户。
 
 ## 2026-09-22 取消收费与规则分析
 

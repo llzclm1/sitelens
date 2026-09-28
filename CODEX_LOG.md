@@ -13,7 +13,8 @@
 
 - 根据 GSC 28 天查询中 `ai website audit` 与 `website audit ai` 有展示但 0 点击，更新 `app/ai-website-audit/page.tsx` 的 Title、Description、H1、首段和 FAQ。
 - 文案采用“AI audit alternative”定位，明确产品是规则型、可核对证据的替代方案，不把 SiteLens 描述为 AI 审计工具。
-- 验证通过：`npm run typecheck`、`npm run build`、`npm run open:build`、`git diff --check`；尚未推送或部署。
+- 验证通过：`npm run typecheck`、`npm run build`、`npm run open:build`、`git diff --check`；GitHub 提交 `309efe2` 已推送，Cloudflare Worker `7c2c3cd0-e6ed-43da-8003-9bcb8f72899b` 已发布。
+- 公网验收：`/ai-website-audit` 返回新 Title、Description、H1；Googlebot 访问 `/sitemap.xml` 返回 HTTP 200，`xmllint` 解析通过。GSC CTR 和真实用户仍待异步数据回流。
 
 ## 2026-09-22 取消收费，基础判断改为规则
 
