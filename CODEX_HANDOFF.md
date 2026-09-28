@@ -8,6 +8,12 @@
 - GSC 的 `/sitemap.xml` 已于 2026-09-28 重新提交。线上 Googlebot 请求验证为 HTTP 200 且 XML 可解析，但 GSC 尚未完成重新读取，暂显示“无法抓取/0 个网页”。首页和 `/ai-website-audit` URL Inspection 已显示“网址已收录到 Google”。
 - 下一步：等待 GSC 异步处理，再按页面、查询和来源验证 SEO 增量；不新增虚假流量、不把 Cloudflare 请求或内部回归计入目标。
 
+## 2026-09-28 Landing Page 搜索片段增量
+
+- 已根据 GSC 已有 `landing pages don't convert` 展示，更新 `app/landing-page-review/page.tsx` 的 Title、Description、H1、短答案和 FAQ；保留原页面结构、内链和证据边界。
+- 当前待完成：顺序构建、类型检查、OpenNext 构建、推送、Cloudflare 发布、公网验收，以及 GSC 优先抓取请求。
+- 该改动只优化已有搜索需求的承接，不代表已经获得点击、用户或转化。
+
 ## 2026-09-28 AI Audit 页面增量
 
 - 已修改 `app/ai-website-audit/page.tsx`：标题和首屏改为“AI Website Audit Alternative”，增加透明规则审计 FAQ；保持 SiteLens 不冒充 AI 产品。

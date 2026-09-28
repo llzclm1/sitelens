@@ -10,6 +10,13 @@
 - [x] URL Inspection 确认首页与 `/ai-website-audit` 已收录。
 - [ ] 等待 GSC 异步复读 Sitemap，随后比较展示、查询、点击和 `organic_landing_view`；不把提交成功当作流量增长。
 
+## 2026-09-28 Landing Page 搜索片段增量
+
+- [x] 根据 GSC 已有 `landing pages don't convert` 展示，优化既有 `/landing-page-review` 的 Title、Description、H1、短答案和 FAQ。
+- [x] 保持原页面结构和内部链接，不新增薄内容页；明确公开页面分析不能证明转化原因或提升。
+- [ ] 顺序完成构建、类型检查、OpenNext 构建、线上发布和公网 HTML 验收。
+- [ ] GSC URL Inspection 请求重新编入索引，并等待展示、CTR 与 `analysis_form_started` 回流。
+
 ## 2026-09-28 AI Audit 搜索片段增量
 
 - [x] 根据 GSC 已有 `ai website audit` / `website audit ai` 展示但 0 点击的证据，优化 `/ai-website-audit` 的标题、描述、首屏定位和 FAQ。

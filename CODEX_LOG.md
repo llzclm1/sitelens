@@ -9,6 +9,12 @@
 - GSC `/sitemap.xml` 重新提交成功，更新时间变为 2026-09-28；平台仍暂显示“无法读取此站点地图/已发现 0”，等待异步重读。URL Inspection 已确认 `/` 与 `/ai-website-audit` 收录。
 - 本轮没有改动产品代码、没有部署、没有发布外部平台内容；仅更新 GA4 关键事件配置、重新提交自有 Sitemap 并记录证据。
 
+## 2026-09-28 Landing Page 搜索片段增量
+
+- 根据 GSC 已有 `landing pages don't convert` 展示，更新 `app/landing-page-review/page.tsx` 的 Title、Description、H1、短答案和 FAQ。
+- 继续使用证据优先口径：页面说明可能的可见摩擦，不宣称公开审查能够证明转化原因或带来提升；没有新增薄内容页或外部平台发布。
+- 后续验证：顺序执行测试，发布到 Cloudflare，确认线上 HTML，再向 GSC 请求重新编入索引。
+
 ## 2026-09-28 AI Audit 搜索片段增量
 
 - 根据 GSC 28 天查询中 `ai website audit` 与 `website audit ai` 有展示但 0 点击，更新 `app/ai-website-audit/page.tsx` 的 Title、Description、H1、首段和 FAQ。
