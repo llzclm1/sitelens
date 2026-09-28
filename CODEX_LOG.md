@@ -1,5 +1,11 @@
 # SiteLens 修改日志
 
+## 2026-09-28 报告分享短句增量
+
+- 报告页分享文案从“分数 + 链接”扩展为“分数 + 首个具体修复建议 + 证据链接”，让真实用户转发时能直接说明为什么值得打开。
+- 不自动发送、不发布平台内容；仍由用户主动点击系统分享或复制短句，保留 `utm_source=share` 归因。
+- 顺序验证通过 `npm run typecheck`、`npm run build`、`npm run open:build` 和 `git diff --check`；线上报告页 HTTP 200，Worker `8adb3982-79b7-4f7d-96a0-4857987f2336` 已发布。
+
 ## 2026-09-28 客户端测试埋点隔离收口
 
 - 发现首页提交函数会直接调用 `trackEvent`；虽然 `ga-disable` 会阻断 GA4，但事件仍可能先进入 `dataLayer`。

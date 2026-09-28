@@ -1,5 +1,12 @@
 # SiteLens 任务状态
 
+## 2026-09-28 报告分享短句增量
+
+- [x] 将报告分享文本扩展为“分数 + 首个具体修复建议 + 带 UTM 报告链接”。
+- [x] 通过 `npm run typecheck`、`npm run build`、`npm run open:build` 和 `git diff --check`，线上报告页 HTTP 200。
+- [x] 发布 Worker `8adb3982-79b7-4f7d-96a0-4857987f2336`。
+- [ ] 等待真实用户主动分享，比较 `report_shared` 和 `report_recipient_cta` 的 GA4 回流。
+
 ## 2026-09-28 客户端测试埋点隔离
 
 - [x] 让 `trackEvent` 在 `debug_mode=1` / `sitelens_test=1` 下直接跳过，不再写入客户端 `dataLayer`。

@@ -63,9 +63,13 @@ export default function ReportClient({ report }: { report: PublicReport }) {
 
   async function shareReport() {
     const shareUrl = `${window.location.origin}/report/${encodeURIComponent(report.id)}?utm_source=share&utm_medium=referral&utm_campaign=report_share`;
+    const firstFix = report.issues[0]?.firstFix?.trim();
+    const shareText = firstFix
+      ? `SiteLens reviewed ${report.host}: ${report.score}/100. First fix: ${firstFix.slice(0, 180)}`
+      : `SiteLens reviewed ${report.host}: ${report.score}/100.`;
     const shareData = {
       title: `${report.host} website review | SiteLens`,
-      text: `SiteLens found a ${report.score}/100 website review for ${report.host}.`,
+      text: shareText,
       url: shareUrl,
     };
 
